@@ -8,5 +8,11 @@ public class Employe extends Compte {
 		super(id, login, password, prenom, nom);
 		this.sal = sal;	
 	}
+
+	@Override
+	public String toString() {
+		return "Employe [sal=" + sal + ", id=" + id + ", login=" + login + ", password=" + password + ", prenom="
+				+ prenom + ", nom=" + nom + "]";
+	}
 	
 }
