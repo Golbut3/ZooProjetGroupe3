@@ -1,7 +1,27 @@
 package model;
 
+import java.util.List;
+
 public class Interet {
 	
-	//Trouver comment prendre en compte l'interet du client : Classement de ses 5 animaux à voir ? Classement de ses 5 enclos à voir ?
+	private List<Enclos> enclos;
+
+	public Interet(List<Enclos> enclos) {
+		this.enclos = enclos;
+	}
+
+	public List<Enclos> getEnclos() {
+		return enclos;
+	}
+
+	public void setEnclos(List<Enclos> enclos) {
+		this.enclos = enclos;
+	}
+
+	@Override
+	public String toString() {
+		return "Interet [enclos=" + enclos + "]";
+	}
+	
 
 }
