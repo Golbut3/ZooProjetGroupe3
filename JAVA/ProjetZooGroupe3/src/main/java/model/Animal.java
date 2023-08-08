@@ -7,11 +7,11 @@ public class Animal {
 	private Integer id;
 	
 	
-	public Animal(String nom, double poids, Espece espece, Integer id ) {
-		this.id = id;	
+	public Animal(Integer id, Espece espece, String nom, double poids) {
+		this.id = id;
+		this.espece = espece;
 		this.nom = nom;
 		this.poids = poids;
-		this.espece = espece;
 	}
 
 	public String getNom() {
