@@ -2,7 +2,7 @@
 <html lang="fr" dir="ltr">
 <head>
   <meta charset="utf-8">
-  <title>Index</title>
+  <title>Inscription</title>
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,23 +32,39 @@
   </header>
 
   <main>
-    <section class="connexion">
-      <div class="titleConnexion">
-        Connexion
+    <section class="inscription">
+      <div class="titleInscription">
+        Inscription
       </div>
       <table>
-        <form class="formConnexion" action="index.html" method="post">
+        <form class="formInscription" action="inscription.html" method="post">
+          <tr>
+            <td>Prenom :</td>
+            <td>  <input type="text" name="prenom" value="" placeholder="Saisir votre prenom"></td>
+          </tr>
+          <tr>
+            <td>Nom :</td>
+            <td>  <input type="text" name="nom" value="" placeholder="Saisir votre nom"></td>
+          </tr>
+          <tr>
+            <td>Email :</td>
+            <td>  <input type="email" name="email" value="" placeholder="Saisir votre email"></td>
+          </tr>
+          <tr>
+            <td>Telephonne :</td>
+            <td>  <input type="tel" name="telephone" value="" placeholder="Saisir votre téléphone"></td>
+          </tr>
           <tr>
             <td>Identifiant :</td>
-            <td>  <input type="text" name="login" value="" placeholder="Saisir votre identifiant"></td>
+            <td>  <input type="text" name="login" value="" placeholder="Choisir votre identifiant"></td>
           </tr>
           <tr>
             <td>Mot de passe :</td>
             <td>  <input type="password" name="password" value="" placeholder="Saisir votre mot de passe"></td>
           </tr>
           <tr>
-            <td><button type="submit" name="valider">Valider</button></td>
-            <td><a href="inscription.html"class="buttonInscription">Inscription</a></td>
+            <td><button type="submit" name="inscrire">S'inscrire</button></td>
+            <td><a href="index.html"class="buttonRetour">Retour à l'index</a></td>
           </tr>
         </form>
       </table>
@@ -56,6 +72,7 @@
         <a href="#">Mot de passe oublié ?</a>
       </div>
     </section>
+
   </main>
   <footer>
     <ul class="listeFooter">

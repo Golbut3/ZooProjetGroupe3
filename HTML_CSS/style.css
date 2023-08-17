@@ -115,7 +115,20 @@ main{
   height:250px;
   justify-content:space-around;
   align-items: center;
-
+}
+.inscription{
+  font-family: Knewave, sans-serif;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color:#D49720D1;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 80px;
+  width:450px;
+  height:450px;
+  justify-content:space-around;
+  align-items: center;
 }
 button {
   cursor: pointer;
@@ -136,7 +149,7 @@ button:focus {
   background-color: grey;
 }
 
-.inscription{
+.buttonInscription, .buttonRetour{
   display: block;
   border-radius: 30px;
   padding:5px;
