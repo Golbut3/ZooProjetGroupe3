@@ -10,7 +10,7 @@ public class Foret extends Enclos{
 
 	public Foret() {
 	}
-	public Foret(int capacite, ) {
+	public Foret(int capacite) {
 		super(capacite);
 		
 	}

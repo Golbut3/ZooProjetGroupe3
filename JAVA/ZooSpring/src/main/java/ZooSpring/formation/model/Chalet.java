@@ -10,16 +10,12 @@ public class Chalet extends Logement{
 
 	public Chalet() {}
 	
-	public Chalet( int nbPlace, double prix, String numero, String description, Enclos enclos) {
+	public Chalet(int nbPlace, double prix, String numero, String description, Enclos enclos) {
 		super(nbPlace, prix, numero, description);
 		this.enclos=enclos;
 		
 	}
-	public Chalet(Integer id, int nbPlace, double prix, String numero, String description, Enclos enclos) {
-		super(id, nbPlace, prix, numero, description);
-		this.enclos=enclos;
-		
-	}
+	
 
 	public Enclos getEnclos() {
 		return enclos;

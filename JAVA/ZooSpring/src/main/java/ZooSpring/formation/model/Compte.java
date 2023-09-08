@@ -28,6 +28,13 @@ public abstract class Compte  {
 		
 	public Compte() {};
 
+	public Compte(String login, String password, String prenom, String nom) {
+
+		this.login = login;
+		this.password = password;
+		this.prenom = prenom;
+		this.nom = nom;
+	}
 	public Compte(Integer id, String login, String password, String prenom, String nom) {
 
 		this.id = id;

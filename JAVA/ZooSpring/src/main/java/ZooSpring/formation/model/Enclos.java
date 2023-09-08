@@ -29,6 +29,9 @@ public abstract class Enclos {
 	protected List<Animal> Animals;
 
 	public Enclos() {}
+	public Enclos(int capacite) {
+		this.capacite = capacite;
+	}
 	public Enclos(Integer id, int capacite) {
 		this.id = id;
 		this.capacite = capacite;
