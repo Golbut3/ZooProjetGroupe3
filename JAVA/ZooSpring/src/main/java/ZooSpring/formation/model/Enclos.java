@@ -28,11 +28,13 @@ public abstract class Enclos {
 	@Transient
 	protected List<Animal> Animals;
 
-	public Enclos(Integer id, int capacite, List<Animal> animals) {
+	public Enclos() {}
+	public Enclos(Integer id, int capacite) {
 		this.id = id;
 		this.capacite = capacite;
-		Animals = animals;
 	}
+
+	
 
 	public Integer getId() {
 		return id;

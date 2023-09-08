@@ -18,6 +18,11 @@ public class Espece {
 	
 	@Version
 	protected int version;
+	
+	public Espece() {}
+	public Espece(String nom) {
+		this.nom = nom;
+	}
 	public Espece(Integer id, String nom) {
 		this.id = id;
 		this.nom = nom;

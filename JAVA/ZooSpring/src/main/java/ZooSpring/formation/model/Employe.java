@@ -10,6 +10,13 @@ public class Employe extends Compte {
 	@Transient
 	private Poste poste;
 
+	public Employe() {}
+	
+	public Employe(String login, String password, String prenom, String nom, double sal, Poste poste) {
+		super(login, password, prenom, nom);
+		this.sal = sal;	
+		this.poste=poste;
+	}
 	public Employe(Integer id, String login, String password, String prenom, String nom, double sal, Poste poste) {
 		super(id, login, password, prenom, nom);
 		this.sal = sal;	

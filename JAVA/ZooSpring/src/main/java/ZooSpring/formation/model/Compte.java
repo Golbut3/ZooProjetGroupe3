@@ -25,7 +25,9 @@ public abstract class Compte  {
 
 	@Version
 	protected int version;
-	
+		
+	public Compte() {};
+
 	public Compte(Integer id, String login, String password, String prenom, String nom) {
 
 		this.id = id;

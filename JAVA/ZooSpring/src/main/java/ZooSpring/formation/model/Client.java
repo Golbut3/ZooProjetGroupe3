@@ -8,6 +8,13 @@ public class Client extends Compte {
 	private String email;
 	private String tel;
 	
+	public Client() {}
+	
+	public Client( String login, String password, String prenom, String nom, String email,String tel) {
+		super(login, password, prenom, nom);
+		this.email=email;
+		this.tel=tel;
+		}
 	public Client(Integer id, String login, String password, String prenom, String nom, String email,String tel) {
 		super(id, login, password, prenom, nom);
 		this.email=email;

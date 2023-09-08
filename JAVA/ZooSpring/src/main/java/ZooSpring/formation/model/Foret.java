@@ -8,8 +8,14 @@ import jakarta.persistence.Entity;
 @DiscriminatorValue("Foret")
 public class Foret extends Enclos{
 
-	public Foret(Integer id, int capacite, List<Animal> animals) {
-		super(id, capacite, animals);
+	public Foret() {
+	}
+	public Foret(int capacite, ) {
+		super(capacite);
+		
+	}
+	public Foret(Integer id, int capacite) {
+		super(id, capacite);
 		
 	}
 

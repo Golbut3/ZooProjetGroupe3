@@ -6,8 +6,14 @@ import jakarta.persistence.Entity;
 @Entity
 public class Aquarium extends Enclos{
 
-	public Aquarium(Integer id, int capacite, List<Animal> animals) {
-		super(id, capacite, animals);
+	public Aquarium() {	}
+	
+	public Aquarium(int capacite) {
+		super(capacite);
+		
+	}
+	public Aquarium(Integer id, int capacite) {
+		super(id, capacite);
 		
 	}
 

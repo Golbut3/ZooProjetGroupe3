@@ -25,8 +25,13 @@ public class Animal {
 	@Transient
 	private Espece espece;
 	
+	public Animal(){}
 	
-	
+	public Animal(Espece espece, String nom, double poids) {
+		this.espece = espece;
+		this.nom = nom;
+		this.poids = poids;
+	}
 	public Animal(Integer id, Espece espece, String nom, double poids) {
 		this.id = id;
 		this.espece = espece;
