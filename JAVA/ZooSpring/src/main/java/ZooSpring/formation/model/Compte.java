@@ -1,13 +1,31 @@
 package ZooSpring.formation.model;
 
-public abstract class Compte  {
+import jakarta.persistence.DiscriminatorColumn;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
+import jakarta.persistence.Table;
+import jakarta.persistence.Version;
 
+@Entity
+@Table(name = "compte")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "type_compte")
+public abstract class Compte  {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected Integer id;
 	protected String login;
 	protected String password;
 	protected String prenom;
 	protected String nom;
 
+	@Version
+	protected int version;
+	
 	public Compte(Integer id, String login, String password, String prenom, String nom) {
 
 		this.id = id;

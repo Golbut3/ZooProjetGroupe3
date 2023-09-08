@@ -1,8 +1,13 @@
 package ZooSpring.formation.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Transient;
+
+@Entity
 public class Employe extends Compte {
 	
 	private double sal;
+	@Transient
 	private Poste poste;
 
 	public Employe(Integer id, String login, String password, String prenom, String nom, double sal, Poste poste) {

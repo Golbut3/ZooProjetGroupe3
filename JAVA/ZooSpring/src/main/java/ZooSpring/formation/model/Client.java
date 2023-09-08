@@ -1,6 +1,8 @@
 package ZooSpring.formation.model;
 
+import jakarta.persistence.Entity;
 
+@Entity
 public class Client extends Compte {
 	
 	private String email;
