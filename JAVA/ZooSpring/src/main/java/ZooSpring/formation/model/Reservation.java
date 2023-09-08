@@ -2,14 +2,35 @@ package ZooSpring.formation.model;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.Version;
+@Entity
+@Table(name="reservation")
+
 public class Reservation {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	@Version
+	int version;
+	@Column
 	private LocalDate dateDebut;
+	@Column
 	private LocalDate dateFin;
+	@Column
 	private int nbVisiteurs;
+	@Column
 	private double prix;
+	@Column
 	private Client client;
+	@Column
 	private Logement logement;
+	@Column
 	private Interet interet;
 	public Reservation(Integer id, LocalDate dateDebut, LocalDate dateFin, int nbVisiteurs, double prix, Client client,	Logement logement, Interet interet) {
 		this.id = id;

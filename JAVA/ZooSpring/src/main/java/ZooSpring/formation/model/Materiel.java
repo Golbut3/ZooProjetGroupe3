@@ -1,8 +1,22 @@
 package ZooSpring.formation.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.Version;
+
+@Entity
+@Table(name="materiel")
 public class Materiel {
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	@Column
+	@Version
+	int version;
 	private String nom;
 	public Materiel(Integer id, String nom) {
 		this.id = id;
