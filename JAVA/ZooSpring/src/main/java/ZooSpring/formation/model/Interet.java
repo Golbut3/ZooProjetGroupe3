@@ -6,8 +6,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import jakarta.persistence.Version;
 @Entity
 @Table(name="interet")
@@ -17,7 +17,8 @@ public class Interet {
 	private Integer id;
 	@Version
 	int version;
-	@OneToMany(mappedBy="interet")
+	@Transient
+	//@OneToMany(mappedBy="interet")
 	private List<Enclos> enclos;
 
 	public Interet() {

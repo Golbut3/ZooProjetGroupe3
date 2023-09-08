@@ -1,7 +1,9 @@
 package ZooSpring.formation.model;
 
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 @Entity
+@DiscriminatorValue("Bassin")
 public class Bassin extends Enclos{
 
 	

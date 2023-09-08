@@ -1,10 +1,13 @@
 package ZooSpring.formation.model;
 
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Transient;
 
-//@Entity
+@Entity
+@DiscriminatorValue("Chalet")
 public class Chalet extends Logement{
-	
+	@Transient
 	//Cardinalite
 	private Enclos enclos;
 

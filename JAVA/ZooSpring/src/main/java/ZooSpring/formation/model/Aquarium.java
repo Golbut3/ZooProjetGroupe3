@@ -2,8 +2,10 @@ package ZooSpring.formation.model;
 
 import java.util.List;
 
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 @Entity
+@DiscriminatorValue("Aquarium")
 public class Aquarium extends Enclos{
 
 	public Aquarium() {	}

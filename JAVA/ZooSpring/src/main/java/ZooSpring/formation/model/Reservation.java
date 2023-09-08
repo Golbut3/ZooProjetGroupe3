@@ -8,6 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import jakarta.persistence.Version;
 @Entity
 @Table(name="reservation")
@@ -26,11 +27,11 @@ public class Reservation {
 	private int nbVisiteurs;
 	@Column
 	private double prix;
-	@Column
+	@Transient
 	private Client client;
-	@Column
+	@Transient
 	private Logement logement;
-	@Column
+	@Transient
 	private Interet interet;
 	
 	

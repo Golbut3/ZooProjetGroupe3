@@ -1,8 +1,10 @@
 package ZooSpring.formation.model;
 
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 
 @Entity
+@DiscriminatorValue("Client")
 public class Client extends Compte {
 	
 	private String email;
