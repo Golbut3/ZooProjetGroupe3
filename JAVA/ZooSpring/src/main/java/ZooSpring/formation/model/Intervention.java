@@ -29,12 +29,16 @@ public class Intervention {
 	private Employe employe;
 	@OneToMany(mappedBy="intervention")
 	List <Materiel> materiels;
-	public Intervention(Integer id, LocalDate date, Enclos enclos, Employe employe, List<Materiel> materiels) {
-		this.id = id;
+	
+	
+	public Intervention() {
+	}
+	public Intervention(LocalDate date, Enclos enclos, Employe employe) {
+
 		this.date = date;
 		this.enclos = enclos;
 		this.employe = employe;
-		this.materiels = materiels;
+
 	}
 	public Integer getId() {
 		return id;

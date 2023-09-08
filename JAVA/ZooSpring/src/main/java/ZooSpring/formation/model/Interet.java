@@ -20,8 +20,7 @@ public class Interet {
 	@OneToMany(mappedBy="interet")
 	private List<Enclos> enclos;
 
-	public Interet(List<Enclos> enclos) {
-		this.enclos = enclos;
+	public Interet() {
 	}
 
 	public List<Enclos> getEnclos() {

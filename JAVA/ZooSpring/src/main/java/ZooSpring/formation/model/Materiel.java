@@ -18,8 +18,11 @@ public class Materiel {
 	@Version
 	int version;
 	private String nom;
-	public Materiel(Integer id, String nom) {
-		this.id = id;
+	
+	
+	public Materiel() {
+	}
+	public Materiel(String nom) {
 		this.nom = nom;
 	}
 	public Integer getId() {

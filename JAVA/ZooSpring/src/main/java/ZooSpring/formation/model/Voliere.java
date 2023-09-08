@@ -11,8 +11,14 @@ public class Voliere extends Enclos{
 	@Column
 	private int nbPortoir;
 
-	public Voliere(Integer id, int capacite,List<Animal> animals, int nbPortoir) {
-		super(id, capacite, animals);
+	
+	
+	public Voliere() {
+
+	}
+
+	public Voliere(int capacite,int nbPortoir) {
+		super(capacite);
 		this.nbPortoir=nbPortoir;
 		
 	}

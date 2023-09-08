@@ -29,8 +29,11 @@ public abstract class Logement {
 	protected String numero;
 	@Column
 	protected String description;
-	public Logement(Integer id, int nbPlace, double prix, String numero, String description) {
-		this.id = id;
+	
+	
+	public Logement() {
+	}
+	public Logement(int nbPlace, double prix, String numero, String description) {
 		this.nbPlace = nbPlace;
 		this.prix = prix;
 		this.numero = numero;

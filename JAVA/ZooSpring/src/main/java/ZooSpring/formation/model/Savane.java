@@ -8,8 +8,14 @@ import jakarta.persistence.Entity;
 @DiscriminatorValue("Savane")
 public class Savane extends Enclos{
 
-	public Savane(Integer id, int capacite, List<Animal> animals) {
-		super(id, capacite, animals);
+	
+	
+	public Savane() {
+
+	}
+
+	public Savane(int capacite) {
+		super(capacite);
 		
 	}
 

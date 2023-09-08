@@ -32,8 +32,12 @@ public class Reservation {
 	private Logement logement;
 	@Column
 	private Interet interet;
-	public Reservation(Integer id, LocalDate dateDebut, LocalDate dateFin, int nbVisiteurs, double prix, Client client,	Logement logement, Interet interet) {
-		this.id = id;
+	
+	
+	public Reservation() {
+	}
+
+	public Reservation(LocalDate dateDebut, LocalDate dateFin, int nbVisiteurs, double prix, Client client,	Logement logement, Interet interet) {
 		this.dateDebut = dateDebut;
 		this.dateFin = dateFin;
 		this.nbVisiteurs = nbVisiteurs;
