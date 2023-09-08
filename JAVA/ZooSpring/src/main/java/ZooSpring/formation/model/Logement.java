@@ -1,5 +1,7 @@
 package ZooSpring.formation.model;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorColumn;
 import jakarta.persistence.Entity;
@@ -8,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Version;
 
@@ -20,7 +23,7 @@ public abstract class Logement {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected Integer id;
 	@Version
-	int version;
+	protected int version;
 	@Column
 	protected int nbPlace;
 	@Column
@@ -29,6 +32,9 @@ public abstract class Logement {
 	protected String numero;
 	@Column
 	protected String description;
+	
+	@OneToMany(mappedBy="logement")
+	protected List <Reservation> reservations;
 	
 	
 	public Logement() {

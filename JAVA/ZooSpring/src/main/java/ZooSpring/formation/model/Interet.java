@@ -6,8 +6,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
 import jakarta.persistence.Version;
 @Entity
 @Table(name="interet")
@@ -16,11 +19,15 @@ public class Interet {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	@Version
-	int version;
-	@Transient
-	//@OneToMany(mappedBy="interet")
-	private List<Enclos> enclos;
+	private int version;
 
+	@ManyToMany()
+	@JoinTable(name="interet_enclos",joinColumns=@JoinColumn(name="interet"),inverseJoinColumns=@JoinColumn(name="enclos"))
+	private List<Enclos> enclos;
+	
+	@OneToOne(mappedBy="interet")
+	private Reservation reservation;
+	
 	public Interet() {
 	}
 

@@ -1,7 +1,10 @@
 package ZooSpring.formation.model;
 
+import java.util.List;
+
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 
 @Entity
 @DiscriminatorValue("Client")
@@ -9,6 +12,9 @@ public class Client extends Compte {
 	
 	private String email;
 	private String tel;
+	
+	@OneToMany(mappedBy="client")
+	private List <Reservation> reservations;
 	
 	public Client() {}
 	
@@ -37,6 +43,14 @@ public class Client extends Compte {
 
 	public void setTel(String tel) {
 		this.tel = tel;
+	}
+
+	public List<Reservation> getReservations() {
+		return reservations;
+	}
+
+	public void setReservations(List<Reservation> reservations) {
+		this.reservations = reservations;
 	}
 
 	@Override

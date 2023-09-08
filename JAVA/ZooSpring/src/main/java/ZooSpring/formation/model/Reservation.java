@@ -7,8 +7,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
 import jakarta.persistence.Version;
 @Entity
 @Table(name="reservation")
@@ -27,11 +29,14 @@ public class Reservation {
 	private int nbVisiteurs;
 	@Column
 	private double prix;
-	@Transient
+	@ManyToOne
+	@JoinColumn(name="client")
 	private Client client;
-	@Transient
+	@ManyToOne
+	@JoinColumn(name="logement")
 	private Logement logement;
-	@Transient
+	@OneToOne
+	@JoinColumn(name="interet")
 	private Interet interet;
 	
 	

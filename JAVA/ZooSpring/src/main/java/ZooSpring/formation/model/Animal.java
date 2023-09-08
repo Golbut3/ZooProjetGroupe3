@@ -4,8 +4,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
 import jakarta.persistence.Version;
 
 @Entity
@@ -22,8 +23,13 @@ public class Animal {
 	private String nom;
 	private double poids;
 	
-	@Transient
+	@ManyToOne
+	@JoinColumn(name="espece")
 	private Espece espece;
+	
+	@ManyToOne
+	@JoinColumn(name="enclos")
+	private Enclos enclos;
 	
 	public Animal(){}
 	
@@ -61,6 +67,14 @@ public class Animal {
 
 	public void setEspece(Espece espece) {
 		this.espece = espece;
+	}
+
+	public Enclos getEnclos() {
+		return enclos;
+	}
+
+	public void setEnclos(Enclos enclos) {
+		this.enclos = enclos;
 	}
 
 	@Override

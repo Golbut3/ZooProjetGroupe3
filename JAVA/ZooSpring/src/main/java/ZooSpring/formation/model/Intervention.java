@@ -8,8 +8,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
 @Entity
 @Table(name="intervention")
 
@@ -19,16 +21,16 @@ public class Intervention {
 	private Integer id;
 	@Column
 	private LocalDate date;
-	@Transient
-	//@OneToOne
-	//@JoinColumn(name="enclos")
+	
+	@OneToOne
+	@JoinColumn(name="enclos")
 	private Enclos enclos;
-	@Transient
-	//@OneToOne
-	//@JoinColumn(name="employe")
+	
+	@OneToOne
+	@JoinColumn(name="employe")
 	private Employe employe;
-	@Transient
-	//@OneToMany(mappedBy="intervention")
+	
+	@OneToMany(mappedBy="intervention")
 	List <Materiel> materiels;
 	
 	

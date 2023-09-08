@@ -1,9 +1,12 @@
 package ZooSpring.formation.model;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Version;
 
@@ -17,8 +20,11 @@ public class Espece {
 	private String nom;
 	
 	@Version
-	protected int version;
+	private int version;
 	
+	@OneToMany(mappedBy="espece")
+	private List <Animal> animaux;
+			
 	public Espece() {}
 	public Espece(String nom) {
 		this.nom = nom;
@@ -38,6 +44,12 @@ public class Espece {
 	}
 	public void setNom(String nom) {
 		this.nom = nom;
+	}
+	public List<Animal> getAnimaux() {
+		return animaux;
+	}
+	public void setAnimaux(List<Animal> animaux) {
+		this.animaux = animaux;
 	}
 	@Override
 	public String toString() {

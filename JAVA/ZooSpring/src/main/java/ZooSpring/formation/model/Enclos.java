@@ -9,8 +9,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
 import jakarta.persistence.Version;
 @Entity
 @Table(name = "enclos")
@@ -25,9 +26,16 @@ public abstract class Enclos {
 	protected int version;
 	
 	protected int capacite;
-	@Transient
-	protected List<Animal> Animals;
+	@OneToMany(mappedBy="enclos")
+	protected List<Animal> animaux;
+	
+	@OneToMany(mappedBy="enclos")
+	protected List<Chalet> chalets;
 
+	@ManyToMany(mappedBy="enclos")
+	protected List<Interet> interets;
+
+	
 	public Enclos() {}
 	public Enclos(int capacite) {
 		this.capacite = capacite;
@@ -47,9 +55,7 @@ public abstract class Enclos {
 		return capacite;
 	}
 
-	public List<Animal> getAnimals() {
-		return Animals;
-	}
+	
 
 	public void setId(Integer id) {
 		this.id = id;
@@ -59,14 +65,25 @@ public abstract class Enclos {
 		this.capacite = capacite;
 	}
 
-	public void setAnimals(List<Animal> animals) {
-		Animals = animals;
-	}
 
+	public List<Animal> getAnimaux() {
+		return animaux;
+	}
+	public void setAnimaux(List<Animal> animaux) {
+		this.animaux = animaux;
+	}
+	public List<Chalet> getChalets() {
+		return chalets;
+	}
+	public void setChalets(List<Chalet> chalets) {
+		this.chalets = chalets;
+	}
 	@Override
 	public String toString() {
-		return "Enclos [id=" + id + ", capacite=" + capacite + ", Animals=" + Animals + "]";
+		return "Enclos [id=" + id + ", capacite=" + capacite + "]";
 	}
+	
+	
 
 
 	

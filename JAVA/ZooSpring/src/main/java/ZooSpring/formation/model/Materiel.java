@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Version;
 
@@ -18,7 +20,9 @@ public class Materiel {
 	@Version
 	int version;
 	private String nom;
-	
+	@ManyToOne
+	@JoinColumn(name="intervention")
+	private Intervention intervention;
 	
 	public Materiel() {
 	}
@@ -36,6 +40,12 @@ public class Materiel {
 	}
 	public void setNom(String nom) {
 		this.nom = nom;
+	}
+	public Intervention getIntervention() {
+		return intervention;
+	}
+	public void setIntervention(Intervention intervention) {
+		this.intervention = intervention;
 	}
 	@Override
 	public String toString() {

@@ -33,8 +33,10 @@ public class Voliere extends Enclos{
 
 	@Override
 	public String toString() {
-		return "Voliere [id=" + id + ", capacite=" + capacite + ", Animals=" + Animals + ", nbPortoir=" + nbPortoir + "]";
+		return "Voliere [nbPortoir=" + nbPortoir + "]";
 	}
+
+	
 
 
 

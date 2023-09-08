@@ -2,13 +2,15 @@ package ZooSpring.formation.model;
 
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Transient;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 @DiscriminatorValue("Chalet")
 public class Chalet extends Logement{
-	@Transient
-	//Cardinalite
+	
+	@ManyToOne
+	@JoinColumn(name="enclos")
 	private Enclos enclos;
 
 	public Chalet() {}
