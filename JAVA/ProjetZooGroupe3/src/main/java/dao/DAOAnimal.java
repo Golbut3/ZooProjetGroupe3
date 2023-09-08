@@ -1,5 +1,5 @@
 package dao;
 
-public class DAOAnimal {
+public class IDAOAnimal extends  {
 
 }
