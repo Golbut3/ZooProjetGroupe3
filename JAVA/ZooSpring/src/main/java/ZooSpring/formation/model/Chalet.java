@@ -1,7 +1,11 @@
 package ZooSpring.formation.model;
 
-public class Chalet extends Logement{
+import jakarta.persistence.Entity;
 
+//@Entity
+public class Chalet extends Logement{
+	
+	//Cardinalite
 	private Enclos enclos;
 
 	public Chalet(Integer id, int nbPlace, double prix, String numero, String description, Enclos enclos) {
