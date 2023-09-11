@@ -29,7 +29,7 @@ public abstract class Logement {
 	protected int version;
 	@Column(name = "nombre_de_places",length=70)
 	protected int nbPlace;
-	@Column(name = "date_de_debut", nullable=false)
+	@Column(nullable=false)
 	protected double prix;
 	@Column(length=6)
 	protected String numero;
