@@ -2,11 +2,15 @@ package ZooSpring.formation.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 @Entity
 @DiscriminatorValue("Voliere")
+@JsonView(Views.Common.class)
+
 public class Voliere extends Enclos{
 	@Column(name = "nombre_de_portoirs",length=100)
 	private int nbPortoir;

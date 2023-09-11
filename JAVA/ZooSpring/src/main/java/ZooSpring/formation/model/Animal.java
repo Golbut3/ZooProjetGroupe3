@@ -1,5 +1,7 @@
 package ZooSpring.formation.model;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,6 +14,7 @@ import jakarta.persistence.Version;
 
 @Entity
 @Table(name = "animal")
+@JsonView(Views.Common.class)
 public class Animal {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,10 +30,12 @@ public class Animal {
 	
 	@ManyToOne
 	@JoinColumn(name="espece")
+	@JsonView(Views.Animal.class)
 	private Espece espece;
 	
 	@ManyToOne
 	@JoinColumn(name="enclos")
+	@JsonView(Views.Animal.class)
 	private Enclos enclos;
 	
 	public Animal(){}

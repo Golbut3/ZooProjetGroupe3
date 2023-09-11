@@ -2,6 +2,8 @@ package ZooSpring.formation.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
@@ -9,6 +11,7 @@ import jakarta.persistence.OneToMany;
 
 @Entity
 @DiscriminatorValue("Client")
+@JsonView(Views.Common.class)
 public class Client extends Compte {
 	@Column(nullable=false)
 	private String email;
@@ -16,6 +19,7 @@ public class Client extends Compte {
 	private String tel;
 	
 	@OneToMany(mappedBy="client")
+	@JsonView(Views.Client.class)
 	private List <Reservation> reservations;
 	
 	public Client() {}

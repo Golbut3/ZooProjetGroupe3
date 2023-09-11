@@ -3,6 +3,8 @@ package ZooSpring.formation.model;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,6 +16,7 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 @Entity
 @Table(name="intervention")
+@JsonView(Views.Common.class)
 
 public class Intervention {
 	@Id
@@ -24,13 +27,17 @@ public class Intervention {
 	
 	@OneToOne
 	@JoinColumn(name="enclos")
+	@JsonView(Views.Intervention.class)
+
 	private Enclos enclos;
 	
 	@OneToOne
 	@JoinColumn(name="employe")
+	@JsonView(Views.Intervention.class)
 	private Employe employe;
 	
 	@OneToMany(mappedBy="intervention")
+	@JsonView(Views.Intervention.class)
 	List <Materiel> materiels;
 	
 	

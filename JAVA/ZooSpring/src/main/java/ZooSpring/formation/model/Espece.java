@@ -2,6 +2,8 @@ package ZooSpring.formation.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,6 +15,7 @@ import jakarta.persistence.Version;
 
 @Entity
 @Table(name = "espece")
+@JsonView(Views.Common.class)
 public class Espece {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,6 +27,7 @@ public class Espece {
 	private int version;
 	
 	@OneToMany(mappedBy="espece")
+	@JsonView(Views.Espece.class)
 	private List <Animal> animaux;
 			
 	public Espece() {}
