@@ -26,6 +26,23 @@ public class Employe extends Compte {
 		this.poste=poste;
 	}
 
+	
+	public double getSal() {
+		return sal;
+	}
+
+	public void setSal(double sal) {
+		this.sal = sal;
+	}
+
+	public Poste getPoste() {
+		return poste;
+	}
+
+	public void setPoste(Poste poste) {
+		this.poste = poste;
+	}
+
 	@Override
 	public String toString() {
 		return "Employe [id=" + id + ", login=" + login + ", password=" + password + ", prenom=" + prenom + ", nom="
