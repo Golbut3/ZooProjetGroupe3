@@ -21,11 +21,11 @@ public class Reservation {
 	private Integer id;
 	@Version
 	int version;
-	@Column
+	@Column(name = "date_de_debut")
 	private LocalDate dateDebut;
-	@Column
+	@Column(name = "date_de_fin")
 	private LocalDate dateFin;
-	@Column
+	@Column(name = "nombre_de_visiteurs")
 	private int nbVisiteurs;
 	@Column
 	private double prix;

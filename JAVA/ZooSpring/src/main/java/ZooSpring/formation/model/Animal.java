@@ -1,5 +1,6 @@
 package ZooSpring.formation.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,8 +20,9 @@ public class Animal {
 	@Version
 	private int version;
 	
-	
+	@Column
 	private String nom;
+	@Column
 	private double poids;
 	
 	@ManyToOne

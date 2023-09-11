@@ -2,6 +2,7 @@ package ZooSpring.formation.model;
 
 import java.util.List;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
@@ -9,8 +10,9 @@ import jakarta.persistence.OneToMany;
 @Entity
 @DiscriminatorValue("Client")
 public class Client extends Compte {
-	
+	@Column(nullable=false)
 	private String email;
+	@Column
 	private String tel;
 	
 	@OneToMany(mappedBy="client")

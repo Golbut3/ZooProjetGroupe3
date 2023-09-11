@@ -1,5 +1,6 @@
 package ZooSpring.formation.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Transient;
@@ -7,9 +8,9 @@ import jakarta.persistence.Transient;
 @Entity
 @DiscriminatorValue("Employe")
 public class Employe extends Compte {
-	
+	@Column(name="salaire", nullable=false)
 	private double sal;
-	@Transient
+	@Transient //@Column(nullable=false)
 	private Poste poste;
 
 	public Employe() {}
