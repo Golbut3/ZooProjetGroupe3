@@ -18,7 +18,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import ZooSpring.formation.model.Animal;
+import ZooSpring.formation.model.Views;
 import ZooSpring.formation.repo.IAnimal;
 import jakarta.validation.Valid;
 
@@ -35,19 +38,19 @@ public class AnimalApiController {
 	}
 
 	@GetMapping("")
-	//@JsonView(Views.Animal.class)
+	@JsonView(Views.Animal.class)
 	public List<Animal> findAll() {
 		return daoAnimal.findAll();
 	}
 
 	@GetMapping("/{id}")
-	//@JsonView(Views.AnimalWithFiliere.class)
+	@JsonView(Views.Animal.class)
 	public Animal findById(@PathVariable int id) {
 		return daoAnimal.findById(id).get();
 	}
 
 	@PostMapping("")
-	//@JsonView(Views.Animal.class)
+	@JsonView(Views.Animal.class)
 	public Animal create(@Valid @RequestBody Animal animal, BindingResult result) {
 		if (result.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Animal invalide");
@@ -59,7 +62,7 @@ public class AnimalApiController {
 	}
 
 	@PutMapping("/{id}")
-	//@JsonView(Views.Animal.class)
+	@JsonView(Views.Animal.class)
 	public Animal update(@RequestBody Animal animal, @PathVariable int id) {
 		animal = daoAnimal.save(animal);
 
@@ -67,7 +70,7 @@ public class AnimalApiController {
 	}
 
 	@PatchMapping("/{id}")
-	//@JsonView(Views.Animal.class)
+	@JsonView(Views.Animal.class)
 	public Animal partialEdit(@RequestBody Map<String, Object> fields, @PathVariable int id) {
 		Animal animal = this.daoAnimal.findById(id).get();
 		

@@ -18,7 +18,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import ZooSpring.formation.model.Client;
+import ZooSpring.formation.model.Views;
 import ZooSpring.formation.repo.IClient;
 import jakarta.validation.Valid;
 
@@ -35,19 +38,19 @@ public class ClientApiController {
 	}
 
 	@GetMapping("")
-	//@JsonView(Views.Client.class)
+	@JsonView(Views.Client.class)
 	public List<Client> findAll() {
 		return daoClient.findAll();
 	}
 
 	@GetMapping("/{id}")
-	//@JsonView(Views.ClientWithFiliere.class)
+	@JsonView(Views.Client.class)
 	public Client findById(@PathVariable int id) {
 		return daoClient.findById(id).get();
 	}
 
 	@PostMapping("")
-	//@JsonView(Views.Client.class)
+	@JsonView(Views.Client.class)
 	public Client create(@Valid @RequestBody Client client, BindingResult result) {
 		if (result.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Client invalide");
@@ -59,7 +62,7 @@ public class ClientApiController {
 	}
 
 	@PutMapping("/{id}")
-	//@JsonView(Views.Client.class)
+	@JsonView(Views.Client.class)
 	public Client update(@RequestBody Client client, @PathVariable int id) {
 		client = daoClient.save(client);
 
@@ -67,7 +70,7 @@ public class ClientApiController {
 	}
 
 	@PatchMapping("/{id}")
-	//@JsonView(Views.Client.class)
+	@JsonView(Views.Client.class)
 	public Client partialEdit(@RequestBody Map<String, Object> fields, @PathVariable int id) {
 		Client client = this.daoClient.findById(id).get();
 		

@@ -15,7 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import ZooSpring.formation.model.Espece;
+import ZooSpring.formation.model.Views;
 import ZooSpring.formation.repo.IEspece;
 
 
@@ -27,16 +30,20 @@ public class EspeceApiController {
 	private IEspece repoEspece;
 	
 	@GetMapping("")
+	@JsonView(Views.Espece.class)
 	public List<Espece > findAll() {
 		return this.repoEspece .findAll();
 	}
 	
 	@GetMapping("/{id}")
+	@JsonView(Views.Espece.class)
+
 	public Espece  findById(Integer id) {
 		return repoEspece.findById(id).get();
 		}
 	
 	@PostMapping("")
+	@JsonView(Views.Espece.class)
 	public Espece  create(@RequestBody Espece  espece , BindingResult result) {
 		if (result.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Espece invalide");
@@ -49,6 +56,7 @@ public class EspeceApiController {
 
 	
 	@PutMapping("/{id}")
+	@JsonView(Views.Espece.class)
 	public Espece update(@RequestBody Espece espece, @PathVariable int id) {
 		espece= repoEspece.save(espece);
 

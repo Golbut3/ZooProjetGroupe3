@@ -15,7 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import ZooSpring.formation.model.Reservation;
+import ZooSpring.formation.model.Views;
 import ZooSpring.formation.repo.IReservation;
 
 
@@ -27,16 +30,19 @@ public class ReservationApiController {
 	private IReservation repoReservation;
 	
 	@GetMapping("")
+	@JsonView(Views.Reservation.class)
 	public List<Reservation> findAll() {
 		return this.repoReservation.findAll();
 	}
 	
 	@GetMapping("/{id}")
+	@JsonView(Views.Reservation.class)
 	public Reservation findById(Integer id) {
 		return repoReservation.findById(id).get();
 		}
 	
 	@PostMapping("")
+	@JsonView(Views.Reservation.class)
 	public Reservation create(@RequestBody Reservation reservation, BindingResult result) {
 		if (result.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Matière invalide");
@@ -49,6 +55,7 @@ public class ReservationApiController {
 
 	
 	@PutMapping("/{id}")
+	@JsonView(Views.Reservation.class)
 	public Reservation update(@RequestBody Reservation reservation, @PathVariable int id) {
 		reservation = repoReservation.save(reservation);
 

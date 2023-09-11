@@ -18,7 +18,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import ZooSpring.formation.model.Enclos;
+import ZooSpring.formation.model.Views;
 import ZooSpring.formation.repo.IEnclos;
 import jakarta.validation.Valid;
 
@@ -35,19 +38,19 @@ public class EnclosApiController {
 	}
 
 	@GetMapping("")
-	//@JsonView(Views.Enclos.class)
+	@JsonView(Views.Enclos.class)
 	public List<Enclos> findAll() {
 		return daoEnclos.findAll();
 	}
 
 	@GetMapping("/{id}")
-	//@JsonView(Views.EnclosWithFiliere.class)
+	@JsonView(Views.Enclos.class)
 	public Enclos findById(@PathVariable int id) {
 		return daoEnclos.findById(id).get();
 	}
 
 	@PostMapping("")
-	//@JsonView(Views.Enclos.class)
+	@JsonView(Views.Enclos.class)
 	public Enclos create(@Valid @RequestBody Enclos enclos, BindingResult result) {
 		if (result.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Enclos invalide");
@@ -59,7 +62,7 @@ public class EnclosApiController {
 	}
 
 	@PutMapping("/{id}")
-	//@JsonView(Views.Enclos.class)
+	@JsonView(Views.Enclos.class)
 	public Enclos update(@RequestBody Enclos enclos, @PathVariable int id) {
 		enclos = daoEnclos.save(enclos);
 
@@ -67,7 +70,7 @@ public class EnclosApiController {
 	}
 
 	@PatchMapping("/{id}")
-	//@JsonView(Views.Enclos.class)
+	@JsonView(Views.Enclos.class)
 	public Enclos partialEdit(@RequestBody Map<String, Object> fields, @PathVariable int id) {
 		Enclos enclos = this.daoEnclos.findById(id).get();
 		

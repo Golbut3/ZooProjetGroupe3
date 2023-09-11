@@ -15,8 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import ZooSpring.formation.model.Materiel;
 import ZooSpring.formation.model.Reservation;
+import ZooSpring.formation.model.Views;
 import ZooSpring.formation.repo.IMateriel;
 
 
@@ -28,16 +31,19 @@ public class MaterielApiController {
 	private IMateriel repoMateriel;
 	
 	@GetMapping("")
+	@JsonView(Views.Materiel.class)
 	public List<Materiel> findAll() {
 		return this.repoMateriel.findAll();
 	}
 	
 	@GetMapping("/{id}")
+	@JsonView(Views.Materiel.class)
 	public Materiel findById(Integer id) {
 		return repoMateriel.findById(id).get();
 		}
 	
 	@PostMapping("")
+	@JsonView(Views.Materiel.class)
 	public Materiel create(@RequestBody Materiel materiel, BindingResult result) {
 		if (result.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Materiel invalide");
@@ -50,6 +56,7 @@ public class MaterielApiController {
 
 	
 	@PutMapping("/{id}")
+	@JsonView(Views.Materiel.class)
 	public Materiel update(@RequestBody Materiel materiel, @PathVariable int id) {
 		materiel = repoMateriel.save(materiel);
 

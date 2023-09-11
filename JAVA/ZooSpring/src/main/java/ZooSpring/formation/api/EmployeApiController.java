@@ -18,7 +18,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import ZooSpring.formation.model.Employe;
+import ZooSpring.formation.model.Views;
 import ZooSpring.formation.repo.IEmploye;
 import jakarta.validation.Valid;
 
@@ -35,19 +38,19 @@ public class EmployeApiController {
 	}
 
 	@GetMapping("")
-	//@JsonView(Views.Employe.class)
+	@JsonView(Views.Employe.class)
 	public List<Employe> findAll() {
 		return daoEmploye.findAll();
 	}
 
 	@GetMapping("/{id}")
-	//@JsonView(Views.EmployeWithFiliere.class)
+	@JsonView(Views.Employe.class)
 	public Employe findById(@PathVariable int id) {
 		return daoEmploye.findById(id).get();
 	}
 
 	@PostMapping("")
-	//@JsonView(Views.Employe.class)
+	@JsonView(Views.Employe.class)
 	public Employe create(@Valid @RequestBody Employe employe, BindingResult result) {
 		if (result.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Employe invalide");
@@ -59,7 +62,7 @@ public class EmployeApiController {
 	}
 
 	@PutMapping("/{id}")
-	//@JsonView(Views.Employe.class)
+	@JsonView(Views.Employe.class)
 	public Employe update(@RequestBody Employe employe, @PathVariable int id) {
 		employe = daoEmploye.save(employe);
 
@@ -67,7 +70,7 @@ public class EmployeApiController {
 	}
 
 	@PatchMapping("/{id}")
-	//@JsonView(Views.Employe.class)
+	@JsonView(Views.Employe.class)
 	public Employe partialEdit(@RequestBody Map<String, Object> fields, @PathVariable int id) {
 		Employe employe = this.daoEmploye.findById(id).get();
 		

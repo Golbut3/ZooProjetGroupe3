@@ -15,7 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import ZooSpring.formation.model.Intervention;
+import ZooSpring.formation.model.Views;
 import ZooSpring.formation.repo.IIntervention;
 
 
@@ -27,16 +30,19 @@ public class InterventionApiController {
 	private IIntervention repoIntervention;
 	
 	@GetMapping("")
+	@JsonView(Views.Intervention.class)
 	public List<Intervention> findAll() {
 		return this.repoIntervention.findAll();
 	}
 	
 	@GetMapping("/{id}")
+	@JsonView(Views.Intervention.class)
 	public Intervention findById(Integer id) {
 		return repoIntervention.findById(id).get();
 		}
 	
 	@PostMapping("")
+	@JsonView(Views.Intervention.class)
 	public Intervention create(@RequestBody Intervention intervention, BindingResult result) {
 		if (result.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Intervention invalide");
@@ -49,6 +55,7 @@ public class InterventionApiController {
 
 	
 	@PutMapping("/{id}")
+	@JsonView(Views.Intervention.class)
 	public Intervention update(@RequestBody Intervention intervention, @PathVariable int id) {
 		intervention= repoIntervention.save(intervention);
 

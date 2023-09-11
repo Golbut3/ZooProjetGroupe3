@@ -15,8 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import ZooSpring.formation.model.Logement;
 import ZooSpring.formation.model.Materiel;
+import ZooSpring.formation.model.Views;
 import ZooSpring.formation.repo.ILogement;
 
 
@@ -28,16 +31,19 @@ public class LogementApiController {
 	private ILogement repoLogement;
 	
 	@GetMapping("")
+	@JsonView(Views.Logement.class)
 	public List<Logement> findAll() {
 		return this.repoLogement.findAll();
 	}
 	
 	@GetMapping("/{id}")
+	@JsonView(Views.Logement.class)
 	public Logement findById(Integer id) {
 		return repoLogement.findById(id).get();
 		}
 	
 	@PostMapping("")
+	@JsonView(Views.Logement.class)
 	public Logement create(@RequestBody Logement logement, BindingResult result) {
 		if (result.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Logement invalide");
@@ -50,6 +56,7 @@ public class LogementApiController {
 
 	
 	@PutMapping("/{id}")
+	@JsonView(Views.Logement.class)
 	public Logement update(@RequestBody Logement logement, @PathVariable int id) {
 		logement = repoLogement.save(logement);
 

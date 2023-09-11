@@ -18,7 +18,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import ZooSpring.formation.model.Compte;
+import ZooSpring.formation.model.Views;
 import ZooSpring.formation.repo.ICompte;
 import jakarta.validation.Valid;
 
@@ -35,19 +38,19 @@ public class ComptelApiController {
 	}
 
 	@GetMapping("")
-	//@JsonView(Views.Compte.class)
+	@JsonView(Views.Compte.class)
 	public List<Compte> findAll() {
 		return daoCompte.findAll();
 	}
 
 	@GetMapping("/{id}")
-	//@JsonView(Views.CompteWithFiliere.class)
+	@JsonView(Views.Compte.class)
 	public Compte findById(@PathVariable int id) {
 		return daoCompte.findById(id).get();
 	}
 
 	@PostMapping("")
-	//@JsonView(Views.Compte.class)
+	@JsonView(Views.Compte.class)
 	public Compte create(@Valid @RequestBody Compte compte, BindingResult result) {
 		if (result.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Compte invalide");
@@ -59,7 +62,7 @@ public class ComptelApiController {
 	}
 
 	@PutMapping("/{id}")
-	//@JsonView(Views.Compte.class)
+	@JsonView(Views.Compte.class)
 	public Compte update(@RequestBody Compte compte, @PathVariable int id) {
 		compte = daoCompte.save(compte);
 
@@ -67,7 +70,7 @@ public class ComptelApiController {
 	}
 
 	@PatchMapping("/{id}")
-	//@JsonView(Views.Compte.class)
+	@JsonView(Views.Compte.class)
 	public Compte partialEdit(@RequestBody Map<String, Object> fields, @PathVariable int id) {
 		Compte compte = this.daoCompte.findById(id).get();
 		
