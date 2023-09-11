@@ -19,7 +19,7 @@ public class Intervention {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@Column
+	@Column(name="date-des-interventions",nullable=false)
 	private LocalDate date;
 	
 	@OneToOne

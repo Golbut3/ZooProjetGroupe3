@@ -1,5 +1,6 @@
 package ZooSpring.formation.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorColumn;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,9 +19,13 @@ public abstract class Compte  {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected Integer id;
+	@Column(name="identifiant",nullable=false)
 	protected String login;
+	@Column(name="mot_de_passe", nullable=false)
 	protected String password;
+	@Column(nullable=false)
 	protected String prenom;
+	@Column(nullable=false)
 	protected String nom;
 
 	@Version

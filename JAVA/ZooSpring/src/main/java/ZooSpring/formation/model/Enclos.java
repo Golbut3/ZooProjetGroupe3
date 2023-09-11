@@ -2,6 +2,7 @@ package ZooSpring.formation.model;
 
 import java.util.List;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorColumn;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -24,7 +25,7 @@ public abstract class Enclos {
 	
 	@Version
 	protected int version;
-	
+	@Column(length=100)
 	protected int capacite;
 	@OneToMany(mappedBy="enclos")
 	protected List<Animal> animaux;

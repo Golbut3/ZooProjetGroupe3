@@ -8,7 +8,7 @@ import jakarta.persistence.Entity;
 @Entity
 @DiscriminatorValue("Voliere")
 public class Voliere extends Enclos{
-	@Column
+	@Column(name = "nombre_de_portoirs",length=100)
 	private int nbPortoir;
 
 	

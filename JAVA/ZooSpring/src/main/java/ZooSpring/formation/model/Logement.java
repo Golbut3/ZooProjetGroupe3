@@ -24,13 +24,13 @@ public abstract class Logement {
 	protected Integer id;
 	@Version
 	protected int version;
-	@Column
+	@Column(name = "nombre_de_places",length=70)
 	protected int nbPlace;
-	@Column
+	@Column(name = "date_de_debut", nullable=false)
 	protected double prix;
-	@Column
+	@Column(length=6)
 	protected String numero;
-	@Column
+	@Column(length=200)
 	protected String description;
 	
 	@OneToMany(mappedBy="logement")
