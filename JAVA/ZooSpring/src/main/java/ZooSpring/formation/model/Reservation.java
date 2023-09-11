@@ -2,6 +2,8 @@ package ZooSpring.formation.model;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,6 +16,7 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Version;
 @Entity
 @Table(name="reservation")
+@JsonView(Views.Common.class)
 
 public class Reservation {
 	@Id
@@ -31,12 +34,18 @@ public class Reservation {
 	private double prix;
 	@ManyToOne
 	@JoinColumn(name="client")
+	@JsonView(Views.Reservation.class)
+
 	private Client client;
 	@ManyToOne
 	@JoinColumn(name="logement")
+	@JsonView(Views.Reservation.class)
+
 	private Logement logement;
 	@OneToOne
 	@JoinColumn(name="interet")
+	@JsonView(Views.Reservation.class)
+
 	private Interet interet;
 	
 	

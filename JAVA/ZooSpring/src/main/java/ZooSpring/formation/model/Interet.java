@@ -2,6 +2,8 @@ package ZooSpring.formation.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,6 +16,7 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Version;
 @Entity
 @Table(name="interet")
+@JsonView(Views.Common.class)
 public class Interet {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,9 +26,11 @@ public class Interet {
 
 	@ManyToMany()
 	@JoinTable(name="interet_enclos",joinColumns=@JoinColumn(name="interet"),inverseJoinColumns=@JoinColumn(name="enclos"))
+	@JsonView(Views.Interet.class)
 	private List<Enclos> enclos;
 	
 	@OneToOne(mappedBy="interet")
+	@JsonView(Views.Interet.class)
 	private Reservation reservation;
 	
 	public Interet() {

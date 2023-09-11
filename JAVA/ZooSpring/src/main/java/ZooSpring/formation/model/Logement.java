@@ -2,6 +2,8 @@ package ZooSpring.formation.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorColumn;
 import jakarta.persistence.Entity;
@@ -18,6 +20,7 @@ import jakarta.persistence.Version;
 @Table(name="logement")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "type_logement",columnDefinition = "ENUM('Chalet','MobilHome')")
+@JsonView(Views.Common.class)
 public abstract class Logement {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,6 +37,8 @@ public abstract class Logement {
 	protected String description;
 	
 	@OneToMany(mappedBy="logement")
+	@JsonView(Views.Logement.class)
+
 	protected List <Reservation> reservations;
 	
 	

@@ -1,5 +1,7 @@
 package ZooSpring.formation.model;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
@@ -7,10 +9,13 @@ import jakarta.persistence.ManyToOne;
 
 @Entity
 @DiscriminatorValue("Chalet")
+@JsonView(Views.Common.class)
+
 public class Chalet extends Logement{
 	
 	@ManyToOne
 	@JoinColumn(name="enclos")
+	@JsonView(Views.Logement.class)
 	private Enclos enclos;
 
 	public Chalet() {}
