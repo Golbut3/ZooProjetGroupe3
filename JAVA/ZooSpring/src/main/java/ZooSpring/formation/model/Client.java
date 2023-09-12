@@ -13,9 +13,9 @@ import jakarta.persistence.OneToMany;
 @DiscriminatorValue("Client")
 @JsonView(Views.Common.class)
 public class Client extends Compte {
-	@Column(nullable=false)
+	
 	private String email;
-	@Column
+	
 	private String tel;
 	
 	@OneToMany(mappedBy="client")

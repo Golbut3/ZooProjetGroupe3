@@ -5,16 +5,20 @@ import com.fasterxml.jackson.annotation.JsonView;
 import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Transient;
 
 @Entity
 @DiscriminatorValue("Employe")
 @JsonView(Views.Common.class)
 public class Employe extends Compte {
-	@Column(name="salaire", nullable=false)
+	@Column(name="salaire")
 	@JsonView(Views.Employe.class)
 	private double sal;
-	@JsonView(Views.Employe.class) //@Column(nullable=false)
+	@Enumerated(EnumType.STRING)
+	@Column(columnDefinition = "ENUM('Animalier', 'Soigneur', 'Paysagiste', 'Gardien')")
+	@JsonView(Views.Employe.class)
 	private Poste poste;
 
 	public Employe() {}

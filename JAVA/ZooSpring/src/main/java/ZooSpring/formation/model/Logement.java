@@ -27,13 +27,13 @@ public abstract class Logement {
 	protected Integer id;
 	@Version
 	protected int version;
-	@Column(name = "nombre_de_places",length=70)
+	@Column(name = "nombre_de_places",length=2)
 	protected int nbPlace;
 	@Column(nullable=false)
 	protected double prix;
 	@Column(length=6)
 	protected String numero;
-	@Column(length=200)
+	@Column(columnDefinition="text")
 	protected String description;
 	
 	@OneToMany(mappedBy="logement")
@@ -79,6 +79,13 @@ public abstract class Logement {
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	
+	public List<Reservation> getReservations() {
+		return reservations;
+	}
+	public void setReservations(List<Reservation> reservations) {
+		this.reservations = reservations;
 	}
 	@Override
 	public String toString() {

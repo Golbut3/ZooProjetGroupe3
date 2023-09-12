@@ -14,6 +14,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.Version;
 @Entity
 @Table(name="intervention")
 @JsonView(Views.Common.class)
@@ -22,6 +23,10 @@ public class Intervention {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
+	@Version
+	private int version;
+
 	@Column(name="date-des-interventions",nullable=false)
 	private LocalDate date;
 	
