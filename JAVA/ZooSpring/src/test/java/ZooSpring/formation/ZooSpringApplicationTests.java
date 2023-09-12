@@ -1,5 +1,8 @@
 package ZooSpring.formation;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -10,17 +13,23 @@ import ZooSpring.formation.model.Aquarium;
 import ZooSpring.formation.model.Bassin;
 import ZooSpring.formation.model.Chalet;
 import ZooSpring.formation.model.Client;
+import ZooSpring.formation.model.Employe;
+import ZooSpring.formation.model.Enclos;
 import ZooSpring.formation.model.Espece;
 import ZooSpring.formation.model.Foret;
+import ZooSpring.formation.model.Interet;
 import ZooSpring.formation.model.Jungle;
 import ZooSpring.formation.model.MobilHome;
+import ZooSpring.formation.model.Poste;
 import ZooSpring.formation.model.Savane;
 import ZooSpring.formation.model.Voliere;
 import ZooSpring.formation.repo.IAdmin;
 import ZooSpring.formation.repo.IAnimal;
 import ZooSpring.formation.repo.IClient;
+import ZooSpring.formation.repo.IEmploye;
 import ZooSpring.formation.repo.IEnclos;
 import ZooSpring.formation.repo.IEspece;
+import ZooSpring.formation.repo.IInteret;
 import ZooSpring.formation.repo.ILogement;
 
 @SpringBootTest
@@ -36,9 +45,13 @@ class ZooSpringApplicationTests {
 	private IAnimal animalRepo;
 	@Autowired
 	private IClient clientRepo;
-	
 	@Autowired
 	private IAdmin adminRepo;
+	@Autowired
+	private IEmploye employeRepo;
+	@Autowired
+	private IInteret interetRepo;
+	
 	
 	@Test
 	void contextLoads() {
@@ -125,6 +138,33 @@ class ZooSpringApplicationTests {
 		clientRepo.save(cli3);
 		
 		Admin adm1 = new Admin("David","daviddome2023","David","Domecyn");
+		adminRepo.save(adm1);
+		
+		Admin adm2 = new Admin("Feriel","ferielbali2023","Feriel","Bali");
+		adminRepo.save(adm2);
+		
+		Employe emp1 = new Employe("Jordan","jordanabid2023","Jordan","Abid",1500.0,Poste.Animalier);
+		employeRepo.save(emp1);
+		
+		Employe emp2 = new Employe("Manon","manoneven1503","Manon","Even",1600.0,Poste.Paysagiste);
+		employeRepo.save(emp2);
+		
+		Employe emp3 = new Employe("Diane","dianereja1234","Diane","Reja",1560.0,Poste.Gardien);
+		employeRepo.save(emp3);
+		
+		Interet int1= new Interet();
+		List <Enclos> listeenclos1= new ArrayList();
+		listeenclos1.add(vol1);
+		int1.setEnclos(listeenclos1);
+		interetRepo.save(int1);
+		
+		Interet int2= new Interet();
+		List <Enclos> listeenclos2= new ArrayList();
+		listeenclos2.add(bas1);
+		int2.setEnclos(listeenclos2);
+		interetRepo.save(int2);
+		
 	}
+	
 
 }

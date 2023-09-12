@@ -36,6 +36,14 @@ public class Interet {
 	public Interet() {
 	}
 
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	public List<Enclos> getEnclos() {
 		return enclos;
 	}
@@ -43,6 +51,16 @@ public class Interet {
 	public void setEnclos(List<Enclos> enclos) {
 		this.enclos = enclos;
 	}
+
+	public Reservation getReservation() {
+		return reservation;
+	}
+
+	public void setReservation(Reservation reservation) {
+		this.reservation = reservation;
+	}
+	
+	
 
 	@Override
 	public String toString() {

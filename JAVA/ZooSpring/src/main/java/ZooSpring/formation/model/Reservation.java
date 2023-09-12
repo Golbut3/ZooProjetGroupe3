@@ -23,7 +23,7 @@ public class Reservation {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	@Version
-	int version;
+	private int version;
 	@Column(name = "date_de_debut")
 	private LocalDate dateDebut;
 	@Column(name = "date_de_fin")

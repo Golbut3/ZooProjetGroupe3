@@ -28,7 +28,7 @@ public abstract class Enclos {
 	
 	@Version
 	protected int version;
-	@Column(length=100)
+	@Column(length=3)
 	protected int capacite;
 	@OneToMany(mappedBy="enclos")
 	@JsonView(Views.Enclos.class)
@@ -84,6 +84,14 @@ public abstract class Enclos {
 	}
 	public void setChalets(List<Chalet> chalets) {
 		this.chalets = chalets;
+	}
+	
+	
+	public List<Interet> getInterets() {
+		return interets;
+	}
+	public void setInterets(List<Interet> interets) {
+		this.interets = interets;
 	}
 	@Override
 	public String toString() {
