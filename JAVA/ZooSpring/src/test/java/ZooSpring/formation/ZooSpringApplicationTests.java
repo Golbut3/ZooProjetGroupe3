@@ -4,17 +4,21 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import ZooSpring.formation.model.Admin;
 import ZooSpring.formation.model.Animal;
 import ZooSpring.formation.model.Aquarium;
 import ZooSpring.formation.model.Bassin;
 import ZooSpring.formation.model.Chalet;
+import ZooSpring.formation.model.Client;
 import ZooSpring.formation.model.Espece;
 import ZooSpring.formation.model.Foret;
 import ZooSpring.formation.model.Jungle;
 import ZooSpring.formation.model.MobilHome;
 import ZooSpring.formation.model.Savane;
 import ZooSpring.formation.model.Voliere;
+import ZooSpring.formation.repo.IAdmin;
 import ZooSpring.formation.repo.IAnimal;
+import ZooSpring.formation.repo.IClient;
 import ZooSpring.formation.repo.IEnclos;
 import ZooSpring.formation.repo.IEspece;
 import ZooSpring.formation.repo.ILogement;
@@ -30,7 +34,11 @@ class ZooSpringApplicationTests {
 	private IEnclos enclosRepo;
 	@Autowired
 	private IAnimal animalRepo;
+	@Autowired
+	private IClient clientRepo;
 	
+	@Autowired
+	private IAdmin adminRepo;
 	
 	@Test
 	void contextLoads() {
@@ -103,11 +111,20 @@ class ZooSpringApplicationTests {
 		ani8.setEnclos(bas1);
 		animalRepo.save(ani8);
 		
-
+		Client cli1 = new Client("Tahir","tahirmed2023","Tahir","Medjadba","tahirmed@gmail.com","0635353535");
+		// NE PAS OUBLIER DE ADD LA LISTE DE RESERVATION
+		clientRepo.save(cli1);
 		
-//		esp1.setNom("cheval");
-//		esp1 = especeRepo.save(esp1);
+		Client cli2 = new Client("Lucas","lucascharlet"
+				+ "2023","Lucas","Charlet","lucascharlet@gmail.com","0636363636");
+		// NE PAS OUBLIER DE ADD LA LISTE DE RESERVATION
+		clientRepo.save(cli2);
 		
+		Client cli3 = new Client("Cynthia","cynthiaehr2023","Cynthia","Ehrhard","cynthiaehrhard@gmail.com","0637373737");
+		// NE PAS OUBLIER DE ADD LA LISTE DE RESERVATION
+		clientRepo.save(cli3);
+		
+		Admin adm1 = new Admin("David","daviddome2023","David","Domecyn");
 	}
 
 }
