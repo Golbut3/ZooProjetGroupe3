@@ -2,10 +2,13 @@ package ZooSpring.formation.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
+
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 @Entity
 @DiscriminatorValue("Aquarium")
+
 public class Aquarium extends Enclos{
 
 	public Aquarium() {	}

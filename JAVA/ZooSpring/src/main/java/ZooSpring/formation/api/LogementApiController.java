@@ -2,7 +2,6 @@ package ZooSpring.formation.api;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,38 +17,44 @@ import org.springframework.web.server.ResponseStatusException;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import ZooSpring.formation.model.Logement;
-import ZooSpring.formation.model.Materiel;
 import ZooSpring.formation.model.Views;
 import ZooSpring.formation.repo.ILogement;
+import jakarta.validation.Valid;
 
 
 @RestController
 @RequestMapping("/api/logement")
 public class LogementApiController {
 
-	@Autowired
-	private ILogement repoLogement;
+
+	private ILogement daoLogement;
+	
+	public LogementApiController(ILogement daoLogement) {
+		super();
+		this.daoLogement = daoLogement;
+	}
+
 	
 	@GetMapping("")
 	@JsonView(Views.Logement.class)
 	public List<Logement> findAll() {
-		return this.repoLogement.findAll();
+		return this.daoLogement.findAll();
 	}
 	
 	@GetMapping("/{id}")
 	@JsonView(Views.Logement.class)
-	public Logement findById(Integer id) {
-		return repoLogement.findById(id).get();
+	public Logement findById(@PathVariable Integer id) {
+		return daoLogement.findById(id).get();
 		}
 	
 	@PostMapping("")
 	@JsonView(Views.Logement.class)
-	public Logement create(@RequestBody Logement logement, BindingResult result) {
+	public Logement create(@Valid @RequestBody Logement logement, BindingResult result) {
 		if (result.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Logement invalide");
 		}
 
-		logement = repoLogement.save(logement);
+		logement = daoLogement.save(logement);
 
 		return logement;
 	}
@@ -58,17 +63,17 @@ public class LogementApiController {
 	@PutMapping("/{id}")
 	@JsonView(Views.Logement.class)
 	public Logement update(@RequestBody Logement logement, @PathVariable int id) {
-		logement = repoLogement.save(logement);
+		logement = daoLogement.save(logement);
 
 		return logement;
 	}
 	
 	@DeleteMapping("/{id}")
 	public void remove(@PathVariable int id) {
-		if(!repoLogement.existsById(id)) {
+		if(!daoLogement.existsById(id)) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND);
 		}
 		
-		repoLogement.deleteById(id);
+		daoLogement.deleteById(id);
 	}
 }

@@ -16,5 +16,7 @@ public interface Views {
 	public interface Materiel extends Common {}
 	public interface Reservation extends Common {}
 	public interface Interet extends Common {}
+	public interface Admin extends Common {}
+
 
 }
