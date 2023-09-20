@@ -5,11 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CompteComponent } from './compte/compte.component';
 import { HttpClientModule } from '@angular/common/http';
+import { EnclosComponent } from './enclos/enclos.component';
+import { ChaletComponent } from './chalet/chalet.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CompteComponent
+    CompteComponent,
+    EnclosComponent,
+    ChaletComponent
   ],
   imports: [
     BrowserModule,
