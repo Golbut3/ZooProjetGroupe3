@@ -1,0 +1,77 @@
+<p>animal works!</p>
+<div class="card mt-3">
+    <div class="card-header bg-primary text-white display-6">Liste des animaux</div>
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Identifiant</th>
+                    <th>Nom</th>
+                    <th>Poids</th>
+                    <th>Espece</th>
+                    <th>Enclos</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let anim of list()">
+                    <td>{{anim.id}}</td>
+                    <td>{{anim.nom}}</td>
+                    <td>{{anim.poids}}</td>
+                    <td>{{anim.espece?.id}} - {{anim.espece?.nom}}</td>
+                    <td>{{anim.enclos?.id}} - {{anim.enclos?.animal}}</td>
+                    <td>
+                        <div class="btn-group btn-group-sm">
+                            <a class="btn btn-primary" (click)="edit(anim.id)"><i
+                                    class="bi bi-pencil-square"></i></a>
+                            <a class="btn btn-danger" (click)="remove(anim.id)"><i class="bi bi-trash"></i></a>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+    <div class="card-footer">
+        <a class="btn btn-success btn-lg" (click)="add()"><i
+            class="bi bi-plus-square"></i></a>
+    </div>
+</div>
+
+<div class="card mt-3" *ngIf="showForm">
+   <!-- <form (ngSubmit)="save()" [formGroup] ="animalForm!">
+    <div class="card-header bg-primary text-white display-6">Edition d'un produit</div>
+    <div class="card-body">
+        <div class="form-group">
+            <label for="id">Identifiant:</label> <input type="number" class="form-control" id="id" name="id" readonly formControlName="id"/>
+        </div>
+        <div class="form-group">
+            <label for="nom">Nom:</label> <input type="text" class="form-control" id="nom" name="nom" formControlName="nom"/>
+        </div>
+        <div class="form-group">
+            <label for="poids">Poids:</label> <input type="number" class="form-control" id="poids" name="poids" formControlName="poids"/>
+        </div>
+        <div class="form-group">
+            <label for="espece">Espece:</label> 
+            <select class="form-control" id="espece" name="espece" formControlName="espece"></select>
+        </div>
+        <div class="form-group">
+            <label for="enclos">Enclos:</label> 
+            <select class="form-control" id="enclos" name="enclos" formControlName="enclos"></select>
+        </div>
+
+        
+    
+    <div class="card-footer">
+        <div class="btn-group btn-group-lg float-right">
+            <a class="btn btn-success" (click)="save()"><i class="bi bi-check-square-fill"></i></a>
+            <a class="btn btn-warning" (click)="cancel()"><i class="bi bi-backspace-fill"></i></a>
+        </div>
+    </div>
+    </div>
+    </form>
+    
+</div>
+
+-->
