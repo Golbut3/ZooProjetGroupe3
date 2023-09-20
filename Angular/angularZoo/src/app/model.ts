@@ -20,3 +20,43 @@ export class Compte{
     }
 
 }
+
+export class Reservation{
+    id: number; 
+    dateDebut?: string; 
+    dateFin?: string; 
+    nbVisiteurs?: number; 
+    prix?: number; 
+    client?: Client; 
+    logement?: Logement;
+    interet?: Interet;
+
+    constructor(
+        id: number, 
+        dateDebut?: string, 
+        dateFin?: string,
+        nbVisiteurs?: number, 
+        prix?: number, 
+        client?: Client, 
+        logement?: Logement,
+        interet?: Interet
+    )
+    {
+        this.id=id;
+        this.dateDebut=dateDebut;
+        this.dateFin=dateFin;
+        this.nbVisiteurs=nbVisiteurs;
+        this.prix=prix;
+        this.client=client;
+        this.logement=logement;
+        this.interet=interet;
+
+    }
+
+
+
+}
+
+export class Client extends Compte{}
+export class Logement{}
+export class Interet{}
