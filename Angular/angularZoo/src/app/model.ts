@@ -21,6 +21,44 @@ export class Compte{
 
 }
 
+export class Reservation{
+    id: number; 
+    dateDebut?: string; 
+    dateFin?: string; 
+    nbVisiteurs?: number; 
+    prix?: number; 
+    client?: Client; 
+    logement?: Logement;
+    interet?: Interet;
+
+    constructor(
+        id: number, 
+        dateDebut?: string, 
+        dateFin?: string,
+        nbVisiteurs?: number, 
+        prix?: number, 
+        client?: Client, 
+        logement?: Logement,
+        interet?: Interet
+    )
+    {
+        this.id=id;
+        this.dateDebut=dateDebut;
+        this.dateFin=dateFin;
+        this.nbVisiteurs=nbVisiteurs;
+        this.prix=prix;
+        this.client=client;
+        this.logement=logement;
+        this.interet=interet;
+
+    }
+
+
+
+}
+
+export class Client extends Compte{}
+
 export class Espece{
 
 }
@@ -48,7 +86,6 @@ export class Animal {
     }
 }
 
-export class Reservation{}
 
 export class Logement{
     id?: number; 
@@ -56,7 +93,7 @@ export class Logement{
     prix?:number;
     numero?: string;
     descrption?:string;
-    reservations?:Reservation;
+    reservations?:Reservation[];
 
     constructor(
         id?: number,
@@ -80,11 +117,11 @@ export class Logement{
 
 export class Chalet extends Logement {
 
-    encloss?:Enclos[];
+//     encloss?:Enclos[];
 
-    constructor(){
-        super(this.id = id; );
-    }
+//     constructor(){
+//         super(this.id = id; );
+//     }
 
 
 }
@@ -95,20 +132,20 @@ export class Enclos{
 
     id? : number;
     capacite?: number;
-    chalets?: Array<Chalet> = new Array<Chalet>;
+    // chalets?: Array<Chalet> = new Array<Chalet>;
     animaux?: Array<Animal> = new Array< Animal>;
     interets?: Array<Interet> = new Array<Interet>;
 
 constructor(
     id? : number,
     capacite?: number,
-    chalets?: Chalet[],
+    //chalets?: Chalet[],
     animaux?: Animal[],
     interets?: Interet[])
     {
         this.id = id;
         this.capacite= capacite;
-        this.chalets = chalets;
+        //this.chalets = chalets;
         this.animaux = animaux;
         this.interets= interets;
     }

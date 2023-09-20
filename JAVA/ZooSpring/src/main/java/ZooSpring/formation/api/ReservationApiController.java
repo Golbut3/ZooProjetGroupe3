@@ -38,7 +38,7 @@ public class ReservationApiController {
 	
 	@GetMapping("/{id}")
 	@JsonView(Views.Reservation.class)
-	public Reservation findById(Integer id) {
+	public Reservation findById(@PathVariable Integer id) {
 		return repoReservation.findById(id).get();
 		}
 	
