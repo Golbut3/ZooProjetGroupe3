@@ -142,7 +142,7 @@ export class Enclos{
     id? : number;
     capacite?: number;
     chalets?: Array<Chalet> = new Array<Chalet>;
-    animaux?: Array<Animal> = new Array< Animal>;
+    animaux?: Array<Animal> = new Array<Animal>;
     interets?: Array<Interet> = new Array<Interet>;
 
 constructor(
