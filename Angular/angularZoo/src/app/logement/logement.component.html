@@ -1,0 +1,84 @@
+    <div>Liste des logements</div>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Identifiant</th>
+                    <th>Nombre de place</th>
+                    <th>Prix</th>
+                    <th>Numéro</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let log of logements$ | async">
+                    <td>{{log.id}}</td>
+                    <td>{{log.nbPlace}}</td>
+                    <td>{{log.prix}}</td>
+                    <td>{{log.numero}}</td>
+                    <td>{{log.description}}</td>
+                    <td>{{log.client?.id}} - {{log.client?.nom}}</td>
+                    <td>
+                        <div class="btn-group btn-group-sm">
+                            <a class="btn btn-primary" (click)="edit(log.id)"><i
+                                    class="bi bi-pencil-square"></i></a>
+                            <a class="btn btn-danger" (click)="remove(log.id)"><i class="bi bi-trash"></i></a>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+    <div class="card-footer">
+        <a class="btn btn-success btn-lg" (click)="add()"><i
+            class="bi bi-plus-square"></i></a>
+    </div>
+
+
+<div class="card mt-3" *ngIf="logementForm">
+    <div class="card-header bg-primary text-white display-6">Edition d'un logement</div>
+    <div class="card-body">
+        <div class="form-group">
+                   
+                    <th>Description</th>
+            <label for="id">Identifiant:</label> <input type="number" class="form-control" id="id" name="id" readonly [(ngModel)]="logementForm.id"/>
+        </div>
+        <div class="form-group">
+            <label for="nbPlace">Nombre de place:</label> <input type="number" class="form-control" id="nbPlace" name="nbPlace" [(ngModel)]="logementForm.nbPlace"/>
+        </div>
+        <div class="form-group">
+            <label for="prix">Prix:</label> <input type="number" class="form-control" id="prix" name="prix" [(ngModel)]="logementForm.prix" step=".01"/>
+        </div>
+        <div class="form-group">
+            <label for="numero">Numéro:</label> <input type="number" class="form-control" id="numero" name="numero" [(ngModel)]="logementForm.numero" step="1"/>
+        </div>
+        <div class="form-group">
+            <label for="description">Description:</label> <input type="text" class="form-control" id="description" name="description" [(ngModel)]="logementForm.description"/>
+        </div>
+                <div class="form-group">
+            <label for="client">Client:</label> 
+            <select class="form-control" id="client" name="client" [(ngModel)]="logementForm.client.id">
+                <option *ngFor="let four of clients$ | async" [value]="four.id">{{four.nom}}</option>
+            </select>
+
+        
+        </div>
+    </div>
+    <div class="card-footer">
+        <div class="btn-group btn-group-lg float-right">
+            <a class="btn btn-success" (click)="save()"><i class="bi bi-check-square-fill"></i></a>
+            <a class="btn btn-warning" (click)="cancel()"><i class="bi bi-backspace-fill"></i></a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
