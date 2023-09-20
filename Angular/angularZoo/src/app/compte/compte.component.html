@@ -1,1 +1,37 @@
-<p>compte works!</p>
+<div class="card mt-3">
+    <div class="card-header bg-primary text-white display-6">Liste des comptes</div>
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Identifiant</th>
+                    <th>Login</th>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let compte of list()">
+                    <td>{{compte.id}}</td>
+                    <td>{{compte.login}}</td>
+                    <td>{{compte.nom}}</td>
+                    <td>{{compte.prenom}}</td>
+                    <td>
+                        <div class="btn-group btn-group-sm">
+                            <a class="btn btn-primary" (click)="edit(compte.id)"><i
+                                    class="bi bi-pencil-square"></i></a>
+                            <a class="btn btn-danger" (click)="remove(compte.id)"><i class="bi bi-trash"></i></a>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+    <div class="card-footer">
+        <a class="btn btn-success btn-lg" (click)="add()"><i
+            class="bi bi-plus-square"></i></a>
+    </div>
+</div>

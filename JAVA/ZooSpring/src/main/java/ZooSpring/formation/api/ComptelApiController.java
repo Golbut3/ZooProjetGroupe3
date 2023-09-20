@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.http.HttpStatus;
 import org.springframework.util.ReflectionUtils;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -25,7 +26,7 @@ import ZooSpring.formation.model.Views;
 import ZooSpring.formation.repo.ICompte;
 import jakarta.validation.Valid;
 
-
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/api/compte")
 public class ComptelApiController {
