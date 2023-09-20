@@ -9,6 +9,7 @@ import { ReservationComponent } from './reservation/reservation.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EnclosComponent } from './enclos/enclos.component';
 import { ChaletComponent } from './chalet/chalet.component';
+import { Espece } from './model';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ChaletComponent } from './chalet/chalet.component';
     CompteComponent,
     ReservationComponent,
     EnclosComponent,
-    ChaletComponent
+    ChaletComponent,
+    EnclosComponent,
   ],
   imports: [
     BrowserModule,

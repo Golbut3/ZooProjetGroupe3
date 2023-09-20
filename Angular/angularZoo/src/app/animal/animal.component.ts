@@ -2,52 +2,45 @@ import { Component, OnInit } from '@angular/core';
 import { Animal, Enclos, Logement } from '../model';
 import { Observable } from 'rxjs';
 import { AnimalHttpService } from './animal-http.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { EspeceHttpService } from '../espece-http.service';
+import { EnclosHttpService } from '../enclos/enclos-http.service';
 
 @Component({
   selector: 'app-animal',
   templateUrl: './animal.component.html',
   styleUrls: ['./animal.component.css']
 })
-export class AnimalComponent implements OnInit{
+export class AnimalComponent implements OnInit {
 
-  animals$: Observable<Animal[]> | undefined;
+  animalForm!: FormGroup;
+  showForm: boolean = false;
 
-  enclos$: Observable<Enclos[]> | undefined;
-  logements$: Observable<Element[]> | undefined;
+  constructor(private animalHttpService: AnimalHttpService, private enclosHttpService: EnclosHttpService, private especeHttpService: EspeceHttpService, private formBuilder: FormBuilder) {
+   }
 
-  animalForm: Animal = null;
-
-  constructor(private animalHttpService: AnimalHttpService, private enclosHttpService: EnclosHttpService, private logementHttpService: LogementHttpService) {
-  }
   
   ngOnInit(): void {
-    this.animals$ = this.animalHttpService.findAll();
-    this.enclos$ = this.enclosHttpService.findAllForAsync();
-    this.logements$ = this.logementHttpService.findAllForAsync();
+    this.animalForm = this.formBuilder.group({
+      id: this.formBuilder.control(0),
+      nom: this.formBuilder.control(''),
+      poids: this.formBuilder.control(''),
+    });
   }
 
-  // list(): Array<Produit> {
-  //   return this.produitService.findAll();
-  // }
-
-  // listFournisseur(): Array<Fournisseur> {
-  //   return this.fournisseurService.findAll();
-  // }
+  list():Array<Animal> {
+   return this.animalHttpService.findAll();
+  }
 
   add() {
-    this.animalForm = new Animal();
-    this.animalForm.enclos = new Enclos();
-    this.animalForm.logement = new Logement();
+    this.animalForm.reset();
+    this.showForm = true;
   }
 
   edit(id: number) {
     this.animalHttpService.findById(id).subscribe(resp => {
-      this.animalForm = resp;
-
-      if(!this.animalForm.enclos && !this.animalForm.logement) {
-        this.animalForm.enclos = new Enclos();
-        this.animalForm.logement = new Logement();
-      }
+      this.animalForm.patchValue(resp);
+      this.showForm = true;
     });
   }
 
@@ -57,19 +50,17 @@ export class AnimalComponent implements OnInit{
   //   }
   // }
 
+  remove(id: number) {
+    this.animalHttpService.deleteById(id);
+  }
+
   save() {  
-    this.animalHttpService.save(this.animalForm).subscribe(resp => {
-      this.animals$ = this.animalHttpService.findAll();
-    });
+    this.animalHttpService.save(this.animalForm.value);
   }
 
   cancel() {
-    this.animalForm;
+    this.showForm = false;
+    this.animalForm.reset();
   }
 
-  remove(id: number) {
-    this.animalHttpService.deleteById(id).subscribe(resp => {
-      this.animals$ = this.animalHttpService.findAll();
-    });
-  }
-
+}
