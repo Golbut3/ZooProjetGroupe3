@@ -1,5 +1,8 @@
 package ZooSpring.formation.model;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 @Entity

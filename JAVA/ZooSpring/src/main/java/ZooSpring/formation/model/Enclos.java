@@ -2,6 +2,9 @@ package ZooSpring.formation.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import jakarta.persistence.Column;
@@ -21,6 +24,15 @@ import jakarta.persistence.Version;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "type_enclos")
 @JsonView(Views.Common.class)
+@JsonTypeInfo( use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
+@JsonSubTypes({ 
+  @Type(value = Aquarium.class, name = "aquarium"), 
+  @Type(value = Bassin.class, name = "bassin"), 
+  @Type(value = Savane.class, name = "savane"),
+  @Type(value = Voliere.class, name = "voliere"),
+  @Type(value = Foret.class, name = "foret"),
+  @Type(value = Jungle.class, name = "jungle")
+})
 public abstract class Enclos {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,7 +40,7 @@ public abstract class Enclos {
 	
 	@Version
 	protected int version;
-	@Column(length=100)
+	@Column(length=3)
 	protected int capacite;
 	@OneToMany(mappedBy="enclos")
 	@JsonView(Views.Enclos.class)
@@ -84,6 +96,14 @@ public abstract class Enclos {
 	}
 	public void setChalets(List<Chalet> chalets) {
 		this.chalets = chalets;
+	}
+	
+	
+	public List<Interet> getInterets() {
+		return interets;
+	}
+	public void setInterets(List<Interet> interets) {
+		this.interets = interets;
 	}
 	@Override
 	public String toString() {

@@ -20,9 +20,9 @@ public class Materiel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@Column
+
 	@Version
-	int version;
+	private int version;
 	private String nom;
 	@ManyToOne
 	@JoinColumn(name="intervention")
