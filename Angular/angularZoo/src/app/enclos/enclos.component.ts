@@ -25,16 +25,16 @@ export class EnclosComponent {
   }
 
   ngOnInit():void{
-this.encloss$ = this.enclosHttpService.findAll();
-this.chalets$ = this.chaletHtttpService.findAll();
+  this.encloss$ = this.enclosHttpService.findAll();
+  this.chalets$ = this.chaletHtttpService.findAllForAsync();
 
   }
   
   
   add(){
     this.enclosForm = new Enclos();
-    this.enclosForm.chalets = new Chalet();
-    //this.enclosForm.interets = new Interet ();
+    this.enclosForm.chalets = new Array <Chalet>();
+    //this.enclosForm.interets = new <Interet>();
   }
 
   edit(id: number) {
@@ -42,17 +42,18 @@ this.chalets$ = this.chaletHtttpService.findAll();
       this.enclosForm = resp;
 
       if(!this.enclosForm.chalets) {
-        this.enclosForm.chalets = new Chalet();
+        this.enclosForm.chalets = new Array<Chalet>();
       }
 
-      if
     });
+  }
 
   save(){}
 
   cancel(){}
 
   remove(){}
+
 
 
 }
