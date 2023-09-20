@@ -12,11 +12,11 @@ import { ChaletHttpService } from '../chalet/chalet-http.service';
 export class EnclosComponent {
 
 
-  encloss$: Observable<Enclos[]>
+  encloss$!: Observable<Enclos[]>;
 
   // animaux$: Observable<Animal[]>;
 
-  chalets$: Observable<Chalet[]>;
+  chalets$!: Observable<Chalet[]>;
 
   enclosForm: Enclos = new Enclos;
 

@@ -14,8 +14,7 @@ import { ChaletComponent } from './chalet/chalet.component';
   declarations: [
     AppComponent,
     CompteComponent,
-    ReservationComponent
-    CompteComponent,
+    ReservationComponent,
     EnclosComponent,
     ChaletComponent
   ],

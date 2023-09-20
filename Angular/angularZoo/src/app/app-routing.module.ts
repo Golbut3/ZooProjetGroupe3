@@ -6,9 +6,8 @@ import { EnclosComponent } from './enclos/enclos.component';
 
 
 const routes: Routes = [
-  {path: "compte", component: CompteComponent}, {path: "reservation", component: ReservationComponent}
-
-  {path: "compte", component: CompteComponent},
+  {path: "compte", component: CompteComponent}, 
+  {path: "reservation", component: ReservationComponent},
   {path: "enclos", component: EnclosComponent}
 ];
 
