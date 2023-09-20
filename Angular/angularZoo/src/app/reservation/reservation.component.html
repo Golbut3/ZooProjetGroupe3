@@ -1,0 +1,90 @@
+<div class="card mt-3">
+    <div class="card-header bg-primary text-white display-6">Liste des reservations</div>
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Identifiant</th>
+                    <th>Date début</th>
+                    <th>Date fin</th>
+                    <th>Nombre de visiteurs</th>
+                    <th>Prix</th>
+                    <th>Client</th>
+                    <th>Logement</th>
+                    <th>Interet</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let resa of list()">
+                    <td>{{resa.id}}</td>
+                    <td>{{resa.dateDebut}}</td>
+                    <td>{{resa.dateFin}}</td>
+                    <td>{{resa.nbVisiteurs}}</td>
+                    <td>{{resa.prix}}</td>
+                    <td>{{resa.client}}</td>
+                    <td>{{resa.logement}}</td>
+                    <td>{{resa.interet}}</td>
+                    <td>
+                        <div class="btn-group btn-group-sm">
+                            <a class="btn btn-primary" (click)="edit(resa.id)"><i
+                                    class="bi bi-pencil-square"></i></a>
+                            <a class="btn btn-danger" (click)="remove(resa.id)"><i class="bi bi-trash"></i></a>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+    <div class="card-footer">
+        <a class="btn btn-success btn-lg" (click)="add()"><i
+            class="bi bi-plus-square"></i></a>
+    </div>
+</div>
+
+
+<div class="card mt-3" *ngIf="showForm">
+    <form (ngSubmit)="save()" [formGroup]="reservationForm">
+    <div class="card-header bg-primary text-white display-6">Edition d'une reservation</div>
+    <div class="card-body">
+        <div class="form-group">
+            <label for="id">Identifiant:</label> <input type="number" class="form-control" id="id" name="id" readonly formControlName="id"/>
+        </div>
+        <div class="form-group">
+            <label for="nom">Date début:</label> <input type="text" class="form-control" id="dateDebut" name="nom" formControlName="dateDebut"/>
+            <!-- <span class="text-danger" *ngIf="fournisseurForm.get('nom')?.dirty && fournisseurForm.get('nom')?.hasError('required')">Le nom est obligatoire</span> -->
+        </div>
+        <div class="form-group">
+            <label for="adresse">Date fin:</label> <input type="text" class="form-control" id="dateFin" name="dateFin" formControlName="dateFin"/>
+            <!-- <span class="text-danger" *ngIf="fournisseurForm.get('adresse')?.dirty && fournisseurForm.get('adresse')?.hasError('required')">L'adresse Email est obligatoire</span>
+            <span class="text-danger" *ngIf="fournisseurForm.get('adresse')?.hasError('email')">L'adresse Email est invalide</span> -->
+        </div>
+        <div class="form-group">
+            <label for="responsable">Nombre de visiteurs:</label> <input type="number" class="form-control" id="nbVisiteurs" name="nbVisiteurs" formControlName="nbVisiteurs"/>
+        </div>
+        <div class="form-group">
+            <label for="responsable">Prix:</label> <input type="number" class="form-control" id="prix" name="prix" formControlName="prix"/>
+        </div>
+        <div class="form-group">
+            <label for="responsable">Client:</label> <input type="text" class="form-control" id="client" name="client" formControlName="client"/>
+            <!-- <select class="form-control" id="client" name="client" [(ngModel)]="reservationForm.value.client.id">
+                <option *ngFor="let cli of compteHttpService.findAll()">{{cli.id}}</option>
+            </select> -->
+        </div>
+        <div class="form-group">
+            <label for="responsable">Logement:</label> <input type="text" class="form-control" id="logement" name="logement" formControlName="logement"/>
+        </div>
+        <div class="form-group">
+            <label for="responsable">Interet:</label> <input type="text" class="form-control" id="interet" name="interet" formControlName="interet"/>
+        </div>
+    </div>
+    <div class="card-footer">
+        <div class="btn-group btn-group-lg float-right">
+            <button type="submit" class="btn btn-success"><i class="bi bi-check-square-fill"></i></button>
+            <a class="btn btn-warning" (click)="cancel()"><i class="bi bi-backspace-fill"></i></a>
+        </div>
+    </div>
+    </form>
+</div>
