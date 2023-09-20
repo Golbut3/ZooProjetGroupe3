@@ -1,12 +1,10 @@
 package ZooSpring.formation.model;
 
-<<<<<<< Updated upstream
+
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-=======
->>>>>>> Stashed changes
 import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
