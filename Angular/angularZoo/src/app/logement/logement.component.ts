@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LogementHttpService } from './logement-http.service';
 import { Logement } from '../model';
 import { Observable } from 'rxjs';
-
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-logement',
@@ -16,20 +16,27 @@ export class LogementComponent implements OnInit{
   logement$: Observable<Logement[]> | undefined;
 
   clients$: Observable<Client[]> | undefined;
+  formBuilder: any;
+  reservationForm: any;
 
 constructor(private logementHttpService: LogementHttpService, private clientHttpService: ClientHttpService){
   
 }
 
-  
-  ngOnInit(): void {
-    this.logement$ = this.logementHttpService.findAll();
-    this.clients$ = this.clientHttpService.findAllForAsync();
-  }
+ngOnInit(): void {
+    this.logementForm = this.formBuilder.group({
+    id: this.formBuilder.control(0),
+    nbPlace: this.formBuilder.control(''),
+    prix: this.formBuilder.control(''),
+    numero: this.formBuilder.control(''),
+    description: this.formBuilder.control(''),
+    client: this.formBuilder.control(''),
+  });
 
-  // list(): Array<Logement> {
-  //   return this.logementervice.findAll();
-  // }
+
+   list(): Array<Logement> logements {
+    return this.logementHttpService.findAll(),
+   }
 
   // listClient(): Array<Client> {
   //   return this.clientService.findAll();

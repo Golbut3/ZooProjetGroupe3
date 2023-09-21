@@ -8,7 +8,7 @@ import { Logement } from '../model';
 })
 export class LogementHttpService {
   
-
+  logements: Array<Logement> = new Array<Logement>();
   constructor(private http: HttpClient) {
     
   }
