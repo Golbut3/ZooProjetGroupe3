@@ -224,7 +224,7 @@ export class Enclos{
     type?: string;
 
 constructor(
-    id? : number,
+    id?: number,
     capacite?: number,
     chalets?: Chalet[],
     animaux?: Animal[],
