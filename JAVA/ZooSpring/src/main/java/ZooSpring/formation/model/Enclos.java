@@ -54,6 +54,10 @@ public abstract class Enclos {
 	@JsonView(Views.Enclos.class)
 	protected List<Interet> interets;
 
+	@OneToMany(mappedBy="enclos")
+	@JsonView(Views.Enclos.class)
+	protected List<Intervention> interventions;
+	
 	
 	public Enclos() {}
 	public Enclos(int capacite) {

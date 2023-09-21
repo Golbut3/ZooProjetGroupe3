@@ -23,6 +23,7 @@ import { InteretComponent } from './interet/interet.component';
     EnclosComponent,
     AdminComponent,
     InteretComponent,
+
   ],
   imports: [
     BrowserModule,

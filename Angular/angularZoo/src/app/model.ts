@@ -167,12 +167,12 @@ export class Chalet extends Logement {
         nbPlace?:number,
         prix?:number,
         numero?: string,
-        descrption?:string,
+        description?:string,
         reservations?:Reservation[],
         encloss?:Enclos[]
 
         ){
-        super(id,nbPlace,prix,numero,descrption,reservations);
+        super(id,nbPlace,prix,numero,description,reservations);
         this.encloss=encloss;
     }
 
@@ -220,6 +220,29 @@ constructor(
     }
 }
 
+export class Intervention{
+    id?: number; 
+    version?:string;
+    date?:number;
+    enclos?:Array<Enclos> = new Array<Enclos>;
+    employe?:Employe;
+
+    constructor(
+        id?: number,
+        version?:string,
+        date?:number,
+        enclos?:Enclos[],
+        employe?:Employe,
+    
+    ) {
+        this.id = id;
+        this.version= version;
+        this.date = date;
+        this.enclos = enclos;
+        this.employe = employe;
+    }
+
+}
 
 // export class Logement{
 //         id:number;

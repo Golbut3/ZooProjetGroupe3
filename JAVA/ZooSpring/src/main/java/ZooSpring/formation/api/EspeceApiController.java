@@ -39,7 +39,7 @@ public class EspeceApiController {
 	@GetMapping("/{id}")
 	@JsonView(Views.Espece.class)
 
-	public Espece  findById(Integer id) {
+	public Espece  findById(@PathVariable Integer id) {
 		return repoEspece.findById(id).get();
 		}
 	
