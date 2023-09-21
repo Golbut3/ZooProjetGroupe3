@@ -225,7 +225,7 @@ export class Intervention{
     version?:string;
     date?:number;
     enclos?:Array<Enclos> = new Array<Enclos>;
-    employe?:Employes;
+    employe?:Employe;
 
     constructor(
         id?: number,
@@ -239,7 +239,7 @@ export class Intervention{
         this.version= version;
         this.date = date;
         this.enclos = enclos;
-        this.employes = employes;
+        this.employe = employe;
     }
 
 }
