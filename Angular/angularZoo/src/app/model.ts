@@ -139,14 +139,14 @@ export class Interet{}
 
 export class Enclos{
 
-    id? : number;
+    id?: number;
     capacite?: number;
     chalets?: Array<Chalet> = new Array<Chalet>;
     animaux?: Array<Animal> = new Array<Animal>;
     interets?: Array<Interet> = new Array<Interet>;
 
 constructor(
-    id? : number,
+    id ?: number,
     capacite?: number,
     chalets?: Chalet[],
     animaux?: Animal[],
