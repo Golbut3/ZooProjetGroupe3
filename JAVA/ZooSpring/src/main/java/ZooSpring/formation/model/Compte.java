@@ -62,6 +62,16 @@ public abstract class Compte  {
 		this.nom = nom;
 	}
 
+	
+	
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
+	}
+
 	public Integer getId() {
 		return id;
 	}

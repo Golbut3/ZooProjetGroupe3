@@ -11,6 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -30,13 +31,13 @@ public class Intervention {
 	@Column(name="date-des-interventions",nullable=false)
 	private LocalDate date;
 	
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name="enclos")
 	@JsonView(Views.Intervention.class)
 
 	private Enclos enclos;
 	
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name="employe")
 	@JsonView(Views.Intervention.class)
 	private Employe employe;
@@ -44,6 +45,7 @@ public class Intervention {
 	@OneToMany(mappedBy="intervention")
 	@JsonView(Views.Intervention.class)
 	List <Materiel> materiels;
+	
 	
 	
 	public Intervention() {

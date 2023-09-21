@@ -17,7 +17,7 @@ constructor(private http: HttpClient) {
 }
  findAll(): Observable<Enclos[]>{
 
-  return this.http.get<Enclos[]>("http://localhost:8080/enclos");
+  return this.http.get<Enclos[]>("http://localhost:8080/api/enclos");
  }
 
  findById(id: number): Observable<Enclos> {
@@ -28,7 +28,7 @@ save(enclos: Enclos): Observable<Enclos> {
   if(enclos.id) { // mise à jour
     return this.http.put<Enclos>("http://localhost:8080/api/enclos/"+enclos.id, enclos);
   } else { // création
-    return this.http.post<Enclos>("http://localhost:8080/api/produit", enclos);;
+    return this.http.post<Enclos>("http://localhost:8080/api/enclos", enclos);;
   }
  }
 
