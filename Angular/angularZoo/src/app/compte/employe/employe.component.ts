@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
- import { FormGroup } from '@angular/forms';
+ import { FormBuilder, FormGroup } from '@angular/forms';
+import { EmployeHttpService } from './employe-http.service';
+import { Employe } from 'src/app/model';
 
 @Component({
    selector: 'app-employe',
@@ -7,13 +9,13 @@ import { Component, OnInit } from '@angular/core';
    styleUrls: ['./employe.component.css']
  })
  export class EmployeComponent implements OnInit {
-   employe:FormGroup;
+   employeForm:FormGroup;
    showForm : boolean;
    submitted: boolean=false;
-   constructor(private employeHttpService : empl,private formBuilder: FormBuilder){
+   constructor(private employeHttpService : EmployeHttpService ,private formBuilder: FormBuilder){
    }
    ngOnInit(): void {
-     this.adminForm = this.formBuilder.group({
+     this.employeForm = this.formBuilder.group({
       
        type:this.formBuilder.control(''),
        id: this.formBuilder.control(''),
@@ -21,37 +23,39 @@ import { Component, OnInit } from '@angular/core';
        password:this.formBuilder.control(''),
        nom: this.formBuilder.control(''),
        prenom: this.formBuilder.control(''),
-       version:this.formBuilder.control('')
+       version:this.formBuilder.control(''),
+       sal:this.formBuilder.control(''),
+       poste:this.formBuilder.control('')
      });
    }
-   list(): Array<Admin> {
-     return this.adminHttpService.findAll();
+   list(): Array<Employe> {
+     return this.employeHttpService.findAll();
    }
    add(){   
-     this.adminForm.reset();
+     this.employeForm.reset();
      this.showForm = true;}
   
    edit(id:number){
-     this.adminHttpService.findById(id).subscribe(response => {
-       this.adminForm.patchValue(response);
+     this.employeHttpService.findById(id).subscribe(response => {
+       this.employeForm.patchValue(response);
        this.showForm = true;
      })
  }
    remove(id:number){
-     this.adminHttpService.deleteById(id);
+     this.employeHttpService.deleteById(id);
    }
 
-//   save() {
-//     this.adminForm.patchValue({type:"admin"});
-//     this.adminHttpService.save(this.adminForm.value);
-//     this.submitted=true;
-//     this.showForm=false;
-//     console.log("saved")
-//   }
+  save() {
+     this.employeForm.patchValue({type:"employe"});
+     this.employeHttpService.save(this.employeForm.value);
+  this.submitted=true;
+    this.showForm=false;
+    console.log("saved")
+  }
 
-//   cancel() {
-//     this.showForm = false;
-//     this.adminForm.reset();
-//   }
-// }
-// }
+  cancel() {
+    this.showForm = false;
+    this.employeForm.reset();
+   }
+ }
+
