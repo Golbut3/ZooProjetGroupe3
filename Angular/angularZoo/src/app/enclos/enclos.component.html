@@ -12,21 +12,22 @@
                 </tr>
             </thead>
 
-            <!-- <tbody>
-                <tr *ngFor="let four of list()">
-                    <td>{{four.id}}</td>
-                    <td>{{four.nom}}</td>
-                    <td>{{four.adresse}}</td>
-                    <td>{{four.responsable}}</td>
+            <tbody>
+                <tr *ngFor="let enc of encloss$ |async">
+                    <td>{{enc.id}}</td>
+                    <td>{{enc.capacite}}</td>
+                    <td><span *ngFor="let chal of enc.chalets">{{chal.numero}} </span></td>
+                    <td><span *ngFor="let anim of enc.animaux"><ul>{{anim.nom}} </ul></span></td>
+                    <td></td>
                     <td>
                         <div class="btn-group btn-group-sm">
-                            <a class="btn btn-primary" (click)="edit(four.id)"><i
+                            <a class="btn btn-primary" (click)="edit(enc.id)"><i
                                     class="bi bi-pencil-square"></i></a>
-                            <a class="btn btn-danger" (click)="remove(four.id)"><i class="bi bi-trash"></i></a>
+                            <a class="btn btn-danger" (click)="remove(enc.id)"><i class="bi bi-trash"></i></a>
                         </div>
                     </td>
                 </tr>
-            </tbody> -->
+            </tbody>
 
         </table>
     </div>

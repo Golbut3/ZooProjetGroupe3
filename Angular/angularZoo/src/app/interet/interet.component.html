@@ -1,0 +1,63 @@
+<div class="card mt-3">
+    <div class="card-header bg-primary text-white display-6">Liste des interets</div>
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Identifiant</th>
+                    <th>Enclos</th>
+                    <th>Reservation</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let int of list()">
+                    <td>{{int.id}}</td>
+                    <td><span *ngFor=" let enc of int.enclos">{{enc?.id}}</span></td>
+                    <td>{{int.reservation?.id}}</td>
+                    <td>
+                        <div class="btn-group btn-group-sm">
+                            <a class="btn btn-primary" (click)="edit(int.id)"><i
+                                    class="bi bi-pencil-square"></i></a>
+                            <a class="btn btn-danger" (click)="remove(int.id)"><i class="bi bi-trash"></i></a>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+    <div class="card-footer">
+        <a class="btn btn-success btn-lg" (click)="add()"><i
+            class="bi bi-plus-square"></i></a>
+    </div>
+</div>
+
+
+<div class="card mt-3" *ngIf="showForm">
+    <form (ngSubmit)="save()" [formGroup]="interetForm">
+    <div class="card-header bg-primary text-white display-6">Edition d'un interet</div>
+    <div class="card-body">
+        <div class="form-group">
+            <label for="id">Identifiant:</label> <input type="number" class="form-control" id="id" name="id" readonly formControlName="id"/>
+        </div>
+        <div class="form-group">
+            <label for="enclos">Enclos:</label> <input type="text" class="form-control" id="enclos" name="enclos" formControlName="enclos"/>
+            <!-- <span class="text-danger" *ngIf="fournisseurForm.get('nom')?.dirty && fournisseurForm.get('nom')?.hasError('required')">Le nom est obligatoire</span> -->
+        </div>
+        <div class="form-group">
+            <label for="reservation">Reservation:</label> <input type="text" class="form-control" id="reservation" name="reservation" formControlName="reservation"/>
+            <!-- <span class="text-danger" *ngIf="fournisseurForm.get('adresse')?.dirty && fournisseurForm.get('adresse')?.hasError('required')">L'adresse Email est obligatoire</span>
+            <span class="text-danger" *ngIf="fournisseurForm.get('adresse')?.hasError('email')">L'adresse Email est invalide</span> -->
+        </div>
+        
+    </div>
+    <div class="card-footer">
+        <div class="btn-group btn-group-lg float-right">
+            <button type="submit" class="btn btn-success"><i class="bi bi-check-square-fill"></i></button>
+            <a class="btn btn-warning" (click)="cancel()"><i class="bi bi-backspace-fill"></i></a>
+        </div>
+    </div>
+    </form>
+</div>
