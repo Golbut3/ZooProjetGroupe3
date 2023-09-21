@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Chalet } from '../model';
+import { ChaletHttpService } from './chalet-http.service';
 
 @Component({
   selector: 'app-chalet',
@@ -7,4 +10,51 @@ import { Component } from '@angular/core';
 })
 export class ChaletComponent {
 
+chalets$ : Observable<Chalet[]>;
+
+chaletForm: Chalet = new Chalet;
+
+  constructor(private chaletHttpService: ChaletHttpService){
+     
+  }
+
+  ngOnInit():void{
+  this.chalets$= this.chaletHttpService.findAll();
+  this.chalets$ = this.chaletHttpService.findAllForAsync();
+
+  }
+  
+  // add(){
+  //   this.chaletForm = new Chalet();
+  
+  // }
+
+//   edit(id: number) {
+//     this.chaletHttpService.findById(id).subscribe(response => {
+//       this.Form.patchValue(response);
+//       this.showForm = true;
+//     });
+//   }
+
+     
+
+//     });
+//   }
+
+//   save(){this.enclosHttpService.save(this.enclosForm).subscribe(resp => {
+//     this.encloss$ = this.enclosHttpService.findAll();
+//   });}
+
+//   cancel(){this.enclosForm = new Enclos(0);
+//   }
+
+//   remove(id:number){
+//     this.enclosHttpService.deleteById(id).subscribe(resp => {
+//       this.encloss$ = this.enclosHttpService.findAll();
+//     });
+
+//   }
+
+
+// }
 }
