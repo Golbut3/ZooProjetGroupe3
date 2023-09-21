@@ -1,25 +1,68 @@
 export class Compte{
+    type:string;
     id:number;
     login:string;
     password:string;
     prenom:string;
     nom:string;
+    version:number;
 
     constructor(
         id: number,
         login: string,
         password: string,
         prenom: string,
-        nom:string
+        nom:string,
+        type:string,
+        version:number
     ) {
+        this.type=type
         this.id = id;
         this.login = login
         this.password = password
         this.prenom = prenom
         this.nom=nom
+        this.version=version
     }
 
 }
+
+export class Admin extends Compte{
+        
+        constructor(
+            id: number,
+            login: string,
+            password: string,
+            prenom: string,
+            nom:string,
+            type:string,
+            version:number
+        ){
+            super(id,login,password,prenom,nom,type,version);
+        }
+}
+
+export class Employe extends Compte{
+        sal : number;
+        poste:string;
+    constructor(
+        id: number,
+        login: string,
+        password: string,
+        prenom: string,
+        nom:string,
+        type:string,
+        version:number,
+        sal:number,
+        poste:string
+    ){
+        super(id,login,password,prenom,nom,type,version);
+        this.sal=sal;
+        this.poste=poste;
+    }
+}
+
+
 
 export class Reservation{
     id: number; 
