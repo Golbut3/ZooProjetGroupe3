@@ -17,8 +17,7 @@
                     <td>{{enc.id}}</td>
                     <td>{{enc.capacite}}</td>
                     <td><span *ngFor="let chal of enc.chalets">{{chal.numero}} </span></td>
-                    <td><span *ngFor="let anim of enc.animaux"><ul>{{anim.nom}} </ul></span></td>
-                    <td></td>
+                    <td><span *ngFor="let anim of enc.animaux"><ul>{{anim.espece.nom}} </ul></span></td>
                     <td>
                         <div class="btn-group btn-group-sm">
                             <a class="btn btn-primary" (click)="edit(enc.id)"><i
@@ -30,4 +29,39 @@
             </tbody>
 
         </table>
+    </div>
+
+    <div class="card mt-3" *ngIf="showForm">
+        <form (ngSubmit)="save()" [formGroup]="enclosForm">
+        <div class="card-header bg-primary text-white display-6">Edition d'un enclos</div>
+        <div class="card-body">
+            <div class="form-group">
+                <label for="id">Identifiant:</label> <input type="number" class="form-control" id="id" name="id" readonly formControlName="id"/>
+            </div>
+            <div class="form-group">
+                <label for="capacite">Capacité:</label> <input type="number" class="form-control" id="capacite" name="capacite" formControlName="capacite"/>
+                <!-- <div *ngIf="enclosForm.get('nom')?.hasError('required') && fournisseurForm.get('nom')?.dirty" class="form-group">
+                    Le nom d'utilisateur est obligatoire
+                </div> -->
+            </div>
+            <div class="form-group">
+                <label for="chalet">Chalet:</label> <input type="string" class="form-control" id="chalet" name="chalet" formControlName="chalet"/>
+                <!-- <div *ngIf="fournisseurForm.get('adresse')?.hasError('required') && fournisseurForm.get('adresse')?.touched">
+                    L'adresse mail est obligatoire 
+                    </div>
+                    <div *ngIf="fournisseurForm.get('adresse')?.hasError('pattern')" class="form-group">
+                    L'adresse mail n'est pas au bon format
+                    </div> -->
+            </div>
+            <div class="form-group">
+                <label for="animaux">Animaux:</label> <input type="text" class="form-control" id="animaux" name="animaux" formControlName="animaux"/>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="btn-group btn-group-lg float-right">
+                <button type="submit" class="btn btn-success"><i class="bi bi-check-square-fill"></i></button>
+                <a class="btn btn-warning" (click)="cancel()"><i class="bi bi-backspace-fill"></i></a>
+            </div>
+        </div>
+        </form>
     </div>
