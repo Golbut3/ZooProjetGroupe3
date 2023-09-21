@@ -62,6 +62,28 @@ export class Employe extends Compte{
     }
 }
 
+export class Client extends Compte{
+    email : string;
+    tel:string;
+constructor(
+    id: number,
+    login: string,
+    password: string,
+    prenom: string,
+    nom:string,
+    type:string,
+    version:number,
+    email : string,
+    tel:string
+   
+){
+    super(id,login,password,prenom,nom,type,version);
+    this.email=email;
+    this.tel=tel;
+}
+}
+
+
 
 
 export class Reservation{
@@ -101,7 +123,7 @@ export class Reservation{
 
 }
 
-export class Client extends Compte{}
+
 
 export class Espece{
 
