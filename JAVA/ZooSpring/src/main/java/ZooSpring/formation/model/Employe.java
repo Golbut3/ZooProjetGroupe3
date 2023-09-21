@@ -1,5 +1,7 @@
 package ZooSpring.formation.model;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonView;
 
 import jakarta.persistence.Column;
@@ -7,6 +9,7 @@ import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Transient;
 
 @Entity
@@ -21,6 +24,9 @@ public class Employe extends Compte {
 	@JsonView(Views.Employe.class)
 	private Poste poste;
 
+	@OneToMany(mappedBy="employe")
+	List<Intervention> interventions;
+	
 	public Employe() {}
 	
 	public Employe(String login, String password, String prenom, String nom, double sal, Poste poste) {
@@ -49,6 +55,14 @@ public class Employe extends Compte {
 
 	public void setPoste(Poste poste) {
 		this.poste = poste;
+	}
+
+	public List<Intervention> getInterventions() {
+		return interventions;
+	}
+
+	public void setInterventions(List<Intervention> interventions) {
+		this.interventions = interventions;
 	}
 
 	@Override
