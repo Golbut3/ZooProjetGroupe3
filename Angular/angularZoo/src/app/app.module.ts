@@ -11,6 +11,7 @@ import { EnclosComponent } from './enclos/enclos.component';
 import { ChaletComponent } from './chalet/chalet.component';
 import { Espece } from './model';
 import { AdminComponent } from './compte/admin/admin.component';
+import { InteretComponent } from './interet/interet.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { AdminComponent } from './compte/admin/admin.component';
     ChaletComponent,
     EnclosComponent,
     AdminComponent,
+    InteretComponent,
   ],
   imports: [
     BrowserModule,

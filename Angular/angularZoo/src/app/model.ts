@@ -93,6 +93,7 @@ export class Reservation{
         this.client=client;
         this.logement=logement;
         this.interet=interet;
+    
 
     }
 
@@ -178,7 +179,23 @@ export class Chalet extends Logement {
 
 }
 
-export class Interet{}
+export class Interet{
+    id: number;
+    enclos: Enclos[];
+    reservation: Reservation;
+    constructor(
+        id: number,
+        enclos: Enclos[],
+        reservation: Reservation,
+    ){
+        this.id=id;
+        this.enclos=enclos;
+        this.reservation=reservation;
+    }
+
+    
+    
+}
 
 export class Enclos{
 
