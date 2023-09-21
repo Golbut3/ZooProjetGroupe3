@@ -27,8 +27,7 @@ import { EspeceComponent } from './espece/espece.component';
     AdminComponent,
     InteretComponent,
     EmployeComponent,
-    ClientComponent
-
+    ClientComponent,
     AnimalComponent,
     EspeceComponent,
   ],
