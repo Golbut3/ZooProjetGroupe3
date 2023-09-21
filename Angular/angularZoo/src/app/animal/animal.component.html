@@ -1,4 +1,3 @@
-<p>animal works!</p>
 <div class="card mt-3">
     <div class="card-header bg-primary text-white display-6">Liste des animaux</div>
     <div class="card-body">
@@ -19,8 +18,8 @@
                     <td>{{anim.id}}</td>
                     <td>{{anim.nom}}</td>
                     <td>{{anim.poids}}</td>
-                    <td>{{anim.espece?.id}} - {{anim.espece?.nom}}</td>
-                    <td>{{anim.enclos?.id}} - {{anim.enclos?.animal}}</td>
+                    <td>{{anim.espece?.id }} </td>
+                    <td>{{anim.enclos?.id }} </td>
                     <td>
                         <div class="btn-group btn-group-sm">
                             <a class="btn btn-primary" (click)="edit(anim.id)"><i
@@ -40,7 +39,8 @@
 </div>
 
 <div class="card mt-3" *ngIf="showForm">
-   <!-- <form (ngSubmit)="save()" [formGroup] ="animalForm!">
+    <form (ngSubmit)="save()" [formGroup] ="animalForm">
+    <input type="hiden" class="form-control" id="id" name="id" readonly formControlName="id"/>
     <div class="card-header bg-primary text-white display-6">Edition d'un produit</div>
     <div class="card-body">
         <div class="form-group">
@@ -54,11 +54,20 @@
         </div>
         <div class="form-group">
             <label for="espece">Espece:</label> 
-            <select class="form-control" id="espece" name="espece" formControlName="espece"></select>
+            <input type="number" class="form-control" id="idEspece" name="idEspece" formControlName="idEspece"/>
+            <!--<select class="form-control" id="idEspece" name="idEspece" formControlName="idEspece">
+              <option value="ornithorynque" name="ornithorynque">Ornithorynque</option>
+              <option selected value="lion" [selected]="selectedValue">Lion</option> 
+              <option value="perroquet" name="perroquet">Perroquet</option> 
+              <option value="pigeon" name="pigeon">Pigeon</option>
+              <option value="sundacolugo" name="sundacolugo">sundacolugo</option>
+            </select>-->
         </div>
         <div class="form-group">
-            <label for="enclos">Enclos:</label> 
-            <select class="form-control" id="enclos" name="enclos" formControlName="enclos"></select>
+            <label for="idEnclos">Enclos:</label> 
+            <!--<select class="form-control" id="enclos" name="enclos" formControlName="enclos"></select>-->
+            <input type="number" class="form-control" id="idEnclos" name="idEnclos" formControlName="idEnclos"/>
+              
         </div>
 
         
@@ -74,4 +83,3 @@
     
 </div>
 
--->

@@ -14,13 +14,14 @@ import { AdminComponent } from './compte/admin/admin.component';
 import { InteretComponent } from './interet/interet.component';
 import { EmployeComponent } from './compte/employe/employe.component';
 import { ClientComponent } from './compte/client/client.component';
+import { AnimalComponent } from './animal/animal.component';
+import { EspeceComponent } from './espece/espece.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CompteComponent,
     ReservationComponent,
-    EnclosComponent,
     ChaletComponent,
     EnclosComponent,
     AdminComponent,
@@ -28,13 +29,15 @@ import { ClientComponent } from './compte/client/client.component';
     EmployeComponent,
     ClientComponent
 
+    AnimalComponent,
+    EspeceComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
