@@ -1,5 +1,5 @@
 <div class="card mt-3">
-    <div class="card-header bg-primary text-white display-6">Liste des Employes</div>
+    <div class="card-header bg-primary text-white display-6">Liste des Clients</div>
     <div class="card-body">
         <table class="table table-striped">
             <thead>
@@ -8,24 +8,24 @@
                     <th>Login</th>
                     <th>Nom</th>
                     <th>Prenom</th>
-                    <th>Salaire</th>
-                    <th>Poste</th>
+                    <th>Email</th>
+                    <th>Tel</th>
                 </tr>
             </thead>
 
             <tbody>
-                <tr *ngFor="let emp of list()">
-                    <td>{{emp.id}}</td>
-                    <td>{{emp.login}}</td>
-                    <td>{{emp.nom}}</td>
-                    <td>{{emp.prenom}}</td>
-                    <td>{{emp.sal}}</td>
-                    <td>{{emp.poste}}</td>
+                <tr *ngFor="let client of list()">
+                    <td>{{client.id}}</td>
+                    <td>{{client.login}}</td>
+                    <td>{{client.nom}}</td>
+                    <td>{{client.prenom}}</td>
+                    <td>{{client.email}}</td>
+                    <td>{{client.tel}}</td>
                     <td>
                         <div class="btn-group btn-group-sm">
-                            <a class="btn btn-primary" (click)="edit(emp.id)"><i
+                            <a class="btn btn-primary" (click)="edit(client.id)"><i
                                     class="bi bi-pencil-square"></i></a>
-                            <a class="btn btn-danger" (click)="remove(emp.id)"><i class="bi bi-trash"></i></a>
+                            <a class="btn btn-danger" (click)="remove(client.id)"><i class="bi bi-trash"></i></a>
                         </div>
                     </td>
                 </tr>
@@ -39,7 +39,7 @@
     </div>
 </div>
 <div class="card mt-3" *ngIf="showForm">
-    <form (ngSubmit)="save()" [formGroup]="employeForm">
+    <form (ngSubmit)="save()" [formGroup]="clientForm">
     <input type="hidden" class="form-control" id="version" name="version" formControlName="version"/>
     <div class="card-header bg-primary text-white display-6">Edition d'un Admin</div>
     <div class="card-body">
@@ -62,17 +62,10 @@
             <label for="prenom">Prenom:</label> <input type="text" class="form-control" id="prenom" name="prenom" formControlName="prenom"/>
         </div>
         <div class="form-group">
-            <label for="sal">Salaire:</label> <input type="text" class="form-control" id="sal" name="sal" formControlName="sal"/>
+            <label for="email">Email:</label> <input type="email" class="form-control" id="email" name="email" formControlName="email"/>
         </div>
         <div class="form-group">
-            <label for="poste">Poste:</label> 
-            <select type="text" class="form-control" id="poste" name="poste" formControlName="poste">
-                <option>Animalier</option>
-                <option>Soigneur</option>
-                <option>Gardien</option>
-                <option>Paysagiste</option>
-
-            </select>
+            <label for="tel">Tel:</label> <input type="text" class="form-control" id="tel" name="tel" formControlName="tel"/>
         </div>
 
     <div class="card-footer">

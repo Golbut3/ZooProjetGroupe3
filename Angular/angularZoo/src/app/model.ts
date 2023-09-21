@@ -62,6 +62,28 @@ export class Employe extends Compte{
     }
 }
 
+export class Client extends Compte{
+    email : string;
+    tel:string;
+constructor(
+    id: number,
+    login: string,
+    password: string,
+    prenom: string,
+    nom:string,
+    type:string,
+    version:number,
+    email : string,
+    tel:string
+   
+){
+    super(id,login,password,prenom,nom,type,version);
+    this.email=email;
+    this.tel=tel;
+}
+}
+
+
 
 
 export class Reservation{
@@ -101,23 +123,18 @@ export class Reservation{
 
 }
 
-export class Client extends Compte{}
-
-export class Espece{
-
-}
 
 
 export class Animal {
-    id?: number;
-    nom?: string;
+    id: number;
+    nom: string;
     poids?: number;
     espece?: Espece;
     enclos?: Enclos;
 
     constructor(
-        id?: number,
-        nom?: string,
+        id: number,
+        nom: string,
         poids?: number,
         espece?: Espece,
         enclos?: Enclos,
@@ -204,19 +221,22 @@ export class Enclos{
     chalets?: Array<Chalet> = new Array<Chalet>;
     animaux?: Array<Animal> = new Array<Animal>;
     interets?: Array<Interet> = new Array<Interet>;
+    type?: string;
 
 constructor(
-    id ?: number,
+    id?: number,
     capacite?: number,
     chalets?: Chalet[],
     animaux?: Animal[],
-    interets?: Interet[])
+    interets?: Interet[],
+    type?: string)
     {
         this.id = id;
         this.capacite= capacite;
         this.chalets = chalets;
         this.animaux = animaux;
         this.interets= interets;
+        this.type= type;
     }
 }
 
@@ -226,6 +246,7 @@ export class Intervention{
     date?:number;
     enclos?:Array<Enclos> = new Array<Enclos>;
     employe?:Employe;
+
 
     constructor(
         id?: number,
@@ -243,6 +264,22 @@ export class Intervention{
     }
 
 }
+export class Espece {
+    id: number;
+    nom: string;
+    animaux: Array<Animal> = new Array<Animal>;
+constructor (
+    id: number,
+    nom: string,
+    animaux: Animal[]
+    ){
+        this.id = id;
+        this.nom = nom;
+        this.animaux = animaux;
+    }
+
+}
+
 
 // export class Logement{
 //         id:number;
