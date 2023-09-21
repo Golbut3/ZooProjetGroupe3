@@ -29,6 +29,7 @@ export class AnimalComponent implements OnInit {
   }
 
   list():Array<Animal> {
+    console.log(this.animalHttpService.findAll())
    return this.animalHttpService.findAll();
   }
 
