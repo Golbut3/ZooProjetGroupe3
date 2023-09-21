@@ -42,6 +42,7 @@ export class AnimalHttpService {
   }
 
   save(animal: Animal): void {
+
     if(animal.id) { // mise à jour
       this.http.put<Animal>(this.apiAnimalUrl + "/"+animal.id, animal).subscribe(resp => {
         this.load();
@@ -54,6 +55,7 @@ export class AnimalHttpService {
    }
    deleteById(id: number) {
       this.http.delete<void>(this.apiAnimalUrl + "/"+id).subscribe(resp => {
+        this.load()
    });
    }
 }
