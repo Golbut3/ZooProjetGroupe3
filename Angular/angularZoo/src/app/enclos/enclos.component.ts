@@ -4,6 +4,7 @@ import { Animal, Chalet, Enclos, Interet } from '../model';
 import { EnclosHttpService } from './enclos-http.service';
 import { ChaletHttpService } from '../chalet/chalet-http.service';
 import  {AnimalHttpService } from '../animal/animal-http.service';
+import { InteretHttpService } from '../interet/interet-http.service';
 @Component({
   selector: 'app-enclos',
   templateUrl: './enclos.component.html',
@@ -18,9 +19,12 @@ export class EnclosComponent {
 
   chalets$: Observable<Chalet[]>;
 
+  interets$:Observable<Interet[]>
+
+
   enclosForm: Enclos = new Enclos();
 
-  constructor(private enclosHttpService: EnclosHttpService, private chaletHtttpService: ChaletHttpService, private animauxHttpService :AnimalHttpService){
+  constructor(private enclosHttpService: EnclosHttpService, private chaletHtttpService: ChaletHttpService, private animauxHttpService :AnimalHttpService, private interetsHttpService:InteretHttpService){
      
   }
 
@@ -28,6 +32,7 @@ export class EnclosComponent {
   this.encloss$ = this.enclosHttpService.findAll();
   this.chalets$ = this.chaletHtttpService.findAllForAsync();
   this.animaux$ = this.animauxHttpService.findAllForAsync();
+  this
   }
   
   add(){

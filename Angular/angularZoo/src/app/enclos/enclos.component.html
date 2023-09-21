@@ -8,7 +8,6 @@
                     <th>Capacité</th>
                     <th>Chalets</th>
                     <th>Animaux</th>
-                    <th>Intêrets</th>
                 </tr>
             </thead>
 
@@ -18,7 +17,6 @@
                     <td>{{enc.capacite}}</td>
                     <td><span *ngFor="let chal of enc.chalets">{{chal.numero}} </span></td>
                     <td><span *ngFor="let anim of enc.animaux"><ul>{{anim.nom}} </ul></span></td>
-                    <td></td>
                     <td>
                         <div class="btn-group btn-group-sm">
                             <a class="btn btn-primary" (click)="edit(enc.id)"><i
