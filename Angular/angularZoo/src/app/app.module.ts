@@ -5,16 +5,27 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CompteComponent } from './compte/compte.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ReservationComponent } from './reservation/reservation.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EnclosComponent } from './enclos/enclos.component';
+import { ChaletComponent } from './chalet/chalet.component';
+import { Espece } from './model';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CompteComponent
+    CompteComponent,
+    ReservationComponent,
+    EnclosComponent,
+    ChaletComponent,
+    EnclosComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
