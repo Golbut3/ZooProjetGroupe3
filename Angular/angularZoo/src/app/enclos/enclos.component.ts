@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Chalet, Enclos } from '../model';
+import { Chalet, Enclos, Interet } from '../model';
 import { EnclosHttpService } from './enclos-http.service';
 import { ChaletHttpService } from '../chalet/chalet-http.service';
 
@@ -14,7 +14,7 @@ export class EnclosComponent {
 
   encloss$!: Observable<Enclos[]>;
 
-  // animaux$: Observable<Animal[]>;
+  //animaux$: Observable<Animal[]>;
 
   chalets$!: Observable<Chalet[]>;
 
@@ -25,20 +25,35 @@ export class EnclosComponent {
   }
 
   ngOnInit():void{
-this.encloss$ = this.enclosHttpService.findAll();
-this.chalets$ = this.chaletHtttpService.findAll();
+  this.encloss$ = this.enclosHttpService.findAll();
+  this.chalets$ = this.chaletHtttpService.findAllForAsync();
 
   }
   
-  add(){}
+  
+  add(){
+    this.enclosForm = new Enclos();
+    this.enclosForm.chalets = new Array <Chalet>();
+    //this.enclosForm.interets = new <Interet>();
+  }
 
-  edit(){}
+  edit(id: number) {
+    this.enclosHttpService.findById(id).subscribe(resp => {
+      this.enclosForm = resp;
+
+      if(!this.enclosForm.chalets) {
+        this.enclosForm.chalets = new Array<Chalet>();
+      }
+
+    });
+  }
 
   save(){}
 
   cancel(){}
 
   remove(){}
+
 
 
 }

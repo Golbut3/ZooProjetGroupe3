@@ -117,11 +117,20 @@ export class Logement{
 
 export class Chalet extends Logement {
 
-//     encloss?:Enclos[];
+    encloss?:Enclos[];
 
-//     constructor(){
-//         super(this.id = id; );
-//     }
+    constructor( id?: number,
+        nbPlace?:number,
+        prix?:number,
+        numero?: string,
+        descrption?:string,
+        reservations?:Reservation[],
+        encloss?:Enclos[]
+
+        ){
+        super(id,nbPlace,prix,numero,descrption,reservations);
+        this.encloss=encloss;
+    }
 
 
 }
@@ -132,20 +141,20 @@ export class Enclos{
 
     id? : number;
     capacite?: number;
-    // chalets?: Array<Chalet> = new Array<Chalet>;
-    animaux?: Array<Animal> = new Array< Animal>;
+    chalets?: Array<Chalet> = new Array<Chalet>;
+    animaux?: Array<Animal> = new Array<Animal>;
     interets?: Array<Interet> = new Array<Interet>;
 
 constructor(
     id? : number,
     capacite?: number,
-    //chalets?: Chalet[],
+    chalets?: Chalet[],
     animaux?: Animal[],
     interets?: Interet[])
     {
         this.id = id;
         this.capacite= capacite;
-        //this.chalets = chalets;
+        this.chalets = chalets;
         this.animaux = animaux;
         this.interets= interets;
     }
