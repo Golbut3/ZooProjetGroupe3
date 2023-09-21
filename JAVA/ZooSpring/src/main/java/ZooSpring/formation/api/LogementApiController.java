@@ -17,6 +17,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import ZooSpring.formation.model.Chalet;
 import ZooSpring.formation.model.Logement;
 import ZooSpring.formation.model.Views;
 import ZooSpring.formation.repo.ILogement;
@@ -40,6 +41,12 @@ public class LogementApiController {
 	@JsonView(Views.Logement.class)
 	public List<Logement> findAll() {
 		return this.daoLogement.findAll();
+	}
+	
+	@GetMapping("/chalet")
+	@JsonView(Views.Logement.class)
+	public List<Chalet> findAllChalet() {
+		return this.daoLogement.findAllChalet();
 	}
 	
 	@GetMapping("/{id}")
