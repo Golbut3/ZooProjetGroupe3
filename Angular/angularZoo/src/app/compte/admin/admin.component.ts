@@ -19,7 +19,7 @@ export class AdminComponent implements OnInit {
   ngOnInit(): void {
     this.adminForm = this.formBuilder.group({
       
-      type:this.formBuilder.control('').setValue("admin"),
+      type:this.formBuilder.control(''),
       id: this.formBuilder.control(''),
       login: this.formBuilder.control(''),
       password:this.formBuilder.control(''),
