@@ -14,7 +14,7 @@
             <tbody>
                 <tr *ngFor="let int of list()">
                     <td>{{int.id}}</td>
-                    <td><span *ngFor=" let enc of int.enclos">{{enc?.id}}</span></td>
+                    <td><span *ngFor=" let enc of int.enclos">{{enc?.id}}-{{enc?.type}}, </span></td>
                     <td>{{int.reservation?.id}}</td>
                     <td>
                         <div class="btn-group btn-group-sm">

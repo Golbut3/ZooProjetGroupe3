@@ -258,7 +258,7 @@ class ZooSpringApplicationTests {
 		
 		Interet int5= new Interet();
 		List <Enclos> listeenclos5= new ArrayList();
-		Collections.addAll(listeenclos4,vol1,jun1,bas2,aqu1,sav2);
+		Collections.addAll(listeenclos5,vol1,jun1,bas2,aqu1,sav2);
 		int5.setEnclos(listeenclos5);
 		
 		interetRepo.save(int5);
@@ -266,7 +266,7 @@ class ZooSpringApplicationTests {
 		Reservation reserv5 = new Reservation(LocalDate.parse("2023-10-05"),LocalDate.parse("2023-10-12"),3,1750.0,cli4,mob2,int5);
 		reservationRepo.save(reserv5);
 		
-		int4.setReservation(reserv5);
+		int5.setReservation(reserv5);
 		interetRepo.save(int5);
 		
 		

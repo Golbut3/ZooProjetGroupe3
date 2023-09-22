@@ -69,19 +69,20 @@
             <label for="prix">Prix:</label> <input type="number" class="form-control" id="prix" name="prix" formControlName="prix"/>
         </div>
         <div class="form-group">
-            <label for="client">Client:</label> <input type="text" class="form-control" id="client" name="client" formControlName="client"/>
-            <!-- <select class="form-control" id="client" name="client" [(ngModel)]="reservationForm.value.client.id">
-                <option *ngFor="let cli of compteHttpService.findAll()">{{cli.id}}</option>
-            </select> -->
+            <label for="client">Client:</label> 
+            <select class="form-control" name="client" id="client" formControlName="client">
+                <option>Selectionner un client</option>
+                <option *ngFor="let cli of clients" [ngValue]="cli.id">{{cli?.id}}</option>
+            </select>
         </div>
         <div class="form-group">
             <label for="logement">Logement:</label> <input type="text" class="form-control" id="logement" name="logement" formControlName="logement"/>
         </div>
         <div class="form-group">
             <label for="interet">Interet:</label> 
-            <select name="interet" id="interet" formControlName="interet">
-                <option>Choose your profile</option>
-                <option *ngFor="let int of interets">{{int?.id}}</option>
+            <select class="form-control" name="interet" id="interet" formControlName="interet">
+                <option>Selectionner un intêret</option>
+                <option *ngFor="let int of interets" [ngValue]="int.id">{{int?.id}} - {{int?.reservation?.id}}</option>
             </select>
         </div>
     </div>
