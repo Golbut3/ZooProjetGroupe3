@@ -28,6 +28,10 @@ import { EspeceComponent } from './espece/espece.component';
     InteretComponent,
     EmployeComponent,
     ClientComponent,
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
     AnimalComponent,
     EspeceComponent,
   ],
