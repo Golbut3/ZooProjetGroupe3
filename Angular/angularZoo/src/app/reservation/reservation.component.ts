@@ -15,9 +15,12 @@ export class ReservationComponent {
   reservationForm!: FormGroup;
   showForm:boolean=false;
   interets: Array<Interet> = new Array<Interet>();
+  interet:Interet;
   constructor(private reservationHttpService: ReservationHttpService,private formBuilder: FormBuilder, public interetHttpService: InteretHttpService ) {
-  this.interets.push(new Interet(1, null, null));
-  this.interets.push(new Interet(2, null, null));
+  // this.interets.push(new Interet(1, null, null));
+  // this.interets.push(new Interet(2, null, null));
+  // this.interets.push(new Interet(3, null, null));
+  // this.interets.push(new Interet(4, null, null));
   }
 
   ngOnInit(): void {
@@ -48,7 +51,12 @@ export class ReservationComponent {
     }
 
     save(){
-      this.reservationHttpService.save(this.reservationForm.value);
+      let reservation : any = this.reservationForm.value;
+      this.interetHttpService.findById(reservation.interet).subscribe(response =>{
+        reservation.interet=response;
+        this.reservationHttpService.save(this.reservationForm.value);
+
+      })
       console.log(this.reservationForm.value);
       this.showForm=false;
 
@@ -57,6 +65,8 @@ export class ReservationComponent {
     add(){
       this.reservationForm.reset();
       this.showForm=true;
+      this.interets = (this.interetHttpService.findAll());
+      console.log(this.interets)
     }
 
     cancel() {
