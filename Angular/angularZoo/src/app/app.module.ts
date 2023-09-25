@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +16,14 @@ import { EmployeComponent } from './compte/employe/employe.component';
 import { ClientComponent } from './compte/client/client.component';
 import { AnimalComponent } from './animal/animal.component';
 import { EspeceComponent } from './espece/espece.component';
+<<<<<<< Updated upstream
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { AnimalPresentationComponent } from './animalPresentation/animalPresentation.component';
+=======
+import { NavBarCompteComponent } from './compte/nav-bar-compte/nav-bar-compte.component';
+import { GestionComponent } from './gestion/gestion.component';
+import { InscriptionComponent } from './inscription/inscription.component';
+>>>>>>> Stashed changes
 
 @NgModule({
   declarations: [
@@ -30,6 +38,15 @@ import { EspeceComponent } from './espece/espece.component';
     ClientComponent,
     AnimalComponent,
     EspeceComponent,
+<<<<<<< Updated upstream
+    NavBarComponent,
+    AnimalPresentationComponent,
+=======
+    NavBarCompteComponent,
+    GestionComponent,
+    InscriptionComponent
+
+>>>>>>> Stashed changes
   ],
   imports: [
     BrowserModule,
@@ -37,6 +54,7 @@ import { EspeceComponent } from './espece/espece.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

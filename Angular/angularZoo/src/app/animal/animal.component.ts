@@ -15,8 +15,8 @@ export class AnimalComponent implements OnInit {
 
   animalForm!: FormGroup;
   showForm: boolean = false;
-  //submitted: boolean=false;
-  selectedValue: string = 'lion';
+
+  especes: Array<Espece>;
 
 
   constructor(private animalHttpService: AnimalHttpService, private enclosHttpService: EnclosHttpService, private especeHttpService: EspeceHttpService, private formBuilder: FormBuilder) {
@@ -24,6 +24,7 @@ export class AnimalComponent implements OnInit {
 
   
   ngOnInit(): void {
+    this.especes = this.especeHttpService.findAll()
     this.animalForm = this.formBuilder.group({
       id: this.formBuilder.control(0),
       nom: this.formBuilder.control(''),
@@ -37,10 +38,15 @@ export class AnimalComponent implements OnInit {
   }
 
   list():Array<Animal> {
+    //console.log(this.especes)
     console.log(this.animalHttpService.findAll())
    return this.animalHttpService.findAll();
   }
 
+  listEspece():Array<Espece>
+{
+  return this.especeHttpService.findAll();
+}
   add() {
     this.animalForm.reset();
     this.showForm = true;
@@ -53,11 +59,8 @@ export class AnimalComponent implements OnInit {
     });
   }
 
-  
-
   remove(id: number) {
-    this.animalHttpService.deleteById(id);
-    
+    this.animalHttpService.deleteById(id); 
   }
 
   save() {  
@@ -66,6 +69,7 @@ export class AnimalComponent implements OnInit {
     if(animal.idEnclos && animal.idEspece) {
       this.enclosHttpService.findById(animal.idEnclos).subscribe(response=> {
         animal.enclos = response;
+        //console.log(animal.idEspece)
         this.especeHttpService.findById(animal.idEspece).subscribe(response2=> {
           animal.espece = response2;
         this.animalHttpService.save(animal);
@@ -87,15 +91,7 @@ export class AnimalComponent implements OnInit {
       this.animalHttpService.save(animal);
     }
     }
-    //  this.animalForm.patchValue({espece:response}))
-   // console.log(this.animalForm.value)
-   // this.animalForm.patchValue(this.especeHttpService.findById(parseInt(this.animalForm.get('espece')?.value)))
-
-
-    
-    //this.showForm=false;
   
-
   cancel() {
     this.showForm = false;
     this.animalForm.reset();
