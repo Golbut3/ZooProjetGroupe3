@@ -72,11 +72,15 @@
             <label for="client">Client:</label> 
             <select class="form-control" name="client" id="client" formControlName="client">
                 <option>Selectionner un client</option>
-                <option *ngFor="let cli of clients" [ngValue]="cli.id">{{cli?.id}}</option>
+                <option *ngFor="let cli of clients" [ngValue]="cli.id">{{cli?.id}} - {{cli?.nom}} - {{cli?.prenom}}</option>
             </select>
         </div>
         <div class="form-group">
-            <label for="logement">Logement:</label> <input type="text" class="form-control" id="logement" name="logement" formControlName="logement"/>
+            <label for="logement">Logement:</label> 
+            <select class="form-control" name="logement" id="logement" formControlName="logement">
+                <option>Selectionner un logement</option>
+                <option *ngFor="let log of logements" [ngValue]="log.id">{{log?.id}} - {{log?.numero}}</option>
+            </select>
         </div>
         <div class="form-group">
             <label for="interet">Interet:</label> 

@@ -43,13 +43,35 @@
             <label for="id">Identifiant:</label> <input type="number" class="form-control" id="id" name="id" readonly formControlName="id"/>
         </div>
         <div class="form-group">
-            <label for="enclos">Enclos:</label> <input type="text" class="form-control" id="enclos" name="enclos" formControlName="enclos"/>
+            <label for="enclos">Enclos 1 :</label> 
+            <select class="form-control" name="enclos" id="enclos" formControlName="enclos1">
+                <option>Selectionner un enclos</option>
+                <option *ngFor="let enc of encloss" [ngValue]="enc.id">{{enc?.id}} - {{enc?.type}}</option>
+            </select>
+            <label for="enclos">Enclos 2 :</label> 
+            <select class="form-control" name="enclos" id="enclos" formControlName="enclos2">
+                <option>Selectionner un enclos</option>
+                <option *ngFor="let enc of encloss" [ngValue]="enc.id">{{enc?.id}} - {{enc?.type}}</option>
+            </select>
+            <label for="enclos">Enclos 3 :</label> 
+            <select class="form-control" name="enclos" id="enclos" formControlName="enclos3">
+                <option>Selectionner un enclos</option>
+                <option *ngFor="let enc of encloss" [ngValue]="enc.id">{{enc?.id}} - {{enc?.type}}</option>
+            </select>
+            <label for="enclos">Enclos 4 :</label> 
+            <select class="form-control" name="enclos" id="enclos" formControlName="enclos4">
+                <option>Selectionner un enclos</option>
+                <option *ngFor="let enc of encloss" [ngValue]="enc.id">{{enc?.id}} - {{enc?.type}}</option>
+            </select>
+            <label for="enclos">Enclos 5v :</label> 
+            <select class="form-control" name="enclos" id="enclos" formControlName="enclos5">
+                <option>Selectionner un enclos</option>
+                <option *ngFor="let enc of encloss" [ngValue]="enc.id">{{enc?.id}} - {{enc?.type}}</option>
+            </select>
             <!-- <span class="text-danger" *ngIf="fournisseurForm.get('nom')?.dirty && fournisseurForm.get('nom')?.hasError('required')">Le nom est obligatoire</span> -->
         </div>
         <div class="form-group">
-            <label for="reservation">Reservation:</label> <input type="text" class="form-control" id="reservation" name="reservation" formControlName="reservation"/>
-            <!-- <span class="text-danger" *ngIf="fournisseurForm.get('adresse')?.dirty && fournisseurForm.get('adresse')?.hasError('required')">L'adresse Email est obligatoire</span>
-            <span class="text-danger" *ngIf="fournisseurForm.get('adresse')?.hasError('email')">L'adresse Email est invalide</span> -->
+            <label for="reservation">Reservation:</label> <input type="text" class="form-control" id="reservation" name="reservation" formControlName="reservation" readonly/>
         </div>
         
     </div>

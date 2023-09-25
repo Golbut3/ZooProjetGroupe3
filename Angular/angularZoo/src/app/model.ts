@@ -209,6 +209,10 @@ export class Interet{
         this.enclos=enclos;
         this.reservation=reservation;
     }
+    public setReservation(reservation :Reservation){
+        this.reservation=reservation;
+
+    }
 
     
     
