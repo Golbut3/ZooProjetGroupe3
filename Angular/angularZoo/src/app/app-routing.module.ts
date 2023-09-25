@@ -29,7 +29,7 @@ const routes: Routes = [
   {path : "gestion",component:GestionComponent},
 //{path : "logement",component:LogementComponent},
   {path: "espece", component: EspeceComponent},
-  {path:"inscription",component:InscriptionComponent}
+  {path:"inscription",component:InscriptionComponent},
   {path: "animalPresentation", component: AnimalPresentationComponent},
 ];
 
