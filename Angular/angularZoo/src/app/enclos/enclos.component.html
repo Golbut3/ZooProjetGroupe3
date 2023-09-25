@@ -8,26 +8,77 @@
                     <th>Capacité</th>
                     <th>Chalets</th>
                     <th>Animaux</th>
-                    <th>Intêrets</th>
                 </tr>
             </thead>
 
             <tbody>
-                <tr *ngFor="let enc of encloss$ |async">
+                <tr *ngFor="let enc of list()">
                     <td>{{enc.id}}</td>
                     <td>{{enc.capacite}}</td>
                     <td><span *ngFor="let chal of enc.chalets">{{chal.numero}} </span></td>
-                    <td><span *ngFor="let anim of enc.animaux"><ul>{{anim.nom}} </ul></span></td>
-                    <td></td>
+                    <td><span *ngFor="let anim of list2(enc)"><ul>{{anim.espece?.nom}}</ul></span></td>
                     <td>
                         <div class="btn-group btn-group-sm">
-                            <a class="btn btn-primary" (click)="edit(enc.id)"><i
-                                    class="bi bi-pencil-square"></i></a>
+                            <a class="btn btn-primary" (click)="edit(enc.id)"><i class="bi bi-pencil-square"></i></a>
                             <a class="btn btn-danger" (click)="remove(enc.id)"><i class="bi bi-trash"></i></a>
                         </div>
                     </td>
                 </tr>
             </tbody>
-
         </table>
+    </div>
+
+    <div class="card-footer">
+        <a class="btn btn-success btn-lg" (click)="add()"><i
+            class="bi bi-plus-square"></i></a>
+    </div>
+</div>
+
+
+    <div class="card mt-3" *ngIf="showForm">
+        <form (ngSubmit)="save()" [formGroup]="enclosForm">
+        <div class="card-header bg-primary text-white display-6">Edition d'un enclos</div>
+        <div class="card-body">
+            <div class="form-group">
+                <label for="id">Identifiant:</label> <input type="number" class="form-control" id="id" name="id" readonly formControlName="id"/>
+            </div>
+            <div class="form-group">
+                <label for="capacite">Capacité:</label> <input type="text" class="form-control" id="capacite" name="capacite" formControlName="capacite"/>
+                <!-- <div *ngIf="enclosForm.get('nom')?.hasError('required') && enclosForm.get('nom')?.dirty" class="form-group">
+                    Le nom d'utilisateur est obligatoire
+                </div> -->
+            </div>
+            <div class="form-group">
+                <label for="chalets">Chalets:</label> <select type="text" class="form-control" id="chalets" name="chalets" formControlName="chalets">
+                    <option>Selectionner un chalet</option>
+                    <option *ngFor="let chal of chalets" [ngValue]="chal.id">{{chal.id}} - {{chal.numero}}</option> 
+                </select>
+                <!-- <div *ngIf="enclosForm.get('adresse')?.hasError('required') && enclosForm.get('adresse')?.touched">
+                    L'adresse mail est obligatoire 
+                    </div>
+                    <div *ngIf="enclosForm.get('adresse')?.hasError('pattern')" class="form-group">
+                    L'adresse mail n'est pas au bon format
+                    </div> -->
+            </div>
+            <div class="form-group">
+                <label for="animaux">Animaux:</label> 
+                <select type="text" class="form-control" id="animaux" name="animaux" formControlName="animaux">
+                    <option>Selectionner un intêret</option>
+                    <option *ngFor="let anim of list3()" [ngValue]="anim.id">{{anim.espece?.nom}}</option> 
+                </select>
+            </div>
+            <!-- <div class="form-group">
+                <label for="interet">Interets:</label> <input type="text" class="form-control" id="interet" name="interet" formControlName="interet"/>
+            </div>
+            <div class="form-group">
+                <label for="">Interets:</label> <input type="text" class="form-control" id="interet" name="interet" formControlName="interet"/>
+            </div> -->
+        </div>
+        <div class="card-footer">
+            <div class="btn-group btn-group-lg float-right">
+                <button type="submit" class="btn btn-success"><i class="bi bi-check-square-fill"></i></button>
+                <a class="btn btn-warning" (click)="cancel()"><i class="bi bi-backspace-fill"></i></a>
+            </div>
+        </div>
+        </form>
     </div>

@@ -18,6 +18,11 @@ import { AnimalComponent } from './animal/animal.component';
 import { EspeceComponent } from './espece/espece.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { AnimalPresentationComponent } from './animalPresentation/animalPresentation.component';
+import { NavBarCompteComponent } from './compte/nav-bar-compte/nav-bar-compte.component';
+import { GestionComponent } from './gestion/gestion.component';
+import { InscriptionComponent } from './inscription/inscription.component';
+//import { LogementComponent } from './logement/logement.component'
+
 
 @NgModule({
   declarations: [
@@ -34,6 +39,10 @@ import { AnimalPresentationComponent } from './animalPresentation/animalPresenta
     EspeceComponent,
     NavBarComponent,
     AnimalPresentationComponent,
+    NavBarCompteComponent,
+    GestionComponent,
+    InscriptionComponent,
+    //LogementComponent
   ],
   imports: [
     BrowserModule,
