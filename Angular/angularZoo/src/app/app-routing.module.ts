@@ -10,6 +10,9 @@ import { EmployeComponent } from './compte/employe/employe.component';
 import { ClientComponent } from './compte/client/client.component';
 import { EspeceComponent } from './espece/espece.component';
 import { AnimalPresentationComponent } from './animalPresentation/animalPresentation.component';
+import { GestionComponent } from './gestion/gestion.component';
+import { InscriptionComponent } from './inscription/inscription.component';
+//import { LogementComponent } from './logement/logement.component';
 
 
 
@@ -23,7 +26,10 @@ const routes: Routes = [
   {path: "animal",component: AnimalComponent},
   {path: "enclos", component: EnclosComponent},
   {path: "interet", component: InteretComponent},
+  {path : "gestion",component:GestionComponent},
+//{path : "logement",component:LogementComponent},
   {path: "espece", component: EspeceComponent},
+  {path:"inscription",component:InscriptionComponent}
   {path: "animalPresentation", component: AnimalPresentationComponent},
 ];
 
