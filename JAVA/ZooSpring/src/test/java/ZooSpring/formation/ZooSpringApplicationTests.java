@@ -63,8 +63,6 @@ class ZooSpringApplicationTests {
 	private IIntervention interventionRepo;
 	@Autowired
 	private IReservation reservationRepo;
-	@Autowired
-	private IMateriel materielRepo;
 	
 	
 	@Test

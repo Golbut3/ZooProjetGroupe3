@@ -1,16 +1,28 @@
 import { Injectable } from '@angular/core';
 import { Enclos } from '../model';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { EnclosHttpService } from './enclos-http.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EnclosService {
 
-encloss:Array<Enclos> = new Array<Enclos>();
-  
-constructor() { 
+  enclosForm: FormGroup;
+  showForm:boolean = false;
+  encloss:Array<Enclos> = new Array<Enclos>();
+
+constructor(private enclosHttpService:EnclosHttpService, private formBuilder: FormBuilder) { 
     }
 
+    ngOnInit(): void {
+      this.enclosForm = this.formBuilder.group({
+        // id: this.formBuilder.control(0),
+        // nom: this.formBuilder.control('', Validators.required),
+        // adresse: this.formBuilder.control('',[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
+        // responsable: this.formBuilder.control('')
+      });
+    }   
 
 findAll(): Array<Enclos>
 {
