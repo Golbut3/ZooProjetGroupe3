@@ -23,6 +23,11 @@ export class InteretHttpService {
   findAll() : Array<Interet> {
     return this.interets;
   }
+
+  findAllForAsync(): Observable<Interet[]> {
+    return this.http.get<Interet[]>(this.apiInteretUrl);
+  } 
+
   deleteById(id: number) {
     this.http.delete<void>(this.apiInteretUrl + "/"+id).subscribe(resp => {
       this.load();
