@@ -36,6 +36,10 @@ import { InscriptionComponent } from './inscription/inscription.component';
     InteretComponent,
     EmployeComponent,
     ClientComponent,
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
     AnimalComponent,
     EspeceComponent,
 <<<<<<< Updated upstream

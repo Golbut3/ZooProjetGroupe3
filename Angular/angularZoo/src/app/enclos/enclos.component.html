@@ -16,7 +16,11 @@
                     <td>{{enc.id}}</td>
                     <td>{{enc.capacite}}</td>
                     <td><span *ngFor="let chal of enc.chalets">{{chal.numero}} </span></td>
+<<<<<<< Updated upstream
                     <td><span *ngFor="let anim of list2(enc)"><ul>{{anim.espece?.nom}}</ul></span></td>
+=======
+                    <td><span *ngFor="let anim of enc.animaux"><ul>{{anim.espece.nom}} </ul></span></td>
+>>>>>>> Stashed changes
                     <td>
                         <div class="btn-group btn-group-sm">
                             <a class="btn btn-primary" (click)="edit(enc.id)"><i class="bi bi-pencil-square"></i></a>

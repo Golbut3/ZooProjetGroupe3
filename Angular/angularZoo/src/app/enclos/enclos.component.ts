@@ -5,7 +5,11 @@ import { EnclosHttpService } from './enclos-http.service';
 import { ChaletHttpService } from '../chalet/chalet-http.service';
 import  {AnimalHttpService } from '../animal/animal-http.service';
 import { InteretHttpService } from '../interet/interet-http.service';
+<<<<<<< Updated upstream
 import { FormBuilder, FormGroup } from '@angular/forms';
+=======
+import { FormGroup } from '@angular/forms';
+>>>>>>> Stashed changes
 @Component({
   selector: 'app-enclos',
   templateUrl: './enclos.component.html',
@@ -13,7 +17,10 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class EnclosComponent {
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
   enclosForm: FormGroup;
   showForm:boolean = false;
   encloss$: Observable<Enclos[]>;
@@ -27,6 +34,10 @@ export class EnclosComponent {
   chalets : Array<Chalet>
 
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 
   constructor(private enclosHttpService: EnclosHttpService, private chaletHtttpService: ChaletHttpService,private formBuilder: FormBuilder, private animauxHttpService :AnimalHttpService, private interetsHttpService:InteretHttpService){
     // this.encloss$ = this.enclosHttpService.findAll()
@@ -58,6 +69,7 @@ export class EnclosComponent {
    }
   add(){
     this.enclosForm.reset();
+<<<<<<< Updated upstream
     this.showForm=true;
     
   }
@@ -90,6 +102,29 @@ export class EnclosComponent {
     let enclos : any = this.enclosForm.value;
 
     
+=======
+    this.showForm=true
+  }
+
+  edit(id: number) {
+    this.enclosHttpService.findById(id).subscribe(resp => {
+      this.enclosForm.patchValue(resp);
+      this.showForm=true;
+    //   if(!this.enclosForm.chalets) {
+    //     this.enclosForm.chalets = new Array<Chalet>();
+    //   }
+
+    //   if(!this.enclosForm.animaux){
+    //       this.enclosForm.animaux = new Array<Animal>();
+    //   }
+
+    //   if(!this.enclosForm.animaux){
+    //     this.enclosForm.interets = new Array<Interet>();
+    // }
+
+     });
+  }
+>>>>>>> Stashed changes
 
     }
 
