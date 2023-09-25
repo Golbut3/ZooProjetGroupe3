@@ -281,26 +281,3 @@ constructor (
 }
 
 
-// export class Logement{
-//         id:number;
-//         nbPlace?:number;
-//         prix?:number;
-//         numero?:number;
-//         description?:string;
-//   client: any;
-    
-//         constructor(
-//             id: number,
-//             nbPlace?:number,
-//             prix?:number,
-//             numero?:number,
-//             description?:string
-//         ) {
-  
-//             this.id = id;
-//             this.nbPlace = nbPlace;
-//             this.prix = prix;
-//             this.numero = numero;
-//             this.description = description;
-//         }
-//     }

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +16,8 @@ import { EmployeComponent } from './compte/employe/employe.component';
 import { ClientComponent } from './compte/client/client.component';
 import { AnimalComponent } from './animal/animal.component';
 import { EspeceComponent } from './espece/espece.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { AnimalPresentationComponent } from './animalPresentation/animalPresentation.component';
 
 @NgModule({
   declarations: [
@@ -27,10 +29,11 @@ import { EspeceComponent } from './espece/espece.component';
     AdminComponent,
     InteretComponent,
     EmployeComponent,
-    ClientComponent
-
+    ClientComponent,
     AnimalComponent,
     EspeceComponent,
+    NavBarComponent,
+    AnimalPresentationComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +41,7 @@ import { EspeceComponent } from './espece/espece.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

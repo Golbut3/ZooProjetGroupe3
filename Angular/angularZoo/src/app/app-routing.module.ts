@@ -9,6 +9,7 @@ import { InteretComponent } from './interet/interet.component';
 import { EmployeComponent } from './compte/employe/employe.component';
 import { ClientComponent } from './compte/client/client.component';
 import { EspeceComponent } from './espece/espece.component';
+import { AnimalPresentationComponent } from './animalPresentation/animalPresentation.component';
 
 
 
@@ -22,8 +23,8 @@ const routes: Routes = [
   {path: "animal",component: AnimalComponent},
   {path: "enclos", component: EnclosComponent},
   {path: "interet", component: InteretComponent},
-
   {path: "espece", component: EspeceComponent},
+  {path: "animalPresentation", component: AnimalPresentationComponent},
 ];
 
 @NgModule({
