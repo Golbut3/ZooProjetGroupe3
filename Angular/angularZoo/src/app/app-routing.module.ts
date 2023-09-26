@@ -17,6 +17,7 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { BilleterieComponent } from './billeterie/billeterie.component';
 import { BilleterieReservationComponent } from './billeterie-reservation/billeterie-reservation.component';
+import { LogementUtilisateurComponent } from './logement-utilisateur/logement-utilisateur.component';
 
 
 
@@ -38,8 +39,8 @@ const routes: Routes = [
   {path: "accueil", component: AccueilComponent},
   {path: "billeterie", component: BilleterieComponent},
   {path: "billeterie-reservation", component: BilleterieReservationComponent},
-  {path:"connexion",component:ConnexionComponent}
-
+  {path:"connexion",component:ConnexionComponent},
+  {path: "logement-utilisateur", component: LogementUtilisateurComponent}, 
 ];
 
 @NgModule({

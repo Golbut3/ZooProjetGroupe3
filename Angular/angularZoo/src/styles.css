@@ -506,3 +506,98 @@
   display:flex;
   justify-content: center;
 }
+/*///////////////////////////////////////LOGEMENT/////////////////////////////////////////////////*/
+.logement-utilisateur-section1 h2{
+color: #081E43;
+text-align: center;
+font-family: Knewave;
+font-size: 49px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;}
+
+.info-logement{
+display:flex;
+align-items: center;
+}
+
+.mise-en-forme-info{
+display:flex;
+width:33%;
+flex-direction: column;
+align-items: center;
+}
+
+.mini-titre h3{
+  color: #081E43;
+  font-family: Knewave;
+  font-size: 49px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;}
+
+  .bouton-reserver{
+    width: 236px;
+  height: 66px;
+  flex-shrink: 0;
+  }
+ p {
+  color: #000;
+  text-align: center;
+  font-family: Inter;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+h3{
+  color: #081E43;
+font-family: Knewave;
+font-size: 49px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+.centrer {
+  display: flex;
+  align-items: center; /* Centre horizontalement */
+  justify-content: center; /* Centre verticalement */
+  text-align: center; /* Centre le texte à l'intérieur de la div */
+}
+.centrer img:last-child {
+  display: block;
+  margin: 0 auto;
+}
+
+.div-gauche {
+  float: left;
+  width: 50%; 
+}
+
+.div-droite {
+  float: right;
+  width: 50%; 
+}
+.div-gauche img:last-child {
+  display: block;
+  margin: 0 auto;
+}
+.div-droite img:last-child {
+  display: block;
+  margin: 0 auto;
+}
+
+
+p{
+  color: #000;
+text-align: center;
+font-family: Inter;
+font-size: 36px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+
+}
+
+

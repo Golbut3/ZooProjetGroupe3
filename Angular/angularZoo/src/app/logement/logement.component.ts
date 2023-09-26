@@ -1,15 +1,15 @@
-// import { Component, OnInit } from '@angular/core';
-// import { LogementHttpService } from './logement-http.service';
-// import { Client, Logement } from '../model';
-// import { Observable } from 'rxjs';
-// import { FormGroup, FormBuilder } from '@angular/forms';
-// import { ClientHttpService } from '../compte/client/client-http.service';
+import { Component, OnInit } from '@angular/core';
+import { LogementHttpService } from './logement-http.service';
+import { Client, Logement } from '../model';
+import { Observable } from 'rxjs';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { ClientHttpService } from '../compte/client/client-http.service';
 
-// @Component({
-//   selector: 'app-logement',
-//   templateUrl: './logement.component.html',
-//   styleUrls: ['./logement.component.css']
-// })
+@Component({
+  selector: 'app-logement',
+  templateUrl: './logement.component.html',
+  styleUrls: ['./logement.component.css']
+})
 // export class LogementComponent implements OnInit{
 
 //   logementForm?: Logement;
@@ -40,13 +40,13 @@
 //     return this.logementHttpService.findAll(),
 //    }
 
-//   // listClient(): Array<Client> {
-//   //   return this.clientService.findAll();
-//   // }
+//   listClient(): Array<Client> {
+//     return this.clientService.findAll();
+//   }
 
 //   add() {
 //     this.logementForm = new Logement();
-//     //this.logementForm.client = new Client();
+//     this.logementForm.client = new Client();
 //   }
 
 //   edit(id: number) {
@@ -59,11 +59,11 @@
 //     });
 //   }
 
-//   // majClient(event: any) {
-//   //   if(!this.logementForm.client) {
-//   //     this.logementForm.client = new Client(event);
-//   //   }
-//   // }
+//   majClient(event: any) {
+//     if(!this.logementForm.client) {
+//       this.logementForm.client = new Client(event);
+//     }
+//   }
 
 //   save() {  
 //     this.logementHttpService.save(this.logementForm).subscribe(resp => {
