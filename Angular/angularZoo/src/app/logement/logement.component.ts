@@ -3,7 +3,7 @@ import { LogementHttpService } from './logement-http.service';
 
 import { ClientHttpService } from '../compte/client/client-http.service';
 import { FormBuilder, FormGroup} from '@angular/forms';
-import { Logement } from '../model';
+import { Logement, Reservation } from '../model';
 import { Observable } from 'rxjs';
 import { EnclosHttpService } from '../enclos/enclos-http.service';
 
@@ -30,8 +30,11 @@ ngOnInit(): void {
     prix: this.formBuilder.control(''),
     numero: this.formBuilder.control(''),
     description: this.formBuilder.control(''),
-    enclos:this.formBuilder.control(''),
+    idEnclos:this.formBuilder.control(''),
     type:this.formBuilder.control(''),
+    version:this.formBuilder.control(""),
+
+
   });
 }
 
@@ -57,10 +60,22 @@ ngOnInit(): void {
 
 
   save() {
-    this.encloHttpService.findById(this.logementForm.value.enclos).subscribe(response =>{
-        this.logementForm.value.enclos=response  
+    if(this.logementForm.value.type=="mobilHome"){
+      delete this.logementForm.value.idEnclos
+      console.log(this.logementForm.value)
+    }
+    let logement:any=this.logementForm.value
+    if(logement.idEnclos){
+    this.encloHttpService.findById(logement.idEnclos).subscribe(response =>{
+        logement.enclos=response  
+        logement.reservations=new Array<Reservation>
+        this.logementHttpService.save(logement)
     })  
-    this.logementHttpService.save(this.logementForm.value),
+  }
+  else{
+    logement.reservations=new Array<Reservation>
+        this.logementHttpService.save(logement)
+  }
     this.submitted=true;
     this.showForm=false;
   }
