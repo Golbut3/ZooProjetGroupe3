@@ -22,7 +22,8 @@
                     <td>{{log.numero}}</td>
                     <td>{{log.description}}</td>
                     <td>{{log.type}}</td>   
-                    <td *ngIf="log.enclos">{{log.enclos.id}}</td>   
+                    <td *ngIf="log.enclos">{{log.enclos.id}}</td> 
+                    <td *ngIf="!log.enclos"></td>  
                     <td>             
                         <div class="btn-group btn-group-sm">
                             <a class="btn btn-primary" (click)="edit(log.id)"><i
@@ -64,10 +65,14 @@
             <label for="description">Description:</label> <input type="text" class="form-control" id="description" name="description" formControlName="description"/>
         </div>
         <div class="form-group">
-            <label for="enclos">Enclos:</label> <input type="number" class="form-control" id="enclos" name="enclos" formControlName="enclos"/>
+            <label for="enclos">Enclos:</label> <input type="number" class="form-control" id="enclos" name="enclos" formControlName="idEnclos"/>
         </div>
         <div class="form-group">
-            <label for="type">Type:</label> <input type="text" class="form-control" id="type" name="type" formControlName="type"/>
+            <label for="type">Type:</label> 
+            <select class="form-control" id="type" name="type" formControlName="type">
+                <option>chalet</option>
+                <option>mobilHome</option>
+            </select>
         </div>
 
 

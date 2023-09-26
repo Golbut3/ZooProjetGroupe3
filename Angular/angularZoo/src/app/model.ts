@@ -152,8 +152,9 @@ export class Logement{
     numero?: string;
     description?:string;
     reservations?:Reservation[];
-    enclos?:Enclos;
-    type?:string
+    type?:string;
+    version:number;
+    enclos:Enclos;
 
     constructor(
         id?: number,
@@ -162,8 +163,9 @@ export class Logement{
         numero?: string,
         description?:string,
         reservations?:Reservation[],
-        enclos?:Enclos,
-        type?:string
+        type?:string,
+        version?:number,
+        enclos?:Enclos
     
     ) {
         this.id = id
@@ -172,8 +174,9 @@ export class Logement{
         this.numero= numero
         this.description = description
         this.reservations = reservations
-        this.enclos=enclos
         this.type=type
+        this.version=version
+        this.enclos=enclos
     }
 
 }
@@ -181,7 +184,6 @@ export class Logement{
 
 export class Chalet extends Logement {
 
-    encloss?:Enclos[];
 
     constructor( id?: number,
         nbPlace?:number,
@@ -189,11 +191,11 @@ export class Chalet extends Logement {
         numero?: string,
         description?:string,
         reservations?:Reservation[],
-        encloss?:Enclos[]
+        enclos?:Enclos
 
         ){
         super(id,nbPlace,prix,numero,description,reservations);
-        this.encloss=encloss;
+        this.enclos=enclos;
     }
 
 
