@@ -42,6 +42,12 @@ public class ReservationApiController {
 		return repoReservation.findById(id).get();
 		}
 	
+	@GetMapping("mesReservations/{id}")
+	@JsonView(Views.Reservation.class)
+	public List<Reservation> findAllResaByClient(@PathVariable Integer id) {
+		return repoReservation.findAllResaByClient();
+		}
+	
 	@PostMapping("")
 	@JsonView(Views.Reservation.class)
 	public Reservation create(@RequestBody Reservation reservation, BindingResult result) {

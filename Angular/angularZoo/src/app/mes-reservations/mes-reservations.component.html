@@ -1,0 +1,32 @@
+<div class="card mt-3">
+    <div class="card-header bg-primary text-white display-6">Liste des reservations</div>
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>N° de réservation</th>
+                    <th>Date début</th>
+                    <th>Date fin</th>
+                    <th>Nombre de visiteurs</th>
+                    <th>Prix</th>
+                    <th>Logement</th>
+                    <th>Interet</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody *ngFor="let client of list()" >
+                <tr *ngFor="let mesresa of list2(client.id)">
+                    <td>{{mesresa.id}}</td>
+                    <td>{{mesresa.dateDebut}}</td>
+                    <td>{{mesresa.dateFin}}</td>
+                    <td>{{mesresa.nbVisiteurs}}</td>
+                    <td>{{mesresa.prix}}</td>
+                    <td>{{mesresa.logement?.id}} - {{mesresa.logement?.numero}}</td>
+                    <td>{{mesresa.interet?.id}}</td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+</div>

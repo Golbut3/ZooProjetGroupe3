@@ -12,6 +12,7 @@ import { EspeceComponent } from './espece/espece.component';
 import { AnimalPresentationComponent } from './animalPresentation/animalPresentation.component';
 import { GestionComponent } from './gestion/gestion.component';
 import { InscriptionComponent } from './inscription/inscription.component';
+import { MesReservationsComponent } from './mes-reservations/mes-reservations.component';
 //import { LogementComponent } from './logement/logement.component';
 
 
@@ -31,6 +32,7 @@ const routes: Routes = [
   {path: "espece", component: EspeceComponent},
   {path:"inscription",component:InscriptionComponent},
   {path: "animalPresentation", component: AnimalPresentationComponent},
+  {path:"mesReservations",component:MesReservationsComponent},
 ];
 
 @NgModule({
