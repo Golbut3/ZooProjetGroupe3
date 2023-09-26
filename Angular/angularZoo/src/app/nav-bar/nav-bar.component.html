@@ -1,4 +1,4 @@
-<ul class="nav nav-pills m-5" *ngIf="false">
+<!--<ul class="nav nav-pills m-5" *ngIf="false">
     <li class="nav-item">
         <a class="nav-link" [routerLink]="['']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><i class="bi bi-house"></i></a>
     </li>
@@ -19,17 +19,12 @@
     <li class="nav-item" *ngIf="authService.isAuthenticated()"> 
         <a class="nav-link" [routerLink]="['/enclos']" routerLinkActive="active">Enclos</a>
     </li>
-    
-    <!--<li class="nav-item" *ngIf="authService.isAuthenticated() && authService.hasRole('ADMIN')"> -->
     <li class="nav-item" *ngIf="!authService.isAuthenticated()"> 
         <a class="nav-link" [routerLink]="['/inscription']" routerLinkActive="active">Inscription</a>
     </li>
     <li class="nav-item" *ngIf="!authService.isAuthenticated()"> 
         <a class="nav-link" [routerLink]="['/connexion']" routerLinkActive="active">Connexion</a>
     </li>
-    <!--<li class="nav-item">
-        <a class="nav-link" (click)="deconnexion()" routerLinkActive="active">Déconnexion</a>
-    </li>-->
-</ul>
+</ul>-->
 
 

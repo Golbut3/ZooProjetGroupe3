@@ -144,13 +144,13 @@ class ZooSpringApplicationTests {
 		Animal ani5 = new Animal(esp5,"sundacolugo", 1.5);
 		ani5.setEnclos(for1);
 		animalRepo.save(ani5);
-		Animal ani6 = new Animal(esp5,"salmo", 4.5);
+		Animal ani6 = new Animal(esp6,"salmo", 4.5);
 		ani6.setEnclos(aqu1);
 		animalRepo.save(ani6);
-		Animal ani7 = new Animal(esp5,"tok", 250);
+		Animal ani7 = new Animal(esp7,"titus", 250);
 		ani7.setEnclos(jun1);
 		animalRepo.save(ani7);
-		Animal ani8 = new Animal(esp5,"watson", 80);
+		Animal ani8 = new Animal(esp8,"watson", 80);
 		ani8.setEnclos(bas1);
 		animalRepo.save(ani8);
 		Animal ani9 = new Animal(esp9,"bambi", 10);
