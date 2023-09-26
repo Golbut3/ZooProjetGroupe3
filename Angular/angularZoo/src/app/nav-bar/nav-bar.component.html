@@ -25,6 +25,12 @@
     <li class="nav-item" *ngIf="!authService.isAuthenticated()"> 
         <a class="nav-link" [routerLink]="['/connexion']" routerLinkActive="active">Connexion</a>
     </li>
-</ul>-->
+    <li class="nav-item"> 
+        <a class="nav-link" [routerLink]="['/mesReservations']" routerLinkActive="active">Mes Reservations</a>
+    </li>
+    <!--<li class="nav-item">
+        <a class="nav-link" (click)="deconnexion()" routerLinkActive="active">Déconnexion</a>
+    </li>-->
+</ul>
 
 

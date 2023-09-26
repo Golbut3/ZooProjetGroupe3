@@ -12,6 +12,8 @@ import { EspeceComponent } from './espece/espece.component';
 import { AnimalPresentationComponent } from './animalPresentation/animalPresentation.component';
 import { GestionComponent } from './gestion/gestion.component';
 import { InscriptionComponent } from './inscription/inscription.component';
+import { MesReservationsComponent } from './mes-reservations/mes-reservations.component';
+//import { LogementComponent } from './logement/logement.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { BilleterieComponent } from './billeterie/billeterie.component';
@@ -50,6 +52,7 @@ const routes: Routes = [
   {path: "nav-bar", component:NavBarComponent},
   {path : "mesReservations",component:MesReservationsComponent}
 
+  {path:"mesReservations",component:MesReservationsComponent},
 ];
 
 @NgModule({
