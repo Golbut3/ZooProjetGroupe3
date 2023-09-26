@@ -16,7 +16,6 @@ import { EmployeComponent } from './compte/employe/employe.component';
 import { ClientComponent } from './compte/client/client.component';
 import { AnimalComponent } from './animal/animal.component';
 import { EspeceComponent } from './espece/espece.component';
-<<<<<<< Updated upstream
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { AnimalPresentationComponent } from './animalPresentation/animalPresentation.component';
 
@@ -50,7 +49,7 @@ import { FooterUtilisateurComponent } from './footer-utilisateur/footer-utilisat
     NavBarComponent,
     BilleterieComponent,
     BilleterieReservationComponent,
-    FooterUtilisateurComponent
+    FooterUtilisateurComponent,
   
     
     NavBarCompteComponent,
