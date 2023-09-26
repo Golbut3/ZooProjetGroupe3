@@ -6,7 +6,8 @@
                 <tr>
                     <th>Identifiant</th>
                     <th>Capacité</th>
-                    <th>Chalets</th>
+                    <th>Type</th>
+                    <th>Chalet</th>
                     <th>Animaux</th>
                 </tr>
             </thead>
@@ -15,6 +16,7 @@
                 <tr *ngFor="let enc of list()">
                     <td>{{enc.id}}</td>
                     <td>{{enc.capacite}}</td>
+                    <td>{{enc.type}}</td>
                     <td><span *ngFor="let chal of enc.chalets">{{chal.numero}} </span></td>
                     <td><span *ngFor="let anim of list2(enc)"><ul>{{anim.espece?.nom}}</ul></span></td>
                     <td>
@@ -49,9 +51,9 @@
                 </div> -->
             </div>
             <div class="form-group">
-                <label for="chalets">Chalets:</label> <select type="text" class="form-control" id="chalets" name="chalets" formControlName="chalets">
-                    <option>Selectionner un chalet</option>
-                    <option *ngFor="let chal of chalets" [ngValue]="chal.id">{{chal.id}} - {{chal.numero}}</option> 
+                <label for="idChalet">Type:</label> <select type="text" class="form-control" id="type" name="type" formControlName="type">
+                    <option>Selectionner un type</option>
+                    <option>aquarium</option> 
                 </select>
                 <!-- <div *ngIf="enclosForm.get('adresse')?.hasError('required') && enclosForm.get('adresse')?.touched">
                     L'adresse mail est obligatoire 
@@ -60,19 +62,8 @@
                     L'adresse mail n'est pas au bon format
                     </div> -->
             </div>
-            <div class="form-group">
-                <label for="animaux">Animaux:</label> 
-                <select type="text" class="form-control" id="animaux" name="animaux" formControlName="animaux">
-                    <option>Selectionner un intêret</option>
-                    <option *ngFor="let anim of list3()" [ngValue]="anim.id">{{anim.espece?.nom}}</option> 
-                </select>
-            </div>
-            <!-- <div class="form-group">
-                <label for="interet">Interets:</label> <input type="text" class="form-control" id="interet" name="interet" formControlName="interet"/>
-            </div>
-            <div class="form-group">
-                <label for="">Interets:</label> <input type="text" class="form-control" id="interet" name="interet" formControlName="interet"/>
-            </div> -->
+            
+        
         </div>
         <div class="card-footer">
             <div class="btn-group btn-group-lg float-right">

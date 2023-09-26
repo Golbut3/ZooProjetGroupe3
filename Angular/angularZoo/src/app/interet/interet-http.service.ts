@@ -34,9 +34,11 @@ export class InteretHttpService {
     });
    }
    findById(id: number): Observable<Interet> {
-    let obs: Observable<Interet> = this.http.get<Interet>(this.apiInteretUrl + "/"+id);
+  
+      let obs: Observable<Interet> = this.http.get<Interet>(this.apiInteretUrl + "/"+id);
 
-    return obs;
+      return obs;
+
   }
   save(interet: Interet): void{
     if(interet.id) { // mise à jour

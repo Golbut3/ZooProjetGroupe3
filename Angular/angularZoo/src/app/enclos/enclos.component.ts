@@ -24,11 +24,11 @@ export class EnclosComponent {
 
   interets$:Observable<Interet[]>;
   animaux : Array<Animal>;
-  chalets : Array<Chalet>
+  chalets : Array<Chalet>;
 
 
 
-  constructor(private enclosHttpService: EnclosHttpService, private chaletHtttpService: ChaletHttpService,private formBuilder: FormBuilder, private animauxHttpService :AnimalHttpService, private interetsHttpService:InteretHttpService){
+  constructor(private enclosHttpService: EnclosHttpService, private chaletHtttpService: ChaletHttpService,private formBuilder: FormBuilder, private animauxHttpService :AnimalHttpService){
     // this.encloss$ = this.enclosHttpService.findAll()
     // this.chalets$ = this.chaletHtttpService.findAllForAsync()
     //this.animaux$ = this.animauxHttpService.findAllForAsync()
@@ -36,12 +36,12 @@ export class EnclosComponent {
   }
 
   ngOnInit():void{
-
-  this.enclosForm = this.formBuilder.group({
+    this.chalets = this.chaletHtttpService.findAll()
+    this.animaux= this.animauxHttpService.findAll(); 
+   this.enclosForm = this.formBuilder.group({
   id: this.formBuilder.control(''),
   capacite: this.formBuilder.control(''),
-  chalets: this.formBuilder.control(''),
-  animaux: this.formBuilder.control('')
+  type: this.formBuilder.control('')
   });}
   
   list(): Array<Enclos> {
@@ -53,10 +53,18 @@ export class EnclosComponent {
   return  animaux;
   }
   list3(): Array<Animal> {
-  
-   return  this.animauxHttpService.findAll();
-   }
-  add(){
+    let animaux = this.animauxHttpService.findAll()
+  //Elimine les doublons
+    let animauxunique = animaux.filter((obj, index) => animaux.findIndex((item) => item.espece.nom === obj.espece.nom ) ===index );
+    return animauxunique;
+  }
+  list4(): Array<Chalet> {
+    console.log(this.chaletHtttpService.findAll())
+      return this.chaletHtttpService.findAll();
+  }
+
+
+    add(){
     this.enclosForm.reset();
     this.showForm=true;
     
@@ -67,31 +75,85 @@ export class EnclosComponent {
     this.enclosHttpService.findById(id).subscribe(response => {
       this.enclosForm.patchValue(response);
       
-
-
-      const selectedChaletId = response.chalets ? response.chalets: null;
-      this.enclosForm.get('chalets').setValue(selectedChaletId);
-      // const selectedClientId = response.client ? response.client.id : null;
-      // this.reservationForm.get('client').setValue(selectedClientId);
-      // if(!this.enclosForm.value.chalets) {
-      //   this.enclosForm.value.chalets = new Array<Chalet>()};
-  
-
-      // if(!this.enclosForm.value.animaux){
-      //     this.enclosForm.value.animaux = new Array<Animal>()};
-      
-
-      // if(!this.enclosForm.value.interets){
-      //   this.enclosForm.value.interets = new Array<Interet>()};
     })
   };
 
   save(){
     let enclos : any = this.enclosForm.value;
+      if(enclos.idChalet){
+      this.chaletHtttpService.findById(enclos.idChalet).subscribe(response => {
+        enclos.chalet =response;
+          this.enclosHttpService.save(enclos)
+                  });
+           }
+          else{
+            this.enclosHttpService.save(enclos)
+          }
+          console.log(enclos)
+          }
+
+
+
+    // if(enclos.idChalet && enclos.idAnimal){
+    //   this.chaletHtttpService.findById(enclos.idChalet).subscribe(response => {
+    //     enclos.chalets =response;
+    //     this.animauxHttpService.findById(enclos.idAnimal).subscribe(response2 => {
+    //       enclos.animaux = response2;
+    //       this.enclosHttpService.save(enclos)
+    //     });
+    //        })   }
+    //       else if (enclos.idChalet && !enclos.idAnimal){
+    //         this.chaletHtttpService.findById(enclos.idChalet).subscribe(response => {
+    //           enclos.chalets =response;
+    //           this.enclosHttpService.save(enclos)
+    //         })
+    //       }
+
+    //       else if (!enclos.idChalet && enclos.idAnimal){
+    //         this.animauxHttpService.findById(enclos.idAnimal).subscribe(response2 => {
+    //           enclos.animaux = response2;
+    //           this.enclosHttpService.save(enclos)
+    //         })
+    //       }
+    //       else {
+    //         this.enclosHttpService.save(enclos)
+    //       }
+
+
+
 
     
+  //   if(!enclos.chalets){
+  //       enclos.chalets= null;
+  //       if(!enclos.animaux){
+  //         enclos.animaux = null;
+  //         this.animauxHttpService.save(this.enclosForm.value)
+  //       }
 
-    }
+  //   else {
+  //     this.animauxHttpService.findById(enclos.animaux).subscribe(response => {
+  //       enclos.animaux =response;
+  //       this.enclosHttpService.save(this.enclosForm.value);
+  //     })
+  //   }
+  //   }
+  //   else{
+  //     this.enclosHttpService.findById(enclos.chalets).subscribe(response => {
+  //       enclos.chalet =response;
+  //       if(!enclos.animaux){
+  //         enclos.animaux=null;
+  //         this.animauxHttpService.save(this.enclosForm.value);
+  //       }
+  //       else{
+  //         this.enclosHttpService.findById(enclos.animaux).subscribe(response => {
+  //           enclos.animaux =response;
+  //           this.enclosHttpService.save(this.enclosForm.value);
+  //         })
+  //       }
+  //     })
+  //   }
+  // this.showForm=false
+    
 
   cancel(){
     this.showForm=false;

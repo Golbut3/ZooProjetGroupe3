@@ -12,7 +12,11 @@ import { EspeceComponent } from './espece/espece.component';
 import { AnimalPresentationComponent } from './animalPresentation/animalPresentation.component';
 import { GestionComponent } from './gestion/gestion.component';
 import { InscriptionComponent } from './inscription/inscription.component';
-//import {LogementComponent } from './logement/logement.component';
+import { ConnexionComponent } from './connexion/connexion.component';
+//import { LogementComponent } from './logement/logement.component';
+import { AccueilComponent } from './accueil/accueil.component';
+import { BilleterieComponent } from './billeterie/billeterie.component';
+import { BilleterieReservationComponent } from './billeterie-reservation/billeterie-reservation.component';
 
 
 
@@ -31,7 +35,11 @@ const routes: Routes = [
   {path: "espece", component: EspeceComponent},
   {path:"inscription",component:InscriptionComponent},
   {path: "animalPresentation", component: AnimalPresentationComponent},
-  
+  {path: "accueil", component: AccueilComponent},
+  {path: "billeterie", component: BilleterieComponent},
+  {path: "billeterie-reservation", component: BilleterieReservationComponent},
+  {path:"connexion",component:ConnexionComponent}
+
 ];
 
 @NgModule({
