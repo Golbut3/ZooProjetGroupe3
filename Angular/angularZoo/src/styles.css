@@ -1,1 +1,508 @@
-/* You can add global styles to this file, and also import other style files */
+
+
+
+*{
+    margin:0;
+    padding:0;
+    color:black;
+  }
+  
+  a{
+    text-decoration: none;
+  
+  }
+  /*///////////////////////.top --> barre bleue tout en haut de l'écran//////////////////*/
+  
+  .top{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height:41px;
+    background: linear-gradient(#272F3C, #233470);
+  }
+  
+  .top a{
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  /*/////////////////////////////////////////////////////////////////////////////////////*/
+  
+  /*///////////////////////HEADER//////////////////*/
+  header{
+    background-image: url(/assets/img/background_header.jpg);
+    background-size:100%;
+    background-position: center;
+    font-family: Inter, sans-serif;
+    font-weight: 800;
+  }
+  
+  .topbar{
+    position: relative;
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 80px;
+  }
+  
+  .logo{
+    position: absolute;
+    height:120px;
+    margin-left: 10px;
+    left:10px;
+    top:-30px;
+  
+  }
+  
+  nav{
+    margin:20px;
+    width:70%;
+    font-size: 13px;
+  
+  }
+  .listeMenu{
+    display:flex;
+    list-style: none;
+    justify-content: space-between;
+    background-color: rgba(211, 211, 211, 0.5);
+    height:30px;
+    align-items: center;
+    border-radius: 60px;
+    padding-left: 10px;
+    padding-right: 10px;
+  
+  }
+  
+  
+  .listeMenu li{
+    position: relative;
+    display: flex;
+  }
+  
+  .listeMenu li a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 0;
+  }
+  .listeMenu li a::after{
+    position: absolute;
+    content:"";
+    height:30px;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 60px;
+    z-index: -1;
+  }
+  
+  .listeMenu li a:hover::after{
+    background-color: #D9D9D9;
+  
+  }
+  .listeMenu li a:hover{
+    color:#CE9A15;
+  }
+  
+  /*////////////////////////////////////////////////////////MAIN////////////////////////////////////////////////////////////////*/
+  
+  main{
+    background: linear-gradient(#79A619, #199EB0);
+    min-height:calc(100vh - 291px); /*le main fait 100vh(la hauteur de l'écran) moins 291px qui correspond aux autres éléments*/
+    /* display: flex; */
+    align-items: center;
+  }
+  .connexion{
+    font-family: Knewave, sans-serif;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color:#D49720D1;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 80px;
+    width:450px;
+    height:250px;
+    justify-content:space-around;
+    align-items: center;
+  
+  }
+  button {
+    cursor: pointer;
+    font-family: Knewave, sans-serif;
+    border-radius: 30px;
+    padding:5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border: none;
+    background-color: rgb(215,215,215,0.53);
+    font-size: 25px;
+    margin-top:10px;
+  
+  }
+  button:focus {
+    outline: none;
+    background: #000;
+    background-color: grey;
+  }
+  
+  .inscription{
+    display: block;
+    border-radius: 30px;
+    padding:5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: rgb(215,215,215,0.53);
+    font-size: 25px;
+    margin-top:10px;
+    text-align: center;
+  }
+  /* input{
+    background-color:  rgba(211, 211, 211, 0.5);
+    padding-top:8px;
+    padding-bottom:8px;
+    padding-left: 8px;
+    border: solid 1px;
+    border-radius: 15px;
+    margin-left:5px;
+  } */
+  .mdpOublie a{
+    text-decoration: none;
+    font-family: Inter, sans-serif;
+    font-weight: light;
+  }
+  
+  /*////////////////////////////////////////////////////////FOOTER////////////////////////////////////////////////////////////////*/
+  
+  .footer_utilisateur{
+    background-color:#D49720D1;
+    display: flex;
+    align-items: center;
+    height:50px;
+  }
+  .listeFooter{
+    display: flex;
+    justify-content: space-around;
+    width: 40%;
+  }
+  .listeFooter li {
+    display: flex;
+    list-style: none;
+  }
+  
+   /*////////////////////////////////////////////////////////ACCUEIL////////////////////////////////////////////////////////////////*/
+
+   .carousel img{
+    width:100%;
+
+   }
+   .container_image_decouvrir{
+    position:relative;
+    height: 1200px;
+   }
+  .accueil_fond_bleu{
+    width:600px;
+    position:absolute;
+    z-index: 0;
+    top:300px;
+   }
+   .accueil_aquarium{
+    width:600px;
+    position:absolute;
+    z-index: 1;
+    left:100px;
+    top:300px;
+   }
+    .accueil_meduse{
+        width:300px;
+        position:absolute;
+        top: 757px;
+        z-index: 2;
+    }
+    .accueil_raie_manta{
+        width:525px;
+        position:absolute;
+        left:525px;
+    }
+    .container_image_decouvrir h2{
+        width:400px;
+        text-align: center;
+        font-family:  Knewave, sans-serif;
+    }
+    .container_image_decouvrir h3{
+        width:400px;
+        text-align: center;
+    }
+    .text_decouvrir{
+        position: absolute;
+        right:150px;
+        top : 700px;
+        font-size: 24px;
+    }
+
+    .container_image_section2{
+      position:relative;
+      height: 1000px;
+     }
+    .accueil_fond_bleu2{
+      width:600px;
+      position:absolute;
+      z-index: 0;
+      top:150px;
+      right:100px;
+     }
+     .accueil_lama{
+      width:500px;
+      position:absolute;
+      z-index: 1;
+      right:25px;
+      top:150px;
+     }
+      .accueil_chevre{
+          width:300px;
+          position:absolute;
+          top: 607px;
+          right:262px;
+          z-index: 2;
+      }
+      .accueil_tigre{
+          width:400px;
+          position:absolute;
+          right:270px;
+          z-index: 1;
+      }
+      .container_image_section2 h2{
+          width:400px;
+          text-align: center;
+          font-family:  Knewave, sans-serif;
+      }
+      .container_image_section2 h3{
+          width:400px;
+          text-align: center;
+      }
+      .text_faites_conaissance{
+          position: absolute;
+          left:150px;
+          top : 160px;
+          font-size: 24px;
+      }
+
+      .container_image_section3{
+        position:relative;
+        height: 900px;
+       }
+      .accueil_fond_bleu3{
+        width:600px;
+        position:absolute;
+        z-index: 0;
+        top:15px;
+       }
+       .accueil_araignee{
+        width:500px;
+        position:absolute;
+        z-index: 1;
+        left:100px;
+        top:220px;
+       }
+        .accueil_jurogumo{
+            width:300px;
+            position:absolute;
+            top: 500px;
+            left: 200px;
+            z-index: 2;
+        }
+        .accueil_kappa{
+            width:250px;
+            position:absolute;
+            left:225px;
+            z-index: 2;
+        }
+        .accueil_salamandre{
+          width:300px;
+          position:absolute;
+          left:0px;
+          top:100px;
+          z-index: 2;
+      }
+        .container_image_section3 h2{
+            width:400px;
+            text-align: center;
+            font-family:  Knewave, sans-serif;
+        }
+        .container_image_section3 h3{
+            width:400px;
+            text-align: center;
+        }
+        .text_decouvrez_yokai{
+            position: absolute;
+            right:150px;
+            top : 125px;
+            font-size: 24px;
+        }
+
+/*////////////////////////////////////////////////////////BILLETERIE////////////////////////////////////////////////////////////////*/
+.section_achat_billet_logement{
+  display:flex;
+  justify-content: space-around;
+  height:750px;
+}
+
+.achat_billet{
+  display:flex;
+  margin-top: 10px;
+  flex-direction: column;
+  width: 45%;
+  align-items: center;
+
+}
+
+.achat_logement{
+  display:flex;
+  margin-top: 10px;
+  flex-direction: column;
+  width: 45%;
+  align-items: center;
+}
+.achat_billet img{
+  margin-top: 20px;
+  margin-bottom :30px;
+  width:40%
+}
+
+.achat_logement img{
+  margin-top: 20px;
+  margin-bottom :30px;
+  width:40%
+}
+.section_achat_billet_logement p {
+  text-align: center;
+ 
+}
+.section_achat_billet_logement h2 {
+  text-align: center;
+  font-family:  Knewave, sans-serif;
+}
+
+.button_reserver_billet_seul, .button_reserver_billet_logement{
+  font-family: Knewave, sans-serif;
+  font-size: 20px;
+  background-color:#D49720D1;
+  margin-top: 10px;
+  padding-top:3px;
+  padding-bottom:3px;
+  padding-left:7px;
+  padding-right:7px;
+  border-radius: 80px;
+}
+
+/*////////////////////////////////////////////////////////BILLETERIE-RESERVATION////////////////////////////////////////////////////////////////*/
+
+.section_billet_reservation{
+  font-family: Inter, sans-serif;
+  display:flex;
+  justify-content: space-around;
+}
+.colonne_billet_1_jour, .colonne_billet_week_end, .colonne_billet_1_an{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  width:30%;
+  justify-content:flex-end;
+}
+
+.section_billet_reservation img{
+  display:flex;
+  width:60%;
+}
+.section_billet_reservation h2, .section_billet_reservation p, .section_billet_reservation a{
+  margin-top:10px;
+}
+.colonne_billet_1_jour ul{
+  margin-top: 10px;
+  margin-bottom: 2rem;
+}
+.colonne_billet_week_end ul{
+  margin-top: 10px;
+  margin-bottom: 2rem;
+}
+.colonne_billet_1_an ul{
+  margin-top: 10px;
+}
+.section_billet_reservation h2{
+  font-family: Knewave, sans-serif;
+}
+.button_a_partir_de_15_euros, .button_a_partir_de_22_euros, .button_a_partir_de_100_euros{
+  font-family: Knewave, sans-serif;
+  font-size: 20px;
+  background-color:#D49720D1;
+  margin-top: 10px;
+  padding-top:3px;
+  padding-bottom:3px;
+  padding-left:7px;
+  padding-right:7px;
+  border-radius: 80px;
+}
+.section_choix_participant_reservation{
+  margin-top: 50px;
+  font-family: Inter, sans-serif;
+}
+.table_choix_participant_col_1{
+  background-color:#D49720D1;
+  border-radius: 6px;
+  width: 340px;
+  padding-left: 5px;
+}
+.table_choix_participant_col_2 .table_choix_participant_col_3, .table_choix_participant_col_4{
+  width: 25%;
+ 
+}
+.table_choix_participant{
+  margin: auto;
+  width: 80%;
+}
+.table_choix_participant th{
+  background-color:#D49720D1;
+  border-radius: 6px;
+  padding: 3px;
+  font-family: Knewave, sans-serif;
+}
+.table_choix_participant label {
+  background-color:#D49720D1;
+  border-radius: 6px;
+  padding-left: 5px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  
+}
+.table_choix_participant input{
+  width:40px;
+  background-color:  rgba(211, 211, 211, 0.5);
+  padding-top:4px;
+  padding-bottom:8px;
+  padding-left: 8px;
+  border: solid 1px;
+  border-radius: 2px;
+  margin-left:5px;
+}
+
+.table_choix_participant_flex{
+  display: flex;
+
+}
+.table_choix_participant_flex label{
+  flex-grow: 1;
+  text-align: center;
+}
+
+.section_choix_date_reservation{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Inter, sans-serif;
+  margin-top: 50px;
+  height:500px;
+}
+.container_formulaire_choix_date_reservation{
+  margin-top: 10px;;
+  display:flex;
+  justify-content: center;
+}

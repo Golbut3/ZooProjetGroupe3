@@ -34,7 +34,8 @@ list(): Array<Interet> {
   return this.interetHttpService.findAll();
 }
 edit(id: number) {
-  this.enclosHttpService.findAll().subscribe(resp => this.encloss=resp);
+ 
+  this.encloss=this.enclosHttpService.findAll();
   this.interetHttpService.findById(id).subscribe(response => {
     this.interetForm.patchValue(response);
     this.showForm = true;
