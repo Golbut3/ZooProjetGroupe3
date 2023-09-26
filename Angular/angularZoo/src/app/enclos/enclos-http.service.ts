@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Enclos } from '../model';
+import { Animal, Chalet, Enclos, Interet } from '../model';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -39,6 +39,9 @@ save(enclos: Enclos): void {
       this.load();
     });
   } else { // création
+    enclos.chalets= new Array<Chalet>
+    enclos.animaux= new Array<Animal>
+    enclos.interets= new Array<Interet>
     this.http.post<Enclos>(this.url, enclos).subscribe(resp => {
       this.load();
     });

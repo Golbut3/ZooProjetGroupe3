@@ -11,19 +11,22 @@ export class ChaletHttpService {
 
 chalets:Array<Chalet> = new Array <Chalet>();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    this.load()
+  }
 
   load(): void {
     let obs: Observable<Chalet[]> = this.http.get<Chalet[]>("http://localhost:8080/api/logement/chalet");
 
     obs.subscribe(resp => {
       this.chalets=resp;
+      console.log(this.chalets)
     });
   }
 
-  findAll(): Observable<Chalet[]>{
+  findAll(): Array<Chalet>{
 
-    return this.http.get<Chalet[]>("http://localhost:8080/api/logement/chalet");
+    return this.chalets
    }
 
    findAllForAsync(): Observable<Chalet[]> {

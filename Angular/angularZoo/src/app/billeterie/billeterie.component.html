@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Index</title>
+  <!-- <link rel="stylesheet" href="style.css"> -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&family=Knewave&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav-bar-utilisateur></nav-bar-utilisateur>
+  </header>
+
+  <main>
+    <section class="section_achat_billet_logement"> 
+        <div class="achat_billet">
+            <h2>Acheter vos billets</h2>
+            <img src="assets/img/billeterie_achat_billet.png" alt="camping">
+            <p>Venez découvrir les merveilles de la nature au ZOOrnythorinque, le plus beau zoo de France ! 
+
+                Plus de 50 animaux vous attendent dans des habitats adaptés et respectueux de leur bien-être. Profitez de nos tarifs avantageux et réservez votre billet en ligne !</p>
+           <a [routerLink]="['/billeterie-reservation']" routerLinkActive="active" class="button_reserver_billet_seul">Réserver billets seuls</a>
+        </div>
+        <div class="achat_logement">
+            <h2>Dormir avec les animaux</h2>
+            <img src="assets/img/billeterie_achat_logement.png" alt="chalet dans la foret">
+            <p>Prolongez votre séjour au ZooParc en choisissant parmi nos hébergements de qualité ! 
+
+                Que vous veniez en couple, en famille ou entre amis, vous trouverez l’hébergement qui correspond à vos envies. Réservez vite votre logement et bénéficiez de réductions sur votre entrée au parc !</p>
+                <a [routerLink]="['/billeterie-reservation']" routerLinkActive="active" class="button_reserver_billet_logement">Réserver billets + logement</a>
+
+        </div>
+    </section>
+   
+
+  </main>
+  <footer>
+    <footer-utilisateur></footer-utilisateur>
+  </footer>
+</body>
+</html>

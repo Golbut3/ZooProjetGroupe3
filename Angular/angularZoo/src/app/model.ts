@@ -201,13 +201,17 @@ export class Interet{
     enclos: Enclos[];
     reservation: Reservation;
     constructor(
-        id: number,
-        enclos: Enclos[],
-        reservation: Reservation,
+        id?: number,
+        enclos?: Enclos[],
+        reservation?: Reservation,
     ){
         this.id=id;
         this.enclos=enclos;
         this.reservation=reservation;
+    }
+    public setReservation(reservation :Reservation){
+        this.reservation=reservation;
+
     }
 
     

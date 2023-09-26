@@ -1,0 +1,24 @@
+<div class="card mt-3">
+    <form #connexionForm="ngForm" (ngSubmit)="connexionForm.form.valid && auth()" novalidate autocomplete="off">
+    <div class="card-header bg-primary text-white display-6">Connexion</div>
+    <div class="card-body">
+        <div class="form-group">
+            <label for="username">Identifiant:</label> <input type="text" required class="form-control" id="username" name="username" [(ngModel)]="username" #login="ngModel"/>
+            <span class="text-danger" *ngIf="(login.touched || connexionForm.submitted) && login.errors?.['required']">
+                Le nom d'utilisateur est obligatoire.
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="password">Mot de passe:</label> <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password" #motDePasse="ngModel" required/>
+            <span class="text-danger" *ngIf="(motDePasse.touched || connexionForm.submitted) && motDePasse.errors?.['required']">
+                Le mot de passe est obligatoire.
+            </span>
+        </div>
+    </div>
+    <div class="card-footer">
+        <div class="btn-group btn-group-lg float-right">
+            <button type="submit" class="btn btn-success"><i class="bi bi-check-square-fill"></i></button>
+        </div>
+    </div>
+    </form>
+</div>
