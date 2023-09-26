@@ -5,8 +5,8 @@
             <thead>
                 <tr>
                     <th>Identifiant</th>
-                    <th>Capacité</th>
                     <th>Type</th>
+                    <th>Capacité</th>
                     <th>Chalet</th>
                     <th>Animaux</th>
                 </tr>
@@ -15,8 +15,8 @@
             <tbody>
                 <tr *ngFor="let enc of list()">
                     <td>{{enc.id}}</td>
-                    <td>{{enc.capacite}}</td>
                     <td>{{enc.type}}</td>
+                    <td>{{enc.capacite}}</td>
                     <td><span *ngFor="let chal of enc.chalets">{{chal.numero}} </span></td>
                     <td><span *ngFor="let anim of list2(enc)"><ul>{{anim.espece?.nom}}</ul></span></td>
                     <td>
@@ -39,30 +39,24 @@
 
     <div class="card mt-3" *ngIf="showForm">
         <form (ngSubmit)="save()" [formGroup]="enclosForm">
+        <input type="hidden" class="form-control" id="version" name="version" formControlName="version"/>
         <div class="card-header bg-primary text-white display-6">Edition d'un enclos</div>
         <div class="card-body">
             <div class="form-group">
                 <label for="id">Identifiant:</label> <input type="number" class="form-control" id="id" name="id" readonly formControlName="id"/>
             </div>
-            <div class="form-group">
-                <label for="capacite">Capacité:</label> <input type="text" class="form-control" id="capacite" name="capacite" formControlName="capacite"/>
-                <!-- <div *ngIf="enclosForm.get('nom')?.hasError('required') && enclosForm.get('nom')?.dirty" class="form-group">
-                    Le nom d'utilisateur est obligatoire
-                </div> -->
-            </div>
-            <div class="form-group">
-                <label for="idChalet">Type:</label> <select type="text" class="form-control" id="type" name="type" formControlName="type">
+            <div class="form-group" *ngIf="showtype">
+                <label for="type">Type:</label> 
+                <select class="form-control" id="type" name="type" formControlName="type">
                     <option>Selectionner un type</option>
-                    <option>aquarium</option> 
+                    <option *ngFor=" let enclos of list3() " [ngValue]="enclos.type">{{enclos.type}}</option> 
                 </select>
-                <!-- <div *ngIf="enclosForm.get('adresse')?.hasError('required') && enclosForm.get('adresse')?.touched">
-                    L'adresse mail est obligatoire 
-                    </div>
-                    <div *ngIf="enclosForm.get('adresse')?.hasError('pattern')" class="form-group">
-                    L'adresse mail n'est pas au bon format
-                    </div> -->
             </div>
             
+            <div class="form-group">
+                <label for="capacite">Capacité:</label> <input type="text" class="form-control" id="capacite" name="capacite" formControlName="capacite"/>
+            </div>
+         
         
         </div>
         <div class="card-footer">

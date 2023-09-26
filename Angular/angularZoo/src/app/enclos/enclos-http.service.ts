@@ -39,9 +39,6 @@ save(enclos: Enclos): void {
       this.load();
     });
   } else { // création
-    enclos.chalets= new Array<Chalet>
-    enclos.animaux= new Array<Animal>
-    enclos.interets= new Array<Interet>
     this.http.post<Enclos>(this.url, enclos).subscribe(resp => {
       this.load();
     });
