@@ -47,8 +47,7 @@ export class ReservationComponent {
     console.log(id);
     this.interets = (this.interetHttpService.findAll());
     this.clients = (this.clientHttpService.findAll());
-    this.logementHttpService.findAll().subscribe(resp => this.logements = resp);
-
+    this.logements=this.logementHttpService.findAll();
     this.reservationHttpService.findById(id).subscribe(response => {
       this.reservationForm.patchValue(response);
       this.showForm = true;
@@ -164,8 +163,7 @@ export class ReservationComponent {
     this.showForm = true;
     this.interets = (this.interetHttpService.findAll());
     this.clients = (this.clientHttpService.findAll());
-    this.logementHttpService.findAll().subscribe(resp => this.logements = resp);
-
+    this.logements = this.logementHttpService.findAll();
   }
 
   cancel() {

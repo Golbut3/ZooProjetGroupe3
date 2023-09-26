@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminHttpService } from './admin-http.service';
 import { Admin } from '../../model';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-admin',

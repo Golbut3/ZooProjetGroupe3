@@ -53,6 +53,7 @@
       </div>
        
     </section>
+    <form (ngSubmit)="save()" [formGroup]="resaForm">
 
     <section class="section_choix_participant_reservation"> 
       <table class="table_choix_participant">
@@ -66,20 +67,23 @@
           <td class="table_choix_participant_col_1">Enfant (3-12 ans)</td>
           <td class="table_choix_participant_col_2">
             <span class="table_choix_participant_flex">
-              <label for="">15€</label>
-              <input type="number" name="" id="">
+              <label >15€</label>
+              <input type="number" class="form-control" id="prixEnfant" name="prixEnfant" formControlName="prixEnfant" value=15 hidden />
+              <input type="number" class="form-control" id="nombreEnfant" name="nombreEnfant" formControlName="nombreEnfant"/>
             </span>
           </td>
           <td class="table_choix_participant_col_3">
             <span class="table_choix_participant_flex">
               <label for="">25€(-17%)*</label>
-              <input type="number" name="" id="">
+              <input type="number" class="form-control" id="prixEnfantWE" name="prixEnfantWE" formControlName="prixEnfantWE" value=25 hidden />
+              <input type="number" class="form-control" id="nombreEnfantWE" name="nombreEnfantWE" formControlName="nombreEnfantWE"/>            
             </span>  
           </td>
           <td class="table_choix_participant_col_4">
             <span class="table_choix_participant_flex">
               <label for="">100€ (-73%)**</label>
-              <input type="number" name="" id="">
+              <input type="number" class="form-control" id="prixEnfant1An" name="prixEnfant1An" formControlName="prixEnfant1An" value=100 hidden />
+              <input type="number" class="form-control" id="nombreEnfant1An" name="nombreEnfant1An" formControlName="nombreEnfant1An"/>   
             </span>
           </td>
         </tr>
@@ -88,20 +92,23 @@
           <td class="table_choix_participant_col_2">
             <span class="table_choix_participant_flex">
               <label for="">20€</label>
-              <input type="number" name="" id="">
+              <input type="number" class="form-control" id="prixAdo" name="prixAdo" formControlName="prixAdo" value=20 hidden />
+              <input type="number" class="form-control" id="nombreAdo" name="nombreAdo" formControlName="nombreAdo"/>
             </span>
           </td>
           <td class="table_choix_participant_col_3">
             <span class="table_choix_participant_flex">
               <label for="">30€(-25%)*</label>
-              <input type="number" name="" id="">
+              <input type="number" class="form-control" id="prixAdoWE" name="prixAdoWE" formControlName="prixAdoWE" value=30 hidden />
+              <input type="number" class="form-control" id="nombreAdoWE" name="nombreAdoWE" formControlName="nombreAdoWE"/>
             </span>
 
           </td>
           <td class="table_choix_participant_col_4">
             <span class="table_choix_participant_flex">
               <label for="">120€ (-67%)**</label>
-              <input type="number" name="" id="">
+              <input type="number" class="form-control" id="prixAdo1An" name="prixAdo1An" formControlName="prixAdo1An" value=120 hidden />
+              <input type="number" class="form-control" id="nombreAdo1An" name="nombreAdo1An" formControlName="nombreAdo1An"/>
             </span>
           </td>
         </tr>
@@ -110,19 +117,22 @@
           <td class="table_choix_participant_col_2">
             <span class="table_choix_participant_flex">
               <label for="">25€</label>
-              <input type="number" name="" id="">
+              <input type="number" class="form-control" id="prixAdulte" name="prixAdulte" formControlName="prixAdulte" value=25 hidden />
+              <input type="number" class="form-control" id="nombreAdulte" name="nombreAdulte" formControlName="nombreAdulte"/>
             </span>
           </td>
           <td class="table_choix_participant_col_3">
             <span class="table_choix_participant_flex">
               <label for="">35€(-30%)*</label>
-              <input type="number" name="" id="">
+              <input type="number" class="form-control" id="prixAdulteWE" name="prixAdulteWE" formControlName="prixAdulteWE" value=35 hidden />
+              <input type="number" class="form-control" id="nombreAdulteWE" name="nombreAdulteWE" formControlName="nombreAdulteWE"/>
             </span>
           </td>
           <td class="table_choix_participant_col_4">
             <span class="table_choix_participant_flex">
               <label for="">150€ (-59%)**</label>
-              <input type="number" name="" id="">
+              <input type="number" class="form-control" id="prixAdulte1An" name="prixAdulte1An" formControlName="prixAdulte1An" value=150 hidden />
+              <input type="number" class="form-control" id="nombreAdulte1An" name="nombreAdulte1An" formControlName="nombreAdulte1An"/>
             </span>
           </td>
         </tr>
@@ -131,19 +141,23 @@
           <td class="table_choix_participant_col_2">
             <span class="table_choix_participant_flex">
               <label for="">18€</label>
-              <input type="number" name="" id="">
+              <input type="number" class="form-control" id="prixReduit" name="prixReduit" formControlName="prixReduit" value=18 hidden />
+              <input type="number" class="form-control" id="nombreReduit" name="nombreReduit" formControlName="nombreReduit"/>
             </span>
           </td>
           <td class="table_choix_participant_col_3">
             <span class="table_choix_participant_flex">
               <label for="">27€(-25%)*</label>
-              <input type="number" name="" id="">
+              <input type="number" class="form-control" id="prixReduitWE" name="prixReduitWE" formControlName="prixReduitWE" value=27 hidden />
+              <input type="number" class="form-control" id="nombreReduitWE" name="nombreReduitWE" formControlName="nombreReduitWE"/>
             </span>
           </td>
           <td class="table_choix_participant_col_4">
             <span class="table_choix_participant_flex">
               <label for="">110€ (-67%)**</label>
-              <input type="number" name="" id="">
+              <input type="number" class="form-control" id="prixReduit1An" name="prixReduit1An" formControlName="prixReduit1An" value=110 hidden />
+              <input type="number" class="form-control" id="nombreReduit1An" name="nombreReduit1An" formControlName="nombreReduit1An"/>
+           
             </span>         
           </td>
 
@@ -179,12 +193,23 @@
       <h3>A quelle date souhaitez vous venir ?</h3>
       <div class="container_formulaire_choix_date_reservation">
         <label for="">Date de début</label>
-        <input type="date" name="" id="">
+        <input type="date" name="" id="" formControlName="dateDebut">
         <label for="">Date de fin</label>
-        <input type="date" name="" id="">
+        <input type="date" name="" id="" formControlName="dateFin">
       </div>
+      <button type="submit" class="btn btn-success"><i class="bi bi-check-square-fill"></i>Reserver</button>
 
     </section>
+    </form>
+    <form hidden [formGroup]="maResa">
+      <input type="number" name="" id="" formControlName="id">
+
+      <input type="date" name="" id="" formControlName="dateDebut">
+      <input type="date" name="" id="" formControlName="dateFin">
+      <input type="number" name="" id="" formControlName="client">
+      <input type="number" name="" id="" formControlName="prix">
+      <input type="number" name="" id="" formControlName="nbVisiteur">
+    </form>
     <section class="section_choix_LOGEMENT_reservation"> 
       CHOIX DU LOGEMENT (qui sera caché selon si l'utilisateur choisit ou pas un logement)
     </section>
