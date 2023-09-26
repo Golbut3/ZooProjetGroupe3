@@ -9,12 +9,20 @@ import { Logement } from '../model';
 export class LogementHttpService {
   
   logements: Array<Logement> = new Array<Logement>();
+  url : string = "http://localhost:8080/api/logement"
   constructor(private http: HttpClient) {
-    
+    this.load()
   }
+  load(): void {
+    let obs: Observable<Logement[]> = this.http.get<Logement[]>(this.url);
 
-  findAll(): Observable<Logement[]> {
-    return this.http.get<Logement[]>("http://localhost:8080/api/logement");
+    obs.subscribe(resp => {
+      this.logements = resp;
+      console.log(this.logements)
+    });
+}
+  findAll() : Array<Logement> {
+    return this.logements;
   }
 
   findById(id: number): Observable<Logement> {
