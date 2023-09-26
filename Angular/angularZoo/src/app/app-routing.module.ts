@@ -21,6 +21,7 @@ import { LogementComponent } from './logement/logement.component';
 
 
 
+
 const routes: Routes = [
   {path: "compte", component: CompteComponent}, 
   {path: "reservation", component: ReservationComponent},
