@@ -118,9 +118,6 @@ export class Reservation{
     
 
     }
-
-
-
 }
 
 
@@ -153,24 +150,30 @@ export class Logement{
     nbPlace?:number;
     prix?:number;
     numero?: string;
-    descrption?:string;
+    description?:string;
     reservations?:Reservation[];
+    enclos?:Enclos;
+    type?:string
 
     constructor(
         id?: number,
         nbPlace?:number,
         prix?:number,
         numero?: string,
-        descrption?:string,
+        description?:string,
         reservations?:Reservation[],
+        enclos?:Enclos,
+        type?:string
     
     ) {
         this.id = id
         this.nbPlace = nbPlace
         this.prix = prix
         this.numero= numero
-        this.descrption = descrption
+        this.description = description
         this.reservations = reservations
+        this.enclos=enclos
+        this.type=type
     }
 
 }

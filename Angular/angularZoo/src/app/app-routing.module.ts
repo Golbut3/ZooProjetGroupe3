@@ -13,10 +13,10 @@ import { AnimalPresentationComponent } from './animalPresentation/animalPresenta
 import { GestionComponent } from './gestion/gestion.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { ConnexionComponent } from './connexion/connexion.component';
-//import { LogementComponent } from './logement/logement.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { BilleterieComponent } from './billeterie/billeterie.component';
 import { BilleterieReservationComponent } from './billeterie-reservation/billeterie-reservation.component';
+import { LogementComponent } from './logement/logement.component';
 
 
 
@@ -32,6 +32,7 @@ const routes: Routes = [
   {path: "enclos", component: EnclosComponent},
   {path: "interet", component: InteretComponent},
   {path : "gestion",component:GestionComponent},
+  {path : "logement",component:LogementComponent},
   {path: "espece", component: EspeceComponent},
   {path:"inscription",component:InscriptionComponent},
   {path: "animalPresentation", component: AnimalPresentationComponent},

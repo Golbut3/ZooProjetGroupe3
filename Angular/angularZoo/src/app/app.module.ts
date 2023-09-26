@@ -27,6 +27,7 @@ import { NavBarUtilisateurComponent } from './nav-bar-utilisateur/nav-bar-utilis
 import { BilleterieComponent } from './billeterie/billeterie.component';
 import { BilleterieReservationComponent } from './billeterie-reservation/billeterie-reservation.component';
 import { FooterUtilisateurComponent } from './footer-utilisateur/footer-utilisateur.component';
+import { LogementComponent } from './logement/logement.component';
 
 
 @NgModule({
@@ -51,7 +52,7 @@ import { FooterUtilisateurComponent } from './footer-utilisateur/footer-utilisat
     BilleterieReservationComponent,
     FooterUtilisateurComponent,
   
-    
+    LogementComponent,
     NavBarCompteComponent,
     GestionComponent,
     InscriptionComponent,
