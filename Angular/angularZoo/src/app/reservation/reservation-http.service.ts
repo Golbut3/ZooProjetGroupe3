@@ -40,6 +40,7 @@ export class ReservationHttpService {
         this.load();
       });
     } else { // création
+      console.log(reservation);
       this.http.post<Reservation>(this.apiReservationUrl, reservation).subscribe(resp => {
         this.load();
       });
