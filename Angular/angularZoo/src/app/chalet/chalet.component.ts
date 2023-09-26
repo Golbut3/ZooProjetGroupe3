@@ -10,7 +10,7 @@ import { ChaletHttpService } from './chalet-http.service';
 })
 export class ChaletComponent {
 
-chalets$ : Observable<Chalet[]>;
+chalets : Array<Chalet>;
 
 chaletForm: Chalet = new Chalet;
 
@@ -19,8 +19,8 @@ chaletForm: Chalet = new Chalet;
   }
 
   ngOnInit():void{
-  this.chalets$= this.chaletHttpService.findAll();
-  this.chalets$ = this.chaletHttpService.findAllForAsync();
+  this.chalets= this.chaletHttpService.findAll();
+  
 
   }
   
