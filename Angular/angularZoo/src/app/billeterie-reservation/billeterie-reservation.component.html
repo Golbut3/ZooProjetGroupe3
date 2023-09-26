@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Index</title>
+  <!-- <link rel="stylesheet" href="style.css"> -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&family=Knewave&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav-bar-utilisateur></nav-bar-utilisateur>
+  </header>
+
+  <main>
+    <section class="section_billet_reservation"> 
+      <div class="colonne_billet_1_jour">
+        <img src="/assets/img/billeterie-reservation_Billet1jour.png" alt="">
+        <h2>Billet 1 jour</h2>
+        <p>Profitez d’une journée complète de divertissement et de découverte dans notre parc.</p>
+        <ul>
+          <li>Journée complète </li>
+          <li>Accès à toutes les zones du parc</li>
+          <li>Pas de restriction ni de réservation</li>
+        </ul>
+        
+        <a [routerLink]="['/billeterie-reservation']" routerLinkActive="active" class="button_a_partir_de_15_euros">A partir de 15€</a>
+      </div>
+      <div class="colonne_billet_week_end">
+        <img src="/assets/img/billeterie-reservation_BilletWe.png" alt="">
+        <h2>Billet week-end</h2>
+        <p>Envie de prolonger le plaisir ? Optez pour le billet WE et bénéficiez d’une réduction de 20% sur le prix du billet 1 jour. </p>
+        <ul>
+          <li>Deux jours de visite consécutifs</li>
+          <li>Réduction de 20% sur le billet 1 jour</li>
+          <li>Offres spéciales sur l’hébergement</li>
+        </ul>
+        <a [routerLink]="['/billeterie-reservation']" routerLinkActive="active" class="button_a_partir_de_15_euros">A partir de 22€</a>
+      </div>
+      <div class="colonne_billet_1_an">
+        <img src="/assets/img/billeterie-reservation_Billet1an.png" alt="">
+        <h2>Abonnement 1 an</h2>
+        <p>Vous êtes un fan inconditionnel de notre zoo ? Alors l’abonnement 1 an est fait pour vous ! </p>
+        <ul>
+          <li>Accès illimité au parc pendant une année</li>
+          <li>Nombreux avantages exclusifs : </li>
+          <li>Invitations privées</li>
+          <li>Réductions dans la boutique</li>
+          <li>Accès prioritaire</li>
+        </ul>
+        <a [routerLink]="['/billeterie-reservation']" routerLinkActive="active" class="button_a_partir_de_15_euros">A partir de 100€</a>
+      </div>
+       
+    </section>
+    <form (ngSubmit)="save()" [formGroup]="resaForm">
+
+    <section class="section_choix_participant_reservation"> 
+      <table class="table_choix_participant">
+        <tr>
+          <th class="table_choix_participant_col_1">Type de personne</th>
+          <th class="table_choix_participant_col_2">Billet 1 jour</th>
+          <th class="table_choix_participant_col_3">Billet WE</th>
+          <th class="table_choix_participant_col_4">Abonnement 1 an</th>
+        </tr>
+        <tr>
+          <td class="table_choix_participant_col_1">Enfant (3-12 ans)</td>
+          <td class="table_choix_participant_col_2">
+            <span class="table_choix_participant_flex">
+              <label >15€</label>
+              <input type="number" class="form-control" id="prixEnfant" name="prixEnfant" formControlName="prixEnfant" value=15 hidden />
+              <input type="number" class="form-control" id="nombreEnfant" name="nombreEnfant" formControlName="nombreEnfant"/>
+            </span>
+          </td>
+          <td class="table_choix_participant_col_3">
+            <span class="table_choix_participant_flex">
+              <label for="">25€(-17%)*</label>
+              <input type="number" class="form-control" id="prixEnfantWE" name="prixEnfantWE" formControlName="prixEnfantWE" value=25 hidden />
+              <input type="number" class="form-control" id="nombreEnfantWE" name="nombreEnfantWE" formControlName="nombreEnfantWE"/>            
+            </span>  
+          </td>
+          <td class="table_choix_participant_col_4">
+            <span class="table_choix_participant_flex">
+              <label for="">100€ (-73%)**</label>
+              <input type="number" class="form-control" id="prixEnfant1An" name="prixEnfant1An" formControlName="prixEnfant1An" value=100 hidden />
+              <input type="number" class="form-control" id="nombreEnfant1An" name="nombreEnfant1An" formControlName="nombreEnfant1An"/>   
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td class="table_choix_participant_col_1">Adolescent (13-18 ans)</td>
+          <td class="table_choix_participant_col_2">
+            <span class="table_choix_participant_flex">
+              <label for="">20€</label>
+              <input type="number" class="form-control" id="prixAdo" name="prixAdo" formControlName="prixAdo" value=20 hidden />
+              <input type="number" class="form-control" id="nombreAdo" name="nombreAdo" formControlName="nombreAdo"/>
+            </span>
+          </td>
+          <td class="table_choix_participant_col_3">
+            <span class="table_choix_participant_flex">
+              <label for="">30€(-25%)*</label>
+              <input type="number" class="form-control" id="prixAdoWE" name="prixAdoWE" formControlName="prixAdoWE" value=30 hidden />
+              <input type="number" class="form-control" id="nombreAdoWE" name="nombreAdoWE" formControlName="nombreAdoWE"/>
+            </span>
+
+          </td>
+          <td class="table_choix_participant_col_4">
+            <span class="table_choix_participant_flex">
+              <label for="">120€ (-67%)**</label>
+              <input type="number" class="form-control" id="prixAdo1An" name="prixAdo1An" formControlName="prixAdo1An" value=120 hidden />
+              <input type="number" class="form-control" id="nombreAdo1An" name="nombreAdo1An" formControlName="nombreAdo1An"/>
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td class="table_choix_participant_col_1">Adulte (19-64 ans)</td>
+          <td class="table_choix_participant_col_2">
+            <span class="table_choix_participant_flex">
+              <label for="">25€</label>
+              <input type="number" class="form-control" id="prixAdulte" name="prixAdulte" formControlName="prixAdulte" value=25 hidden />
+              <input type="number" class="form-control" id="nombreAdulte" name="nombreAdulte" formControlName="nombreAdulte"/>
+            </span>
+          </td>
+          <td class="table_choix_participant_col_3">
+            <span class="table_choix_participant_flex">
+              <label for="">35€(-30%)*</label>
+              <input type="number" class="form-control" id="prixAdulteWE" name="prixAdulteWE" formControlName="prixAdulteWE" value=35 hidden />
+              <input type="number" class="form-control" id="nombreAdulteWE" name="nombreAdulteWE" formControlName="nombreAdulteWE"/>
+            </span>
+          </td>
+          <td class="table_choix_participant_col_4">
+            <span class="table_choix_participant_flex">
+              <label for="">150€ (-59%)**</label>
+              <input type="number" class="form-control" id="prixAdulte1An" name="prixAdulte1An" formControlName="prixAdulte1An" value=150 hidden />
+              <input type="number" class="form-control" id="nombreAdulte1An" name="nombreAdulte1An" formControlName="nombreAdulte1An"/>
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td class="table_choix_participant_col_1">Tarif réduit (senior, étudiant, handicapés...)</td>
+          <td class="table_choix_participant_col_2">
+            <span class="table_choix_participant_flex">
+              <label for="">18€</label>
+              <input type="number" class="form-control" id="prixReduit" name="prixReduit" formControlName="prixReduit" value=18 hidden />
+              <input type="number" class="form-control" id="nombreReduit" name="nombreReduit" formControlName="nombreReduit"/>
+            </span>
+          </td>
+          <td class="table_choix_participant_col_3">
+            <span class="table_choix_participant_flex">
+              <label for="">27€(-25%)*</label>
+              <input type="number" class="form-control" id="prixReduitWE" name="prixReduitWE" formControlName="prixReduitWE" value=27 hidden />
+              <input type="number" class="form-control" id="nombreReduitWE" name="nombreReduitWE" formControlName="nombreReduitWE"/>
+            </span>
+          </td>
+          <td class="table_choix_participant_col_4">
+            <span class="table_choix_participant_flex">
+              <label for="">110€ (-67%)**</label>
+              <input type="number" class="form-control" id="prixReduit1An" name="prixReduit1An" formControlName="prixReduit1An" value=110 hidden />
+              <input type="number" class="form-control" id="nombreReduit1An" name="nombreReduit1An" formControlName="nombreReduit1An"/>
+           
+            </span>         
+          </td>
+
+        </tr>
+        <tr>
+          <td class="table_choix_participant_col_1">Forfait famille (2 adultes + 2 enfants)</td>
+          <td class="table_choix_participant_col_2">
+            <span class="table_choix_participant_flex">
+              <label for="">75€</label>
+              <input type="number" name="" id="">
+            </span>
+
+          </td>
+          <td class="table_choix_participant_col_3">
+            <span class="table_choix_participant_flex">
+              <label for="">100€(-33%)*</label>
+              <input type="number" name="" id="">
+            </span>
+
+          </td>
+          <td class="table_choix_participant_col_4">
+            <span class="table_choix_participant_flex">
+              <label for="">400€ (-79%)**</label>
+              <input type="number" name="" id="">
+            </span>         
+          </td>
+
+        </tr>
+      </table>
+    </section>
+
+    <section class="section_choix_date_reservation"> 
+      <h3>A quelle date souhaitez vous venir ?</h3>
+      <div class="container_formulaire_choix_date_reservation">
+        <label for="">Date de début</label>
+        <input type="date" name="" id="" formControlName="dateDebut">
+        <label for="">Date de fin</label>
+        <input type="date" name="" id="" formControlName="dateFin">
+      </div>
+      <button type="submit" class="btn btn-success"><i class="bi bi-check-square-fill"></i>Reserver</button>
+
+    </section>
+    </form>
+    <form hidden [formGroup]="maResa">
+      <input type="number" name="" id="" formControlName="id">
+
+      <input type="date" name="" id="" formControlName="dateDebut">
+      <input type="date" name="" id="" formControlName="dateFin">
+      <input type="number" name="" id="" formControlName="client">
+      <input type="number" name="" id="" formControlName="prix">
+      <input type="number" name="" id="" formControlName="nbVisiteur">
+    </form>
+    <section class="section_choix_LOGEMENT_reservation"> 
+      CHOIX DU LOGEMENT (qui sera caché selon si l'utilisateur choisit ou pas un logement)
+    </section>
+    <section class="section_choix_interet_reservation"> 
+      CHOIX DES INTERETS
+    </section>
+
+  </main>
+  <footer>
+      <footer-utilisateur></footer-utilisateur>
+  </footer>
+</body>
+</html>

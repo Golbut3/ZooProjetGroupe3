@@ -25,4 +25,9 @@ export class CompteHttpService {
 findAll() : Array<Compte> {
   return this.comptes;
 }
+
+connexion(login: string, password: string):Compte {
+  return this.comptes.find(c => c.login == login && c.password == password);
+ }
+
 }

@@ -16,7 +16,6 @@ import { EmployeComponent } from './compte/employe/employe.component';
 import { ClientComponent } from './compte/client/client.component';
 import { AnimalComponent } from './animal/animal.component';
 import { EspeceComponent } from './espece/espece.component';
-
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { AnimalPresentationComponent } from './animalPresentation/animalPresentation.component';
 
@@ -24,6 +23,12 @@ import { NavBarCompteComponent } from './compte/nav-bar-compte/nav-bar-compte.co
 import { GestionComponent } from './gestion/gestion.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { MesReservationsComponent } from './mes-reservations/mes-reservations.component';
+import { ConnexionComponent } from './connexion/connexion.component';
+import { AccueilComponent } from './accueil/accueil.component';
+import { NavBarUtilisateurComponent } from './nav-bar-utilisateur/nav-bar-utilisateur.component';
+import { BilleterieComponent } from './billeterie/billeterie.component';
+import { BilleterieReservationComponent } from './billeterie-reservation/billeterie-reservation.component';
+import { FooterUtilisateurComponent } from './footer-utilisateur/footer-utilisateur.component';
 
 @NgModule({
   declarations: [
@@ -38,12 +43,22 @@ import { MesReservationsComponent } from './mes-reservations/mes-reservations.co
     ClientComponent,
     AnimalComponent,
     EspeceComponent,
+    NavBarUtilisateurComponent,
+    AccueilComponent,
     NavBarComponent,
     AnimalPresentationComponent,
+    NavBarComponent,
+    BilleterieComponent,
+    BilleterieReservationComponent,
+    FooterUtilisateurComponent,
+  
+    
     NavBarCompteComponent,
     GestionComponent,
     InscriptionComponent,
     MesReservationsComponent
+    InscriptionComponent,
+    ConnexionComponent
 
 
   ],
