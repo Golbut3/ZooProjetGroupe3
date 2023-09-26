@@ -1,4 +1,3 @@
-<p>animal works!</p>
 <div class="card mt-3">
     <div class="card-header bg-primary text-white display-6">Liste des animaux</div>
     <div class="card-body">
@@ -19,8 +18,8 @@
                     <td>{{anim.id}}</td>
                     <td>{{anim.nom}}</td>
                     <td>{{anim.poids}}</td>
-                    <td>{{anim.espece?.id}} - {{anim.espece?.nom}}</td>
-                    <td>{{anim.enclos?.id}} - {{anim.enclos?.animal}}</td>
+                    <td>{{anim.espece?.nom }}</td>
+                    <td>{{anim.enclos?.id }}</td>
                     <td>
                         <div class="btn-group btn-group-sm">
                             <a class="btn btn-primary" (click)="edit(anim.id)"><i
@@ -30,7 +29,6 @@
                     </td>
                 </tr>
             </tbody>
-
         </table>
     </div>
     <div class="card-footer">
@@ -40,8 +38,9 @@
 </div>
 
 <div class="card mt-3" *ngIf="showForm">
-   <!-- <form (ngSubmit)="save()" [formGroup] ="animalForm!">
-    <div class="card-header bg-primary text-white display-6">Edition d'un produit</div>
+    <form (ngSubmit)="save()" [formGroup] ="animalForm">
+    <input type="hiden" class="form-control" id="id" name="id" readonly formControlName="id"/>
+    <div class="card-header bg-primary text-white display-6">Edition d'un animal</div>
     <div class="card-body">
         <div class="form-group">
             <label for="id">Identifiant:</label> <input type="number" class="form-control" id="id" name="id" readonly formControlName="id"/>
@@ -54,14 +53,15 @@
         </div>
         <div class="form-group">
             <label for="espece">Espece:</label> 
-            <select class="form-control" id="espece" name="espece" formControlName="espece"></select>
-        </div>
-        <div class="form-group">
-            <label for="enclos">Enclos:</label> 
-            <select class="form-control" id="enclos" name="enclos" formControlName="enclos"></select>
+            <select  class="form-control" id="idEspece" name="idEspece" formControlName="idEspece">
+                <option *ngFor=" let espece of listEspece()" [ngValue]="espece.id" >{{espece.nom}}</option>
+            </select>
         </div>
 
-        
+        <div class="form-group">
+            <label for="idEnclos">Enclos:</label> 
+            <input type="number" class="form-control" id="idEnclos" name="idEnclos" formControlName="idEnclos"/>     
+        </div>
     
     <div class="card-footer">
         <div class="btn-group btn-group-lg float-right">
@@ -70,8 +70,6 @@
         </div>
     </div>
     </div>
-    </form>
-    
+    </form> 
 </div>
 
--->

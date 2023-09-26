@@ -63,8 +63,6 @@ class ZooSpringApplicationTests {
 	private IIntervention interventionRepo;
 	@Autowired
 	private IReservation reservationRepo;
-	@Autowired
-	private IMateriel materielRepo;
 	
 	
 	@Test
@@ -87,6 +85,10 @@ class ZooSpringApplicationTests {
 		Espece esp8 = new Espece ("otarie");
 		especeRepo.save(esp8);
 		
+		Espece esp9 = new Espece ("cerf-souris");
+		especeRepo.save(esp9);
+		
+		
 		MobilHome mob1 = new MobilHome(2, 150.00, "MOB001","Le Cabanon des amoureux. 2 PERSONNES. Tiny House");
 		logementRepo.save(mob1);
 		MobilHome mob2 = new MobilHome(4, 250.00, "MOB002","La Chaumière du Bayou. 4 PERSONNES. Tiny House");
@@ -96,16 +98,30 @@ class ZooSpringApplicationTests {
 		
 		Aquarium aqu1 = new Aquarium(100);
 		enclosRepo.save(aqu1);
+		Aquarium aqu2 = new Aquarium(80);
+		enclosRepo.save(aqu2);
 		Bassin bas1 = new Bassin(90);
 		enclosRepo.save(bas1);
+		Bassin bas2 = new Bassin(70);
+		enclosRepo.save(bas2);
 		Foret for1 = new Foret(105);
 		enclosRepo.save(for1);
+		Foret for2 = new Foret(120);
+		enclosRepo.save(for2);
 		Jungle jun1 = new Jungle(50);
 		enclosRepo.save(jun1);
+		Jungle jun2 = new Jungle(68);
+		enclosRepo.save(jun2);
 		Savane sav1 = new Savane(60);
 		enclosRepo.save(sav1);
+		Savane sav2 = new Savane(50);
+		enclosRepo.save(sav2);
 		Voliere vol1 = new Voliere(100,20);
 		enclosRepo.save(vol1);
+		Voliere vol2 = new Voliere(60,15);
+		enclosRepo.save(vol2);
+		
+		
 		
 		Chalet cha1 = new Chalet(10, 350.00, "CHA001","Le Châlet sur le lac 10 PERSONNES.Châlet", bas1);
 		logementRepo.save(cha1);
@@ -137,6 +153,9 @@ class ZooSpringApplicationTests {
 		Animal ani8 = new Animal(esp5,"watson", 80);
 		ani8.setEnclos(bas1);
 		animalRepo.save(ani8);
+		Animal ani9 = new Animal(esp9,"bambi", 10);
+		ani9.setEnclos(for1);
+		animalRepo.save(ani9);
 		
 		Client cli1 = new Client("Tahir","tahirmed2023","Tahir","Medjadba","tahirmed@gmail.com","0635353535");
 		// NE PAS OUBLIER DE ADD LA LISTE DE RESERVATION
@@ -150,6 +169,16 @@ class ZooSpringApplicationTests {
 		Client cli3 = new Client("Cynthia","cynthiaehr2023","Cynthia","Ehrhard","cynthiaehrhard@gmail.com","0637373737");
 		// NE PAS OUBLIER DE ADD LA LISTE DE RESERVATION
 		clientRepo.save(cli3);
+		
+		Client cli4 = new Client("Kylian","kylianmbappe"
+				+ "2045","Kylian","Mbappe","kylianmbappe@gmail.com","0624252728");
+		// NE PAS OUBLIER DE ADD LA LISTE DE RESERVATION
+		clientRepo.save(cli4);
+		
+		Client cli5 = new Client("Eric","ericsultan"
+				+ "1880","Eric","Sultan","ericsultan@ajc.fr","0622820109");
+		// NE PAS OUBLIER DE ADD LA LISTE DE RESERVATION
+		clientRepo.save(cli5);
 		
 		Admin adm1 = new Admin("David","daviddome2023","David","Domecyn");
 		adminRepo.save(adm1);
@@ -166,9 +195,15 @@ class ZooSpringApplicationTests {
 		Employe emp3 = new Employe("Diane","dianereja1234","Diane","Reja",1560.0,Poste.Gardien);
 		employeRepo.save(emp3);
 		
+		Employe emp4 = new Employe("Emmanuel","leprez2025","Emmanuel","Macron",1380.0,Poste.Soigneur);
+		employeRepo.save(emp4);
+		
+		Employe emp5 = new Employe("Sebastien","seblafrite","Sebastien","Nin",1535.0,Poste.Paysagiste);
+		employeRepo.save(emp5);
+		
 		Interet int1= new Interet();
 		List <Enclos> listeenclos1= new ArrayList();
-		listeenclos1.add(vol1);
+		Collections.addAll(listeenclos1,vol1,jun1,sav1,aqu1,for1);
 		int1.setEnclos(listeenclos1);
 		interetRepo.save(int1);
 		//on crée la reservation avant de l'ajouter à l'interet
@@ -181,7 +216,7 @@ class ZooSpringApplicationTests {
 		
 		Interet int2= new Interet();
 		List <Enclos> listeenclos2= new ArrayList();
-		listeenclos2.add(bas1);
+		Collections.addAll(listeenclos2,vol2,jun2,bas1,aqu2,for2);
 		int2.setEnclos(listeenclos2);
 		
 		interetRepo.save(int2);
@@ -192,25 +227,76 @@ class ZooSpringApplicationTests {
 		int2.setReservation(reserv2);
 		interetRepo.save(int2);
 		
-		Materiel mat1 = new Materiel("Seringue1");
-		materielRepo.save(mat1);
-		Materiel mat2 = new Materiel("Medicament1");
-		materielRepo.save(mat2);
-		Materiel mat3 = new Materiel("Desinfectant1");
-		materielRepo.save(mat3);
-		Materiel mat4 = new Materiel("Vaccin1");
-		materielRepo.save(mat4);
-	
-		List <Materiel> listemat1= new ArrayList();
-		Collections.addAll(listemat1,mat1,mat3,mat2);
+		
+		Interet int3= new Interet();
+		List <Enclos> listeenclos3= new ArrayList();
+		Collections.addAll(listeenclos3,vol1,jun1,bas1,aqu1,for2);
+		int3.setEnclos(listeenclos3);
+		
+		interetRepo.save(int3);
+		//on crée la reservation avant de l'ajouter à l'interet
+		Reservation reserv3 = new Reservation(LocalDate.parse("2023-10-10"),LocalDate.parse("2023-10-25"),6,1750.0,cli3,cha2,int3);
+		reservationRepo.save(reserv3);
+		
+		int3.setReservation(reserv3);
+		interetRepo.save(int3);
+		
+		Interet int4= new Interet();
+		List <Enclos> listeenclos4= new ArrayList();
+		Collections.addAll(listeenclos4,vol1,jun2,bas1,aqu2,sav2);
+		int4.setEnclos(listeenclos4);
+		
+		interetRepo.save(int4);
+		//on crée la reservation avant de l'ajouter à l'interet
+		Reservation reserv4 = new Reservation(LocalDate.parse("2023-10-01"),LocalDate.parse("2023-10-14"),6,1750.0,cli2,cha2,int4);
+		reservationRepo.save(reserv4);
+		
+		int4.setReservation(reserv4);
+		interetRepo.save(int4);
+		
+		Interet int5= new Interet();
+		List <Enclos> listeenclos5= new ArrayList();
+		Collections.addAll(listeenclos5,vol1,jun1,bas2,aqu1,sav2);
+		int5.setEnclos(listeenclos5);
+		
+		interetRepo.save(int5);
+		//on crée la reservation avant de l'ajouter à l'interet
+		Reservation reserv5 = new Reservation(LocalDate.parse("2023-10-05"),LocalDate.parse("2023-10-12"),3,1750.0,cli4,mob2,int5);
+		reservationRepo.save(reserv5);
+		
+		int5.setReservation(reserv5);
+		interetRepo.save(int5);
+		
 		
 		Intervention interv1 = new Intervention(LocalDate.parse("2023-09-20"),aqu1,emp1);
-		interv1.setMateriels(listemat1);
 		interventionRepo.save(interv1);
 		
-		mat1.setIntervention(interv1);
-		mat3.setIntervention(interv1);
-		mat2.setIntervention(interv1);
+		Intervention interv2 = new Intervention(LocalDate.parse("2023-09-10"),aqu2,emp3);
+		interventionRepo.save(interv2);
+		
+		Intervention interv3 = new Intervention(LocalDate.parse("2023-09-12"),jun1,emp2);
+		interventionRepo.save(interv3);
+		
+		Intervention interv4 = new Intervention(LocalDate.parse("2023-09-13"),for1,emp4);
+		interventionRepo.save(interv4);
+		
+		Intervention interv5 = new Intervention(LocalDate.parse("2023-09-20"),for2,emp3);
+		interventionRepo.save(interv5);
+		
+		Intervention interv6 = new Intervention(LocalDate.parse("2023-09-19"),aqu2,emp5);
+		interventionRepo.save(interv6);
+		
+		Intervention interv7 = new Intervention(LocalDate.parse("2023-09-15"),aqu1,emp2);
+		interventionRepo.save(interv7);
+		
+		Intervention interv8 = new Intervention(LocalDate.parse("2023-09-13"),jun1,emp3);
+		interventionRepo.save(interv8);
+		
+		Intervention interv9 = new Intervention(LocalDate.parse("2023-09-12"),jun2,emp4);
+		interventionRepo.save(interv9);
+		
+		Intervention interv10 = new Intervention(LocalDate.parse("2023-09-14"),for1,emp1);
+		interventionRepo.save(interv10);
 		
 	}
 	

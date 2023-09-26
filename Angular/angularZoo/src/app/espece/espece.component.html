@@ -1,0 +1,67 @@
+<div class="card mt-3">
+    <div class="card-header bg-primary text-white display-6">Liste des espèces</div>
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Identifiant</th>
+                    <th>Nom</th>
+                    <th>Animaux</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let esp of list()">
+                    <td>{{ esp.id }}</td>
+                    <td>{{ esp.nom }}</td>
+                    <td><span *ngFor="let anim of esp.animaux"><ul>{{anim.nom}}</ul></span></td>
+                    
+                    <td>
+                        <div class="btn-group btn-group-sm">
+                            <a class="btn btn-primary" (click)="edit(esp.id)"><i class="bi bi-pencil-square"></i></a>
+                            <a class="btn btn-danger" (click)="remove(esp.id)"><i class="bi bi-trash"></i></a>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+    <div class="card-footer">
+        <a class="btn btn-success btn-lg" (click)="add()"><i class="bi bi-plus-square"></i></a>
+    </div>
+</div>
+
+<div class="card mt-3" *ngIf="showForm">
+    <form (ngSubmit)="save()" [formGroup]="especeForm">
+    <input type="hiden" class="form-control" id="id" name="id" readonly formControlName="id"/>
+    <div class="card-header bg-primary text-white display-6">Edition d'une espèce</div>
+    <div class="card-body">
+        <div class="form-group">
+            <label for="id">Identifiant:</label> <input type="number" class="form-control" id="id" name="id" readonly formControlName="id" />
+        </div>
+        <div class="form-group">
+            <label for="nom">Nom:</label> <input type="text" class="form-control" id="nom" name="nom" formControlName="nom" />
+        </div>
+            <!--<div class="form-group">
+                <label for="idanimaux">Animaux:</label> j'ai supprimé ça parce que l'ajout de l'animal il sera géré côté animal, quand 
+                on ajoute un animal, il sera ajouté automatiquement dans espece
+                <input type="number" class="form-control" id="idAnimaux" name="idAnimaux" formControlName="idAnimaux" />
+            <ul><span *ngFor="let anim of especeForm.get('nomAnimaux').value.split(','); let i = index">{{ anim.nom }}</span></ul>
+            </div>-->
+            <!--<div class="form-group">
+            <label for="fournisseur">Fournisseur:</label> 
+            <select class="form-control" id="fournisseur" name="fournisseur" [(ngModel)]="produitForm.fournisseur.id">
+                <option *ngFor="let four of listFournisseur()" [value]="four.id">{{four.nom}}</option>
+            </select>
+        </div>-->
+    </div>
+    <div class="card-footer">
+        <div class="btn-group btn-group-lg float-right">
+            <a class="btn btn-success" (click)="save()"><i class="bi bi-check-square-fill"></i></a>
+            <a class="btn btn-warning" (click)="cancel()"><i class="bi bi-backspace-fill"></i></a>
+        </div>
+    </div>
+    </form>
+</div>

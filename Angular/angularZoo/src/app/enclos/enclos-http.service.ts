@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Enclos } from '../model';
+import { Animal, Chalet, Enclos, Interet } from '../model';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -8,32 +8,52 @@ import { Observable } from 'rxjs';
 })
 export class EnclosHttpService {
 
-  
-
-encloss: Array<Enclos> = new Array <Enclos>();
+  encloss : Array<Enclos> = new Array<Enclos>;
+  url : string = "http://localhost:8080/api/enclos"
 
 constructor(private http: HttpClient) { 
-
+this.load()
 }
- findAll(): Observable<Enclos[]>{
 
-  return this.http.get<Enclos[]>("http://localhost:8080/api/enclos");
+load(): void {
+  let obs: Observable<Enclos[]> = this.http.get<Enclos[]>(this.url);
+
+  obs.subscribe(resp => {
+    this.encloss = resp;
+    console.log(this.encloss)
+  })}
+
+ findAll(): Array<Enclos>{
+  return this.encloss;
  }
 
  findById(id: number): Observable<Enclos> {
-  return this.http.get<Enclos>("http://localhost:8080/api/enclos/"+id);
+
+  let obs: Observable<Enclos> = this.http.get<Enclos>(this.url + "/"+id);
+  return obs
 }
 
-save(enclos: Enclos): Observable<Enclos> {
+save(enclos: Enclos): void {
   if(enclos.id) { // mise à jour
-    return this.http.put<Enclos>("http://localhost:8080/api/enclos/"+enclos.id, enclos);
+    this.http.put<Enclos>(this.url + "/"+enclos.id, enclos).subscribe(resp => {
+      this.load();
+    });
   } else { // création
-    return this.http.post<Enclos>("http://localhost:8080/api/enclos", enclos);;
+    enclos.chalets= new Array<Chalet>
+    enclos.animaux= new Array<Animal>
+    enclos.interets= new Array<Interet>
+    this.http.post<Enclos>(this.url, enclos).subscribe(resp => {
+      this.load();
+    });
   }
  }
 
- deleteById(id: number): Observable<void> {
-  return this.http.delete<void>("http://localhost:8080/api/enclos/"+id);
+ deleteById(id: number) {
+  this.http.delete<void>(this.url + "/"+id).subscribe(resp => {
+    this.load();
+  });
  }
 
 }
+
+

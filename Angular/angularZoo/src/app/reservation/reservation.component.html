@@ -69,19 +69,24 @@
             <label for="prix">Prix:</label> <input type="number" class="form-control" id="prix" name="prix" formControlName="prix"/>
         </div>
         <div class="form-group">
-            <label for="client">Client:</label> <input type="text" class="form-control" id="client" name="client" formControlName="client"/>
-            <!-- <select class="form-control" id="client" name="client" [(ngModel)]="reservationForm.value.client.id">
-                <option *ngFor="let cli of compteHttpService.findAll()">{{cli.id}}</option>
-            </select> -->
+            <label for="client">Client:</label> 
+            <select class="form-control" name="client" id="client" formControlName="client">
+                <option>Selectionner un client</option>
+                <option *ngFor="let cli of clients" [ngValue]="cli.id">{{cli?.id}} - {{cli?.nom}} - {{cli?.prenom}}</option>
+            </select>
         </div>
         <div class="form-group">
-            <label for="logement">Logement:</label> <input type="text" class="form-control" id="logement" name="logement" formControlName="logement"/>
+            <label for="logement">Logement:</label> 
+            <select class="form-control" name="logement" id="logement" formControlName="logement">
+                <option>Selectionner un logement</option>
+                <option *ngFor="let log of logements" [ngValue]="log.id">{{log?.id}} - {{log?.numero}}</option>
+            </select>
         </div>
         <div class="form-group">
-            <label for="interet">Interet:</label> <input type="text" class="form-control" id="interet" name="interet" formControlName="interet"/>
-            <select name="interet" id="interet" formControlName="interetForm">
-                <option [ngValue]="null">Choose your profile</option>
-                <option *ngFor="let int of interets" [ngValue]="int">{{int.id}}</option>
+            <label for="interet">Interet:</label> 
+            <select class="form-control" name="interet" id="interet" formControlName="interet">
+                <option>Selectionner un intêret</option>
+                <option *ngFor="let int of interets" [ngValue]="int.id">{{int?.id}} - {{int?.reservation?.id}}</option>
             </select>
         </div>
     </div>

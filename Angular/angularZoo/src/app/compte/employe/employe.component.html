@@ -1,0 +1,87 @@
+<div class="card mt-3">
+    <div class="card-header bg-primary text-white display-6">Liste des Employes</div>
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Identifiant</th>
+                    <th>Login</th>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th>Salaire</th>
+                    <th>Poste</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let emp of list()">
+                    <td>{{emp.id}}</td>
+                    <td>{{emp.login}}</td>
+                    <td>{{emp.nom}}</td>
+                    <td>{{emp.prenom}}</td>
+                    <td>{{emp.sal}}</td>
+                    <td>{{emp.poste}}</td>
+                    <td>
+                        <div class="btn-group btn-group-sm">
+                            <a class="btn btn-primary" (click)="edit(emp.id)"><i
+                                    class="bi bi-pencil-square"></i></a>
+                            <a class="btn btn-danger" (click)="remove(emp.id)"><i class="bi bi-trash"></i></a>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+    <div class="card-footer">
+        <a class="btn btn-success btn-lg" (click)="add()"><i
+            class="bi bi-plus-square"></i></a>
+    </div>
+</div>
+<div class="card mt-3" *ngIf="showForm">
+    <form (ngSubmit)="save()" [formGroup]="employeForm">
+    <input type="hidden" class="form-control" id="version" name="version" formControlName="version"/>
+    <div class="card-header bg-primary text-white display-6">Edition d'un Admin</div>
+    <div class="card-body">
+        <div class="form-group" hidden>
+            <label for="type">Type:</label> <input type="text" class="form-control" id="type" name="type" readonly formControlName="type"/>
+        </div>
+        <div class="form-group">
+            <label for="id">Identifiant:</label> <input type="number" class="form-control" id="id" name="id" readonly formControlName="id"/>
+        </div>
+        <div class="form-group">
+            <label for="login">Login:</label> <input type="text" class="form-control" id="login" name="login" formControlName="login"/>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label> <input type="password" class="form-control" id="password" name="password" formControlName="password"/>
+        </div>
+        <div class="form-group">
+            <label for="nom">Nom:</label> <input type="text" class="form-control" id="nom" name="nom" formControlName="nom"/>
+        </div>
+        <div class="form-group">
+            <label for="prenom">Prenom:</label> <input type="text" class="form-control" id="prenom" name="prenom" formControlName="prenom"/>
+        </div>
+        <div class="form-group">
+            <label for="sal">Salaire:</label> <input type="text" class="form-control" id="sal" name="sal" formControlName="sal"/>
+        </div>
+        <div class="form-group">
+            <label for="poste">Poste:</label> 
+            <select type="text" class="form-control" id="poste" name="poste" formControlName="poste">
+                <option>Animalier</option>
+                <option>Soigneur</option>
+                <option>Gardien</option>
+                <option>Paysagiste</option>
+
+            </select>
+        </div>
+
+    <div class="card-footer">
+        <div class="btn-group btn-group-lg float-right">
+            <button type="submit" class="btn btn-success"><i class="bi bi-check-square-fill"></i></button>
+            <a class="btn btn-warning" (click)="cancel()"><i class="bi bi-backspace-fill"></i></a>
+        </div>
+        </div>
+        </div>
+    </form>
+</div>
+

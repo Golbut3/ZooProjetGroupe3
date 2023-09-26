@@ -23,15 +23,22 @@ export class InteretHttpService {
   findAll() : Array<Interet> {
     return this.interets;
   }
+
+  findAllForAsync(): Observable<Interet[]> {
+    return this.http.get<Interet[]>(this.apiInteretUrl);
+  } 
+
   deleteById(id: number) {
     this.http.delete<void>(this.apiInteretUrl + "/"+id).subscribe(resp => {
       this.load();
     });
    }
    findById(id: number): Observable<Interet> {
-    let obs: Observable<Interet> = this.http.get<Interet>(this.apiInteretUrl + "/"+id);
+  
+      let obs: Observable<Interet> = this.http.get<Interet>(this.apiInteretUrl + "/"+id);
 
-    return obs;
+      return obs;
+
   }
   save(interet: Interet): void{
     if(interet.id) { // mise à jour
