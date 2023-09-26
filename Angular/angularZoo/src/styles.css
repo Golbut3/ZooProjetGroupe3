@@ -170,6 +170,108 @@
     font-family: Inter, sans-serif;
     font-weight: light;
   }
+
+  /*///////////////////////////////////////////////////////Animaux/////////////////////////////////////////////////*/
+
+  /*.body{
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 2820px
+  }*/
+
+  .container-fluid {
+    display:flex;
+    width: 100%;
+    padding-right: 55px;
+    padding-left: 55px;
+    padding-top:60px;
+    padding-bottom: 100px;/*laisser un espece entre les cadres et le footer*/
+    
+  }
+
+  .card-test { /*style des cadres blanc*/
+    height: 900px;
+    background-clip: border-box;
+    
+    /*z-index: 1;
+    position: relative;*/
+   
+    border: 0px solid rgba(0, 0, 0, 125);
+  }
+
+  .col-12 {
+    padding-right: 15px;
+    padding-left: 15px;
+    /*border-radius: 50;*/
+
+}
+  
+  .row1 {
+    flex: 0 0 33.333333%; /*l'espace entre les img horizontalement*/
+    max-width: 33.333333%;
+    display: block;
+    margin-top: 50px;
+    
+  }
+
+  .row2 {
+    display: block;
+    margin-top: 50px;
+    flex: 0 0 33.333333%; /*l'espace entre les img horizontalement*/
+    max-width: 33.333333%;
+  }
+  .row3 {
+    display: block;
+    margin-top: 50px;
+    flex: 0 0 33.333333%; /*l'espace entre les img horizontalement*/
+    max-width: 33.333333%;
+  }
+  
+  
+  .card-img-top {  /*style des es images*/
+    
+    border-radius: 85px;
+    /*margin-left:2px;*/
+    transition: transform 0s;
+    height:400px;
+
+  }
+  
+  .card-img-top:hover {
+   /* transform: scale(1);*/
+      /*transition: transform 0.3s ease 0s;*/
+   transform: scale(1.1);
+    transform: rotate(360deg) scale(0.8);
+    transform: rotateY(180deg);
+  }
+
+ 
+  
+  .card-zommable { /*l'ecriture dans le cadre blanc*/
+    height:450px;
+    margin-left: 20px;
+    margin-right:15px;
+    margin-top:30px;
+    background: #D49720; /*mettre les 3en commentaires*/
+    border-radius: 30px;
+    background-clip:border-box ;
+    padding:10px;
+  /*height:1500px;
+    border-radius: 5px;  */
+  }
+  /*.card-zommable {
+  transition: transform 0.3s ease 0s;
+  }*/
+  
+  .card-zommable:hover {
+    transform: scale(1.1); /* Agrandir l'écriture de 20% au survol */
+  }
+  
+  /*.card-title { pour laisser un espece entre le titre et l'écriture
+      margin-bottom: 1.5rem;
+  }*/
+  
+  
   
   /*////////////////////////////////////////////////////////FOOTER////////////////////////////////////////////////////////////////*/
   
