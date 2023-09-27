@@ -18,11 +18,19 @@ export class LogementHttpService {
 
     obs.subscribe(resp => {
       this.logements = resp;
-      console.log(this.logements)
+      console.log("dans http",this.logements)
     });
 }
   findAll() : Array<Logement> {
+    console.log(this.logements);
     return this.logements;
+    
+  }
+
+  findAllObs() : Observable<Logement[]> {
+    console.log(this.logements);
+    return this.http.get<Logement[]>(this.url);
+    
   }
 
   findById(id: number): Observable<Logement> {

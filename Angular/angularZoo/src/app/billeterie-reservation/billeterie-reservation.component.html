@@ -192,31 +192,93 @@
     <section class="section_choix_date_reservation"> 
       <h3>A quelle date souhaitez vous venir ?</h3>
       <div class="container_formulaire_choix_date_reservation">
-        <label for="">Date de début</label>
+        <label for="">Date de début : </label>
         <input type="date" name="" id="" formControlName="dateDebut">
-        <label for="">Date de fin</label>
-        <input type="date" name="" id="" formControlName="dateFin">
+        <label for="">Date de fin : </label>
+        <input type="date" name="" id=""  formControlName="dateFin">
       </div>
-      <button type="submit" class="btn btn-success"><i class="bi bi-check-square-fill"></i>Reserver</button>
+      
 
     </section>
-    </form>
-    <form hidden [formGroup]="maResa">
-      <input type="number" name="" id="" formControlName="id">
 
-      <input type="date" name="" id="" formControlName="dateDebut">
-      <input type="date" name="" id="" formControlName="dateFin">
-      <input type="number" name="" id="" formControlName="client">
-      <input type="number" name="" id="" formControlName="prix">
-      <input type="number" name="" id="" formControlName="nbVisiteur">
-    </form>
-    <section class="section_choix_LOGEMENT_reservation"> 
-      CHOIX DU LOGEMENT (qui sera caché selon si l'utilisateur choisit ou pas un logement)
+    <section class="section_choix_logement_reservation"> 
+      <div class="container_formulaire_choix_logement_reservation">
+        <h3>Choisissez un logement : </h3>
+        <div class="choix_type_logement">
+          <label for="">Quel type de logement ? (chalet ou mobilhome)</label>
+          <select class="form-control" name="logement" id="logement" formControlName="logement">
+            <option>Selectionner un logement</option>
+            <option *ngFor="let log of logements" [ngValue]="log.id">{{log?.type}} - {{log?.nbPlace}} personnes</option>
+        </select>
+        </div>
+        <!-- <div class="choix_nombre_personne_logement">
+          <div><label for="">Combien de personnes ?</label></div>
+          <div><input type="number" name="" id=""></div>
+        </div> -->
+      </div>
     </section>
+
     <section class="section_choix_interet_reservation"> 
-      CHOIX DES INTERETS
+      <h3>Choisissez vous enclos préférés pour obtenir une suggestion de parcours personalisé !</h3>
+      <div class="container_choix_interet">
+        <div class="choix_interet_1">
+          <label for=""></label>
+          <select name="" id="" formControlName="interet1">
+            <option value="">Choisissez votre 1er enclos</option>
+            <option *ngFor="let enc of enclos "[ngValue]=enc>{{enc.type}}</option>
+          </select>
+        </div>
+        <div class="choix_interet_2">
+          <label for=""></label>
+          <select name="" id="" formControlName="interet2">
+            <option value="">Choisissez votre 2eme enclos</option>
+            <option *ngFor="let enc of enclos "[ngValue]=enc>{{enc.type}}</option>
+          </select>
+        </div>
+        <div class="choix_interet_3">
+          <label for=""></label>
+          <select name="" id="" formControlName="interet3">
+            <option value="">Choisissez votre 3eme enclos</option>
+            <option *ngFor="let enc of enclos "[ngValue]=enc>{{enc.type}}</option>
+          </select>
+        </div>
+        <div class="choix_interet_4">
+          <label for=""></label>
+          <select name="" id="" formControlName="interet4">
+            <option value="">Choisissez votre 4eme enclos</option>
+            <option *ngFor="let enc of enclos "[ngValue]=enc>{{enc.type}}</option>
+          </select>
+        </div>
+        <div class="choix_interet_5">
+          <label for=""></label>
+          <select name="" id="" formControlName="interet5">
+            <option value="">Choisissez votre 5eme enclos</option>
+            <option *ngFor="let enc of enclos "[ngValue]=enc>{{enc.type}}</option>
+          </select>
+        </div>
+      </div>
+
     </section>
 
+    <div class="container_button_reserver">
+      <button type="submit" class="btn btn-success"><i class="bi bi-check-square-fill"></i>Reserver</button>
+    </div>
+    </form>
+    <form  [formGroup]="maResa">
+      <input type="number" name="" id="" formControlName="id" hidden>
+      <input type="date" name="" id="" formControlName="dateDebut" hidden>
+      <input type="date" name="" id="" formControlName="dateFin" hidden>
+      <input type="number" name="" id="" formControlName="client" hidden>
+      <input type="number" name="" id="" formControlName="prix" hidden>
+      <input type="number" name="" id="" formControlName="nbVisiteur" hidden>
+      <input type="number" name="" id="" formControlName="logement" hidden>
+      <input type="number" name="" id="" formControlName="interet" hidden>
+
+    </form>
+
+   
+
+    
   </main>
   <footer>
       <footer-utilisateur></footer-utilisateur>
