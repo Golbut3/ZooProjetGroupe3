@@ -62,9 +62,11 @@ remove(id: number) {
     interetToSave.setReservation(reservationToSave);
     console.log("Celui ci : ",interetToSave);
      if (!interet.enclos1) { 
-      interet.enclos = null; 
+      console.log("on rentre ici si interet enclos 1 est null")
+      let enclosToSave = new Array<Enclos>(null, null, null, null, null);
+      interet.enclos = enclosToSave; 
 
-      //this.interetHttpService.save(this.interetForm.value); 
+      this.interetHttpService.save(this.interetForm.value); 
     }
     else {
       let enclosToSave = new Array<Enclos>(null, null, null, null, null);
@@ -79,10 +81,20 @@ remove(id: number) {
               enclosToSave[3] = response;
               this.enclosHttpService.findById(interet.enclos5).subscribe(response => {
                 enclosToSave[4] = response;
-                this.reservationHttpService.findById(this.interetForm.value.reservation).subscribe(response => interetToSave.reservation = response);
                 interetToSave.enclos=enclosToSave;
-                console.log(interetToSave);
-                this.interetHttpService.save(interetToSave); 
+                if(interetToSave.reservation){
+                  this.reservationHttpService.findById(this.interetForm.value.reservation).subscribe(response => interetToSave.reservation = response);
+                  
+                  console.log( "on sauve ya si on a une resa en edit : ",interetToSave);
+                  this.interetHttpService.save(interetToSave); 
+                }
+                else{
+                  interetToSave.reservation = null;
+                  console.log("on sauve ça si on a pas de resa", interetToSave)
+                  this.interetHttpService.save(interetToSave); 
+                }
+ 
+                
 
               })
             })
@@ -103,6 +115,7 @@ remove(id: number) {
   add(){
     this.interetForm.reset();
     this.showForm=true;
+    this.encloss=this.enclosHttpService.findAll();
   }
 
   cancel() {

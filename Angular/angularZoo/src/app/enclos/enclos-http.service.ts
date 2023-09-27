@@ -27,6 +27,12 @@ load(): void {
   return this.encloss;
  }
 
+ findAllObs() : Observable<Enclos[]> {
+  console.log(this.encloss);
+  return this.http.get<Enclos[]>(this.url);
+  
+}
+
  findById(id: number): Observable<Enclos> {
 
   let obs: Observable<Enclos> = this.http.get<Enclos>(this.url + "/"+id);
