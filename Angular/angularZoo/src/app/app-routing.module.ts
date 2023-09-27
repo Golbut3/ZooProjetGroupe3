@@ -21,23 +21,24 @@ import { LogementUtilisateurComponent } from './logement-utilisateur/logement-ut
 import { LogementComponent } from './logement/logement.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { MesReservationsComponent } from './mes-reservations/mes-reservations.component';
+import { authGuard } from './auth.guard';
 
 
 
 
 
 const routes: Routes = [
-  {path: "compte", component: CompteComponent}, 
-  {path: "reservation", component: ReservationComponent},
-  {path : "compte/admin",component:AdminComponent},
-  {path : "compte/employe",component:EmployeComponent},
-  {path : "compte/client",component:ClientComponent},
-  {path: "animal",component: AnimalComponent},
-  {path: "enclos", component: EnclosComponent},
-  {path: "interet", component: InteretComponent},
-  {path : "gestion",component:GestionComponent},
-  {path : "logement",component:LogementComponent},
-  {path: "espece", component: EspeceComponent},
+  {path: "compte", component: CompteComponent, canActivate: [authGuard]}, 
+  {path: "reservation", component: ReservationComponent, canActivate: [authGuard]},
+  {path : "compte/admin",component:AdminComponent, canActivate: [authGuard]},
+  {path : "compte/employe",component:EmployeComponent, canActivate: [authGuard]},
+  {path : "compte/client",component:ClientComponent, canActivate: [authGuard]},
+  {path: "animal",component: AnimalComponent, canActivate: [authGuard]},
+  {path: "enclos", component: EnclosComponent, canActivate: [authGuard]},
+  {path: "interet", component: InteretComponent, canActivate: [authGuard]},
+  {path : "gestion",component:GestionComponent, canActivate: [authGuard]},
+  {path : "logement",component:LogementComponent, canActivate: [authGuard]},
+  {path: "espece", component: EspeceComponent, canActivate: [authGuard]},
   {path:"inscription",component:InscriptionComponent},
   {path: "animalPresentation", component: AnimalPresentationComponent},
   {path:"mesReservations",component:MesReservationsComponent},
@@ -46,10 +47,7 @@ const routes: Routes = [
   {path: "billeterie-reservation", component: BilleterieReservationComponent},
   {path:"connexion",component:ConnexionComponent},
   {path: "logement-utilisateur", component: LogementUtilisateurComponent}, 
-  {path:"connexion",component:ConnexionComponent},
   {path: "nav-bar", component:NavBarComponent},
-  {path: "nav-bar", component:NavBarComponent},
-  {path : "mesReservations",component:MesReservationsComponent},
 ];
 
 @NgModule({
