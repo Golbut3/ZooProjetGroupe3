@@ -7,7 +7,7 @@
     <img src="/assets/img/logo.png" alt="logo du site" class="logo">
     <nav>
       <ul class=listeMenu>
-        <li class="nav-item" *ngIf="!(authService.isAuthenticated()&&authService.hasRole('admin'))">
+        <li class="nav-item" >
           <a class="nav-link" [routerLink]="['/accueil']" routerLinkActive="active">Menu</a></li>
         <!-- <li><a href="#"[routerLink]="['/']" routerLinkActive="active">Plan du zoo</a></li> -->
 
@@ -41,7 +41,15 @@
     </li>
 
     <li class="nav-item" *ngIf="authService.isAuthenticated()&&authService.hasRole('admin')">
+      <a class="nav-link"  [routerLink]="'/espece'" routerLinkActive="active">Especes</a>
+    </li>
+
+    <li class="nav-item" *ngIf="authService.isAuthenticated()&&authService.hasRole('admin')">
       <a class="nav-link"  [routerLink]="'/enclos'" routerLinkActive="active">Enclos</a>
+    </li>
+
+    <li class="nav-item" *ngIf="authService.isAuthenticated()&&authService.hasRole('admin')">
+      <a class="nav-link"  [routerLink]="'/intervention'" routerLinkActive="active">Intervention</a>
     </li>
 
     <li class="nav-item" *ngIf="authService.isAuthenticated()&&authService.hasRole('admin')">

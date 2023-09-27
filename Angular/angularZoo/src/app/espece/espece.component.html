@@ -1,3 +1,7 @@
+<header>
+    <nav-bar-utilisateur></nav-bar-utilisateur>
+  </header>
+  
 <div class="card mt-3">
     <div class="card-header bg-primary text-white display-6">Liste des espèces</div>
     <div class="card-body">
@@ -36,7 +40,7 @@
 
 <div class="card mt-3" *ngIf="showForm">
     <form (ngSubmit)="save()" [formGroup]="especeForm">
-    <input type="hiden" class="form-control" id="id" name="id" readonly formControlName="id"/>
+    <!-- <input type="hiden" class="form-control" id="id" name="id" readonly formControlName="id"/> -->
     <div class="card-header bg-primary text-white display-6">Edition d'une espèce</div>
     <div class="card-body">
         <div class="form-group">
