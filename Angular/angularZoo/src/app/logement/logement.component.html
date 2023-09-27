@@ -1,4 +1,4 @@
-<div class="card mt-3">
+    <div class="card mt-3">
     <div class="card-header bg-primary text-white display-6">Liste des logements</div>
     <div class="card-body">
         <table class="table table-striped">
@@ -22,7 +22,8 @@
                     <td>{{log.numero}}</td>
                     <td>{{log.description}}</td>
                     <td>{{log.type}}</td>   
-                    <td *ngIf="log.enclos">{{log.enclos.id}}</td>   
+                    <td *ngIf="log.enclos">{{log.enclos.id}}</td> 
+                    <td *ngIf="!log.enclos"></td>  
                     <td>             
                         <div class="btn-group btn-group-sm">
                             <a class="btn btn-primary" (click)="edit(log.id)"><i
@@ -43,12 +44,11 @@
 
 <div class="card mt-3" *ngIf="showForm">
     <form (ngSubmit)="save()" [formGroup]="logementForm">
+        <input type="hidden" class="form-control" id="version" name="version" formControlName="version"/>
 
     <div class="card-header bg-primary text-white display-6">Edition d'un logement</div>
     <div class="card-body">
         <div class="form-group">
-                   
-                    <th>Description</th>
             <label for="id">Identifiant:</label> <input type="number" class="form-control" id="id" name="id" readonly formControlName="id" />
         </div>
         <div class="form-group">
@@ -64,10 +64,14 @@
             <label for="description">Description:</label> <input type="text" class="form-control" id="description" name="description" formControlName="description"/>
         </div>
         <div class="form-group">
-            <label for="enclos">Enclos:</label> <input type="number" class="form-control" id="enclos" name="enclos" formControlName="enclos"/>
+            <label for="enclos">Enclos:</label> <input type="number" class="form-control" id="enclos" name="enclos" formControlName="idEnclos"/>
         </div>
         <div class="form-group">
-            <label for="type">Type:</label> <input type="text" class="form-control" id="type" name="type" formControlName="type"/>
+            <label for="type">Type:</label> 
+            <select class="form-control" id="type" name="type" formControlName="type">
+                <option>chalet</option>
+                <option>mobilHome</option>
+            </select>
         </div>
 
 

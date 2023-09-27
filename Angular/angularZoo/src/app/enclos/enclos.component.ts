@@ -13,9 +13,10 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class EnclosComponent {
 
-
+ 
   enclosForm: FormGroup;
   showForm:boolean = false;
+  showtype:Boolean =true;
   encloss$: Observable<Enclos[]>;
 
   animaux$: Observable<Animal[]>;
@@ -41,7 +42,9 @@ export class EnclosComponent {
    this.enclosForm = this.formBuilder.group({
   id: this.formBuilder.control(''),
   capacite: this.formBuilder.control(''),
-  type: this.formBuilder.control('')
+  type: this.formBuilder.control(''),
+  version: this.formBuilder.control(''),
+  active:this.formBuilder.control('')
   });}
   
   list(): Array<Enclos> {
@@ -52,16 +55,19 @@ export class EnclosComponent {
    let animaux =this.animauxHttpService.findAll().filter(a => a.enclos.id == enc.id);
   return  animaux;
   }
-  list3(): Array<Animal> {
-    let animaux = this.animauxHttpService.findAll()
+ 
+  list3(): Array<Enclos> {
+    let enclos = this.enclosHttpService.findAll()
   //Elimine les doublons
-    let animauxunique = animaux.filter((obj, index) => animaux.findIndex((item) => item.espece.nom === obj.espece.nom ) ===index );
-    return animauxunique;
-  }
+    let enclosunique = enclos.filter((obj, index) => enclos.findIndex((item) => item.type === obj.type) ===index );
+    return enclosunique;}
+
+
   list4(): Array<Chalet> {
     console.log(this.chaletHtttpService.findAll())
       return this.chaletHtttpService.findAll();
   }
+  
 
 
     add(){
@@ -72,6 +78,7 @@ export class EnclosComponent {
 
   edit(id: number) {
     this.showForm=true;
+    this.showtype=false;
     this.enclosHttpService.findById(id).subscribe(response => {
       this.enclosForm.patchValue(response);
       
@@ -81,12 +88,14 @@ export class EnclosComponent {
   save(){
     let enclos : any = this.enclosForm.value;
       if(enclos.idChalet){
+      
       this.chaletHtttpService.findById(enclos.idChalet).subscribe(response => {
         enclos.chalet =response;
           this.enclosHttpService.save(enclos)
                   });
            }
           else{
+            this.showtype=true
             this.enclosHttpService.save(enclos)
           }
           console.log(enclos)
