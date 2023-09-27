@@ -62,12 +62,14 @@ ngOnInit(): void {
     edit(id:number){
         this.logementHttpService.findById(id).subscribe(response => {
           this.logementForm.patchValue(response);
+          console.log(this.logementForm.value.version)
           this.showForm = true;
         })
     }
 
 
   save() {
+    
     if(this.logementForm.value.type=="mobilHome"){
       delete this.logementForm.value.idEnclos
       console.log(this.logementForm.value)
