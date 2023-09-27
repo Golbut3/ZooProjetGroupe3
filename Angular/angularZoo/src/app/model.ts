@@ -95,6 +95,7 @@ export class Reservation{
     client?: Client; 
     logement?: Logement;
     interet?: Interet;
+   
 
     constructor(
         id: number, 
@@ -104,7 +105,8 @@ export class Reservation{
         prix?: number, 
         client?: Client, 
         logement?: Logement,
-        interet?: Interet
+        interet?: Interet,
+    
     )
     {
         this.id=id;
@@ -115,6 +117,7 @@ export class Reservation{
         this.client=client;
         this.logement=logement;
         this.interet=interet;
+        
     
 
     }
@@ -230,6 +233,7 @@ export class Enclos{
     chalets?: Array<Chalet> = new Array<Chalet>;
     animaux?: Array<Animal> = new Array<Animal>;
     interets?: Array<Interet> = new Array<Interet>;
+    intervention?: Array<Intervention> = new Array<Intervention>
     type?: string;
 
 constructor(
@@ -238,6 +242,7 @@ constructor(
     chalets?: Chalet[],
     animaux?: Animal[],
     interets?: Interet[],
+    intervention? : Intervention[],
     type?: string)
     {
         this.id = id;
@@ -246,6 +251,7 @@ constructor(
         this.animaux = animaux;
         this.interets= interets;
         this.type= type;
+        this.intervention=intervention;
     }
 }
 

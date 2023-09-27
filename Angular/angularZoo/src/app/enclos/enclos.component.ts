@@ -6,6 +6,7 @@ import { ChaletHttpService } from '../chalet/chalet-http.service';
 import  {AnimalHttpService } from '../animal/animal-http.service';
 import { InteretHttpService } from '../interet/interet-http.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { InterventionHttpService } from '../intervention/intervention-http.service';
 @Component({
   selector: 'app-enclos',
   templateUrl: './enclos.component.html',
@@ -29,7 +30,7 @@ export class EnclosComponent {
 
 
 
-  constructor(private enclosHttpService: EnclosHttpService, private chaletHtttpService: ChaletHttpService,private formBuilder: FormBuilder, private animauxHttpService :AnimalHttpService){
+  constructor(private enclosHttpService: EnclosHttpService, private chaletHtttpService: ChaletHttpService,private formBuilder: FormBuilder, private animauxHttpService :AnimalHttpService, private interventionHttpService: InterventionHttpService){
     // this.encloss$ = this.enclosHttpService.findAll()
     // this.chalets$ = this.chaletHtttpService.findAllForAsync()
     //this.animaux$ = this.animauxHttpService.findAllForAsync()
@@ -44,7 +45,8 @@ export class EnclosComponent {
   capacite: this.formBuilder.control(''),
   type: this.formBuilder.control(''),
   version: this.formBuilder.control(''),
-  active:this.formBuilder.control('')
+  active:this.formBuilder.control(''),
+
   });}
   
   list(): Array<Enclos> {
