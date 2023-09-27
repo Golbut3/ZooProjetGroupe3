@@ -1,0 +1,39 @@
+<div class="card mt-3">
+    <div class="card-header bg-primary text-white display-6">Liste des reservations</div>
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Identifiant</th>
+                    <th>Date début</th>
+                    <th>Date fin</th>
+                    <th>Nombre de visiteurs</th>
+                    <th>Prix</th>
+                    <th>Client</th>
+                    <th>Logement</th>
+                    <th>Interet</th>
+                    <th></th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <tr *ngFor="let resa of findResaClient()">
+                    <td>{{resa.id}}</td>
+                    <td>{{resa.dateDebut}}</td>
+                    <td>{{resa.dateFin}}</td>
+                    <td>{{resa.nbVisiteurs}}</td>
+                    <td>{{resa.prix}}</td>
+                    <td>{{resa.client?.id}} - {{resa.client?.nom}}</td>
+                    <td>{{resa.logement?.id}} - {{resa.logement?.numero}}</td>
+                    <td>{{resa.interet?.id}}</td>
+                    <td>
+                        <div class="btn-group btn-group-sm">
+                            <a class="btn btn-primary" (click)="edit()"><i
+                                    class="bi bi-pencil-square"></i></a>
+                            <a class="btn btn-danger" (click)="remove()"><i class="bi bi-trash"></i></a>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>

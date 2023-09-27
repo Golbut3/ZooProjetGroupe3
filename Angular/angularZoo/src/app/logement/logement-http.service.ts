@@ -26,18 +26,26 @@ export class LogementHttpService {
   }
 
   findById(id: number): Observable<Logement> {
-    return this.http.get<Logement>("http://localhost:8080/api/logement/"+id);
+    let obs: Observable<Logement> = this.http.get<Logement>(this.url + "/"+id);
+  
+    return obs;
   }
 
-  save(logement: Logement): Observable<Logement> {
+  save(logement: Logement): void {
+
     if(logement.id) { // mise à jour
-      return this.http.put<Logement>("http://localhost:8080/api/logement/"+logement.id, logement);
+      this.http.put<Logement>(this.url + "/"+logement.id, logement).subscribe(resp => {
+        this.load();
+      });
     } else { // création
-      return this.http.post<Logement>("http://localhost:8080/api/logement", logement);;
+      this.http.post<Logement>(this.url, logement).subscribe(resp => {
+        this.load();
+      });
     }
    }
-
-   deleteById(id: number): Observable<void> {
-    return this.http.delete<void>("http://localhost:8080/api/logement/"+id);
+   deleteById(id: number) {
+      this.http.delete<void>(this.url + "/"+id).subscribe(resp => {
+        this.load()
+   });
    }
 }

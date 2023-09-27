@@ -1,6 +1,5 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CompteComponent } from './compte/compte.component';
@@ -26,6 +25,8 @@ import { NavBarUtilisateurComponent } from './nav-bar-utilisateur/nav-bar-utilis
 import { BilleterieComponent } from './billeterie/billeterie.component';
 import { BilleterieReservationComponent } from './billeterie-reservation/billeterie-reservation.component';
 import { FooterUtilisateurComponent } from './footer-utilisateur/footer-utilisateur.component';
+import { LogementUtilisateurComponent } from './logement-utilisateur/logement-utilisateur.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // Import correct ici
 import { LogementComponent } from './logement/logement.component';
 
 
@@ -51,21 +52,24 @@ import { LogementComponent } from './logement/logement.component';
     BilleterieReservationComponent,
     FooterUtilisateurComponent,
   
-    LogementComponent,
+    
     NavBarCompteComponent,
     GestionComponent,
     InscriptionComponent,
     ConnexionComponent
+
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
-
+    ReactiveFormsModule,
+    BrowserAnimationsModule, // Import correct ici
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppModule { }
+export class AppModule {}
