@@ -3,6 +3,7 @@ import { Client, Reservation } from '../model';
 
 import { MesReservationsHttpService } from './mes-reservations-http.service';
 import { ClientHttpService } from '../compte/client/client-http.service';
+import { ReservationHttpService } from '../reservation/reservation-http.service';
 
 @Component({
   selector: 'app-mes-reservations',
@@ -12,7 +13,7 @@ import { ClientHttpService } from '../compte/client/client-http.service';
 export class MesReservationsComponent {
   
 
-  constructor(private mesReservationHttpService: MesReservationsHttpService, private clientHttpSevice : ClientHttpService) {
+  constructor(private mesReservationHttpService: ReservationHttpService, private clientHttpSevice : ClientHttpService) {
     
     }
 
@@ -21,8 +22,10 @@ export class MesReservationsComponent {
    
       return this.clientHttpSevice.findAll();
     }
-  list2(id: number): Array<Reservation> {
-    return this.mesReservationHttpService.findAll().filter(a => a.client.id===id);
-  }
+  // list2(id: number): Array<Reservation> {
+  //   let clients= this.clientHttpSevice.findAll()
+
+  //   // return this.mesReservationHttpService.findAll().filter(a => a.client.id===clients.id);
+  // }
 
 }

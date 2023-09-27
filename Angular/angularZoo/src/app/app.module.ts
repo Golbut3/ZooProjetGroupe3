@@ -56,8 +56,7 @@ import { FooterUtilisateurComponent } from './footer-utilisateur/footer-utilisat
     NavBarCompteComponent,
     GestionComponent,
     InscriptionComponent,
-    MesReservationsComponent
-    InscriptionComponent,
+    MesReservationsComponent,
     ConnexionComponent
 
 

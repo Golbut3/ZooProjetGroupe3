@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../compte/auth.service';
 
 @Component({
   selector: 'nav-bar-utilisateur',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class NavBarUtilisateurComponent {
 
+
+  constructor(public authService: AuthService) {
+
+  }
+
+  deconnexion() {
+   this.authService.deconnexion();
+  }
 }

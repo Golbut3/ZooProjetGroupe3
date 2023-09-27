@@ -7,12 +7,36 @@
     <img src="/assets/img/logo.png" alt="logo du site" class="logo">
     <nav>
       <ul class=listeMenu>
-        <li><a href="#" [routerLink]="['/reservation']" routerLinkActive="active">Menu</a></li>
-        <li><a href="#"[routerLink]="['/']" routerLinkActive="active">Plan du zoo</a></li>
-        <li><a href="#" [routerLink]="['/']" routerLinkActive="active">Nos Animaux</a></li>
-        <li><a href="#" [routerLink]="['/']" routerLinkActive="active">Logement</a></li>
-        <li><a href="#" [routerLink]="['/']" routerLinkActive="active">Boutique</a></li>
-        <li><a href="#" [routerLink]="['/billeterie']" routerLinkActive="active">Billeterie</a></li>
+        <li class="nav-item" *ngIf="!authService.isAuthenticated()">
+          <a class="nav-link" [routerLink]="['/accueil']" routerLinkActive="active">Menu</a></li>
+        <!-- <li><a href="#"[routerLink]="['/']" routerLinkActive="active">Plan du zoo</a></li> -->
+
+        <li class="nav-item" *ngIf="!authService.isAuthenticated()">
+          <a class="nav-link"  [routerLink]="['/animalPresentation']" routerLinkActive="active">Nos Animaux</a>
+        </li>
+
+        <li class="nav-item" *ngIf="!authService.isAuthenticated()">
+          <a class="nav-link"  [routerLink]="['/']" routerLinkActive="active">Logement</a>
+        </li>
+
+        <!-- <li><a href="#" [routerLink]="['/']" routerLinkActive="active">Boutique</a></li> -->
+        <li class="nav-item" *ngIf="!authService.isAuthenticated()">
+          <a class="nav-link"  [routerLink]="['/billeterie']" routerLinkActive="active">Billeterie</a>
+        </li>
+
+        <li class="nav-item" *ngIf="!authService.isAuthenticated()"> 
+          <a class="nav-link" [routerLink]="['/inscription']" routerLinkActive="active">Inscription</a>
+      </li>
+
+      <li class="nav-item" *ngIf="!authService.isAuthenticated()"> 
+        <a class="nav-link" [routerLink]="['/connexion']" routerLinkActive="active">Connexion</a>
+    </li>
+
+        <li class="nav-item" *ngIf="authService.isAuthenticated()">
+          <a class="nav-link" (click)="deconnexion()" routerLinkActive="active">Déconnexion</a>
+        </li>
+      
+
       </ul>
     </nav>
   </div>
