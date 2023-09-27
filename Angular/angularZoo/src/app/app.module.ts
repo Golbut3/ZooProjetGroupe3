@@ -28,6 +28,7 @@ import { FooterUtilisateurComponent } from './footer-utilisateur/footer-utilisat
 import { LogementUtilisateurComponent } from './logement-utilisateur/logement-utilisateur.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // Import correct ici
 import { LogementComponent } from './logement/logement.component';
+import { MesReservationsComponent } from './mes-reservations/mes-reservations.component';
 
 
 @NgModule({
@@ -51,13 +52,16 @@ import { LogementComponent } from './logement/logement.component';
     BilleterieComponent,
     BilleterieReservationComponent,
     FooterUtilisateurComponent,
-  
+  LogementComponent,
+  LogementUtilisateurComponent,
     
     NavBarCompteComponent,
     GestionComponent,
     InscriptionComponent,
-    ConnexionComponent
 
+    ConnexionComponent,
+    ConnexionComponent,
+    MesReservationsComponent
 
   ],
   imports: [

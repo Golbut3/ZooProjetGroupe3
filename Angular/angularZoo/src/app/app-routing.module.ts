@@ -19,6 +19,7 @@ import { BilleterieReservationComponent } from './billeterie-reservation/billete
 import { LogementUtilisateurComponent } from './logement-utilisateur/logement-utilisateur.component';
 import { LogementComponent } from './logement/logement.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { MesReservationsComponent } from './mes-reservations/mes-reservations.component';
 
 
 
@@ -45,7 +46,9 @@ const routes: Routes = [
   {path:"connexion",component:ConnexionComponent},
   {path: "logement-utilisateur", component: LogementUtilisateurComponent}, 
   {path:"connexion",component:ConnexionComponent},
-  {path: "nav-bar", component:NavBarComponent}
+  {path: "nav-bar", component:NavBarComponent},
+  {path: "nav-bar", component:NavBarComponent},
+  {path : "mesReservations",component:MesReservationsComponent}
 
 ];
 
