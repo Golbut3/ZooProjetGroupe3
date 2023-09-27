@@ -12,6 +12,7 @@ import { EnclosHttpService } from '../enclos/enclos-http.service';
 })
 export class InteretComponent {
   interetForm!: FormGroup;
+  monInteretForm!: FormGroup;
   showForm:boolean=false;
   encloss: Array<Enclos> = new Array<Enclos>();
   constructor(private interetHttpService: InteretHttpService,private formBuilder: FormBuilder ,private reservationHttpService: ReservationHttpService, private enclosHttpService: EnclosHttpService,) {
@@ -29,6 +30,84 @@ ngOnInit(): void {
     version: this.formBuilder.control('')
    
   });
+
+  this.monInteretForm=this.formBuilder.group({
+    id:this.formBuilder.control(''),
+    enclos:this.formBuilder.control(''),
+    reservation:this.formBuilder.control(''),
+    version: this.formBuilder.control('')
+
+  })
+}
+buildInteret(){
+  this.monInteretForm.value.id=this.interetForm.value.id;
+ this.monInteretForm.value.version=this.interetForm.value.version;
+  this.monInteretForm.value.reservation=this.interetForm.value.reservation;
+ let  enclosToSave= new Array<Enclos>(null, null, null, null, null);
+
+  this.enclosHttpService.findById(this.interetForm.value.enclos1).subscribe(response => {
+    enclosToSave[0] = response;
+    delete enclosToSave[0].animaux;
+    delete enclosToSave[0].chalets;
+    delete enclosToSave[0].interets;
+    delete enclosToSave[0].interventions;
+    
+    
+
+    this.enclosHttpService.findById(this.interetForm.value.enclos2).subscribe(response => {
+      enclosToSave[1] = response;
+      delete enclosToSave[1].animaux;
+      delete enclosToSave[1].chalets;
+      delete enclosToSave[1].interets;
+      delete enclosToSave[1].interventions;
+      this.enclosHttpService.findById(this.interetForm.value.enclos3).subscribe(response => {
+        enclosToSave[2] = response;
+        delete enclosToSave[2].animaux;
+        delete enclosToSave[2].chalets;
+        delete enclosToSave[2].interets;
+        delete enclosToSave[2].interventions;
+        this.enclosHttpService.findById(this.interetForm.value.enclos4).subscribe(response => {
+          enclosToSave[3] = response;
+          delete enclosToSave[3].animaux;
+          delete enclosToSave[3].chalets;
+          delete enclosToSave[3].interets;
+          delete enclosToSave[3].interventions;
+          this.enclosHttpService.findById(this.interetForm.value.enclos5).subscribe(response => {
+            enclosToSave[4] = response;
+            delete enclosToSave[4].animaux;
+            delete enclosToSave[4].chalets;
+            delete enclosToSave[4].interets;
+            delete enclosToSave[4].interventions;
+            this.monInteretForm.value.enclos=enclosToSave;
+            if(this.monInteretForm.value.reservation){
+              this.reservationHttpService.findById(this.interetForm.value.reservation).subscribe(response => {
+                this.monInteretForm.value.reservation = response
+                console.log( "on sauve ya si on a une resa en edit : ",this.monInteretForm.value);
+                this.interetHttpService.save(this.monInteretForm.value); 
+              });
+              
+
+            }
+            else{
+              this.monInteretForm.value.reservation = null;
+              console.log("on sauve ça si on a pas de resa", this.monInteretForm.value);
+              this.interetHttpService.save(this.monInteretForm.value); 
+            }
+
+            
+
+          })
+        })
+      })
+    })
+  })
+
+  this.showForm = false;
+
+
+
+
+
 }
 list(): Array<Interet> {
   return this.interetHttpService.findAll();
@@ -41,6 +120,7 @@ edit(id: number) {
     this.showForm = true;
     const selectedReservationtId = response.reservation ? response.reservation.id : null;
     this.interetForm.get('reservation').setValue(selectedReservationtId);
+    this.monInteretForm.value.reservation=this.interetForm.value.reservation;
     console.log(this.interetForm.value.reservation);
     //Faire ça pour chaque element de la liste response.enclos
     for(let i=0;i<response.enclos.length;i++){
@@ -50,62 +130,15 @@ edit(id: number) {
     }
 
   });
+  
   }
 remove(id: number) {
   this.interetHttpService.deleteById(id);
   }
 
   save(){
-    let interet: any = this.interetForm.value;
-    let interetToSave = new Interet;
-    let reservationToSave: Reservation = this.interetForm.value.reservation;
-    interetToSave.setReservation(reservationToSave);
-    console.log("Celui ci : ",interetToSave);
-     if (!interet.enclos1) { 
-      console.log("on rentre ici si interet enclos 1 est null")
-      let enclosToSave = new Array<Enclos>(null, null, null, null, null);
-      interet.enclos = enclosToSave; 
-
-      this.interetHttpService.save(this.interetForm.value); 
-    }
-    else {
-      let enclosToSave = new Array<Enclos>(null, null, null, null, null);
-
-      this.enclosHttpService.findById(interet.enclos1).subscribe(response => {
-        enclosToSave[0] = response;
-        this.enclosHttpService.findById(interet.enclos2).subscribe(response => {
-          enclosToSave[1] = response;
-          this.enclosHttpService.findById(interet.enclos3).subscribe(response => {
-            enclosToSave[2] = response;
-            this.enclosHttpService.findById(interet.enclos4).subscribe(response => {
-              enclosToSave[3] = response;
-              this.enclosHttpService.findById(interet.enclos5).subscribe(response => {
-                enclosToSave[4] = response;
-                interetToSave.enclos=enclosToSave;
-                if(interetToSave.reservation){
-                  this.reservationHttpService.findById(this.interetForm.value.reservation).subscribe(response => interetToSave.reservation = response);
-                  
-                  console.log( "on sauve ya si on a une resa en edit : ",interetToSave);
-                  this.interetHttpService.save(interetToSave); 
-                }
-                else{
-                  interetToSave.reservation = null;
-                  console.log("on sauve ça si on a pas de resa", interetToSave)
-                  this.interetHttpService.save(interetToSave); 
-                }
- 
-                
-
-              })
-            })
-          })
-        })
-      })
-      console.log(enclosToSave);
-        
-
-      }
-      
+   
+    this.buildInteret();
 
 
     }

@@ -230,6 +230,7 @@ export class Enclos{
     chalets?: Array<Chalet> = new Array<Chalet>;
     animaux?: Array<Animal> = new Array<Animal>;
     interets?: Array<Interet> = new Array<Interet>;
+    interventions?: Array<Intervention> = new Array<Intervention>;
     type?: string;
 
 constructor(
@@ -238,6 +239,7 @@ constructor(
     chalets?: Chalet[],
     animaux?: Animal[],
     interets?: Interet[],
+    interventions?: Intervention[],
     type?: string)
     {
         this.id = id;
@@ -245,6 +247,7 @@ constructor(
         this.chalets = chalets;
         this.animaux = animaux;
         this.interets= interets;
+        this.interventions= interventions;
         this.type= type;
     }
 }

@@ -7,6 +7,7 @@ import { ClientHttpService } from '../compte/client/client-http.service';
 import { HttpClient } from '@angular/common/http';
 import { LogementHttpService } from '../logement/logement-http.service';
 import { EnclosHttpService } from '../enclos/enclos-http.service';
+import { InteretHttpService } from '../interet/interet-http.service';
 
 @Component({
   selector: 'app-billeterie-reservation',
@@ -18,7 +19,7 @@ export class BilleterieReservationComponent {
   maResa : FormGroup;
   logements: Array<Logement> = new Array<Logement>();
   enclos: Array<Enclos> = new Array<Enclos>();
-  constructor(private clientHttpService : ClientHttpService, private reservationHttpService : ReservationHttpService, private authHttpService : AuthService,private formBuilder:FormBuilder,private logementHttpService: LogementHttpService,private enclosHttpService: EnclosHttpService){
+  constructor(private clientHttpService : ClientHttpService, private reservationHttpService : ReservationHttpService, private authHttpService : AuthService,private formBuilder:FormBuilder,private logementHttpService: LogementHttpService,private enclosHttpService: EnclosHttpService, private interetHttpService: InteretHttpService){
     this.logementHttpService.findAllObs().subscribe(resp => this.logements=resp);
     this.enclosHttpService.findAllObs().subscribe(resp => this.enclos=resp);
    
@@ -77,8 +78,20 @@ ngOnInit(): void {
   
   }
 
+  findMaxInteret():number{
+    let max:number =0
+    this.interetHttpService.findAll().forEach(interet =>{
+      if(interet.id>max){
+        max=interet.id+1
+  }
+ })
+ return max
+}
+
   buildResa(){
 
+     let dateD=new Date(this.resaForm.value.dateDebut)
+    let dateF=new Date(this.resaForm.value.dateFin)
 
   
     let nombreParticipant:number = parseInt(this.resaForm.value.nombreEnfant+ 
@@ -108,30 +121,71 @@ ngOnInit(): void {
     (this.resaForm.value.nombreReduit*this.resaForm.value.prixReduit) + 
     (this.resaForm.value.nombreReduitWE*this.resaForm.value.prixReduitWE)+
     (this.resaForm.value.nombreReduit1An*this.resaForm.value.prixReduit1An)
+    if(this.resaForm.value.logement){
+      this.logementHttpService.findById(this.resaForm.value.logement).subscribe(resp =>
+        {
+          prix=prix+resp.prix*(dateF.getTime()-dateD.getTime())/(1000*3600*24)
+          
+          this.maResa.value.prix=prix;
+        })
+    }
+   // (this.resaForm.value.logement.prix*(dateF.getTime()-dateD.getTime()))/(1000*3600*24)
 
-    this.maResa.value.prix=prix;
     this.maResa.value.dateDebut=this.resaForm.value.dateDebut;
     this.maResa.value.dateFin=this.resaForm.value.dateFin;
     this.maResa.value.logement=this.resaForm.value.logement;
     let interetToSave: Array<Enclos> = new Array<Enclos>();
-    let interetToSave2 = new Interet;
+    //let interetToSave2 = new Interet;
     // interetToSave.push(this.resaForm.value.interet1);
     // interetToSave.push(this.resaForm.value.interet2);
     // interetToSave.push(this.resaForm.value.interet3);
     // interetToSave.push(this.resaForm.value.interet4);
     // interetToSave.push(this.resaForm.value.interet5);
-    this.enclosHttpService.findById(1).subscribe(resp=> interetToSave.push(resp));
-    this.enclosHttpService.findById(2).subscribe(resp=> interetToSave.push(resp));
-    this.enclosHttpService.findById(3).subscribe(resp=> interetToSave.push(resp));
-    this.enclosHttpService.findById(4).subscribe(resp=> interetToSave.push(resp));
-    this.enclosHttpService.findById(5).subscribe(resp=> interetToSave.push(resp));
-    interetToSave2.enclos=interetToSave;
+    this.enclosHttpService.findById(this.resaForm.value.interet1).subscribe(resp=> {
+      delete resp.chalets;
+      delete resp.animaux;
+      delete resp.interventions;
+      delete resp.interets;
+      interetToSave.push(resp)});
+      this.enclosHttpService.findById(this.resaForm.value.interet2).subscribe(resp=> {
+        delete resp.chalets;
+        delete resp.animaux;
+        delete resp.interventions;
+        delete resp.interets;
+        interetToSave.push(resp)});
+        this.enclosHttpService.findById(this.resaForm.value.interet3).subscribe(resp=> {
+          delete resp.chalets;
+          delete resp.animaux;
+          delete resp.interventions;
+          delete resp.interets;
+          interetToSave.push(resp)});
+          this.enclosHttpService.findById(this.resaForm.value.interet4).subscribe(resp=> {
+            delete resp.chalets;
+            delete resp.animaux;
+            delete resp.interventions;
+            delete resp.interets;
+            interetToSave.push(resp)});
+            this.enclosHttpService.findById(this.resaForm.value.interet5).subscribe(resp=> {
+              delete resp.chalets;
+              delete resp.animaux;
+              delete resp.interventions;
+              delete resp.interets;
+              interetToSave.push(resp)
+              let interet = new Interet;
+              interet.enclos=interetToSave;
+              console.log("INTERET",interet);
+      this.interetHttpService.save(interet);
+              
+            });
+
+   //let idMax = this.interetHttpService.findAll().filter(i => i.id = )
+
+    //interetToSave2.enclos=interetToSave;
     // interetToSave.push(null);
     // interetToSave.push(null);
     // interetToSave.push(null);
     // interetToSave.push(null);
 
-    this.maResa.value.interet=interetToSave2;
     //this.maResa.value.interet=null;
     console.log("ya quequechose ?",interetToSave);
 
@@ -141,8 +195,20 @@ ngOnInit(): void {
         this.maResa.value.client=response
         delete this.maResa.value.client.reservations
         this.logementHttpService.findById(this.maResa.value.logement).subscribe(resp =>  {
+          delete resp.reservations;
           this.maResa.value.logement=resp;
-          this.reservationHttpService.save(this.maResa.value);
+          
+          this.interetHttpService.findById(this.findMaxInteret()).subscribe(resp =>
+          {
+            this.maResa.value.interet=resp
+            delete this.maResa.value.interet.enclos;
+            delete this.maResa.value.interet.reservation;
+            this.reservationHttpService.save(this.maResa.value);
+            console.log("saved");
+          });
+
+          
+          
         });
         console.log(this.maResa.value);
         //this.reservationHttpService.save(this.maResa.value)

@@ -1,100 +1,120 @@
-<div class="card mt-3">
-    <div class="card-header bg-primary text-white display-6">Liste des reservations</div>
-    <div class="card-body">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Identifiant</th>
-                    <th>Date début</th>
-                    <th>Date fin</th>
-                    <th>Nombre de visiteurs</th>
-                    <th>Prix</th>
-                    <th>Client</th>
-                    <th>Logement</th>
-                    <th>Interet</th>
-                    <th></th>
-                </tr>
-            </thead>
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Index</title>
+  <!-- <link rel="stylesheet" href="style.css"> -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&family=Knewave&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav-bar-utilisateur></nav-bar-utilisateur>
+  </header>
 
-            <tbody>
-                <tr *ngFor="let resa of list()">
-                    <td>{{resa.id}}</td>
-                    <td>{{resa.dateDebut}}</td>
-                    <td>{{resa.dateFin}}</td>
-                    <td>{{resa.nbVisiteurs}}</td>
-                    <td>{{resa.prix}}</td>
-                    <td>{{resa.client?.id}} - {{resa.client?.nom}}</td>
-                    <td>{{resa.logement?.id}} - {{resa.logement?.numero}}</td>
-                    <td>{{resa.interet?.id}}</td>
-                    <td>
-                        <div class="btn-group btn-group-sm">
-                            <a class="btn btn-primary" (click)="edit(resa.id)"><i
-                                    class="bi bi-pencil-square"></i></a>
-                            <a class="btn btn-danger" (click)="remove(resa.id)"><i class="bi bi-trash"></i></a>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-
-        </table>
-    </div>
-    <div class="card-footer">
-        <a class="btn btn-success btn-lg" (click)="add()"><i
-            class="bi bi-plus-square"></i></a>
-    </div>
-</div>
-
-
-<div class="card mt-3" *ngIf="showForm">
-    <form (ngSubmit)="save()" [formGroup]="reservationForm">
-        
-    <div class="card-header bg-primary text-white display-6">Edition d'une reservation</div>
-    <div class="card-body">
-        <div class="form-group">
-            <label for="id">Identifiant:</label> <input type="number" class="form-control" id="id" name="id" readonly formControlName="id"/>
+<main>
+    <div class="style_zoo_projet_tableau_crud_container">
+        <h2 class="style_zoo_projet_h2">Liste des reservations</h2>
+        <div class="card-body">
+            <table class="style_zoo_projet_tableau_crud">
+                <thead>
+                    <tr>
+                        <th>Identifiant</th>
+                        <th>Date début</th>
+                        <th>Date fin</th>
+                        <th>Nombre de visiteurs</th>
+                        <th>Prix</th>
+                        <th>Client</th>
+                        <th>Logement</th>
+                        <th>Interet</th>
+                        <th></th>
+                    </tr>
+                </thead>
+    
+                <tbody>
+                    <tr *ngFor="let resa of list()">
+                        <td>{{resa.id}}</td>
+                        <td>{{resa.dateDebut}}</td>
+                        <td>{{resa.dateFin}}</td>
+                        <td>{{resa.nbVisiteurs}}</td>
+                        <td>{{resa.prix}}</td>
+                        <td>{{resa.client?.id}} - {{resa.client?.nom}}</td>
+                        <td>{{resa.logement?.id}} - {{resa.logement?.numero}}</td>
+                        <td>{{resa.interet?.id}}</td>
+                        <td>
+                            <div class="btn-group btn-group-sm">
+                                <a class="style_zoo_projet_button" (click)="edit(resa.id)">Editer</a>
+                                <a class="style_zoo_projet_button" (click)="remove(resa.id)">Supprimer</a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+    
+            </table>
         </div>
-        <div class="form-group">
-            <label for="dateDebut">Date début:</label> <input type="text" class="form-control" id="dateDebut" name="dateDebut" formControlName="dateDebut"/>
-            <!-- <span class="text-danger" *ngIf="fournisseurForm.get('nom')?.dirty && fournisseurForm.get('nom')?.hasError('required')">Le nom est obligatoire</span> -->
-        </div>
-        <div class="form-group">
-            <label for="dateFin">Date fin:</label> <input type="text" class="form-control" id="dateFin" name="dateFin" formControlName="dateFin"/>
-            <!-- <span class="text-danger" *ngIf="fournisseurForm.get('adresse')?.dirty && fournisseurForm.get('adresse')?.hasError('required')">L'adresse Email est obligatoire</span>
-            <span class="text-danger" *ngIf="fournisseurForm.get('adresse')?.hasError('email')">L'adresse Email est invalide</span> -->
-        </div>
-        <div class="form-group">
-            <label for="nbVisiteurs">Nombre de visiteurs:</label> <input type="number" class="form-control" id="nbVisiteurs" name="nbVisiteurs" formControlName="nbVisiteurs"/>
-        </div>
-        <div class="form-group">
-            <label for="prix">Prix:</label> <input type="number" class="form-control" id="prix" name="prix" formControlName="prix"/>
-        </div>
-        <div class="form-group">
-            <label for="client">Client:</label> 
-            <select class="form-control" name="client" id="client" formControlName="client">
-                <option>Selectionner un client</option>
-                <option *ngFor="let cli of clients" [ngValue]="cli.id">{{cli?.id}} - {{cli?.nom}} - {{cli?.prenom}}</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="logement">Logement:</label> 
-            <select class="form-control" name="logement" id="logement" formControlName="logement">
-                <option>Selectionner un logement</option>
-                <option *ngFor="let log of logements" [ngValue]="log.id">{{log?.id}} - {{log?.numero}}</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="interet">Interet:</label> 
-            <select class="form-control" name="interet" id="interet" formControlName="interet">
-                <option>Selectionner un intêret</option>
-                <option *ngFor="let int of interets" [ngValue]="int.id">{{int?.id}} - {{int?.reservation?.id}}</option>
-            </select>
+        <div class="card-footer">
+            <a class="style_zoo_projet_button" (click)="add()">Ajouter une réservation</a>
         </div>
     </div>
-    <div class="card-footer">
-        <div class="btn-group btn-group-lg float-right">
-            <button type="submit" class="btn btn-success"><i class="bi bi-check-square-fill"></i></button>
-            <a class="btn btn-warning" (click)="cancel()"><i class="bi bi-backspace-fill"></i></a>
+    
+    
+    <div class="style_zoo_projet_formulaire_ajout" *ngIf="showForm">
+        <form (ngSubmit)="save()" [formGroup]="reservationForm">
+            
+        <h3 class="style_zoo_projet_h3">Edition d'une reservation</h3>
+        <div class="card-body">
+            <div class="form-group">
+                <label for="id">Identifiant:</label> <input type="number" class="form-control" id="id" name="id" readonly formControlName="id"/>
+            </div>
+            <div class="form-group">
+                <label for="dateDebut">Date début:</label> <input type="text" class="form-control" id="dateDebut" name="dateDebut" formControlName="dateDebut"/>
+                <!-- <span class="text-danger" *ngIf="fournisseurForm.get('nom')?.dirty && fournisseurForm.get('nom')?.hasError('required')">Le nom est obligatoire</span> -->
+            </div>
+            <div class="form-group">
+                <label for="dateFin">Date fin:</label> <input type="text" class="form-control" id="dateFin" name="dateFin" formControlName="dateFin"/>
+                <!-- <span class="text-danger" *ngIf="fournisseurForm.get('adresse')?.dirty && fournisseurForm.get('adresse')?.hasError('required')">L'adresse Email est obligatoire</span>
+                <span class="text-danger" *ngIf="fournisseurForm.get('adresse')?.hasError('email')">L'adresse Email est invalide</span> -->
+            </div>
+            <div class="form-group">
+                <label for="nbVisiteurs">Nombre de visiteurs:</label> <input type="number" class="form-control" id="nbVisiteurs" name="nbVisiteurs" formControlName="nbVisiteurs"/>
+            </div>
+            <div class="form-group">
+                <label for="prix">Prix:</label> <input type="number" class="form-control" id="prix" name="prix" formControlName="prix"/>
+            </div>
+            <div class="form-group">
+                <label for="client">Client:</label> 
+                <select class="form-control" name="client" id="client" formControlName="client">
+                    <option>Selectionner un client</option>
+                    <option *ngFor="let cli of clients" [ngValue]="cli.id">{{cli?.id}} - {{cli?.nom}} - {{cli?.prenom}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="logement">Logement:</label> 
+                <select class="form-control" name="logement" id="logement" formControlName="logement">
+                    <option>Selectionner un logement</option>
+                    <option *ngFor="let log of logements" [ngValue]="log.id">{{log?.id}} - {{log?.numero}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="interet">Interet:</label> 
+                <select class="form-control" name="interet" id="interet" formControlName="interet">
+                    <option>Selectionner un intêret</option>
+                    <option *ngFor="let int of interets" [ngValue]="int.id">{{int?.id}} - {{int?.reservation?.id}}</option>
+                </select>
+            </div>
         </div>
+        <div class="card-footer">
+            <div class="btn-group btn-group-lg float-right">
+                <button type="submit" class="style_zoo_projet_button">Valider</button>
+                <a class="style_zoo_projet_button" (click)="cancel()">Annuler</a>
+            </div>
+        </div>
+        </form>
     </div>
-    </form>
-</div>
+</main>
+<footer>
+    <footer-utilisateur></footer-utilisateur>
+</footer>
+</body>
+</html>

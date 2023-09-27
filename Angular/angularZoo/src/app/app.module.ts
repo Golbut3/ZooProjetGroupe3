@@ -56,7 +56,9 @@ import { LogementComponent } from './logement/logement.component';
     NavBarCompteComponent,
     GestionComponent,
     InscriptionComponent,
-    ConnexionComponent
+    ConnexionComponent,
+    LogementComponent,
+    LogementUtilisateurComponent
 
 
   ],
