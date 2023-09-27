@@ -5,7 +5,9 @@
     margin:0;
     padding:0;
     color:black;
+  
   }
+
   
   a{
     text-decoration: none;
@@ -107,7 +109,7 @@
   
   main{
     background: linear-gradient(#79A619, #199EB0);
-    min-height:calc(100vh - 291px); /*le main fait 100vh(la hauteur de l'écran) moins 291px qui correspond aux autres éléments*/
+    min-height:calc(100vh - 171px); /*le main fait 100vh(la hauteur de l'écran) moins 291px qui correspond aux autres éléments*/
     /* display: flex; */
     align-items: center;
   }
@@ -639,7 +641,7 @@
   align-items: center;
   font-family: Inter, sans-serif;
   margin-top: 50px;
-  height:500px;
+  margin-bottom: 50px;
 }
 .container_formulaire_choix_date_reservation{
   margin-top: 10px;;
@@ -691,14 +693,14 @@ align-items: center;
   line-height: normal;
 }
 
-h3{
+/* h3{
   color: #081E43;
 font-family: Knewave;
 font-size: 29px;
 font-style: normal;
 font-weight: 400;
 line-height: normal;
-}
+} */
 .centrer {
   display: flex;
   align-items: center; /* Centre horizontalement */
@@ -741,3 +743,106 @@ line-height: normal;
 }
 
 
+
+
+.section_choix_interet_reservation{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Inter, sans-serif;
+  margin-top: 50px;
+  height:150px;
+
+}
+.container_choix_interet{
+  display: flex;
+  margin-top: 10px;
+  width: 90%;
+  justify-content: space-around;
+}
+
+.choix_interet_1,.choix_interet_2,.choix_interet_3,.choix_interet_4,.choix_interet_5{
+  background-color:#D49720D1;
+  height:50px;
+  width:200px;
+  margin-left:10px;
+  border-radius: 6px;
+}
+.section_choix_interet_reservation select{
+  width:180px;
+}
+
+.container_formulaire_choix_logement_reservation{
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 50px;
+  width: 60%;
+  margin: auto;
+  font-family: Inter, sans-serif;
+}
+.choix_nombre_personne_logement, .choix_type_logement{
+  display:flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top:10px;
+}
+
+.container_button_reserver{
+  display:flex;
+  justify-content: center;
+  padding-bottom: 50px;
+}
+
+/*////////////////////////////////////////////////RESERVATION//////////////////////////////////////*/
+.style_zoo_projet_tableau_crud{
+  background-color:#D49720D1;
+  font-family: Inter, sans-serif;
+  border-radius: 5px;
+  margin:auto;
+  text-align: center;
+}
+.style_zoo_projet_tableau_crud tr:nth-child(even) {
+  background-color: #ffb829d1;
+}
+
+.style_zoo_projet_button{
+  cursor: pointer;
+  font-family: Knewave, sans-serif;
+  border-radius: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border: none;
+  background-color: rgb(215,215,215,0.53);
+  margin-top:10px;
+}
+.style_zoo_projet_formulaire_ajout input,.style_zoo_projet_formulaire_ajout select{
+  background-color:  rgba(211, 211, 211, 0.5);
+  padding-top:8px;
+  padding-bottom:8px;
+  padding-left: 8px;
+  border: solid 1px;
+  border-radius: 15px;
+  margin-left:5px;
+}
+.style_zoo_projet_tableau_crud_container{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+.style_zoo_projet_formulaire_ajout{
+  margin-top:10px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.style_zoo_projet_h2{
+  font-family: Inter, sans-serif;
+}
+.style_zoo_projet_h3{
+  font-family: Inter, sans-serif;
+}
+.style_zoo_projet_input_hidden{
+  display:none;
+}

@@ -42,12 +42,18 @@ export class InteretHttpService {
   }
   save(interet: Interet): void{
     if(interet.id) { // mise à jour
+      console.log("on est en PUT interet.id : ",interet.id)
       this.http.put<Interet>(this.apiInteretUrl + "/"+interet.id, interet).subscribe(resp => {
+        
         this.load();
+        
       });
     } else { // création
+      console.log("on est en POST")
       this.http.post<Interet>(this.apiInteretUrl, interet).subscribe(resp => {
+        
         this.load();
+        
       });
     }
   }

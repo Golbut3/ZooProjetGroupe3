@@ -8,15 +8,17 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&family=Knewave&display=swap" rel="stylesheet">
 </head>
-<header>
+<body>
+  <header>
     <nav-bar-utilisateur></nav-bar-utilisateur>
   </header>
 
+<main>
 
-<div class="card mt-3">
-    <div class="card-header bg-primary text-white display-6">Liste des enclos</div>
+<div class="style_zoo_projet_tableau_crud_container">
+    <h2 class="style_zoo_projet_h2">Liste des enclos</h2>
     <div class="card-body">
-        <table class="table table-striped">
+        <table class="style_zoo_projet_tableau_crud">
             <thead>
                 <tr>
                     <th>Identifiant</th>
@@ -38,8 +40,8 @@
                     <td><span *ngFor="let anim of list2(enc)">{{anim.espece?.nom}}<br></span></td>
                     <td>
                         <div class="btn-group btn-group-sm">
-                            <a class="btn btn-primary" (click)="edit(enc.id)"><i class="bi bi-pencil-square"></i></a>
-                            <a class="btn btn-danger" (click)="remove(enc.id)"><i class="bi bi-trash"></i></a>
+                            <a class="style_zoo_projet_button" (click)="edit(enc.id)">Editer</a>
+                            <a class="style_zoo_projet_button" (click)="remove(enc.id)">Supprimer</a>
                         </div>
                     </td>
                 </tr>
@@ -48,16 +50,14 @@
     </div>
 
     <div class="card-footer">
-        <a class="btn btn-success btn-lg" (click)="add()"><i
-            class="bi bi-plus-square"></i></a>
+        <a class="style_zoo_projet_button" (click)="add()">Ajouter un enclos</a>
     </div>
 </div>
 
 
-    <div class="card mt-3" *ngIf="showForm">
+    <div class="style_zoo_projet_formulaire_ajout" *ngIf="showForm">
         <form (ngSubmit)="save()" [formGroup]="enclosForm">
-        <input type="hidden" class="form-control" id="version" name="version" formControlName="version"/>
-        <div class="card-header bg-primary text-white display-6">Edition d'un enclos</div>
+            <h3 class="style_zoo_projet_h3">Edition d'un enclos</h3>
         <div class="card-body">
             <div class="form-group">
                 <label for="id">Identifiant:</label> <input type="number" class="form-control" id="id" name="id" readonly formControlName="id"/>
@@ -78,9 +78,16 @@
         </div>
         <div class="card-footer">
             <div class="btn-group btn-group-lg float-right">
-                <button type="submit" class="btn btn-success"><i class="bi bi-check-square-fill"></i></button>
-                <a class="btn btn-warning" (click)="cancel()"><i class="bi bi-backspace-fill"></i></a>
+                <button type="submit" class="style_zoo_projet_button">Valider</button>
+                <a class="style_zoo_projet_button" (click)="cancel()">Annuler</a>
             </div>
         </div>
         </form>
     </div>
+
+</main>
+<footer>
+    <footer-utilisateur></footer-utilisateur>
+</footer>
+</body>
+</html>

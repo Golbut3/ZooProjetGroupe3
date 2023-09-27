@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LogementHttpService } from './logement-http.service';
+
+
 import { ClientHttpService } from '../compte/client/client-http.service';
 import { FormBuilder, FormGroup} from '@angular/forms';
 import { Logement, Reservation } from '../model';
@@ -8,13 +10,11 @@ import { EnclosHttpService } from '../enclos/enclos-http.service';
 
 
 
-
 @Component({
   selector: 'app-logement',
   templateUrl: './logement.component.html',
   styleUrls: ['./logement.component.css']
 })
-
 export class LogementComponent implements OnInit{
 
  logements : Logement[];
@@ -95,3 +95,4 @@ ngOnInit(): void {
 
 }
 }
+
