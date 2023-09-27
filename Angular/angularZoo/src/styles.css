@@ -179,33 +179,29 @@
     max-width: 2820px
   }*/
 
+  
   .container-fluid {
     display:flex;
-    width: 100%;
+    width: 80%;
     padding-right: 55px;
     padding-left: 55px;
     padding-top:60px;
     padding-bottom: 100px;/*laisser un espece entre les cadres et le footer*/
-    
+    margin: auto; 
   }
 
   .card-test { /*style des cadres blanc*/
-    height: 900px;
+    height: 1150px;
     background-clip: border-box;
-    
-    /*z-index: 1;
-    position: relative;*/
-   
     border: 0px solid rgba(0, 0, 0, 125);
+    width: 25rem;
   }
 
   .col-12 {
     padding-right: 15px;
-    padding-left: 15px;
-    /*border-radius: 50;*/
+    padding-left: 55px;
+  }
 
-}
-  
   .row1 {
     flex: 0 0 33.333333%; /*l'espace entre les img horizontalement*/
     max-width: 33.333333%;
@@ -231,48 +227,89 @@
   .card-img-top {  /*style des es images*/
     
     border-radius: 85px;
-    /*margin-left:2px;*/
     transition: transform 0s;
-    height:400px;
+    margin:auto;
 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 10px;
+
+    position: relative;
+    width: 534px;
+    height: 519px;
   }
-  
+
   .card-img-top:hover {
-   /* transform: scale(1);*/
-      /*transition: transform 0.3s ease 0s;*/
-   transform: scale(1.1);
+
+    transform: scale(1.1);
     transform: rotate(360deg) scale(0.8);
     transform: rotateY(180deg);
   }
 
+  /*.card-img-bulle {
+
+    margin:auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 10px;
+
+    position: relative;
+    width: 544px;
+    height: 419px;
+  }*/
  
   
-  .card-zommable { /*l'ecriture dans le cadre blanc*/
-    height:450px;
+  /*.card-zommable { /*l'ecriture dans le cadre blanc*/
+    /*height:450px;
     margin-left: 20px;
     margin-right:15px;
-    margin-top:30px;
-    background: #D49720; /*mettre les 3en commentaires*/
-    border-radius: 30px;
+    margin-top:30px;*/
+   /* background: #D49720; *//*mettre les 3en commentaires*/
+    /*border-radius: 30px;
     background-clip:border-box ;
-    padding:10px;
+    padding:10px;*/
   /*height:1500px;
-    border-radius: 5px;  */
+    border-radius: 5px; 
   }
   /*.card-zommable {
   transition: transform 0.3s ease 0s;
   }*/
   
+  .card-zommable { /*l'ecriture*/
+    height:550px;
+    margin-left: 60px;
+    margin-right:0px;
+    margin-top:50px;
+    padding-top: 30px;
+  }
+   
+  p {
+    font-size: 20px; /* Taille de police de 18 pixels */
+    font-family: "Helvetica Neue", Arial, sans-serif;  /*Choix de police de caractères avec des alternatives */
+    font-style: normal;
+    color: #000000;
+}
+
   .card-zommable:hover {
-    transform: scale(1.1); /* Agrandir l'écriture de 20% au survol */
+    transform: scale(1.2); /* Agrandir l'écriture de 20% au survol */
   }
   
-  /*.card-title { pour laisser un espece entre le titre et l'écriture
-      margin-bottom: 1.5rem;
-  }*/
-  
-  
-  
+  .card-title { /*pour laisser un espece entre le titre et l'écriture*/
+      margin-bottom: 1rem;
+  }
+
+/* Style pour aligner le lien à gauche */
+  .lien {
+    text-decoration: underline; /* Ajoute un soulignement */
+    color: blue; /* Couleur du texte du lien */
+    margin-right: 450px; /* Ajoute un espace à gauche pour aligner avec les colonnes */
+    padding-left: 0px;
+  }
+
   /*////////////////////////////////////////////////////////FOOTER////////////////////////////////////////////////////////////////*/
   
   .footer_utilisateur{
@@ -290,6 +327,7 @@
     display: flex;
     list-style: none;
   }
+
   
    /*////////////////////////////////////////////////////////ACCUEIL////////////////////////////////////////////////////////////////*/
 
