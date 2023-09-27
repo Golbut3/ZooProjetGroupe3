@@ -29,6 +29,7 @@ import { FooterUtilisateurComponent } from './footer-utilisateur/footer-utilisat
 import { LogementUtilisateurComponent } from './logement-utilisateur/logement-utilisateur.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // Import correct ici
 import { LogementComponent } from './logement/logement.component';
+import { InterventionComponent } from './intervention/intervention.component';
 
 
 @NgModule({
@@ -54,7 +55,7 @@ import { LogementComponent } from './logement/logement.component';
     FooterUtilisateurComponent,
   LogementComponent,
   LogementUtilisateurComponent,
-    
+    InterventionComponent,
     NavBarCompteComponent,
     GestionComponent,
     InscriptionComponent,

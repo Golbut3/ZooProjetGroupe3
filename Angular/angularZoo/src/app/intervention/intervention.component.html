@@ -58,10 +58,10 @@
                 <a class="btn btn-warning" (click)="cancel()"><i class="bi bi-backspace-fill"></i></a>
            
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label for="client">Enclos:</label> 
                 <select class="form-control" id="enclos" name="enclos" [(ngModel)]="logementForm.enclos.id">
-                    <option *ngFor="let four of "enclos$ | async" [value]="four.id">{{four.nom}}</option>
+                    <option *ngFor="let four of enclos$ | async" [value]="four.id">{{four.nom}}</option>
                 </select>
     
             </div>
@@ -70,7 +70,7 @@
                 <select class="form-control" id="employe" name="employe" [(ngModel)]="logementForm.employe.id">
                     <option *ngFor="let four of employes$ | async" [value]="four.id">{{four.nom}}</option>
                 </select>
-            </div>
+            </div> -->
         </div>
         </form>
     </div>
