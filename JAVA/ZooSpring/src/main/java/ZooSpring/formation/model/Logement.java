@@ -68,6 +68,16 @@ public abstract class Logement {
 		this.numero = numero;
 		this.description = description;
 	}
+	
+	
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
+	}
+
 	public Integer getId() {
 		return id;
 	}
