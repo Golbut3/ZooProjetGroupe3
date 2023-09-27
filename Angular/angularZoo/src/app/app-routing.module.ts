@@ -42,6 +42,7 @@ const routes: Routes = [
   //{path : "logement",component: LogementComponent},
   {path:"inscription",component:InscriptionComponent},
   {path: "animalPresentation", component: AnimalPresentationComponent},
+  {path:"mesReservations",component:MesReservationsComponent},
   {path: "accueil", component: AccueilComponent},
   {path: "billeterie", component: BilleterieComponent},
   {path: "billeterie-reservation", component: BilleterieReservationComponent},

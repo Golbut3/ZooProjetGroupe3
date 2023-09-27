@@ -19,6 +19,7 @@ import { AnimalPresentationComponent } from './animalPresentation/animalPresenta
 import { NavBarCompteComponent } from './compte/nav-bar-compte/nav-bar-compte.component';
 import { GestionComponent } from './gestion/gestion.component';
 import { InscriptionComponent } from './inscription/inscription.component';
+import { MesReservationsComponent } from './mes-reservations/mes-reservations.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { NavBarUtilisateurComponent } from './nav-bar-utilisateur/nav-bar-utilisateur.component';
