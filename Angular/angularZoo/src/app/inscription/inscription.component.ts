@@ -34,6 +34,8 @@ save(){
   this.inscriptionForm.patchValue({id:null})
   this.clientInscrit=this.inscriptionForm.value;
   this.clientHttpService.save(this.clientInscrit)
+  window.location.reload()
+  
 }
 
 cancel() {

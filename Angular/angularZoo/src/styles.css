@@ -886,7 +886,7 @@ line-height: normal;
   align-items: center;
 }
 
-.card-body {
+.card-body_connexion {
   margin-top: 83px;
   margin-bottom: 83px;
   border-radius: 83px;
@@ -997,7 +997,7 @@ line-height: normal;
   padding-bottom: 50px;
 }
 
-.card-body{
+.card-body_connexion{
   display: flex;
   justify-content: center;
  }
@@ -1071,16 +1071,19 @@ line-height: normal;
   display:flex;
   flex-direction: column;
   align-items: center;
-  background-color: #ffb829d1;
-
   font-family: Knewave, sans-serif;
   font-size: 20px;
   background-color:#D49720D1;
   margin:auto;
   border-radius: 80px;
   width:450px;
-  height:340px;
+  height:300px;
 
+}
+.container_style_zoo_projet_formulaire_inscription{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .style_zoo_projet_nav_bar_compte{
   font-family: Inter, sans-serif;

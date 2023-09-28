@@ -54,13 +54,18 @@ export class AnimalComponent implements OnInit {
 
   edit(id: number) {
     this.animalHttpService.findById(id).subscribe(resp => {
-      this.animalForm.patchValue(resp);
+      let animal: any = resp;
+      animal.idEnclos = resp.enclos?.id;
+      animal.idEspece = resp.espece?.id;
+      this.animalForm.patchValue(animal);
       this.showForm = true;
+      console.log(animal);
     });
   }
 
   remove(id: number) {
     this.animalHttpService.deleteById(id); 
+    this.especes = this.especeHttpService.findAll();
   }
 
   save() {  
@@ -91,7 +96,8 @@ export class AnimalComponent implements OnInit {
       this.animalHttpService.save(animal);
     }
 
-   // this.especeHttpService.load();
+   
+   //this.especes=this.especeHttpService.findAll();
     }
   
   cancel() {

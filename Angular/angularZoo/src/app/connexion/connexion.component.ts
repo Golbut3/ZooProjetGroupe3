@@ -12,7 +12,9 @@ export class ConnexionComponent {
   username: string;
   password: string;
   constructor(private authHttpService: AuthService, private router : Router) {
+ 
   }
+  
   
   auth() {
     this.authHttpService.authentification(this.username, this.password);
