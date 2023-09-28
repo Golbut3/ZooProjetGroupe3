@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ReservationHttpService {
+  logementBool:Boolean=false;
   reservations: Array<Reservation> = new Array<Reservation>();
   apiReservationUrl: string = environment.apiUrl + "/reservation"
   constructor(private http: HttpClient) { 

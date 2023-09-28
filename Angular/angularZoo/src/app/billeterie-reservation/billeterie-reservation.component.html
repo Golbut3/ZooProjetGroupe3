@@ -162,30 +162,7 @@
           </td>
 
         </tr>
-        <tr>
-          <td class="table_choix_participant_col_1">Forfait famille (2 adultes + 2 enfants)</td>
-          <td class="table_choix_participant_col_2">
-            <span class="table_choix_participant_flex">
-              <label for="">75€</label>
-              <input type="number" name="" id="">
-            </span>
 
-          </td>
-          <td class="table_choix_participant_col_3">
-            <span class="table_choix_participant_flex">
-              <label for="">100€(-33%)*</label>
-              <input type="number" name="" id="">
-            </span>
-
-          </td>
-          <td class="table_choix_participant_col_4">
-            <span class="table_choix_participant_flex">
-              <label for="">400€ (-79%)**</label>
-              <input type="number" name="" id="">
-            </span>         
-          </td>
-
-        </tr>
       </table>
     </section>
 
@@ -201,7 +178,7 @@
 
     </section>
 
-    <section class="section_choix_logement_reservation"> 
+    <section *ngIf="logementBool" class="section_choix_logement_reservation"> 
       <div class="container_formulaire_choix_logement_reservation">
         <h3>Choisissez un logement : </h3>
         <div class="choix_type_logement">
@@ -219,41 +196,41 @@
     </section>
 
     <section class="section_choix_interet_reservation"> 
-      <h3>Choisissez vous enclos préférés pour obtenir une suggestion de parcours personalisé !</h3>
+      <h3>Choisissez vous mascottes préférées pour obtenir une suggestion de parcours personalisé !</h3>
       <div class="container_choix_interet">
         <div class="choix_interet_1">
           <label for=""></label>
           <select name="" id="" formControlName="interet1">
-            <option value="">Choisissez votre 1er enclos</option>
-            <option *ngFor="let enc of enclos "[ngValue]=enc.id>{{enc.type}}</option>
+            <option value="">Choisissez votre 1ere mascotte</option>
+            <option *ngFor="let enc of enclos "[ngValue]=enc.id>{{enc.animaux[0]?.nom}}</option>
           </select>
         </div>
         <div class="choix_interet_2">
           <label for=""></label>
           <select name="" id="" formControlName="interet2">
-            <option value="">Choisissez votre 2eme enclos</option>
-            <option *ngFor="let enc of enclos "[ngValue]=enc.id>{{enc.type}}</option>
+            <option value="">Choisissez votre 2eme mascotte</option>
+            <option *ngFor="let enc of enclos "[ngValue]=enc.id>{{enc.animaux[0]?.nom}}</option>
           </select>
         </div>
         <div class="choix_interet_3">
           <label for=""></label>
           <select name="" id="" formControlName="interet3">
-            <option value="">Choisissez votre 3eme enclos</option>
-            <option *ngFor="let enc of enclos "[ngValue]=enc.id>{{enc.type}}</option>
+            <option value="">Choisissez votre 3eme mascotte</option>
+            <option *ngFor="let enc of enclos "[ngValue]=enc.id>{{enc.animaux[0]?.nom}}</option>
           </select>
         </div>
         <div class="choix_interet_4">
           <label for=""></label>
           <select name="" id="" formControlName="interet4">
-            <option value="">Choisissez votre 4eme enclos</option>
-            <option *ngFor="let enc of enclos "[ngValue]=enc.id>{{enc.type}}</option>
+            <option value="">Choisissez votre 4eme mascotte</option>
+            <option *ngFor="let enc of enclos "[ngValue]=enc.id>{{enc.animaux[0]?.nom}}</option>
           </select>
         </div>
         <div class="choix_interet_5">
           <label for=""></label>
           <select name="" id="" formControlName="interet5">
-            <option value="">Choisissez votre 5eme enclos</option>
-            <option *ngFor="let enc of enclos "[ngValue]=enc.id>{{enc.type}}</option>
+            <option value="">Choisissez votre 5eme mascotte</option>
+            <option *ngFor="let enc of enclos "[ngValue]=enc.id>{{enc.animaux[0]?.nom}}</option>
           </select>
         </div>
       </div>
