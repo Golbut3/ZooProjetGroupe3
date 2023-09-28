@@ -17,6 +17,7 @@ import { InteretHttpService } from '../interet/interet-http.service';
 export class BilleterieReservationComponent {
   resaForm : FormGroup;
   maResa : FormGroup;
+  logementBool:Boolean=true;
   logements: Array<Logement> = new Array<Logement>();
   enclos: Array<Enclos> = new Array<Enclos>();
   constructor(private clientHttpService : ClientHttpService, private reservationHttpService : ReservationHttpService, private authHttpService : AuthService,private formBuilder:FormBuilder,private logementHttpService: LogementHttpService,private enclosHttpService: EnclosHttpService, private interetHttpService: InteretHttpService){
@@ -25,6 +26,7 @@ export class BilleterieReservationComponent {
    
   }
 ngOnInit(): void {
+  this.logementBool=this.reservationHttpService.logementBool;
     this.resaForm = this.formBuilder.group({
       
       prixEnfant:this.formBuilder.control(15),
@@ -129,18 +131,11 @@ ngOnInit(): void {
           this.maResa.value.prix=prix;
         })
     }
-   // (this.resaForm.value.logement.prix*(dateF.getTime()-dateD.getTime()))/(1000*3600*24)
-
     this.maResa.value.dateDebut=this.resaForm.value.dateDebut;
     this.maResa.value.dateFin=this.resaForm.value.dateFin;
     this.maResa.value.logement=this.resaForm.value.logement;
     let interetToSave: Array<Enclos> = new Array<Enclos>();
-    //let interetToSave2 = new Interet;
-    // interetToSave.push(this.resaForm.value.interet1);
-    // interetToSave.push(this.resaForm.value.interet2);
-    // interetToSave.push(this.resaForm.value.interet3);
-    // interetToSave.push(this.resaForm.value.interet4);
-    // interetToSave.push(this.resaForm.value.interet5);
+    
     this.enclosHttpService.findById(this.resaForm.value.interet1).subscribe(resp=> {
       delete resp.chalets;
       delete resp.animaux;
@@ -175,47 +170,63 @@ ngOnInit(): void {
               interet.enclos=interetToSave;
               console.log("INTERET",interet);
       this.interetHttpService.save(interet);
+      if(this.resaForm.value.logement){
+        this.clientHttpService.findById(this.authHttpService.getUtilisateur().id).subscribe(
+          response =>{
+            this.maResa.value.client=response
+            delete this.maResa.value.client.reservations
+            this.logementHttpService.findById(this.maResa.value.logement).subscribe(resp =>  {
+              delete resp.reservations;
+              this.maResa.value.logement=resp;
+              
+              this.interetHttpService.findById(this.findMaxInteret()).subscribe(resp =>
+              {
+                this.maResa.value.interet=resp
+                delete this.maResa.value.interet.enclos;
+                delete this.maResa.value.interet.reservation;
+                this.reservationHttpService.save(this.maResa.value);
+                console.log("saved");
+              });
+    
+              
               
             });
+            console.log(this.maResa.value);
+          }
+        )
+        }
+    
+        else{
+          this.clientHttpService.findById(this.authHttpService.getUtilisateur().id).subscribe(
+            response =>{
+              this.maResa.value.client=response
+              delete this.maResa.value.client.reservations
+            
+                delete this.maResa.value.logement
+                
+                this.interetHttpService.findById(this.findMaxInteret()).subscribe(resp =>
+                {
+                  this.maResa.value.interet=resp
+                  delete this.maResa.value.interet.enclos;
+                  delete this.maResa.value.interet.reservation;
+                  this.reservationHttpService.save(this.maResa.value);
+                  console.log("saved");
+                });
+      
+                
+                
+              });
+              console.log(this.maResa.value);
+            }
+            });
 
-   //let idMax = this.interetHttpService.findAll().filter(i => i.id = )
-
-    //interetToSave2.enclos=interetToSave;
-    // interetToSave.push(null);
-    // interetToSave.push(null);
-    // interetToSave.push(null);
-    // interetToSave.push(null);
-
-    //this.maResa.value.interet=null;
     console.log("ya quequechose ?",interetToSave);
 
 
-    this.clientHttpService.findById(this.authHttpService.getUtilisateur().id).subscribe(
-      response =>{
-        this.maResa.value.client=response
-        delete this.maResa.value.client.reservations
-        this.logementHttpService.findById(this.maResa.value.logement).subscribe(resp =>  {
-          delete resp.reservations;
-          this.maResa.value.logement=resp;
-          
-          this.interetHttpService.findById(this.findMaxInteret()).subscribe(resp =>
-          {
-            this.maResa.value.interet=resp
-            delete this.maResa.value.interet.enclos;
-            delete this.maResa.value.interet.reservation;
-            this.reservationHttpService.save(this.maResa.value);
-            console.log("saved");
-          });
+      
+      
 
-          
-          
-        });
-        console.log(this.maResa.value);
-        //this.reservationHttpService.save(this.maResa.value)
-      }
-    )
 
-    //console.log(this.maResa.value)
     return this.maResa;
   }
 
@@ -223,6 +234,7 @@ ngOnInit(): void {
   save(){
     
     this.buildResa();
+    
 
   }
 }
