@@ -252,7 +252,7 @@ constructor(
         this.interets= interets;
         this.interventions= interventions;
         this.type= type;
-        this.intervention=intervention;
+        this.interventions=interventions;
     }
 }
 

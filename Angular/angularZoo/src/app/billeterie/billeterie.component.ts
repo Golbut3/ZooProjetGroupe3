@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../compte/auth.service';
 
 @Component({
   selector: 'app-billeterie',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./billeterie.component.css']
 })
 export class BilleterieComponent {
-
+constructor(protected authService : AuthService)
+{}
 }
