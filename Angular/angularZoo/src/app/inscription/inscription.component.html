@@ -15,11 +15,11 @@
 
 <main>
 
-<div class="style_zoo_projet_formulaire_inscription">
+<div class="container_style_zoo_projet_formulaire_inscription">
     <form (ngSubmit)="save()" [formGroup]="inscriptionForm">
     <input type="hidden" class="form-control" id="version" name="version" formControlName="version"/>
     <h2 class="style_zoo_projet_h2">Inscription client</h2>
-    <div class="card-body">
+    <div class="style_zoo_projet_formulaire_inscription">
         <div class="form-group" hidden>
             <label for="type">Type:</label> <input type="text" class="form-control" id="type" name="type" readonly formControlName="type"/>
         </div>
