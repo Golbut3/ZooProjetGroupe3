@@ -91,7 +91,7 @@ export class AnimalComponent implements OnInit {
       this.animalHttpService.save(animal);
     }
 
-    this.especeHttpService.load();
+   // this.especeHttpService.load();
     }
   
   cancel() {
