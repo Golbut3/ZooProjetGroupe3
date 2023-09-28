@@ -18,7 +18,7 @@ export class EspeceComponent implements OnInit {
 
 
   constructor(private animalHttpService: AnimalHttpService, private especeHttpService: EspeceHttpService, private enclosHttpService: EnclosHttpService, private formBuilder: FormBuilder) {
-   this.animalHttpService.load();}
+   }
 
   
   ngOnInit(): void {
