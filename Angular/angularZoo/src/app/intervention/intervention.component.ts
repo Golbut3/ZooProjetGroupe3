@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { Intervention } from '../model';
+import { Compte, Enclos, Intervention } from '../model';
 import { InterventionHttpService } from './intervention-http.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { CompteHttpService } from '../compte/compte-http.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-intervention',
@@ -12,6 +13,11 @@ import { CompteHttpService } from '../compte/compte-http.service';
 export class InterventionComponent {
   interventionForm!: FormGroup;
   showForm:boolean=false;
+
+  enclos$:Observable <Enclos[]>;
+  employes$:Observable <Compte[]>;
+
+  
   constructor(private interventionHttpService: InterventionHttpService,private formBuilder: FormBuilder ,public compteHttpService: CompteHttpService) {
   }
 

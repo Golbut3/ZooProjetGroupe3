@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { LogementHttpService } from './logement-http.service';
+
+
 import { ClientHttpService } from '../compte/client/client-http.service';
 import { FormBuilder, FormGroup} from '@angular/forms';
 import { Logement, Reservation } from '../model';
 import { EnclosHttpService } from '../enclos/enclos-http.service';
-
 
 
 

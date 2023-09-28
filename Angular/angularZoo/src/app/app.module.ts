@@ -30,6 +30,7 @@ import { LogementUtilisateurComponent } from './logement-utilisateur/logement-ut
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // Import correct ici
 import { LogementComponent } from './logement/logement.component';
 import { MentionLegaleComponent } from './mention-legale/mention-legale.component';
+import { InterventionComponent } from './intervention/intervention.component';
 
 
 @NgModule({
@@ -57,7 +58,7 @@ import { MentionLegaleComponent } from './mention-legale/mention-legale.componen
     FooterUtilisateurComponent,
   LogementComponent,
   LogementUtilisateurComponent,
-    
+    InterventionComponent,
     NavBarCompteComponent,
     GestionComponent,
     InscriptionComponent,
@@ -66,6 +67,8 @@ import { MentionLegaleComponent } from './mention-legale/mention-legale.componen
     MesReservationsComponent,
     MentionLegaleComponent,
   
+    ConnexionComponent,
+    ReservationComponent
 
   ],
   imports: [

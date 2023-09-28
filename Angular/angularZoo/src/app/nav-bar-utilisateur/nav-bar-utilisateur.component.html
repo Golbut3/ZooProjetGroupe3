@@ -7,34 +7,66 @@
     <img src="/assets/img/logo.png" alt="logo du site" class="logo">
     <nav>
       <ul class=listeMenu>
-        <li class="nav-item" *ngIf="!authService.isAuthenticated()">
+        <li class="nav-item" >
           <a class="nav-link" [routerLink]="['/accueil']" routerLinkActive="active">Menu</a></li>
         <!-- <li><a href="#"[routerLink]="['/']" routerLinkActive="active">Plan du zoo</a></li> -->
 
-        <li class="nav-item" *ngIf="!authService.isAuthenticated()">
+        <li class="nav-item" *ngIf="!(authService.isAuthenticated()&&authService.hasRole('admin'))" >
           <a class="nav-link"  [routerLink]="['/animalPresentation']" routerLinkActive="active">Nos Animaux</a>
         </li>
 
-        <li class="nav-item" *ngIf="!authService.isAuthenticated()">
-          <a class="nav-link"  [routerLink]="['/']" routerLinkActive="active">Logement</a>
+        <li class="nav-item" *ngIf="!(authService.isAuthenticated()&&authService.hasRole('admin'))">
+          <a class="nav-link"  [routerLink]="['/logement-utilisateur']" routerLinkActive="active">Logement</a>
         </li>
 
-        <!-- <li><a href="#" [routerLink]="['/']" routerLinkActive="active">Boutique</a></li> -->
-        <li class="nav-item" *ngIf="!authService.isAuthenticated()">
-          <a class="nav-link"  [routerLink]="['/billeterie']" routerLinkActive="active">Billeterie</a>
+        <li class="nav-item" *ngIf="!(authService.isAuthenticated()&&authService.hasRole('admin'))">
+          <a  class="nav-link"  [routerLink]="['/billeterie']" routerLinkActive="active">Billeterie</a>
         </li>
 
         <li class="nav-item" *ngIf="!authService.isAuthenticated()"> 
           <a class="nav-link" [routerLink]="['/inscription']" routerLinkActive="active">Inscription</a>
       </li>
 
-      <li class="nav-item" *ngIf="!authService.isAuthenticated()"> 
+      <li class="nav-item" *ngIf="!authService.isAuthenticated()">
         <a class="nav-link" [routerLink]="['/connexion']" routerLinkActive="active">Connexion</a>
     </li>
+    <li class="nav-item" *ngIf="authService.isAuthenticated()"> 
+      <a class="nav-link" [routerLink]="['/interet']" routerLinkActive="active">Interet</a>
+  </li>
+  <li class="nav-item" *ngIf="authService.isAuthenticated()&&authService.hasRole('admin')">
+    <a class="nav-link"  [routerLink]="'/compte'" routerLinkActive="active">Compte</a>
+  </li>
+    <li class="nav-item" *ngIf="authService.isAuthenticated()&&authService.hasRole('admin')">
+      <a class="nav-link"  [routerLink]="'/animal'" routerLinkActive="active">Animaux</a>
+    </li>
 
-        <li class="nav-item" *ngIf="authService.isAuthenticated()">
-          <a class="nav-link" (click)="deconnexion()" routerLinkActive="active">Déconnexion</a>
-        </li>
+    <li class="nav-item" *ngIf="authService.isAuthenticated()&&authService.hasRole('admin')">
+      <a class="nav-link"  [routerLink]="'/espece'" routerLinkActive="active">Especes</a>
+    </li>
+
+    <li class="nav-item" *ngIf="authService.isAuthenticated()&&authService.hasRole('admin')">
+      <a class="nav-link"  [routerLink]="'/enclos'" routerLinkActive="active">Enclos</a>
+    </li>
+
+    <li class="nav-item" *ngIf="authService.isAuthenticated()&&authService.hasRole('admin')">
+      <a class="nav-link"  [routerLink]="'/intervention'" routerLinkActive="active">Intervention</a>
+    </li>
+
+    <li class="nav-item" *ngIf="authService.isAuthenticated()&&authService.hasRole('admin')">
+      <a class="nav-link"  [routerLink]="'/logement'" routerLinkActive="active">Logement</a>
+    </li>
+
+    <li class="nav-item" *ngIf="authService.isAuthenticated()&&authService.hasRole('admin')">
+      <a class="nav-link"  [routerLink]="'/reservation'" routerLinkActive="active">Reservation</a>
+    </li>
+
+    
+
+     <li class="nav-item" *ngIf="authService.isAuthenticated()">
+       <a class="nav-link" (click)="deconnexion()" routerLinkActive="active">Déconnexion</a>
+    </li>
+
+      
       
 
       </ul>
