@@ -35,7 +35,7 @@
                     <td>{{enc.id}}</td>
                     <td>{{enc.type}}</td>
                     <td>{{enc.capacite}}</td>
-                    <td><span *ngFor="let interv of enc.intervention">{{interv.date}}</span></td>
+                    <td><span *ngFor="let interv of enc.interventions">{{interv.date}}</span></td>
                     <td><span *ngFor="let chal of enc.chalets">{{chal.numero}} </span></td>
                     <td><span *ngFor="let anim of list2(enc)">{{anim.espece?.nom}}<br></span></td>
                     <td>
