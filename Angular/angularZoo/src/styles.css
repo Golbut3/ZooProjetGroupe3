@@ -56,11 +56,22 @@
   }
   
   nav{
-    margin:20px;
+    margin:30px;
     width:70%;
     font-size: 13px;
-  
   }
+
+  .nav-item{
+    color: #081E43;
+    text-align: center;
+    font-family: Knewave;
+    font-size: 27px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+  }
+
+
   .listeMenu{
     display:flex;
     list-style: none;
@@ -342,8 +353,35 @@
   
    /*////////////////////////////////////////////////////////ACCUEIL////////////////////////////////////////////////////////////////*/
 
+   /* Définissez votre animation avec les propriétés souhaitées */
+@keyframes imageAnimation {
+  0%, 100% {
+    opacity: 0;
+  }
+  25%, 75% {
+    opacity: 1;
+  }
+}
+
+.slide {
+  animation-name: imageAnimation;
+  animation-duration: 4s; /* Durée totale de l'animation */
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite; /* Pour répéter l'animation en boucle */
+  animation-delay: 4s; /* Délai entre chaque image */
+}
+
+
+
+.slide:first-child {
+  animation-delay: 0;
+}
+
+
+
    .carousel img{
     width:100%;
+    height:450px ;
 
    }
    .container_image_decouvrir{
@@ -388,6 +426,7 @@
         right:150px;
         top : 700px;
         font-size: 24px;
+        font-family: Inter;
     }
 
     .container_image_section2{
@@ -435,6 +474,8 @@
           left:150px;
           top : 160px;
           font-size: 24px;
+          font-family: Inter;
+          
       }
 
       .container_image_section3{
@@ -488,6 +529,7 @@
             right:150px;
             top : 125px;
             font-size: 24px;
+            font-family: Inter;
         }
 
 /*////////////////////////////////////////////////////////BILLETERIE////////////////////////////////////////////////////////////////*/
@@ -502,6 +544,7 @@
 .achat_billet{
   display:flex;
   margin-top: 10px;
+  font-family: Inter;
   flex-direction: column;
   width: 45%;
   align-items: center;
@@ -510,6 +553,7 @@
 
 .achat_logement{
   display:flex;
+  font-family: Inter;
   margin-top: 10px;
   flex-direction: column;
   width: 45%;
@@ -517,13 +561,13 @@
 }
 .achat_billet img{
   margin-top: 20px;
-  margin-bottom :30px;
+  margin-bottom :50px;
   width:40%
 }
 
 .achat_logement img{
   margin-top: 20px;
-  margin-bottom :30px;
+  margin-bottom :50px;
   width:40%
 }
 .section_achat_billet_logement p {
@@ -546,6 +590,33 @@
   padding-right:7px;
   border-radius: 80px;
 }
+
+.conteneur-bloc {
+  position: relative;
+  overflow: hidden; /* Masquer le dépassement de l'image agrandie */
+  width: 100%; /* Ajustez la largeur en fonction de vos besoins */
+  height: auto; /* Ajustez la hauteur en fonction de vos besoins */
+}
+
+/* Ajoutez un style pour l'image lorsque la souris ne la survole pas */
+#imageSurvolee {
+  transition: transform 0.3s ease; /* Effet de transition doux pour le zoom */
+}
+
+/* Ajoutez un style pour l'image lorsque la souris la survole */
+#imageSurvolee:hover {
+  transform: scale(2); 
+}
+/* Classe pour masquer les images SVG alternatives */
+.svg-alternative {
+  display: none;
+ 
+}
+
+
+
+
+
 
 /*////////////////////////////////////////////////////////BILLETERIE-RESERVATION////////////////////////////////////////////////////////////////*/
 
@@ -658,6 +729,28 @@
   margin-top: 10px;;
   display:flex;
   justify-content: center;
+}
+.section_choix_interet_reservation{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container_choix_interet{
+  display: flex;
+}
+.section_choix_interet_reservation select, .section_choix_interet_reservation input {
+  background-color:  rgba(211, 211, 211, 0.5);
+  padding-top:8px;
+  padding-bottom:8px;
+  padding-left: 8px;
+  border: solid 1px;
+  border-radius: 15px;
+  margin-left:5px;
+}
+.container_button_reserver{
+  display : flex;
+  justify-content: center;
+  padding-bottom: 20px;
 }
 /*///////////////////////////////////////LOGEMENT/////////////////////////////////////////////////*/
 .logement-utilisateur-section1{
@@ -939,7 +1032,10 @@ line-height: normal;
   background-color: rgb(215,215,215,0.53);
   margin-top:10px;
 }
-.style_zoo_projet_formulaire_ajout input,.style_zoo_projet_formulaire_ajout select{
+.style_zoo_projet_button:active{
+  background-color: #ffb829d1;
+}
+.style_zoo_projet_formulaire_ajout input,.style_zoo_projet_formulaire_ajout select, .style_zoo_projet_formulaire_inscription input, .style_zoo_projet_formulaire_inscription select{
   background-color:  rgba(211, 211, 211, 0.5);
   padding-top:8px;
   padding-bottom:8px;
@@ -947,25 +1043,5 @@ line-height: normal;
   border: solid 1px;
   border-radius: 15px;
   margin-left:5px;
-}
-.style_zoo_projet_tableau_crud_container{
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-}
-.style_zoo_projet_formulaire_ajout{
-  margin-top:10px;
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-
-}
-.style_zoo_projet_h2{
-  font-family: Inter, sans-serif;
-}
-.style_zoo_projet_h3{
-  font-family: Inter, sans-serif;
-}
-.style_zoo_projet_input_hidden{
-  display:none;
+  
 }

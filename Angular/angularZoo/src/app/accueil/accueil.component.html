@@ -15,9 +15,14 @@
 
   <main>
     <section class="carousel">
-        <img src="/assets/img/carousel_accueil1_1200.jpg" alt="enfant devant zoo">
+        <div class="slideshow-container">
+          <img *ngIf="images.length > 0" [src]="images[currentImageIndex]" alt="Image" class="fade-image">
+        </div>
+      </section>
+      
+      
         
-    </section>
+   
     <section class="accueil_section1">
         <div class="container_image_decouvrir">
             <img src="/assets/img/accueil_raie.png" alt="raie manta" class="accueil_raie_manta">
