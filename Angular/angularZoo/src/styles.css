@@ -775,7 +775,7 @@ line-height: normal;
 }
 
 
-/*p{
+.p-text{
   color: #000;
 text-align: center;
 font-family: Inter;
@@ -784,8 +784,136 @@ font-style: normal;
 font-weight: 400;
 line-height: normal;
 
-}*/
+}
 
+/*//////////////////////////////////////////////////////connexion////////////////////////////////////////////////*/
+.container-1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-body {
+  border-radius: 83px;
+  background: rgba(212, 151, 32, 0.82);
+  width: 750px;
+  height: 398.846px;
+  align-items: center; /* Centre horizontalement */
+  justify-content: center; /* Centre verticalement */
+  padding: 15px; 
+}
+
+.titre{
+  color: #081E43;
+  font-family: Knewave;
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;}
+
+  .petitTitre{
+    color: #081E43;
+    font-family: Knewave;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    display: flex;
+    align-items: center;}
+
+    .petitTitre label {
+      flex: 1;
+    }
+
+    .petitTitre input {
+      flex: 3; 
+    }
+
+    .petitTitre label,
+    .petitTitre input {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    
+    .btn-reset {
+      background-color: transparent;
+      border: none;
+      color: inherit;
+      padding: 0;
+      font-size: inherit;
+      cursor: pointer;
+      outline: none; /* Supprime la mise en surbrillance au focus */
+    }
+    
+  .form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; 
+  }
+  
+
+.section_choix_interet_reservation{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Inter, sans-serif;
+  margin-top: 50px;
+  height:150px;
+
+}
+.container_choix_interet{
+  display: flex;
+  margin-top: 10px;
+  width: 90%;
+  justify-content: space-around;
+}
+
+.choix_interet_1,.choix_interet_2,.choix_interet_3,.choix_interet_4,.choix_interet_5{
+  background-color:#D49720D1;
+  height:50px;
+  width:200px;
+  margin-left:10px;
+  border-radius: 6px;
+}
+.section_choix_interet_reservation select{
+  width:180px;
+}
+
+.container_formulaire_choix_logement_reservation{
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 50px;
+  width: 60%;
+  margin: auto;
+  font-family: Inter, sans-serif;
+}
+.choix_nombre_personne_logement, .choix_type_logement{
+  display:flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top:10px;
+}
+
+.container_button_reserver{
+  display:flex;
+  justify-content: center;
+  padding-bottom: 50px;
+}
+
+.card-body{
+  display: flex;
+  justify-content: center;
+ }
+
+ .custom-button {
+  background-color: none;
+  color: none;
+  border: none; 
+  width: 40%;
+  height: 50%;
+}
 
 /*////////////////////////////////////////////////RESERVATION//////////////////////////////////////*/
 .style_zoo_projet_tableau_crud{
