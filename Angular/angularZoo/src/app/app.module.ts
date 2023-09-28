@@ -62,7 +62,8 @@ import { InterventionComponent } from './intervention/intervention.component';
 
     ConnexionComponent,
     ConnexionComponent,
-    MesReservationsComponent
+    MesReservationsComponent,
+    ReservationComponent
 
   ],
   imports: [
