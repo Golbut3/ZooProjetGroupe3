@@ -29,7 +29,7 @@
   
   /*///////////////////////HEADER//////////////////*/
   header{
-    background-image: url(/assets/img/background_header.jpg);
+    background-image: url(/assets/img/background_header.png);
     background-size:100%;
     background-position: center;
     font-family: Inter, sans-serif;
@@ -41,12 +41,12 @@
     display:flex;
     justify-content: flex-end;
     align-items: center;
-    height: 80px;
+    height: 140px;
   }
   
   .logo{
     position: absolute;
-    height:120px;
+    height:180px;
     margin-left: 10px;
     left:10px;
     top:-30px;
@@ -54,9 +54,9 @@
   }
   
   nav{
-    margin:20px;
-    width:70%;
-    font-size: 13px;
+    margin:10px;
+    width:90%;
+    font-size: 20px;
   
   }
   .listeMenu{
@@ -111,6 +111,13 @@
     /* display: flex; */
     align-items: center;
   }
+
+  .admin{
+    background: linear-gradient(#79A619, #199EB0);
+    display: flex;
+    align-items: center;
+  }
+
   .connexion{
     font-family: Knewave, sans-serif;
     font-size: 20px;
@@ -145,6 +152,18 @@
     background-color: grey;
   }
   
+  .buttonInscription, .buttonRetour{
+    display: block;
+    border-radius: 30px;
+    padding:5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: rgb(215,215,215,0.53);
+    font-size: 25px;
+    margin-top:10px;
+    text-align: center;
+  }
+
   .inscription{
     display: block;
     border-radius: 30px;
@@ -156,7 +175,7 @@
     margin-top:10px;
     text-align: center;
   }
-  /* input{
+   input{
     background-color:  rgba(211, 211, 211, 0.5);
     padding-top:8px;
     padding-bottom:8px;
@@ -164,7 +183,7 @@
     border: solid 1px;
     border-radius: 15px;
     margin-left:5px;
-  } */
+  } 
   .mdpOublie a{
     text-decoration: none;
     font-family: Inter, sans-serif;
@@ -189,6 +208,18 @@
     padding-bottom: 100px;/*laisser un espece entre les cadres et le footer*/
     margin: auto; 
   }
+.card-body{
+  display: flex;
+  justify-content: center;
+ }
+
+ .custom-button {
+  background-color: none;
+  color: none;
+  border: none; 
+  width: 40%;
+  height: 50%;
+}
 
   .card-test { /*style des cadres blanc*/
     height: 1150px;
@@ -196,6 +227,7 @@
     border: 0px solid rgba(0, 0, 0, 125);
     width: 25rem;
   }
+
 
   .col-12 {
     padding-right: 15px;
@@ -486,6 +518,8 @@
   height:750px;
 }
 
+
+
 .achat_billet{
   display:flex;
   margin-top: 10px;
@@ -647,14 +681,25 @@
   justify-content: center;
 }
 /*///////////////////////////////////////LOGEMENT/////////////////////////////////////////////////*/
-.logement-utilisateur-section1 h2{
+.logement-utilisateur-section1{
 color: #081E43;
 text-align: center;
 font-family: Knewave;
 font-size: 29px;
 font-style: normal;
 font-weight: 400;
-line-height: normal;}
+line-height: normal;
+}
+
+.logement-utilisateur-section2{
+  color: #081E43;
+  text-align: center;
+  font-family: Knewave;
+  font-size: 29px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  }
 
 .info-logement{
 display:flex;
@@ -668,10 +713,15 @@ flex-direction: column;
 align-items: center;
 }
 
-.mini-titre h3{
+.button_reserver_billet_logement {
+  margin: 0; /* Supprime les marges */
+  padding: 0; /* Supprime les rembourrages */
+}
+
+.mini-titre{
   color: #081E43;
   font-family: Knewave;
-  font-size: 49px;
+  font-size: 29px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;}
@@ -681,18 +731,42 @@ align-items: center;
   height: 66px;
   flex-shrink: 0;
   }
- p {
-  color: #922323;
-  text-align: center;
-  font-family: Inter;
-  font-size: 76px;
+ /* .tooltip-container {
+    position: relative;
+    display: inline-block;
+    color: #081E43;
+  font-family: Knewave;
+  font-size: 29px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  }
+  
+
+
+.tooltip {
+  visibility: hidden;
+  width: 250px;
+  height: 450px;
+  background: linear-gradient(to bottom, rgb(6, 6, 61), rgba(0, 0, 255, 0));
+  color: #000;
+  border-radius: 5px;
+  padding: 5px;
+  float: left;
+  width: 50%; 
+  z-index: 1;
+  transition: visibility 0.3s ease;
 }
 
+
+  
+  .tooltip-container:hover .tooltip {
+    visibility: visible;
+  }*/
+  
+
 h3{
-  color: #081E43;
+color: #081E43;
 font-family: Knewave;
 font-size: 29px;
 font-style: normal;
@@ -733,11 +807,79 @@ p{
   color: #000;
 text-align: center;
 font-family: Inter;
-font-size: 26px;
+font-size: 16px;
 font-style: normal;
 font-weight: 400;
 line-height: normal;
 
 }
 
+/*//////////////////////////////////////////////////////connexion-utilisateur////////////////////////////////////////////////*/
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
+  height: 100vh; /* Hauteur à 100% de la vue du navigateur */
+}
+
+.card-body {
+  border-radius: 83px;
+  background: rgba(212, 151, 32, 0.82);
+  width: 750px;
+  height: 398.846px;
+  align-items: center; /* Centre horizontalement */
+  justify-content: center; /* Centre verticalement */
+
+  padding: 15px; 
+}
+
+.titre{
+  color: #081E43;
+  font-family: Knewave;
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;}
+
+  .petitTitre{
+    color: #081E43;
+    font-family: Knewave;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    display: flex;
+    align-items: center;}
+
+    .petitTitre label {
+      flex: 1;
+    }
+
+    .petitTitre input {
+      flex: 3; 
+    }
+
+    .petitTitre label,
+    .petitTitre input {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    
+    .btn-reset {
+      background-color: transparent;
+      border: none;
+      color: inherit;
+      padding: 0;
+      font-size: inherit;
+      cursor: pointer;
+      outline: none; /* Supprime la mise en surbrillance au focus */
+    }
+    
+  .form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; 
+  }
+  

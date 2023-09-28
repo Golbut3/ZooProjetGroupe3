@@ -29,11 +29,14 @@ import { FooterUtilisateurComponent } from './footer-utilisateur/footer-utilisat
 import { LogementUtilisateurComponent } from './logement-utilisateur/logement-utilisateur.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // Import correct ici
 import { LogementComponent } from './logement/logement.component';
+import { MentionLegaleComponent } from './mention-legale/mention-legale.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    MentionLegaleComponent,
+    LogementUtilisateurComponent,
     CompteComponent,
     ReservationComponent,
     ChaletComponent,
@@ -60,8 +63,9 @@ import { LogementComponent } from './logement/logement.component';
     InscriptionComponent,
 
     ConnexionComponent,
-    ConnexionComponent,
-    MesReservationsComponent
+    MesReservationsComponent,
+    MentionLegaleComponent,
+  
 
   ],
   imports: [
@@ -70,7 +74,7 @@ import { LogementComponent } from './logement/logement.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule, // Import correct ici
+    BrowserAnimationsModule, 
   ],
   providers: [],
   bootstrap: [AppComponent],

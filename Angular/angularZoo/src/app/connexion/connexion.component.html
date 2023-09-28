@@ -1,24 +1,74 @@
-<div class="card mt-3">
-    <form #connexionForm="ngForm" (ngSubmit)="connexionForm.form.valid && auth()" novalidate autocomplete="off">
-    <div class="card-header bg-primary text-white display-6">Connexion</div>
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>connexion</title>
+  <!-- <link rel="stylesheet" href="style.css"> -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&family=Knewave&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav-bar-utilisateur></nav-bar-utilisateur>
+  </header>
+
+  <main >
+    <div class="container">
     <div class="card-body">
-        <div class="form-group">
-            <label for="username">Identifiant:</label> <input type="text" required class="form-control" id="username" name="username" [(ngModel)]="username" #login="ngModel"/>
-            <span class="text-danger" *ngIf="(login.touched || connexionForm.submitted) && login.errors?.['required']">
-                Le nom d'utilisateur est obligatoire.
-            </span>
+      <form #connexionForm="ngForm" (ngSubmit)="connexionForm.form.valid && auth()" novalidate autocomplete="off">
+        <div class="titre">Connexion</div>
+        <div class="petitTitre">
+          <label for="username">Identifiant:</label>
+          <input type="text" required class="form-control" id="username" name="username" [(ngModel)]="username" #login="ngModel"/>
+          <span class="text-danger" *ngIf="(login.touched || connexionForm.submitted) && login.errors?.['required']">
+            Le nom d'utilisateur est obligatoire.
+          </span>
         </div>
-        <div class="form-group">
-            <label for="password">Mot de passe:</label> <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password" #motDePasse="ngModel" required/>
-            <span class="text-danger" *ngIf="(motDePasse.touched || connexionForm.submitted) && motDePasse.errors?.['required']">
-                Le mot de passe est obligatoire.
-            </span>
+        <div class="petitTitre">
+          <label for="password">Mot de passe:</label>
+          <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password" #motDePasse="ngModel" required onclick="verifierMotDePasse()"/>
+          <!--<span class="text-danger" *ngIf="(motDePasse.touched || connexionForm.submitted) && motDePasse.errors?.['required']">
+            Le mot de passe est obligatoire.
+          </span>-->
         </div>
+        <div class="petitTitre">
+          <span id="messageErreur"></span>
+          <!--<button type="button" onclick="verifierMotDePasse()">Valider</button>-->
+
+        </div>
+        <div class="card-footer">
+          <div class="btn-group btn-group-lg float-right">
+            <button type="submit" onclick="verifierMotDePasse()" class="btn btn-reset">
+              <span><img width="38%" src="/assets/svg/BoutonValider.svg" alt="boutonValider"></span>
+              <i class="bi bi-check-square-fill"></i>
+            </button>
+            <a routerLink="/inscription" class="btn btn-reset">
+              <button class="btn btn-reset"><img width="38%"  src="/assets/svg/BoutonInscription.svg" alt="boutonInscription"></button>
+            </a>
+          </div>
+        </div>
+      </form>
     </div>
-    <div class="card-footer">
-        <div class="btn-group btn-group-lg float-right">
-            <button type="submit" class="btn btn-success"><i class="bi bi-check-square-fill"></i></button>
-        </div>
-    </div>
-    </form>
-</div>
+  </div>
+  </main>
+  <footer>
+    
+    <footer-utilisateur></footer-utilisateur>
+  </footer>
+
+  <script>
+    function verifierMotDePasse() {
+      const motDePasse = document.getElementById("password").value;
+      const chiffrePresent = /[0-9]/.test(motDePasse);
+      const messageErreur = document.getElementById("messageErreur");
+
+      if (chiffrePresent) {
+        messageErreur.textContent = "";
+      } else {
+        messageErreur.textContent = "Le mot de passe doit contenir au moins un chiffre.";
+      }
+    }
+  </script>
+</body>
+</html>
