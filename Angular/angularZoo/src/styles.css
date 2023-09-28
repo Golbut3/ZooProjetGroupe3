@@ -803,11 +803,11 @@ line-height: normal;
 }
 
 
-p{
+.p-text{
   color: #000;
 text-align: center;
 font-family: Inter;
-font-size: 16px;
+font-size: 20px;
 font-style: normal;
 font-weight: 400;
 line-height: normal;
@@ -815,12 +815,10 @@ line-height: normal;
 }
 
 /*//////////////////////////////////////////////////////connexion////////////////////////////////////////////////*/
-.container {
+.container-1 {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  height: 100vh; /* Hauteur à 100% de la vue du navigateur */
 }
 
 .card-body {
