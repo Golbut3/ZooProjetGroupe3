@@ -157,6 +157,31 @@ class ZooSpringApplicationTests {
 		ani9.setEnclos(for1);
 		animalRepo.save(ani9);
 		
+		Animal ani10 = new Animal(esp2,"simba2", 160);
+		ani10.setEnclos(sav2);
+		animalRepo.save(ani10);
+		Animal ani11 = new Animal(esp3,"coco2", 3);
+		ani11.setEnclos(vol2);
+		animalRepo.save(ani11);
+		Animal ani12 = new Animal(esp4,"vaillant2", 0.5);
+		ani12.setEnclos(vol2);
+		animalRepo.save(ani12);
+		Animal ani13 = new Animal(esp5,"sundacolugo2", 1.5);
+		ani13.setEnclos(for2);
+		animalRepo.save(ani13);
+		Animal ani14 = new Animal(esp6,"salmo2", 4.5);
+		ani14.setEnclos(aqu2);
+		animalRepo.save(ani14);
+		Animal ani15 = new Animal(esp7,"titus2", 250);
+		ani15.setEnclos(jun2);
+		animalRepo.save(ani15);
+		Animal ani16 = new Animal(esp8,"watson2", 80);
+		ani16.setEnclos(bas2);
+		animalRepo.save(ani16);
+		Animal ani17 = new Animal(esp9,"bambi2", 10);
+		ani17.setEnclos(for2);
+		animalRepo.save(ani17);
+		
 		Client cli1 = new Client("Tahir","tahirmed2023","Tahir","Medjadba","tahirmed@gmail.com","0635353535");
 		// NE PAS OUBLIER DE ADD LA LISTE DE RESERVATION
 		clientRepo.save(cli1);
