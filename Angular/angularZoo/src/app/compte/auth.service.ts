@@ -38,8 +38,9 @@ export class AuthService {
   }
 
  hasRole(role: string): boolean {
-
+  console.log(this.getUtilisateur)
     if (this.getUtilisateur().type===role){
+      console.log(this.getUtilisateur)
       return true
     }else{
       return false

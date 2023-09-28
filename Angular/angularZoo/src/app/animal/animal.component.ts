@@ -60,7 +60,8 @@ export class AnimalComponent implements OnInit {
   }
 
   remove(id: number) {
-    this.animalHttpService.deleteById(id); 
+    this.animalHttpService.deleteById(id);
+    window.location.reload() 
   }
 
   save() {  
@@ -90,7 +91,7 @@ export class AnimalComponent implements OnInit {
     else {
       this.animalHttpService.save(animal);
     }
-
+window.location.reload()
    // this.especeHttpService.load();
     }
   

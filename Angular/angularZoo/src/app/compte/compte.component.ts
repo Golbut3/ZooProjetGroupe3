@@ -13,7 +13,6 @@ export class CompteComponent {
   //compteForm:FormGroup;
 
   constructor(private compteHttpService : CompteHttpService){
-
   }
   list(): Array<Compte> {
     return this.compteHttpService.findAll();
