@@ -35,7 +35,7 @@
     background-size:100%;
     background-position: center;
     font-family: Inter, sans-serif;
-    font-weight: 800;
+   
   }
   
   .topbar{
@@ -43,12 +43,12 @@
     display:flex;
     justify-content: flex-end;
     align-items: center;
-    height: 140px;
+    height:80px;
   }
   
   .logo{
     position: absolute;
-    height:180px;
+    height:120px;
     margin-left: 10px;
     left:10px;
     top:-30px;
@@ -56,9 +56,9 @@
   }
   
   nav{
-    margin:10px;
-    width:90%;
-    font-size: 20px;
+    margin:20px;
+    width:70%;
+    font-size: 13px;
   
   }
   .listeMenu{
@@ -814,7 +814,7 @@ line-height: normal;
 
 }
 
-/*//////////////////////////////////////////////////////connexion-utilisateur////////////////////////////////////////////////*/
+/*//////////////////////////////////////////////////////connexion////////////////////////////////////////////////*/
 .container {
   display: flex;
   justify-content: center;
@@ -830,7 +830,6 @@ line-height: normal;
   height: 398.846px;
   align-items: center; /* Centre horizontalement */
   justify-content: center; /* Centre verticalement */
-
   padding: 15px; 
 }
 
