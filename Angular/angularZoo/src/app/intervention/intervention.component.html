@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
   <meta charset="utf-8">
   <title>Index</title>
-  <!-- <link rel="stylesheet" href="style.css"> -->
+  <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&family=Knewave&display=swap" rel="stylesheet">
@@ -58,12 +58,11 @@
             </div>
             <div class="form-group">
                 <label for="version">Version:</label> <input type="number" class="form-control" id="version" name="version" formControlName="version"/>
-                 <span class="text-danger" *ngIf="fournisseurForm.get('nom')?.dirty && fournisseurForm.get('nom')?.hasError('required')">Le nom est obligatoire</span> 
+                 <span class="text-danger" *ngIf="interventionForm.get('version')?.dirty && interventionForm.get('version')?.hasError('required')">La version est obligatoire</span> 
             </div>
             <div class="form-group">
                 <label for="date">Date:</label> <input type="text" class="form-control" id="date" name="date" formControlName="date"/>
-                <span class="text-danger" *ngIf="fournisseurForm.get('adresse')?.dirty && fournisseurForm.get('adresse')?.hasError('required')">L'adresse Email est obligatoire</span>
-                <span class="text-danger" *ngIf="fournisseurForm.get('adresse')?.hasError('email')">L'adresse Email est invalide</span>
+                <span class="text-danger" *ngIf="interventionForm.get('date')?.dirty && interventionForm.get('date')?.hasError('required')">La date est obligatoire</span>
             </div>
            
         </div>
@@ -71,25 +70,22 @@
             <div class="btn-group btn-group-lg float-right">
                 <button type="submit" class="style_zoo_projet_button">Valider</button>
                 <a class="style_zoo_projet_button" (click)="cancel()">Annuler</a>
-           
             </div>
            <div class="form-group">
-                <label for="client">Enclos:</label> 
-                <select class="form-control" id="enclos" name="enclos" [(ngModel)]="logementForm.enclos.id">
-                    <option *ngFor="let four of enclos$ | async" [value]="four.id">{{four.nom}}</option>
+                <label for="enclos">Enclos:</label> 
+                <select class="form-control" id="enclos" name="enclos" formControlName="enclos">
+                    <!--ng<option *ngFor="let four of enclos$ | async" [value]="four.id">{{four.nom}}</option>-->
                 </select>
-    
             </div>
             <div class="form-group">
-                <label for="client">Employe:</label> 
-                <select class="form-control" id="employe" name="employe" [(ngModel)]="logementForm.employe.id">
+                <label for="employe">Employe:</label> 
+                <select class="form-control" id="employe" name="employe" formControlName="employe">
                     <option *ngFor="let four of employes$ | async" [value]="four.id">{{four.nom}}</option>
                 </select>
             </div> 
         </div>
         </form>
     </div>
- -->
 
 </main>
 <footer>
