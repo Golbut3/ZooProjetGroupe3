@@ -794,6 +794,8 @@ line-height: normal;
 }
 
 .card-body {
+  margin-top: 83px;
+  margin-bottom: 83px;
   border-radius: 83px;
   background: rgba(212, 151, 32, 0.82);
   width: 750px;
@@ -806,7 +808,7 @@ line-height: normal;
 .titre{
   color: #081E43;
   font-family: Knewave;
-  font-size: 35px;
+  font-size: 40px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;}
