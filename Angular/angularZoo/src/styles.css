@@ -190,11 +190,10 @@
     margin: auto; 
   }
 
-  .card-test { /*style des cadres blanc*/
-    height: 1150px;
+  .card-test { /*style des cadres qui contient l'image avec le text*/
+    height: 1400px;
     background-clip: border-box;
     border: 0px solid rgba(0, 0, 0, 125);
-    width: 25rem;
   }
 
   .col-12 {
@@ -285,6 +284,12 @@
     margin-right:0px;
     margin-top:50px;
     padding-top: 30px;
+    text-align: left;
+    justify-content: flex-start;
+    font-size: 18px; /* Taille de police de 18 pixels */
+    font-family: "Helvetica Neue", Arial, sans-serif;  /*Choix de police de caractères avec des alternatives */
+    font-style: normal;
+    color: #000000;
   }
    
   p {
@@ -292,6 +297,7 @@
     font-family: "Helvetica Neue", Arial, sans-serif;  /*Choix de police de caractères avec des alternatives */
     font-style: normal;
     color: #000000;
+    
 }
 
   .card-zommable:hover {
@@ -299,15 +305,14 @@
   }
   
   .card-title { /*pour laisser un espece entre le titre et l'écriture*/
-      margin-bottom: 1rem;
-  }
+    margin-bottom: 1rem;
+}
 
 /* Style pour aligner le lien à gauche */
   .lien {
     text-decoration: underline; /* Ajoute un soulignement */
     color: blue; /* Couleur du texte du lien */
-    margin-right: 450px; /* Ajoute un espace à gauche pour aligner avec les colonnes */
-    padding-left: 0px;
+   
   }
 
   /*////////////////////////////////////////////////////////FOOTER////////////////////////////////////////////////////////////////*/

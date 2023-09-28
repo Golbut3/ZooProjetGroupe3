@@ -61,7 +61,8 @@ import { LogementComponent } from './logement/logement.component';
 
     ConnexionComponent,
     ConnexionComponent,
-    MesReservationsComponent
+    MesReservationsComponent,
+    ReservationComponent
 
   ],
   imports: [
