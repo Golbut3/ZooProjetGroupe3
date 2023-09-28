@@ -34,14 +34,9 @@ export class EspeceComponent implements OnInit {
    return this.especeHttpService.findAll();
   }
 
-  //listFournisseur(): Array<Fournisseur> {
-  //  return this.fournisseurService.findAll();
-  //}
-
   add() {
     this.especeForm.reset();
     this.showForm = true;
-    //this.especeForm.animaux = new Animal();
 
   }
 
@@ -71,8 +66,7 @@ export class EspeceComponent implements OnInit {
     }
     else 
         this.especeHttpService.save(esp);
-       
-        
+          
        /* let esp: any = this.especeForm.value;
         
 
