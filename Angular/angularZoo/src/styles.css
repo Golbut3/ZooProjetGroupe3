@@ -659,6 +659,28 @@
   display:flex;
   justify-content: center;
 }
+.section_choix_interet_reservation{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container_choix_interet{
+  display: flex;
+}
+.section_choix_interet_reservation select, .section_choix_interet_reservation input {
+  background-color:  rgba(211, 211, 211, 0.5);
+  padding-top:8px;
+  padding-bottom:8px;
+  padding-left: 8px;
+  border: solid 1px;
+  border-radius: 15px;
+  margin-left:5px;
+}
+.container_button_reserver{
+  display : flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}
 /*///////////////////////////////////////LOGEMENT/////////////////////////////////////////////////*/
 .logement-utilisateur-section1{
 color: #081E43;
@@ -775,7 +797,7 @@ line-height: normal;
 }
 
 
-/*p{
+.p-text{
   color: #000;
 text-align: center;
 font-family: Inter;
@@ -784,8 +806,138 @@ font-style: normal;
 font-weight: 400;
 line-height: normal;
 
-}*/
+}
 
+/*//////////////////////////////////////////////////////connexion////////////////////////////////////////////////*/
+.container-1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-body_connexion {
+  margin-top: 83px;
+  margin-bottom: 83px;
+  border-radius: 83px;
+  background: rgba(212, 151, 32, 0.82);
+  width: 750px;
+  height: 398.846px;
+  align-items: center; /* Centre horizontalement */
+  justify-content: center; /* Centre verticalement */
+  padding: 15px; 
+}
+
+.titre{
+  color: #081E43;
+  font-family: Knewave;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;}
+
+  .petitTitre{
+    color: #081E43;
+    font-family: Knewave;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    display: flex;
+    align-items: center;}
+
+    .petitTitre label {
+      flex: 1;
+    }
+
+    .petitTitre input {
+      flex: 3; 
+    }
+
+    .petitTitre label,
+    .petitTitre input {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    
+    .btn-reset {
+      background-color: transparent;
+      border: none;
+      color: inherit;
+      padding: 0;
+      font-size: inherit;
+      cursor: pointer;
+      outline: none; /* Supprime la mise en surbrillance au focus */
+    }
+    
+  .form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; 
+  }
+  
+
+.section_choix_interet_reservation{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Inter, sans-serif;
+  margin-top: 50px;
+  height:150px;
+
+}
+.container_choix_interet{
+  display: flex;
+  margin-top: 10px;
+  width: 90%;
+  justify-content: space-around;
+}
+
+.choix_interet_1,.choix_interet_2,.choix_interet_3,.choix_interet_4,.choix_interet_5{
+  background-color:#D49720D1;
+  height:50px;
+  width:200px;
+  margin-left:10px;
+  border-radius: 6px;
+}
+.section_choix_interet_reservation select{
+  width:180px;
+}
+
+.container_formulaire_choix_logement_reservation{
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 50px;
+  width: 60%;
+  margin: auto;
+  font-family: Inter, sans-serif;
+}
+.choix_nombre_personne_logement, .choix_type_logement{
+  display:flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top:10px;
+}
+
+.container_button_reserver{
+  display:flex;
+  justify-content: center;
+  padding-bottom: 50px;
+}
+
+.card-body_connexion{
+  display: flex;
+  justify-content: center;
+ }
+
+ .custom-button {
+  background-color: none;
+  color: none;
+  border: none; 
+  width: 40%;
+  height: 50%;
+}
 
 /*////////////////////////////////////////////////RESERVATION//////////////////////////////////////*/
 .style_zoo_projet_tableau_crud{
@@ -809,7 +961,10 @@ line-height: normal;
   background-color: rgb(215,215,215,0.53);
   margin-top:10px;
 }
-.style_zoo_projet_formulaire_ajout input,.style_zoo_projet_formulaire_ajout select{
+.style_zoo_projet_button:active{
+  background-color: #ffb829d1;
+}
+.style_zoo_projet_formulaire_ajout input,.style_zoo_projet_formulaire_ajout select, .style_zoo_projet_formulaire_inscription input, .style_zoo_projet_formulaire_inscription select{
   background-color:  rgba(211, 211, 211, 0.5);
   padding-top:8px;
   padding-bottom:8px;
@@ -817,7 +972,9 @@ line-height: normal;
   border: solid 1px;
   border-radius: 15px;
   margin-left:5px;
+  
 }
+
 .style_zoo_projet_tableau_crud_container{
   display:flex;
   flex-direction: column;
@@ -838,4 +995,83 @@ line-height: normal;
 }
 .style_zoo_projet_input_hidden{
   display:none;
+}
+.style_zoo_projet_formulaire_inscription{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Knewave, sans-serif;
+  font-size: 20px;
+  background-color:#D49720D1;
+  margin:auto;
+  border-radius: 80px;
+  width:450px;
+  height:300px;
+
+}
+.container_style_zoo_projet_formulaire_inscription{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.style_zoo_projet_nav_bar_compte{
+  font-family: Inter, sans-serif;
+  display:flex;
+  padding-top:30px;
+  padding-bottom:30px;
+  padding-left: 20px;
+  list-style: none;
+  width: 40%;
+  justify-content: space-between;
+}
+.topbar .active {
+  position: relative;
+  background-color: #D9D9D9;
+  color:#CE9A15;
+  z-index: 1;
+}
+.topbar .active::after{
+  position: absolute;
+  content:"";
+  background-color: #D9D9D9;
+  height:30px;
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 60px;
+  z-index: -1;
+}
+/* .style_zoo_projet_nav_bar_compte .active::after{
+  position: absolute;
+  content:"";
+  background-color: #D9D9D9;
+  height:30px;
+  width: 100px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 60px;
+  z-index: -1;
+} */
+.style_zoo_projet_nav_bar_compte .active{
+  position: relative;
+  background-color: #D9D9D9;
+  color:#CE9A15;
+  z-index: 1;
+ 
+}
+
+.style_zoo_projet_formulaire_connexion{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffb829d1;
+
+  font-family: Knewave, sans-serif;
+  font-size: 20px;
+  background-color:#D49720D1;
+  margin:auto;
+  border-radius: 80px;
+  width:450px;
+  height:340px;
 }
