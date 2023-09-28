@@ -815,7 +815,7 @@ line-height: normal;
   align-items: center;
 }
 
-.card-body {
+.card-body_connexion {
   margin-top: 83px;
   margin-bottom: 83px;
   border-radius: 83px;
@@ -926,7 +926,7 @@ line-height: normal;
   padding-bottom: 50px;
 }
 
-.card-body{
+.card-body_connexion{
   display: flex;
   justify-content: center;
  }
