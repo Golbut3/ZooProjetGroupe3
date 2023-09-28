@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ReservationHttpService } from '../reservation/reservation-http.service';
 import { AuthService } from '../compte/auth.service';
+import { Compte } from '../model';
 
 @Component({
   selector: 'app-mes-reservations',
@@ -8,7 +9,7 @@ import { AuthService } from '../compte/auth.service';
   styleUrls: ['./mes-reservations.component.css']
 })
 export class MesReservationsComponent {
-
+ 
   constructor(private reservationHttpService : ReservationHttpService, private authService:AuthService){
 
   }

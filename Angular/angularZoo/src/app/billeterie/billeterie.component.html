@@ -22,7 +22,7 @@
 
                 Plus de 50 animaux vous attendent dans des habitats adaptés et respectueux de leur bien-être. Profitez de nos tarifs avantageux et réservez votre billet en ligne !</p>
            <a *ngIf="(authService.isAuthenticated()&&!authService.hasRole('admin'))" [routerLink]="['/billeterie-reservation']" routerLinkActive="active" class="button_reserver_billet_seul" (click)="sansLogement()">Réserver billets seuls</a>
-           <a *ngIf="!authService.isAuthenticated()" [routerLink]="['/connexion']" routerLinkActive="active" class="button_reserver_billet_seul" >Réserver billets seuls</a>
+           <a *ngIf="!authService.isAuthenticated()" [routerLink]="['/connexion']" routerLinkActive="active" class="style_zoo_projet_button" >Réserver billets seuls</a>
 
           </div>
         <div class="achat_logement">
@@ -32,7 +32,7 @@
 
                 Que vous veniez en couple, en famille ou entre amis, vous trouverez l’hébergement qui correspond à vos envies. Réservez vite votre logement et bénéficiez de réductions sur votre entrée au parc !</p>
                 <a *ngIf="(authService.isAuthenticated()&&!authService.hasRole('admin'))"  [routerLink]="['/billeterie-reservation']" routerLinkActive="active" class="button_reserver_billet_logement" (click)="avecLogement()">Réserver billets + logement</a>
-                <a *ngIf="!authService.isAuthenticated()" [routerLink]="['/connexion']" routerLinkActive="active" class="button_reserver_billet_seul" >Réserver billets seuls</a>
+                <a *ngIf="!authService.isAuthenticated()" [routerLink]="['/connexion']" routerLinkActive="active" class="style_zoo_projet_button" >Réserver billets seuls</a>
 
         </div>
     </section>
