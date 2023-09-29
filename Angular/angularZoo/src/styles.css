@@ -1047,6 +1047,16 @@ line-height: normal;
   background-color: rgb(215,215,215,0.53);
   margin-top:10px;
 }
+.style_zoo_projet_button_reserver{
+  cursor: pointer;
+  font-family: Knewave, sans-serif;
+  border-radius: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border: none;
+  background-color: rgb(215,215,215,0.53);
+  margin-top:10px;
+}
 .style_zoo_projet_button:active{
   background-color: #ffb829d1;
 }
