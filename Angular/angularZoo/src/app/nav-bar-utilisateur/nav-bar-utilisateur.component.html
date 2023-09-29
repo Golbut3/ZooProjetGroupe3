@@ -36,7 +36,7 @@
       <li class="nav-item" *ngIf="!authService.isAuthenticated()">
         <a class="nav-link" [routerLink]="['/connexion']" routerLinkActive="active">Connexion</a>
     </li>
-    <li class="nav-item" *ngIf="authService.isAuthenticated()"> 
+    <li class="nav-item" *ngIf="authService.isAuthenticated()&&authService.hasRole('admin')"> 
       <a class="nav-link" [routerLink]="['/interet']" routerLinkActive="active">Interet</a>
   </li>
   <li class="nav-item" *ngIf="authService.isAuthenticated()&&authService.hasRole('admin')">
