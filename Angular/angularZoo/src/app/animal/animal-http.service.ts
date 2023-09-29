@@ -58,7 +58,8 @@ export class AnimalHttpService {
    }
    deleteById(id: number) {
       this.http.delete<void>(this.apiAnimalUrl + "/"+id).subscribe(resp => {
-        this.load()
+        this.load();
+        this.especeHttpService.load();
    });
    }
 }
