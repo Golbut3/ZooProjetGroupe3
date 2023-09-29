@@ -40,9 +40,8 @@
                     <td>{{admin.prenom}}</td>
                     <td>
                         <div class="btn-group btn-group-sm">
-                            <a class="btn btn-primary" (click)="edit(admin.id)"><i
-                                    class="bi bi-pencil-square"></i></a>
-                            <a class="btn btn-danger" (click)="remove(admin.id)"><i class="bi bi-trash"></i></a>
+                            <a class="style_zoo_projet_button" (click)="edit(admin.id)">Editer</a>
+                            <a class="style_zoo_projet_button" (click)="remove(admin.id)">Supprimer</a>
                         </div>
                     </td>
                 </tr>
@@ -51,11 +50,10 @@
         </table>
     </div>
     <div class="card-footer">
-        <a class="btn btn-success btn-lg" (click)="add()"><i
-            class="bi bi-plus-square"></i></a>
+        <a class="style_zoo_projet_button" (click)="add()">Ajouter</a>
     </div>
 </div>
-<div class="card mt-3" *ngIf="showForm">
+<div class="style_zoo_projet_formulaire_ajout" *ngIf="showForm">
     <form (ngSubmit)="save()" [formGroup]="adminForm">
     <input type="hidden" class="form-control" id="version" name="version" formControlName="version"/>
     <div class="card-header bg-primary text-white display-6">Edition d'un Admin</div>
@@ -80,8 +78,8 @@
 
     <div class="card-footer">
         <div class="btn-group btn-group-lg float-right">
-            <button type="submit" class="btn btn-success"><i class="bi bi-check-square-fill"></i></button>
-            <a class="btn btn-warning" (click)="cancel()"><i class="bi bi-backspace-fill"></i></a>
+            <button type="submit" class="style_zoo_projet_button">Valider</button>
+            <a class="style_zoo_projet_button" (click)="cancel()">Annuler</a>
         </div>
     </div>
     </form>

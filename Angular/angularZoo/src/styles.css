@@ -118,7 +118,7 @@
   
   /*////////////////////////////////////////////////////////MAIN////////////////////////////////////////////////////////////////*/
   
-  ///main{
+  main{
     background: linear-gradient(#79A619, #199EB0);
     min-height:calc(100vh - 171px); /*le main fait 100vh(la hauteur de l'écran) moins 291px qui correspond aux autres éléments*/
     /* display: flex; */
