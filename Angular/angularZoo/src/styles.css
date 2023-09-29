@@ -596,27 +596,30 @@
   flex-direction: column;
   align-items: center;
   position: relative;
-  overflow: hidden; /* Masquer le dépassement de l'image agrandie */
-  width: 100%; /* Ajustez la largeur en fonction de vos besoins */
-  height: auto; /* Ajustez la hauteur en fonction de vos besoins */
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  text-align: center;
 }
 
-/* Ajoutez un style pour l'image lorsque la souris ne la survole pas */
-#imageSurvolee {
-  transition: transform 0.3s ease; /* Effet de transition doux pour le zoom */
+.image-survolee, .svg-alternative {
+  margin: 0 auto;
+  display: inline-block;
+  
 }
 
-/* Ajoutez un style pour l'image lorsque la souris la survole */
-#imageSurvolee:hover {
-  transform: scale(2); 
+
+.image-survolee:hover {
+  display: none;
 }
-/* Classe pour masquer les images SVG alternatives */
+
+.image-survolee:hover + .svg-alternative {
+  display: inline-block;
+}
+
 .svg-alternative {
   display: none;
- 
 }
-
-
 
 
 
