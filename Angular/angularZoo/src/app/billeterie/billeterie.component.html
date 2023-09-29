@@ -15,36 +15,36 @@
 
   <main>
     <section class="section_achat_billet_logement"> 
-        <div class="achat_billet">
-            <h2>Acheter vos billets</h2>
-
- <div class="conteneur-bloc">
- <img #imageSurvolee class="image-survolee" src="assets/img/billeterie_achat_billet.png" alt="camping" (mouseenter)="survolImage()" (mouseleave)="imageSurvolee.style.display = 'block'; imageAlternative1.style.display = 'none';">
- <img #imageAlternative1 src="assets/svg/dormiraveclesanimaux.svg" alt="achetervosbillets" class="svg-alternative ">
- </div>
-
-<img id="imageAlternative2" src="assets/svg/dormiraveclesanimaux.svg" alt="dormiraveclesanimaux" class="svg-alternative ">
-          
-          <p style="margin: top 20px;">Venez découvrir les merveilles de la nature au ZOOrnythorinque, le plus beau zoo de France ! 
-
-                Plus de 50 animaux vous attendent dans des habitats adaptés et respectueux de leur bien-être. Profitez de nos tarifs avantageux et réservez votre billet en ligne !</p>
-           <a *ngIf="(authService.isAuthenticated()&&!authService.hasRole('admin'))" [routerLink]="['/billeterie-reservation']" routerLinkActive="active" class="button_reserver_billet_seul" (click)="sansLogement()">Réserver billets seuls</a>
-           <a *ngIf="!authService.isAuthenticated()" [routerLink]="['/connexion']" routerLinkActive="active" class="style_zoo_projet_button" >Réserver billets seuls</a>
-
-          </div>
-        <div class="achat_logement">
-            <h2>Dormir avec les animaux</h2>
-            <img src="assets/img/billeterie_achat_logement.png" alt="chalet dans la foret">
-            <p>Prolongez votre séjour au ZooParc en choisissant parmi nos hébergements de qualité ! 
-
-                Que vous veniez en couple, en famille ou entre amis, vous trouverez l’hébergement qui correspond à vos envies. Réservez vite votre logement et bénéficiez de réductions sur votre entrée au parc !</p>
-                <a *ngIf="(authService.isAuthenticated()&&!authService.hasRole('admin'))"  [routerLink]="['/billeterie-reservation']" routerLinkActive="active" class="button_reserver_billet_logement" (click)="avecLogement()">Réserver billets + logement</a>
-                <a *ngIf="!authService.isAuthenticated()" [routerLink]="['/connexion']" routerLinkActive="active" class="button_reserver_billet_seul" >Réserver billets logement</a>
-
+      <div class="achat_billet">
+        <h2>Acheter vos billets</h2>
+        <div class="conteneur-bloc">
+          <img #imageAlternative1 src="assets/svg/dormiraveclesanimaux.svg" alt="achetervosbillets" class="svg-alternative">
+          <img #imageSurvolee1 class="image-survolee" src="assets/img/billeterie_achat_billet.png" alt="camping" (mouseenter)="survolImage1()" (mouseleave)="quitteImage1()">
         </div>
-    </section>
-   
 
+        <p class="texte-contenu">Venez découvrir les merveilles de la nature au ZOOrnythorinque, le plus beau zoo de France ! 
+
+        Plus de 50 animaux vous attendent dans des habitats adaptés et respectueux de leur bien-être. Profitez de nos tarifs avantageux et réservez votre billet en ligne !</p>
+
+        <a class="button_reserver_billet" *ngIf="(authService.isAuthenticated()&&!authService.hasRole('admin'))" [routerLink]="['/billeterie-reservation']" routerLinkActive="active" (click)="sansLogement()">Réserver billets seuls</a>
+        <a *ngIf="!authService.isAuthenticated()" [routerLink]="['/connexion']" routerLinkActive="active" class="button_reserver_billet_logement">Réserver billets seuls</a>
+      </div>
+
+      <div class="achat_logement">
+        <h2>Dormir avec les animaux</h2>
+        <div class="conteneur-bloc">
+          <img #imageSurvolee2 class="image-survolee" src="assets/img/billeterie_achat_logement.png" alt="chalet dans la foret" (mouseenter)="survolImage2()" (mouseleave)="quitteImage2()">
+          <img #imageAlternative2 src="assets/img/dormiraveclesanimaux.png" alt="dormiraveclesanimaux" class="svg-alternative">
+        </div>
+
+        <p>Prolongez votre séjour au ZooParc en choisissant parmi nos hébergements de qualité ! 
+
+        Que vous veniez en couple, en famille ou entre amis, vous trouverez l’hébergement qui correspond à vos envies. Réservez vite votre logement et bénéficiez de réductions sur votre entrée au parc !</p>
+
+        <a *ngIf="(authService.isAuthenticated()&&!authService.hasRole('admin'))" [routerLink]="['/billeterie-reservation']" routerLinkActive="active" class="button_reserver_billet" (click)="avecLogement()">Réserver billets + logement</a>
+        <a *ngIf="!authService.isAuthenticated()" [routerLink]="['/connexion']" routerLinkActive="active" class="button_reserver_billet_logement" >Réserver billets logement</a>
+      </div>
+    </section>
   </main>
   <footer>
     <footer-utilisateur></footer-utilisateur>
