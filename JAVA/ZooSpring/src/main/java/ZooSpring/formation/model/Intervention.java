@@ -42,9 +42,9 @@ public class Intervention {
 	@JsonView(Views.Intervention.class)
 	private Employe employe;
 	
-	@OneToMany(mappedBy="intervention")
-	@JsonView(Views.Intervention.class)
-	List <Materiel> materiels;
+//	@OneToMany(mappedBy="intervention")
+//	@JsonView(Views.Intervention.class)
+//	List <Materiel> materiels;
 	
 	
 	
@@ -69,9 +69,7 @@ public class Intervention {
 	public Employe getEmploye() {
 		return employe;
 	}
-	public List<Materiel> getMateriels() {
-		return materiels;
-	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
@@ -84,13 +82,11 @@ public class Intervention {
 	public void setEmploye(Employe employe) {
 		this.employe = employe;
 	}
-	public void setMateriels(List<Materiel> materiels) {
-		this.materiels = materiels;
-	}
+	
 	@Override
 	public String toString() {
 		return "Intervention [id=" + id + ", date=" + date + ", enclos=" + enclos + ", employe=" + employe
-				+ ", materiels=" + materiels + "]";
+				+ "]";
 	}
 	
 	

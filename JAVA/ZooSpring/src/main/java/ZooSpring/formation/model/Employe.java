@@ -23,7 +23,8 @@ public class Employe extends Compte {
 	@Column(columnDefinition = "ENUM('Animalier', 'Soigneur', 'Paysagiste', 'Gardien')")
 	@JsonView(Views.Employe.class)
 	private Poste poste;
-
+	
+	@JsonView(Views.Employe.class)
 	@OneToMany(mappedBy="employe")
 	List<Intervention> interventions;
 	

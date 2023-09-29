@@ -38,7 +38,7 @@ public class InterventionApiController {
 	
 	@GetMapping("/{id}")
 	@JsonView(Views.Intervention.class)
-	public Intervention findById(Integer id) {
+	public Intervention findById(@PathVariable Integer id) {
 		return repoIntervention.findById(id).get();
 		}
 	

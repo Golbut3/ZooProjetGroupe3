@@ -118,7 +118,7 @@
   
   /*////////////////////////////////////////////////////////MAIN////////////////////////////////////////////////////////////////*/
   
-  main{
+  ///main{
     background: linear-gradient(#79A619, #199EB0);
     min-height:calc(100vh - 171px); /*le main fait 100vh(la hauteur de l'écran) moins 291px qui correspond aux autres éléments*/
     /* display: flex; */
@@ -592,6 +592,9 @@
 }
 
 .conteneur-bloc {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
   position: relative;
   overflow: hidden;
   width: 100%;
@@ -709,6 +712,15 @@
   border: solid 1px;
   border-radius: 2px;
   margin-left:5px;
+}
+.section_choix_logement_reservation select{
+    background-color:  rgba(211, 211, 211, 0.5);
+    padding-top:8px;
+    padding-bottom:8px;
+    padding-left: 8px;
+    border: solid 1px;
+    border-radius: 15px;
+    margin-left:5px;
 }
 
 .table_choix_participant_flex{
@@ -968,7 +980,7 @@ line-height: normal;
 }
 
 .choix_interet_1,.choix_interet_2,.choix_interet_3,.choix_interet_4,.choix_interet_5{
-  background-color:#D49720D1;
+  /* background-color:#D49720D1; */
   height:50px;
   width:200px;
   margin-left:10px;
@@ -1100,7 +1112,7 @@ line-height: normal;
 }
 .topbar .active {
   position: relative;
-  background-color: #D9D9D9;
+  /* background-color: #D9D9D9; */
   color:#CE9A15;
   z-index: 1;
 }
