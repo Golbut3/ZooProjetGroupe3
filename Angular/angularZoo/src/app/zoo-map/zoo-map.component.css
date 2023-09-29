@@ -1,0 +1,22 @@
+.map-container {
+    position: relative;
+    width: 640px; /* Largeur de votre image */
+    height: 960px; /* Hauteur de votre image */
+  }
+  
+  #path-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Assure que le SVG couvre toute la largeur de son conteneur */
+    height: 100%; /* Assure que le SVG couvre toute la hauteur de son conteneur */
+    z-index: 2; /* Assure que le SVG est au-dessus de l'image (z-index élevé) */
+  }
+  
+  #zoo-map {
+    width: 100%; /* Assure que l'image couvre toute la largeur de son conteneur */
+    height: 100%; /* Assure que l'image couvre toute la hauteur de son conteneur */
+    position: relative; /* Position relative pour que le SVG positionné absolument soit par rapport à cette image */
+    z-index: 1; /* Assure que l'image est en dessous du SVG (z-index inférieur) */
+  }
+  

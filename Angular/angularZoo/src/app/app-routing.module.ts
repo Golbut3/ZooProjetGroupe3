@@ -23,6 +23,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { MesReservationsComponent } from './mes-reservations/mes-reservations.component';
 import { authGuard } from './auth.guard';
 import { InterventionComponent } from './intervention/intervention.component';
+import { ZooMapComponent } from './zoo-map/zoo-map.component';
 
 
 const routes: Routes = [
@@ -47,6 +48,7 @@ const routes: Routes = [
   {path: "logement-utilisateur", component: LogementUtilisateurComponent}, 
   {path: "nav-bar", component:NavBarComponent},
   {path: "intervention", component:InterventionComponent},
+  {path: "zoo-map", component:ZooMapComponent},
 ];
 
 @NgModule({
