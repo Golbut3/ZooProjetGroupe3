@@ -9,7 +9,7 @@ import { InterventionComponent } from './intervention.component';
 })
 export class InterventionHttpService {
   
-  interventions: Array<Intervention> = new Array<Intervention>();
+  interventions: Array<Intervention> = new Array<Intervention>;
   url: string = "http://localhost:8080/api/intervention"
   constructor(private http: HttpClient) {
     this.load();
@@ -29,18 +29,25 @@ export class InterventionHttpService {
   
 
   findById(id: number): Observable<Intervention> {
-    return this.http.get<Intervention>("http://localhost:8080/api/intervention/"+id);
+   let obs = this.http.get<Intervention>("http://localhost:8080/api/intervention/"+id)
+   return obs
   }
 
-  save(intervention: Intervention): Observable<Intervention> {
+  save(intervention: Intervention): void{
     if(intervention.id) { // mise à jour
-      return this.http.put<Intervention>("http://localhost:8080/api/intervention/"+intervention.id, intervention);
-    } else { // création
-      return this.http.post<Intervention>("http://localhost:8080/api/intervention", intervention);;
+      this.http.put<Intervention>("http://localhost:8080/api/intervention/"+intervention.id, intervention).subscribe(resp => {
+        this.load()});
+    } 
+    else { // création
+     this.http.post<Intervention>("http://localhost:8080/api/intervention", intervention).subscribe(resp => {
+        this.load();
+      });
     }
    }
 
-   deleteById(id: number): Observable<void> {
-    return this.http.delete<void>("http://localhost:8080/api/intervention/"+id);
+   deleteById(id: number){
+    this.http.delete<void>("http://localhost:8080/api/intervention/"+id).subscribe(resp => {
+      this.load();
+    });;
    }
 }

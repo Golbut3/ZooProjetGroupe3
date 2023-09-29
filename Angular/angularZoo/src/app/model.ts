@@ -260,7 +260,7 @@ export class Intervention{
     id?: number; 
     version?:string;
     date?:number;
-    enclos?:Array<Enclos> = new Array<Enclos>;
+    enclos?:Enclos;
     employe?:Employe;
 
 
@@ -268,7 +268,7 @@ export class Intervention{
         id?: number,
         version?:string,
         date?:number,
-        enclos?:Enclos[],
+        enclos?:Enclos,
         employe?:Employe,
     
     ) {
