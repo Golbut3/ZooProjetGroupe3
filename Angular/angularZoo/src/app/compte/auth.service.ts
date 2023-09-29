@@ -13,11 +13,10 @@ export class AuthService {
   authentification(username: string, password: string) {
     let user =this.compteHttpService.connexion(username, password);
       sessionStorage.setItem("user", JSON.stringify(user));
-      this.router.navigate(["/"]);
+      this.router.navigate(["/accueil"]);
     };
   
-
-  deconnexion() {
+   deconnexion() {
     sessionStorage.removeItem("user");
   }
 
@@ -38,9 +37,7 @@ export class AuthService {
   }
 
  hasRole(role: string): boolean {
-  console.log(this.getUtilisateur)
     if (this.getUtilisateur().type===role){
-      console.log(this.getUtilisateur)
       return true
     }else{
       return false

@@ -139,6 +139,7 @@ remove(id: number) {
   save(){
    
     this.buildInteret();
+    window.location.reload
 
 
     }

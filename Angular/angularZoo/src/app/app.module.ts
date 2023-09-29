@@ -68,8 +68,9 @@ import { InterventionComponent } from './intervention/intervention.component';
     MentionLegaleComponent,
   
     ConnexionComponent,
-    ReservationComponent
-
+    ReservationComponent,
+NavBarUtilisateurComponent,
+InterventionComponent,
   ],
   imports: [
     BrowserModule,
