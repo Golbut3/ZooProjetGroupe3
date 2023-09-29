@@ -68,7 +68,7 @@ ngOnInit(): void {
       id: this.formBuilder.control(''),
       dateDebut:this.formBuilder.control(''),
       dateFin:this.formBuilder.control(''),
-      nbVisiteur:this.formBuilder.control(''),
+      nbVisiteurs:this.formBuilder.control(''),
       prix:this.formBuilder.control(''),
       client:this.formBuilder.control(''),
       logement:this.formBuilder.control(''),
@@ -109,20 +109,21 @@ ngOnInit(): void {
     this.resaForm.value.nombreReduitWE +
     this.resaForm.value.nombreReduit1An )
 
-    this.maResa.value.nbVisiteur=nombreParticipant;
+    this.maResa.value.nbVisiteurs=nombreParticipant;
     console.log(this.resaForm.value.prixEnfant)
-    let prix : number= (this.resaForm.value.nombreEnfant*this.resaForm.value.prixEnfant) + 
-    (this.resaForm.value.nombreEnfantWE*this.resaForm.value.prixEnfantWE)+
-    (this.resaForm.value.nombreEnfant1An*this.resaForm.value.prixEnfant1An)+
-    (this.resaForm.value.nombreAdo*this.resaForm.value.prixAdo) + 
-    (this.resaForm.value.nombreAdoWE*this.resaForm.value.prixAdoWE)+
-    (this.resaForm.value.nombreAdo1An*this.resaForm.value.prixAdo1An)+
-    (this.resaForm.value.nombreAdulte*this.resaForm.value.prixAdulte) + 
-    (this.resaForm.value.nombreAdulteWE*this.resaForm.value.prixAdulteWE)+
-    (this.resaForm.value.nombreAdulte1An*this.resaForm.value.prixAdulte1An)+
-    (this.resaForm.value.nombreReduit*this.resaForm.value.prixReduit) + 
-    (this.resaForm.value.nombreReduitWE*this.resaForm.value.prixReduitWE)+
-    (this.resaForm.value.nombreReduit1An*this.resaForm.value.prixReduit1An)
+    let prix : number= (parseInt(this.resaForm.value.nombreEnfant)*parseInt(this.resaForm.value.prixEnfant) )+ 
+    (parseInt(this.resaForm.value.nombreEnfantWE)*parseInt(this.resaForm.value.prixEnfantWE))+
+    (parseInt(this.resaForm.value.nombreEnfant1An)*parseInt(this.resaForm.value.prixEnfant1An))+
+    (parseInt(this.resaForm.value.nombreAdo)*parseInt(this.resaForm.value.prixAdo)) + 
+    (parseInt(this.resaForm.value.nombreAdoWE)*parseInt(this.resaForm.value.prixAdoWE))+
+    (parseInt(this.resaForm.value.nombreAdo1An)*parseInt(this.resaForm.value.prixAdo1An)+
+    (parseInt(this.resaForm.value.nombreAdulte)*parseInt(this.resaForm.value.prixAdulte)) + 
+    (parseInt(this.resaForm.value.nombreAdulteWE)*parseInt(this.resaForm.value.prixAdulteWE))+
+    (parseInt(this.resaForm.value.nombreAdulte1An)*parseInt(this.resaForm.value.prixAdulte1An))+
+    (parseInt(this.resaForm.value.nombreReduit)*parseInt(this.resaForm.value.prixReduit)) + 
+    (parseInt(this.resaForm.value.nombreReduitWE)*parseInt(this.resaForm.value.prixReduitWE))+
+    (parseInt(this.resaForm.value.nombreReduit1An)*parseInt(this.resaForm.value.prixReduit1An)))
+    console.log(prix)
     if(this.resaForm.value.logement){
       this.logementHttpService.findById(this.resaForm.value.logement).subscribe(resp =>
         {
@@ -130,6 +131,9 @@ ngOnInit(): void {
           
           this.maResa.value.prix=prix;
         })
+    }
+    else{
+      this.maResa.value.prix=prix;
     }
     this.maResa.value.dateDebut=this.resaForm.value.dateDebut;
     this.maResa.value.dateFin=this.resaForm.value.dateFin;
