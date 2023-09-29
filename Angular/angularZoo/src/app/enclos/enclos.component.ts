@@ -75,7 +75,7 @@ export class EnclosComponent {
     add(){
     this.enclosForm.reset();
     this.showForm=true;
-    
+    this.showtype=true;
   }
 
   edit(id: number) {
@@ -88,82 +88,9 @@ export class EnclosComponent {
   };
 
   save(){
-    let enclos : any = this.enclosForm.value;
-      if(enclos.idChalet){
-      
-      this.chaletHtttpService.findById(enclos.idChalet).subscribe(response => {
-        enclos.chalet =response;
-          this.enclosHttpService.save(enclos)
-                  });
-           }
-          else{
-            this.showtype=true
-            this.enclosHttpService.save(enclos)
+    this.enclosHttpService.save(this.enclosForm.value)
+     
           }
-          console.log(enclos)
-          }
-
-
-
-    // if(enclos.idChalet && enclos.idAnimal){
-    //   this.chaletHtttpService.findById(enclos.idChalet).subscribe(response => {
-    //     enclos.chalets =response;
-    //     this.animauxHttpService.findById(enclos.idAnimal).subscribe(response2 => {
-    //       enclos.animaux = response2;
-    //       this.enclosHttpService.save(enclos)
-    //     });
-    //        })   }
-    //       else if (enclos.idChalet && !enclos.idAnimal){
-    //         this.chaletHtttpService.findById(enclos.idChalet).subscribe(response => {
-    //           enclos.chalets =response;
-    //           this.enclosHttpService.save(enclos)
-    //         })
-    //       }
-
-    //       else if (!enclos.idChalet && enclos.idAnimal){
-    //         this.animauxHttpService.findById(enclos.idAnimal).subscribe(response2 => {
-    //           enclos.animaux = response2;
-    //           this.enclosHttpService.save(enclos)
-    //         })
-    //       }
-    //       else {
-    //         this.enclosHttpService.save(enclos)
-    //       }
-
-
-
-
-    
-  //   if(!enclos.chalets){
-  //       enclos.chalets= null;
-  //       if(!enclos.animaux){
-  //         enclos.animaux = null;
-  //         this.animauxHttpService.save(this.enclosForm.value)
-  //       }
-
-  //   else {
-  //     this.animauxHttpService.findById(enclos.animaux).subscribe(response => {
-  //       enclos.animaux =response;
-  //       this.enclosHttpService.save(this.enclosForm.value);
-  //     })
-  //   }
-  //   }
-  //   else{
-  //     this.enclosHttpService.findById(enclos.chalets).subscribe(response => {
-  //       enclos.chalet =response;
-  //       if(!enclos.animaux){
-  //         enclos.animaux=null;
-  //         this.animauxHttpService.save(this.enclosForm.value);
-  //       }
-  //       else{
-  //         this.enclosHttpService.findById(enclos.animaux).subscribe(response => {
-  //           enclos.animaux =response;
-  //           this.enclosHttpService.save(this.enclosForm.value);
-  //         })
-  //       }
-  //     })
-  //   }
-  // this.showForm=false
     
 
   cancel(){

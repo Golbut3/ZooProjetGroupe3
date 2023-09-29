@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CompteComponent } from './compte/compte.component';
 import { ReservationComponent } from './reservation/reservation.component';
@@ -22,9 +22,7 @@ import { LogementComponent } from './logement/logement.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { MesReservationsComponent } from './mes-reservations/mes-reservations.component';
 import { authGuard } from './auth.guard';
-
-
-
+import { InterventionComponent } from './intervention/intervention.component';
 
 
 const routes: Routes = [
@@ -48,6 +46,8 @@ const routes: Routes = [
   {path:"connexion",component:ConnexionComponent},
   {path: "logement-utilisateur", component: LogementUtilisateurComponent}, 
   {path: "nav-bar", component:NavBarComponent},
+  {path: "intervention", component: InterventionComponent }
+
 ];
 
 @NgModule({
