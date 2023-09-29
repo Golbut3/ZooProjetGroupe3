@@ -29,6 +29,9 @@
       <li class="nav-item" *ngIf="(authService.isAuthenticated()&&!authService.hasRole('admin'))">
         <a  class="nav-link"  [routerLink]="['/mesReservations']" routerLinkActive="active">Mes reservations</a>
       </li>
+      <li class="nav-item" *ngIf="(authService.isAuthenticated()&&!authService.hasRole('admin'))">
+        <a  class="nav-link"  [routerLink]="['/zoo-map']" routerLinkActive="active">Mes parcours</a>
+      </li>
 
       <li class="nav-item" *ngIf="!authService.isAuthenticated()">
         <a class="nav-link" [routerLink]="['/connexion']" routerLinkActive="active">Connexion</a>

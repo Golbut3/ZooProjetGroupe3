@@ -31,6 +31,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 import { LogementComponent } from './logement/logement.component';
 import { MentionLegaleComponent } from './mention-legale/mention-legale.component';
 import { InterventionComponent } from './intervention/intervention.component';
+import { ZooMapComponent } from './zoo-map/zoo-map.component';
 
 
 @NgModule({
@@ -71,6 +72,9 @@ import { InterventionComponent } from './intervention/intervention.component';
     ReservationComponent,
 NavBarUtilisateurComponent,
 InterventionComponent,
+    ReservationComponent,
+    ZooMapComponent
+
   ],
   imports: [
     BrowserModule,
