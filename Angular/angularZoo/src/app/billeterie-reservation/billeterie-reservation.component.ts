@@ -234,7 +234,7 @@ ngOnInit(): void {
   save(){
     
     this.buildResa();
-    
+    window.location.reload
 
   }
 }
